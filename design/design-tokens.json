@@ -1,0 +1,219 @@
+{
+  "$schema": "https://design-tokens.org/schema.json",
+  "version": "1.0.0",
+  "description": "ODE Design System Tokens - AI-Native Engineering Platform",
+
+  "color": {
+    "primary": {
+      "50":  { "value": "#EEF2FF", "description": "Primary tint, backgrounds" },
+      "100": { "value": "#E0E7FF", "description": "Primary light background" },
+      "200": { "value": "#C7D2FE", "description": "Primary light border" },
+      "300": { "value": "#A5B4FC", "description": "Primary light accent" },
+      "400": { "value": "#818CF8", "description": "Primary medium" },
+      "500": { "value": "#6366F1", "description": "Primary default" },
+      "600": { "value": "#4F46E5", "description": "Primary brand - main interactive color" },
+      "700": { "value": "#4338CA", "description": "Primary hover" },
+      "800": { "value": "#3730A3", "description": "Primary active/pressed" },
+      "900": { "value": "#312E81", "description": "Primary dark" },
+      "950": { "value": "#1E1B4B", "description": "Primary darkest" }
+    },
+    "secondary": {
+      "50":  { "value": "#ECFEFF" },
+      "100": { "value": "#CFFAFE" },
+      "200": { "value": "#A5F3FC" },
+      "300": { "value": "#67E8F9" },
+      "400": { "value": "#22D3EE" },
+      "500": { "value": "#06B6D4", "description": "Secondary brand - cyan accent" },
+      "600": { "value": "#0891B2" },
+      "700": { "value": "#0E7490" },
+      "800": { "value": "#155E75" },
+      "900": { "value": "#164E63" },
+      "950": { "value": "#083344" }
+    },
+    "neutral": {
+      "50":  { "value": "#F8FAFC" },
+      "100": { "value": "#F1F5F9" },
+      "200": { "value": "#E2E8F0" },
+      "300": { "value": "#CBD5E1" },
+      "400": { "value": "#94A3B8" },
+      "500": { "value": "#64748B" },
+      "600": { "value": "#475569" },
+      "700": { "value": "#334155" },
+      "800": { "value": "#1E293B" },
+      "900": { "value": "#0F172A" },
+      "950": { "value": "#020617" }
+    },
+    "semantic": {
+      "success": {
+        "light":   { "value": "#DCFCE7", "description": "Success background" },
+        "default": { "value": "#22C55E", "description": "Success text/icon" },
+        "dark":    { "value": "#15803D", "description": "Success emphasis" }
+      },
+      "warning": {
+        "light":   { "value": "#FEF3C7", "description": "Warning background" },
+        "default": { "value": "#F59E0B", "description": "Warning text/icon" },
+        "dark":    { "value": "#B45309", "description": "Warning emphasis" }
+      },
+      "error": {
+        "light":   { "value": "#FEE2E2", "description": "Error background" },
+        "default": { "value": "#EF4444", "description": "Error text/icon" },
+        "dark":    { "value": "#B91C1C", "description": "Error emphasis" }
+      },
+      "info": {
+        "light":   { "value": "#DBEAFE", "description": "Info background" },
+        "default": { "value": "#3B82F6", "description": "Info text/icon" },
+        "dark":    { "value": "#1D4ED8", "description": "Info emphasis" }
+      }
+    },
+    "surface": {
+      "dark": {
+        "base":    { "value": "#020617", "description": "slate-950 - App background (dark mode)" },
+        "raised":  { "value": "#0F172A", "description": "slate-900 - Cards, panels" },
+        "overlay": { "value": "#1E293B", "description": "slate-800 - Dropdowns, dialogs" },
+        "subtle":  { "value": "#334155", "description": "slate-700 - Hover, dividers" }
+      },
+      "light": {
+        "base":    { "value": "#FFFFFF", "description": "App background (light mode)" },
+        "raised":  { "value": "#F8FAFC", "description": "slate-50 - Cards, panels" },
+        "overlay": { "value": "#FFFFFF", "description": "Dropdowns, dialogs (with shadow)" },
+        "subtle":  { "value": "#F1F5F9", "description": "slate-100 - Hover, dividers" }
+      }
+    },
+    "text": {
+      "dark": {
+        "primary":   { "value": "#F8FAFC", "description": "slate-50" },
+        "secondary": { "value": "#94A3B8", "description": "slate-400" },
+        "tertiary":  { "value": "#64748B", "description": "slate-500" },
+        "disabled":  { "value": "#475569", "description": "slate-600" }
+      },
+      "light": {
+        "primary":   { "value": "#0F172A", "description": "slate-900" },
+        "secondary": { "value": "#475569", "description": "slate-600" },
+        "tertiary":  { "value": "#64748B", "description": "slate-500" },
+        "disabled":  { "value": "#94A3B8", "description": "slate-400" }
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "sans":  { "value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif", "description": "UI text" },
+      "mono":  { "value": "'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace", "description": "Code, data, terminal" }
+    },
+    "fontSize": {
+      "xs":   { "value": "0.75rem",  "px": 12, "description": "Captions, badges" },
+      "sm":   { "value": "0.875rem", "px": 14, "description": "Secondary text, labels" },
+      "base": { "value": "1rem",     "px": 16, "description": "Body text" },
+      "lg":   { "value": "1.125rem", "px": 18, "description": "Subheadings" },
+      "xl":   { "value": "1.25rem",  "px": 20, "description": "Section titles" },
+      "2xl":  { "value": "1.5rem",   "px": 24, "description": "Page headings" },
+      "3xl":  { "value": "1.875rem", "px": 30, "description": "Hero headings" },
+      "4xl":  { "value": "2.25rem",  "px": 36, "description": "Display headings" }
+    },
+    "fontWeight": {
+      "regular":  { "value": 400 },
+      "medium":   { "value": 500 },
+      "semibold": { "value": 600 },
+      "bold":     { "value": 700 }
+    },
+    "lineHeight": {
+      "tight":   { "value": 1.25, "description": "Headings" },
+      "snug":    { "value": 1.375, "description": "Subheadings" },
+      "normal":  { "value": 1.5, "description": "Body text" },
+      "relaxed": { "value": 1.625, "description": "Long-form content" },
+      "loose":   { "value": 2.0, "description": "Spacious layouts" }
+    },
+    "letterSpacing": {
+      "tighter": { "value": "-0.02em" },
+      "tight":   { "value": "-0.01em" },
+      "normal":  { "value": "0em" },
+      "wide":    { "value": "0.025em" },
+      "wider":   { "value": "0.05em", "description": "All-caps labels" }
+    }
+  },
+
+  "spacing": {
+    "description": "Spacing scale based on 4px base unit. Usage: padding, margin, gap.",
+    "0":  { "value": "0px" },
+    "1":  { "value": "4px" },
+    "2":  { "value": "8px" },
+    "3":  { "value": "12px" },
+    "4":  { "value": "16px" },
+    "5":  { "value": "20px" },
+    "6":  { "value": "24px" },
+    "8":  { "value": "32px" },
+    "10": { "value": "40px" },
+    "12": { "value": "48px" },
+    "16": { "value": "64px" },
+    "20": { "value": "80px" },
+    "24": { "value": "96px" },
+    "32": { "value": "128px" },
+    "40": { "value": "160px" },
+    "48": { "value": "192px" },
+    "64": { "value": "256px" }
+  },
+
+  "borderRadius": {
+    "none": { "value": "0px" },
+    "sm":   { "value": "4px" },
+    "md":   { "value": "8px" },
+    "lg":   { "value": "12px" },
+    "xl":   { "value": "16px" },
+    "full": { "value": "9999px" }
+  },
+
+  "shadow": {
+    "description": "Shadow tokens optimized for dark mode surfaces. Use sparingly -- dark UIs rely more on surface color elevation than shadow.",
+    "sm": {
+      "value": "0 1px 2px 0 rgba(0, 0, 0, 0.3)",
+      "description": "Subtle lift for cards"
+    },
+    "md": {
+      "value": "0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.3)",
+      "description": "Dropdowns, popovers"
+    },
+    "lg": {
+      "value": "0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.4)",
+      "description": "Dialogs, modals"
+    },
+    "xl": {
+      "value": "0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(0, 0, 0, 0.5)",
+      "description": "Elevated overlays, command palette"
+    }
+  },
+
+  "transition": {
+    "fast": {
+      "duration": { "value": "150ms" },
+      "easing":   { "value": "ease-out" },
+      "description": "Micro-interactions: buttons, toggles, checkboxes"
+    },
+    "normal": {
+      "duration": { "value": "200ms" },
+      "easing":   { "value": "ease-in-out" },
+      "description": "Panel transitions, expand/collapse"
+    },
+    "slow": {
+      "duration": { "value": "300ms" },
+      "easing":   { "value": "ease-in-out" },
+      "description": "Page transitions, modal open/close"
+    }
+  },
+
+  "zIndex": {
+    "base":     { "value": 0, "description": "Default stacking context" },
+    "dropdown": { "value": 100, "description": "Select menus, autocomplete" },
+    "sticky":   { "value": 200, "description": "Sticky headers, toolbars" },
+    "modal":    { "value": 300, "description": "Modal dialogs and backdrops" },
+    "popover":  { "value": 400, "description": "Popovers, tooltips" },
+    "toast":    { "value": 500, "description": "Toast notifications (always on top)" }
+  },
+
+  "breakpoint": {
+    "mobile":     { "value": "640px" },
+    "tablet":     { "value": "768px" },
+    "desktop":    { "value": "1024px" },
+    "wide":       { "value": "1280px" },
+    "ultra-wide": { "value": "1536px" }
+  }
+}
