@@ -3,468 +3,922 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ODE — Engineering Reimagined with AI</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<title>Orthogonal — The Dassault of the AI Era</title>
 <style>
+/* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ── Apple-inspired Design System ── */
 :root{
-  --bg:#0F172A;--bg2:#1E293B;--bg3:#334155;
-  --text:#F8FAFC;--text2:#94A3B8;--text3:#64748B;
-  --primary:#6366F1;--primary-light:#818CF8;--primary-dark:#4F46E5;
-  --accent:#06B6D4;--accent2:#22D3EE;
-  --green:#10B981;--amber:#F59E0B;--red:#EF4444;
-  --font:'Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono',monospace;
+  /* Light mode (marketing default) */
+  --bg:       #F5F5F7;
+  --bg-white: #FFFFFF;
+  --bg-card:  #FFFFFF;
+  --text:     #1D1D1F;
+  --text2:    #6E6E73;
+  --text3:    #86868B;
+  --border:   #D2D2D7;
+  --accent:   #0071E3;
+  --accent-h: #0077ED;
+  --midnight: #0A2540;
+  --success:  #34C759;
+  --warning:  #FF9F0A;
+  --error:    #FF3B30;
+  --ai:       #5E5CE6;
+
+  /* SF Pro system stack */
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  --mono: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, monospace;
+
+  /* Shadows — Apple subtle */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
 }
-html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font)}
+
+html,body{
+  height:100%;overflow:hidden;
+  background:var(--bg);color:var(--text);
+  font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Deck & Slide Engine ── */
 .deck{position:relative;width:100%;height:100%}
 .slide{
   position:absolute;inset:0;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:center;
   padding:5vh 8vw;
-  opacity:0;transform:translateX(40px);
-  transition:opacity .5s ease,transform .5s ease;
-  pointer-events:none;
-  overflow:hidden;
+  opacity:0;transform:translateX(32px);
+  transition:opacity .45s cubic-bezier(0.25,0.1,0.25,1),
+              transform .45s cubic-bezier(0.25,0.1,0.25,1);
+  pointer-events:none;overflow:hidden;
 }
 .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
-.slide.prev{opacity:0;transform:translateX(-40px)}
+.slide.prev{opacity:0;transform:translateX(-32px)}
 
-/* Slide counter */
+/* ── Nav ── */
 .counter{
   position:fixed;bottom:24px;right:32px;
-  font-family:var(--mono);font-size:13px;color:var(--text3);
-  z-index:100;letter-spacing:.5px;
+  font-family:var(--mono);font-size:12px;color:var(--text3);
+  z-index:100;letter-spacing:.04em;
 }
 .nav-hint{
   position:fixed;bottom:24px;left:32px;
-  font-size:11px;color:var(--text3);z-index:100;
-  opacity:.5;
+  font-size:11px;color:var(--text3);z-index:100;opacity:.5;
+}
+.progress{
+  position:fixed;top:0;left:0;height:2px;
+  background:var(--accent);
+  transition:width .4s ease;z-index:100;
 }
 
-/* Typography */
-h1{font-size:clamp(3rem,6vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
-h2{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1.15;letter-spacing:-.02em}
-h3{font-size:clamp(1.2rem,2vw,1.8rem);font-weight:600;line-height:1.3}
-p,.desc{font-size:clamp(1rem,1.5vw,1.35rem);line-height:1.6;color:var(--text2);max-width:720px}
-.big-number{font-family:var(--mono);font-size:clamp(3rem,7vw,6rem);font-weight:700;color:var(--accent);line-height:1}
-.label{font-size:.85rem;font-weight:500;color:var(--text3);text-transform:uppercase;letter-spacing:.15em;margin-bottom:.5rem}
-.highlight{color:var(--primary-light)}
+/* ── Typography — Apple scale ── */
+.hero-text{
+  font-size:clamp(3.5rem,7vw,6rem);
+  font-weight:700;
+  line-height:1.0;
+  letter-spacing:-0.04em;
+  color:var(--text);
+}
+.hero-sub{
+  font-size:clamp(1.1rem,2vw,1.5rem);
+  color:var(--text2);
+  line-height:1.6;
+  font-weight:400;
+  max-width:640px;
+}
+h2{
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  color:var(--text);
+}
+h3{
+  font-size:clamp(1rem,1.6vw,1.3rem);
+  font-weight:600;
+  color:var(--text);
+}
+.label{
+  font-size:.75rem;font-weight:600;
+  color:var(--accent);
+  text-transform:uppercase;letter-spacing:.12em;
+  margin-bottom:.75rem;
+}
 .accent{color:var(--accent)}
-.green{color:var(--green)}
+.midnight{color:var(--midnight)}
+.muted{color:var(--text2)}
 
-/* Layout helpers */
-.center{text-align:center}
+/* ── Layout helpers ── */
+.center{text-align:center;align-items:center}
 .left{text-align:left;align-items:flex-start}
-.gap-sm{gap:1rem}.gap-md{gap:2rem}.gap-lg{gap:3rem}
-.row{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;width:100%}
+.row{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;width:100%}
 .col{display:flex;flex-direction:column}
-.mt-1{margin-top:.5rem}.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}.mt-4{margin-top:2rem}
+.mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}.mt-4{margin-top:2rem}.mt-6{margin-top:3rem}
+.w-full{width:100%}
 
-/* Cards */
+/* ── Cards — Apple frosted ── */
 .card{
-  background:var(--bg2);border:1px solid rgba(99,102,241,.15);
-  border-radius:12px;padding:2rem;
-  flex:1;min-width:200px;max-width:340px;
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:1.75rem;
+  flex:1;min-width:180px;max-width:320px;
+  box-shadow:var(--shadow-sm);
 }
-.card h3{font-size:1.1rem;margin-bottom:.5rem}
-.card p{font-size:.9rem;color:var(--text2);line-height:1.5}
-.card .icon{font-size:1.6rem;margin-bottom:.75rem;display:block}
+.card h3{margin-bottom:.4rem;font-size:1rem}
+.card p{font-size:.875rem;color:var(--text2);line-height:1.55}
+.card .icon{font-size:1.5rem;margin-bottom:.6rem;display:block}
 
-/* Grid for product */
+/* ── Big stat ── */
+.big-stat{font-family:var(--mono);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;color:var(--midnight)}
+.stat-label{font-size:.8rem;color:var(--text3);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em}
+
+/* ── Tool grid ── */
 .tool-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
-  max-width:800px;width:100%;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1rem;max-width:900px;width:100%;
 }
 .tool{
-  background:var(--bg2);border:1px solid rgba(99,102,241,.1);
-  border-radius:10px;padding:1.5rem;text-align:left;
-  transition:border-color .3s;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;padding:1.1rem 1.2rem;
+  transition:box-shadow .2s,border-color .2s;
 }
-.tool:hover{border-color:var(--primary)}
-.tool .name{font-weight:600;font-size:1rem;margin-bottom:.3rem}
-.tool .sub{font-size:.8rem;color:var(--text3)}
+.tool:hover{box-shadow:var(--shadow-md);border-color:var(--accent)}
+.tool .t-name{font-weight:600;font-size:.9rem;margin-bottom:.2rem}
+.tool .t-sub{font-size:.75rem;color:var(--text3)}
+.tool .t-tag{
+  display:inline-block;margin-top:.5rem;
+  font-size:.65rem;font-weight:600;
+  background:var(--bg);color:var(--accent);
+  border-radius:4px;padding:.15rem .4rem;
+  text-transform:uppercase;letter-spacing:.06em;
+}
+.tool.new{border-color:rgba(0,113,227,.25);background:rgba(0,113,227,.03)}
 
-/* Flow steps */
-.flow{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;justify-content:center}
+/* ── Flow steps ── */
+.flow{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;justify-content:center}
 .step{
-  background:var(--bg2);border-radius:10px;padding:1.2rem 1.5rem;
-  text-align:center;min-width:160px;
-  border:1px solid rgba(99,102,241,.1);
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;padding:1.1rem 1.4rem;
+  text-align:center;min-width:140px;
+  box-shadow:var(--shadow-sm);
 }
-.step .num{font-family:var(--mono);font-size:1.8rem;font-weight:700;color:var(--primary-light)}
-.step .txt{font-size:.85rem;color:var(--text2);margin-top:.3rem}
-.arrow{font-size:1.5rem;color:var(--text3)}
+.step .num{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
+.step .txt{font-size:.8rem;color:var(--text2);margin-top:.3rem;line-height:1.4}
+.arrow{font-size:1.2rem;color:var(--border)}
 
-/* Stats row */
-.stat{text-align:center;flex:1;min-width:120px}
-.stat .val{font-family:var(--mono);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--text)}
-.stat .lbl{font-size:.8rem;color:var(--text3);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em}
-
-/* Competitive map */
-.comp-map{
-  position:relative;width:min(600px,80vw);height:min(400px,50vh);
-  border-left:1px solid var(--text3);border-bottom:1px solid var(--text3);
-  margin-top:1.5rem;
+/* ── Comparison table ── */
+.comp-table{width:100%;max-width:800px;border-collapse:collapse;font-size:.85rem}
+.comp-table th{
+  text-align:left;padding:.7rem 1rem;
+  border-bottom:2px solid var(--border);
+  font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);
 }
-.comp-map .axis-x{position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-size:.75rem;color:var(--text3)}
-.comp-map .axis-y{position:absolute;left:-80px;top:50%;transform:translateY(-50%) rotate(-90deg);font-size:.75rem;color:var(--text3);white-space:nowrap}
-.comp-map .dot{
-  position:absolute;padding:.4rem .8rem;border-radius:6px;font-size:.75rem;font-weight:500;
-  white-space:nowrap;
+.comp-table td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text2)}
+.comp-table tr.ode-row td{color:var(--text);font-weight:500}
+.comp-table td.check{color:var(--success);font-weight:700}
+.comp-table td.cross{color:var(--text3)}
+.comp-table .ode-badge{
+  background:var(--accent);color:white;
+  font-size:.65rem;font-weight:700;
+  padding:.15rem .5rem;border-radius:4px;
+  margin-left:.4rem;vertical-align:middle;
+  text-transform:uppercase;letter-spacing:.04em;
 }
-.comp-map .ode{background:var(--primary);color:white;top:8%;left:10%;font-size:.9rem;padding:.5rem 1rem;box-shadow:0 0 20px rgba(99,102,241,.4)}
-.comp-map .nc{background:var(--bg2);color:var(--text2);top:15%;right:15%;border:1px solid var(--bg3)}
-.comp-map .emmi{background:var(--bg2);color:var(--text2);top:30%;right:8%;border:1px solid var(--bg3)}
-.comp-map .autodesk{background:var(--bg2);color:var(--text2);bottom:25%;left:10%;border:1px solid var(--bg3)}
-.comp-map .onshape{background:var(--bg2);color:var(--text2);bottom:20%;left:35%;border:1px solid var(--bg3)}
-.comp-map .simscale{background:var(--bg2);color:var(--text2);bottom:30%;right:25%;border:1px solid var(--bg3)}
 
-/* MRR chart bars */
-.chart{display:flex;align-items:flex-end;gap:4px;height:180px;max-width:700px;width:100%;margin-top:1rem}
+/* ── Revenue bars ── */
+.chart{display:flex;align-items:flex-end;gap:5px;height:160px;max-width:700px;width:100%;margin-top:1rem}
 .bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
 .bar{
-  width:100%;border-radius:4px 4px 0 0;min-height:2px;
-  background:linear-gradient(to top,var(--primary-dark),var(--primary-light));
-  transition:height .6s ease;
+  width:100%;border-radius:5px 5px 0 0;min-height:3px;
+  background:linear-gradient(to top,var(--midnight),var(--accent));
+  transition:height .7s cubic-bezier(0.16,1,.3,1);
 }
-.bar-label{font-size:.65rem;color:var(--text3);margin-top:4px;font-family:var(--mono)}
+.bar-label{font-size:.6rem;color:var(--text3);margin-top:4px;font-family:var(--mono)}
 .bar-val{font-size:.6rem;color:var(--text2);margin-bottom:2px;font-family:var(--mono)}
 
-/* Team placeholder */
-.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:700px}
+/* ── Token model viz ── */
+.token-stack{display:flex;flex-direction:column;gap:.5rem;max-width:560px;width:100%}
+.token-row{
+  display:flex;align-items:center;gap:1rem;
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:10px;padding:.8rem 1.1rem;
+}
+.token-bar-bg{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden}
+.token-bar-fill{height:100%;border-radius:4px;background:var(--accent)}
+.token-pct{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--midnight);min-width:36px;text-align:right}
+.token-name{font-size:.8rem;color:var(--text2);min-width:100px}
+
+/* ── AI ops cards ── */
+.ai-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:1.25rem 1.4rem;
+  flex:1;min-width:160px;max-width:220px;
+  box-shadow:var(--shadow-sm);
+}
+.ai-card .role{font-size:.7rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+.ai-card .ratio{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
+.ai-card .tools{font-size:.72rem;color:var(--text2);margin-top:.4rem;line-height:1.5}
+
+/* ── Team ── */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem;max-width:760px}
 .member{text-align:center}
-.avatar{width:72px;height:72px;border-radius:50%;background:var(--bg2);border:2px solid var(--bg3);margin:0 auto .6rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--text3)}
-.member .name{font-size:.85rem;font-weight:600}.member .role{font-size:.75rem;color:var(--text3)}
+.avatar{
+  width:64px;height:64px;border-radius:50%;
+  background:var(--bg);border:1.5px solid var(--border);
+  margin:0 auto .5rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+}
+.member .m-name{font-size:.82rem;font-weight:600;color:var(--text)}
+.member .m-role{font-size:.72rem;color:var(--text3);margin-top:.1rem}
+.member .m-ai{font-size:.65rem;color:var(--accent);margin-top:.2rem;font-weight:500}
 
-/* Use of funds */
-.funds{display:flex;gap:2px;width:100%;max-width:600px;height:36px;border-radius:8px;overflow:hidden;margin-top:1rem}
-.funds div{display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:500;color:white}
-.funds .f1{background:var(--primary);flex:4}.funds .f2{background:#8B5CF6;flex:3}.funds .f3{background:var(--accent);flex:2}.funds .f4{background:var(--green);flex:1}
+/* ── Funds bar ── */
+.funds{display:flex;gap:2px;width:100%;max-width:580px;height:32px;border-radius:8px;overflow:hidden;margin-top:1rem}
+.funds div{
+  display:flex;align-items:center;justify-content:center;
+  font-size:.68rem;font-weight:600;color:white;
+}
+.f1{background:var(--midnight)}.f2{background:var(--accent)}.f3{background:var(--ai)}.f4{background:var(--success)}
 
-/* Glow effect */
-.glow{
-  position:absolute;width:400px;height:400px;border-radius:50%;
-  background:radial-gradient(circle,rgba(99,102,241,.12) 0%,transparent 70%);
-  pointer-events:none;
+/* ── Cover logo ── */
+.ode-logo{
+  font-size:clamp(6rem,14vw,11rem);font-weight:700;
+  letter-spacing:-.05em;line-height:1;
+  color:var(--midnight);
+  font-family:var(--font);
+}
+.tagline{
+  font-size:clamp(1rem,2vw,1.4rem);
+  color:var(--text2);font-weight:300;
+  letter-spacing:.02em;
 }
 
-/* Print */
-@media print{
-  .slide{position:relative;opacity:1;transform:none;pointer-events:auto;page-break-after:always;height:100vh}
-  .counter,.nav-hint{display:none}
+/* ── Divider ── */
+.divider{width:40px;height:2px;background:var(--accent);margin:.75rem 0}
+
+/* ── Pill badge ── */
+.pill{
+  display:inline-flex;align-items:center;
+  background:rgba(0,113,227,.08);color:var(--accent);
+  border-radius:999px;padding:.25rem .8rem;
+  font-size:.78rem;font-weight:600;
 }
+
 @media(max-width:768px){
   .tool-grid{grid-template-columns:repeat(2,1fr)}
   .team-grid{grid-template-columns:repeat(2,1fr)}
-  .comp-map{width:90vw;height:300px}
+  .comp-table{font-size:.75rem}
 }
 </style>
 </head>
 <body>
+<div class="progress" id="progress"></div>
 <div class="deck" id="deck">
 
-<!-- SLIDE 1: Cover -->
+<!-- ══════════════════════════════════════════
+     SLIDE 1 — Cover
+══════════════════════════════════════════ -->
 <section class="slide active center" data-slide="0">
-  <div class="glow" style="top:-100px;left:-100px"></div>
-  <div class="glow" style="bottom:-150px;right:-100px;background:radial-gradient(circle,rgba(6,182,212,.08) 0%,transparent 70%)"></div>
-  <p class="label" style="margin-bottom:1rem">Orthogonal Design Engineering</p>
-  <h1 style="font-size:clamp(5rem,12vw,10rem);letter-spacing:-.05em;background:linear-gradient(135deg,var(--text) 30%,var(--primary-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">ODE</h1>
-  <p class="desc center mt-3" style="font-size:clamp(1.3rem,2.5vw,2rem);color:var(--text2);font-weight:300">Engineering Reimagined with AI</p>
-  <p class="mt-4" style="font-size:.9rem;color:var(--text3)">The AI-Native Engineering Platform &mdash; CAD &middot; CAE &middot; MBSE</p>
+  <p class="label">Orthogonal</p>
+  <div class="ode-logo">ODE</div>
+  <div class="divider" style="margin:.75rem auto"></div>
+  <p class="tagline">The Dassault of the AI era.</p>
+  <p class="mt-4" style="font-size:.85rem;color:var(--text3)">
+    12 Engineering Disciplines &nbsp;·&nbsp; AI-Native &nbsp;·&nbsp; Token-First &nbsp;·&nbsp; Browser-Based
+  </p>
 </section>
 
-<!-- SLIDE 2: Problem -->
+<!-- ══════════════════════════════════════════
+     SLIDE 2 — The Generational Shift
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="1">
-  <p class="label">The Problem</p>
-  <h2>Engineering tools are<br>stuck in the <span class="highlight">past</span></h2>
-  <div class="row mt-4" style="max-width:900px">
-    <div class="card">
-      <span class="icon">&#x1f6d1;</span>
-      <h3>Siloed Tools</h3>
-      <p>CAD, CAE, MBSE, docs — all separate. Engineers waste hours switching, exporting, re-importing.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#x1f4bb;</span>
-      <h3>Desktop-Bound</h3>
-      <p>Heavy installs, expensive licenses, no real-time collaboration. IT approval takes months.</p>
-    </div>
-    <div class="card">
-      <span class="icon">&#x1f916;</span>
-      <h3>No AI</h3>
-      <p>Legacy vendors are retrofitting AI onto 30-year-old architectures. It doesn't work.</p>
-    </div>
-  </div>
+  <p class="label">The Shift</p>
+  <h2>Dassault defined engineering software<br>for <span class="accent">30 years.</span></h2>
+  <p class="hero-sub mt-3 center" style="max-width:680px">
+    CATIA. SIMULIA. ENOVIA. GENESYS. Every discipline, one suite —
+    built in the 1990s, priced for the Fortune 500, impossible to rebuild for AI.
+  </p>
+  <p class="hero-sub mt-3 center" style="max-width:680px;color:var(--midnight);font-weight:600">
+    We are building what Dassault would build today<br>if it started from scratch.
+  </p>
 </section>
 
-<!-- SLIDE 3: Solution -->
+<!-- ══════════════════════════════════════════
+     SLIDE 3 — Problem
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="2">
-  <p class="label">The Solution</p>
-  <h2>ODE is <span class="accent">AI-native</span><br>from the ground up</h2>
-  <p class="desc center mt-3">The first engineering platform where AI isn't a feature — it's the foundation. Unified CAD, CAE, and systems engineering in the browser.</p>
-  <div class="row mt-4" style="max-width:800px">
-    <div class="stat">
-      <div class="val" style="color:var(--primary-light)">6</div>
-      <div class="lbl">Integrated Tools</div>
+  <p class="label">The Problem</p>
+  <h2>Engineering software is<br>a <span class="accent">30-year-old monopoly</span></h2>
+  <div class="row mt-4" style="max-width:960px">
+    <div class="card">
+      <span class="icon">💸</span>
+      <h3>$50K–$500K per seat</h3>
+      <p>Dassault CATIA + SIMULIA + GENESYS. Multi-year lock-in. Price hasn't changed in a decade.</p>
     </div>
-    <div class="stat">
-      <div class="val" style="color:var(--accent)">0</div>
-      <div class="lbl">Install Required</div>
+    <div class="card">
+      <span class="icon">🧩</span>
+      <h3>7 disconnected tools</h3>
+      <p>CAD → meshing → solver → post-processing → MBSE → docs → PLM. Engineers lose hours daily on file conversion.</p>
     </div>
-    <div class="stat">
-      <div class="val" style="color:var(--green)">10x</div>
-      <div class="lbl">Faster Iteration</div>
+    <div class="card">
+      <span class="icon">🤖</span>
+      <h3>AI bolted on, not built in</h3>
+      <p>30-year-old binary formats. AI cannot reason about proprietary geometry files. "AI features" = a chatbot sidebar.</p>
     </div>
-    <div class="stat">
-      <div class="val" style="color:var(--amber)">100%</div>
-      <div class="lbl">Open Standards</div>
+    <div class="card">
+      <span class="icon">🔒</span>
+      <h3>Desktop-only, no collab</h3>
+      <p>IT approval takes months. No real-time collaboration. Sharing results = exporting static PDFs.</p>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 4: Product -->
+<!-- ══════════════════════════════════════════
+     SLIDE 4 — Solution
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="3">
-  <p class="label">Product</p>
-  <h2>One platform. Six tools.<br><span class="highlight">Zero silos.</span></h2>
-  <div class="tool-grid mt-4">
-    <div class="tool"><div class="name" style="color:var(--primary-light)">Component</div><div class="sub">Modelica physics modeling with AI</div></div>
-    <div class="tool"><div class="name" style="color:var(--accent)">System</div><div class="sub">SysML hierarchical system design</div></div>
-    <div class="tool"><div class="name" style="color:var(--green)">Geometry</div><div class="sub">Browser-based CAD editing</div></div>
-    <div class="tool"><div class="name" style="color:var(--amber)">Vision</div><div class="sub">Real-time 3D simulation</div></div>
-    <div class="tool"><div class="name" style="color:#EC4899">Paper</div><div class="sub">Collaborative engineering docs</div></div>
-    <div class="tool"><div class="name" style="color:#F97316">Interaction</div><div class="sub">Live parameter exploration</div></div>
+  <p class="label">The Solution</p>
+  <h2>Orthogonal ODE —<br><span class="accent">every discipline, AI-native</span></h2>
+  <p class="hero-sub center mt-3" style="max-width:620px">
+    Same breadth as Dassault's full suite. AI-native architecture built from scratch.
+    Browser-based. 5–50× lower cost. Billed by token, not by seat-year.
+  </p>
+  <div class="row mt-4" style="max-width:700px;justify-content:center">
+    <div style="text-align:center;flex:1;min-width:110px">
+      <div class="big-stat">12</div>
+      <div class="stat-label">Disciplines</div>
+    </div>
+    <div style="text-align:center;flex:1;min-width:110px">
+      <div class="big-stat">0</div>
+      <div class="stat-label">Install Required</div>
+    </div>
+    <div style="text-align:center;flex:1;min-width:110px">
+      <div class="big-stat">10×</div>
+      <div class="stat-label">Faster Iteration</div>
+    </div>
+    <div style="text-align:center;flex:1;min-width:110px">
+      <div class="big-stat" style="font-size:clamp(1.5rem,3.5vw,2.8rem)">5–50×</div>
+      <div class="stat-label">Lower Cost</div>
+    </div>
   </div>
-  <p class="mt-3" style="font-size:.85rem;color:var(--text3)">Standards: Modelica 4.0 &middot; FMI 2.0/3.0 &middot; SysML v1.6</p>
 </section>
 
-<!-- SLIDE 5: AI Magic -->
+<!-- ══════════════════════════════════════════
+     SLIDE 5 — Product: Full Tool Matrix
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="4">
-  <p class="label">AI Superpower</p>
+  <p class="label">Product</p>
+  <h2>One platform. Every discipline.<br><span class="accent">AI in every tool.</span></h2>
+  <div class="tool-grid mt-4">
+    <div class="tool">
+      <div class="t-name" style="color:#0071E3">Component</div>
+      <div class="t-sub">Modelica AI physics modelling</div>
+    </div>
+    <div class="tool">
+      <div class="t-name" style="color:#34C759">Geometry</div>
+      <div class="t-sub">Browser-based parametric CAD</div>
+    </div>
+    <div class="tool">
+      <div class="t-name" style="color:#FF9F0A">System</div>
+      <div class="t-sub">MBSE + SysML architecture</div>
+    </div>
+    <div class="tool">
+      <div class="t-name" style="color:#5E5CE6">Vision</div>
+      <div class="t-sub">Real-time 3D simulation</div>
+    </div>
+    <div class="tool">
+      <div class="t-name" style="color:#FF3B30">Paper</div>
+      <div class="t-sub">Collaborative engineering docs</div>
+    </div>
+    <div class="tool">
+      <div class="t-name" style="color:#0A2540">Interaction</div>
+      <div class="t-sub">Live parameter exploration</div>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#0071E3">FEM</div>
+      <div class="t-sub">Finite element analysis</div>
+      <span class="t-tag">Phase 2</span>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#0071E3">CFD</div>
+      <div class="t-sub">Computational fluid dynamics</div>
+      <span class="t-tag">Phase 2</span>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#34C759">Compute</div>
+      <div class="t-sub">Scientific computing & analysis</div>
+      <span class="t-tag">Phase 3</span>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#FF9F0A">Optim</div>
+      <div class="t-sub">Multi-objective optimisation</div>
+      <span class="t-tag">Phase 3</span>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#5E5CE6">RL</div>
+      <div class="t-sub">Reinforcement learning control</div>
+      <span class="t-tag">Phase 4</span>
+    </div>
+    <div class="tool new">
+      <div class="t-name" style="color:#FF3B30">Circuit</div>
+      <div class="t-sub">KiCad PCB + co-simulation</div>
+      <span class="t-tag">Phase 4</span>
+    </div>
+  </div>
+  <p class="mt-3" style="font-size:.8rem;color:var(--text3)">
+    Open standards: Modelica 4.0 · FMI 2.0/3.0 · SysML v1.6 · KiCad
+  </p>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 6 — AI Structural Moat
+══════════════════════════════════════════ -->
+<section class="slide center" data-slide="5">
+  <p class="label">AI Structural Moat</p>
   <h2>From requirements to simulation<br>in <span class="accent">60 seconds</span></h2>
   <div class="flow mt-4">
-    <div class="step"><div class="num">1</div><div class="txt">Describe in<br>plain English</div></div>
-    <div class="arrow">&rarr;</div>
-    <div class="step"><div class="num">2</div><div class="txt">AI generates<br>Modelica model</div></div>
-    <div class="arrow">&rarr;</div>
-    <div class="step"><div class="num">3</div><div class="txt">Run<br>simulation</div></div>
-    <div class="arrow">&rarr;</div>
-    <div class="step"><div class="num">4</div><div class="txt">AI analyzes<br>& iterates</div></div>
+    <div class="step">
+      <div class="num">1</div>
+      <div class="txt">Describe system<br>in plain English</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="num">2</div>
+      <div class="txt">AI generates<br>Modelica model</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="num">3</div>
+      <div class="txt">AI meshes<br>& sets up solver</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="num">4</div>
+      <div class="txt">Run simulation<br>in cloud</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="step">
+      <div class="num">5</div>
+      <div class="txt">AI interprets<br>& iterates</div>
+    </div>
   </div>
-  <p class="desc center mt-4" style="max-width:640px">Modelica is equation-based and structured — making it inherently <strong style="color:var(--text)">machine-friendly</strong>. This is our structural moat: AI that speaks physics natively.</p>
+  <p class="hero-sub center mt-4" style="max-width:620px">
+    Modelica is equation-based and structured — inherently machine-readable.
+    Dassault's binary CATIA files cannot be reasoned about by AI.
+    <strong style="color:var(--midnight)">This is our structural moat.</strong>
+  </p>
 </section>
 
-<!-- SLIDE 6: Market -->
-<section class="slide center" data-slide="5">
-  <p class="label">Market Opportunity</p>
-  <div class="big-number">$18B</div>
-  <p class="desc center mt-2" style="font-size:1.3rem">Global simulation software market &middot; <strong style="color:var(--text)">12.1% CAGR</strong></p>
-  <div class="col left mt-4" style="max-width:640px;gap:.8rem">
-    <h3 style="color:var(--text);font-size:1.1rem">Why Now</h3>
-    <p style="font-size:.95rem"><span style="color:var(--primary-light);font-weight:600">1.</span> LLMs reached engineering competence — can reason about physics</p>
-    <p style="font-size:.95rem"><span style="color:var(--primary-light);font-weight:600">2.</span> Modelica + LLM synergy — equation-based = machine-readable</p>
-    <p style="font-size:.95rem"><span style="color:var(--primary-light);font-weight:600">3.</span> Cloud-native expectations after remote-first era</p>
-    <p style="font-size:.95rem"><span style="color:var(--primary-light);font-weight:600">4.</span> Legacy vendors (Autodesk, Dassault, Siemens) are slow to innovate</p>
-    <p style="font-size:.95rem"><span style="color:var(--primary-light);font-weight:600">5.</span> Engineering teams are getting AI budgets for the first time</p>
-  </div>
-</section>
-
-<!-- SLIDE 7: Business Model -->
+<!-- ══════════════════════════════════════════
+     SLIDE 7 — Business Model: Token-First
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="6">
   <p class="label">Business Model</p>
-  <h2>Three revenue streams.<br>One <span class="highlight">compounding</span> engine.</h2>
-  <div class="row mt-4" style="max-width:900px">
-    <div class="card" style="text-align:center">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--primary-light)">35%</div>
-      <h3>SaaS Subscription</h3>
-      <p>$49 — $199/seat/mo<br>5 tiers from Free to Enterprise</p>
+  <h2>Token-first. Services on top.<br><span class="accent">Compounding by design.</span></h2>
+  <div class="row mt-4" style="max-width:900px;align-items:flex-start">
+    <div class="col" style="flex:1;min-width:240px;gap:.75rem">
+      <p class="label" style="font-size:.7rem">Token Revenue (Usage-Based)</p>
+      <div class="token-stack">
+        <div class="token-row">
+          <span class="token-name">Subscriptions</span>
+          <div class="token-bar-bg"><div class="token-bar-fill" style="width:35%;background:var(--midnight)"></div></div>
+          <span class="token-pct">35%</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">AI Tokens</span>
+          <div class="token-bar-bg"><div class="token-bar-fill" style="width:30%"></div></div>
+          <span class="token-pct">30%</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">Compute</span>
+          <div class="token-bar-bg"><div class="token-bar-fill" style="width:25%;background:var(--ai)"></div></div>
+          <span class="token-pct">25%</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">Storage</span>
+          <div class="token-bar-bg"><div class="token-bar-fill" style="width:10%;background:var(--success)"></div></div>
+          <span class="token-pct">10%</span>
+        </div>
+      </div>
+      <p style="font-size:.75rem;color:var(--text3);margin-top:.3rem">
+        Blended ARPU: <strong style="color:var(--text)">$3,500/yr</strong> &nbsp;·&nbsp; Token margin: <strong style="color:var(--text)">70%+</strong>
+      </p>
     </div>
-    <div class="card" style="text-align:center">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--accent)">30%</div>
-      <h3>AI Token Revenue</h3>
-      <p>Pay per AI generation<br>Usage grows with adoption</p>
+    <div class="col" style="flex:1;min-width:240px;gap:.75rem">
+      <p class="label" style="font-size:.7rem">Professional Services</p>
+      <div class="col" style="gap:.5rem">
+        <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)">Onboarding Sprint</span>
+          <span style="font-size:.75rem;color:var(--text2)">€5,000 · 2-week guided setup</span>
+        </div>
+        <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)">Integration Pack</span>
+          <span style="font-size:.75rem;color:var(--text2)">€10K–25K · FMI / PLM integration</span>
+        </div>
+        <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)">AI Fine-tuning</span>
+          <span style="font-size:.75rem;color:var(--text2)">€15K–40K · Customer data fine-tune</span>
+        </div>
+        <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)">CSM Retainer</span>
+          <span style="font-size:.75rem;color:var(--text2)">€3,000/mo · AI-assisted success</span>
+        </div>
+      </div>
     </div>
-    <div class="card" style="text-align:center">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--green)">35%</div>
-      <h3>Cloud Compute</h3>
-      <p>FEA / CFD / Simulation<br>+ storage & collaboration</p>
-    </div>
-  </div>
-  <div class="row mt-3" style="max-width:500px">
-    <div class="stat"><div class="val" style="color:var(--accent);font-size:2.5rem">$3,500</div><div class="lbl">Blended ARPU / Year</div></div>
   </div>
 </section>
 
-<!-- SLIDE 8: GTM -->
+<!-- ══════════════════════════════════════════
+     SLIDE 8 — Competitive Position
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="7">
-  <p class="label">Go-to-Market</p>
-  <h2>Dual engine: <span class="highlight">PLG</span> + <span class="accent">SLG</span></h2>
-  <div class="row mt-4" style="max-width:800px">
-    <div class="card" style="border-color:rgba(99,102,241,.3)">
-      <div style="font-family:var(--mono);font-size:2.5rem;font-weight:700;color:var(--primary-light)">40%</div>
-      <h3>Product-Led Growth</h3>
-      <p>Free tier &rarr; AI demo hook &rarr; self-serve upgrade &rarr; team expansion</p>
-      <div class="mt-2" style="font-size:.8rem;color:var(--text3)">160 PLG users &middot; $400K ARR</div>
-    </div>
-    <div class="card" style="border-color:rgba(6,182,212,.3)">
-      <div style="font-family:var(--mono);font-size:2.5rem;font-weight:700;color:var(--accent)">60%</div>
-      <h3>Sales-Led Growth</h3>
-      <p>ABM outreach &rarr; technical demo &rarr; 30-day pilot &rarr; enterprise contract</p>
-      <div class="mt-2" style="font-size:.8rem;color:var(--text3)">120 seats / 12 accounts &middot; $600K ARR</div>
-    </div>
-  </div>
-  <div class="row mt-3">
-    <div class="stat"><div class="val" style="font-size:2.5rem">280</div><div class="lbl">Paid Users Y1</div></div>
-    <div class="stat"><div class="val" style="font-size:2.5rem">4,500</div><div class="lbl">Free Users Y1</div></div>
-    <div class="stat"><div class="val accent" style="font-size:2.5rem">$1M</div><div class="lbl">ARR Target</div></div>
+  <p class="label">Competitive Position</p>
+  <h2>Same disciplines as Dassault.<br><span class="accent">AI-native architecture.</span> 10% of the cost.</h2>
+  <div class="mt-4" style="overflow-x:auto;width:100%">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>CAD</th>
+          <th>FEM/CFD</th>
+          <th>MBSE</th>
+          <th>AI-Native</th>
+          <th>Browser</th>
+          <th>Circuit</th>
+          <th>Price/seat/yr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="ode-row">
+          <td><strong>Orthogonal ODE</strong> <span class="ode-badge">us</span></td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check" style="font-family:var(--mono)">$948–$1,908</td>
+        </tr>
+        <tr>
+          <td>Dassault Systèmes</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="cross">Partial</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td style="font-family:var(--mono);color:var(--error)">$50K–500K</td>
+        </tr>
+        <tr>
+          <td>ANSYS</td>
+          <td class="cross">✗</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td class="cross">Partial</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td style="font-family:var(--mono);color:var(--error)">$30K–150K</td>
+        </tr>
+        <tr>
+          <td>Siemens NX</td>
+          <td class="check">✓</td>
+          <td class="check">✓</td>
+          <td class="cross">Partial</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td style="font-family:var(--mono);color:var(--error)">$40K–200K</td>
+        </tr>
+        <tr>
+          <td>SimScale</td>
+          <td class="cross">✗</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td class="cross">Partial</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td style="font-family:var(--mono)">$2.4K–4.8K</td>
+        </tr>
+        <tr>
+          <td>Onshape</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td class="cross">✗</td>
+          <td class="cross">Partial</td>
+          <td class="check">✓</td>
+          <td class="cross">✗</td>
+          <td style="font-family:var(--mono)">$2.1K–4.8K</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<!-- SLIDE 9: Financials -->
+<!-- ══════════════════════════════════════════
+     SLIDE 9 — Market
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="8">
-  <p class="label">Financial Projections</p>
-  <h2>$1K &rarr; <span class="accent">$83K MRR</span> in 12 months</h2>
-  <div class="chart mt-3" id="mrrChart">
-    <div class="bar-wrap"><div class="bar-val">$1K</div><div class="bar" style="height:2%"></div><div class="bar-label">M1</div></div>
-    <div class="bar-wrap"><div class="bar-val">$2K</div><div class="bar" style="height:3%"></div><div class="bar-label">M2</div></div>
-    <div class="bar-wrap"><div class="bar-val">$3K</div><div class="bar" style="height:4%"></div><div class="bar-label">M3</div></div>
-    <div class="bar-wrap"><div class="bar-val">$8K</div><div class="bar" style="height:9%"></div><div class="bar-label">M4</div></div>
-    <div class="bar-wrap"><div class="bar-val">$12K</div><div class="bar" style="height:14%"></div><div class="bar-label">M5</div></div>
-    <div class="bar-wrap"><div class="bar-val">$18K</div><div class="bar" style="height:20%"></div><div class="bar-label">M6</div></div>
-    <div class="bar-wrap"><div class="bar-val">$27K</div><div class="bar" style="height:30%"></div><div class="bar-label">M7</div></div>
-    <div class="bar-wrap"><div class="bar-val">$38K</div><div class="bar" style="height:42%"></div><div class="bar-label">M8</div></div>
-    <div class="bar-wrap"><div class="bar-val">$49K</div><div class="bar" style="height:54%"></div><div class="bar-label">M9</div></div>
-    <div class="bar-wrap"><div class="bar-val">$64K</div><div class="bar" style="height:70%"></div><div class="bar-label">M10</div></div>
-    <div class="bar-wrap"><div class="bar-val">$79K</div><div class="bar" style="height:86%"></div><div class="bar-label">M11</div></div>
-    <div class="bar-wrap"><div class="bar-val">$92K</div><div class="bar" style="height:100%;background:linear-gradient(to top,var(--accent),var(--accent2))"></div><div class="bar-label">M12</div></div>
-  </div>
-  <div class="row mt-3" style="max-width:800px">
-    <div class="stat"><div class="val" style="font-size:1.8rem">$300K</div><div class="lbl">Marketing Invest</div></div>
-    <div class="stat"><div class="val" style="font-size:1.8rem;color:var(--green)">3.2x</div><div class="lbl">ARR / $ Spent</div></div>
-    <div class="stat"><div class="val" style="font-size:1.8rem;color:var(--primary-light)">12x</div><div class="lbl">LTV:CAC</div></div>
-    <div class="stat"><div class="val" style="font-size:1.8rem;color:var(--accent)">120%</div><div class="lbl">Net Revenue Ret.</div></div>
+  <p class="label">Market Opportunity</p>
+  <div class="big-stat" style="font-size:clamp(3.5rem,8vw,6rem)">$23B</div>
+  <p class="hero-sub center mt-2" style="font-size:1.2rem">
+    Global engineering simulation market · <strong style="color:var(--midnight)">12.1% CAGR</strong>
+  </p>
+  <div class="row mt-4" style="max-width:860px">
+    <div class="card" style="max-width:260px">
+      <span class="pill" style="margin-bottom:.75rem">Why Now</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+        LLMs reached engineering competence — can reason about physics equations<br><br>
+        Modelica + LLM synergy: equation-based = natively machine-readable<br><br>
+        Engineering teams receiving AI budgets for the first time<br><br>
+        Dassault's 30-year architecture <em>cannot</em> be rebuilt for AI
+      </p>
+    </div>
+    <div class="card" style="max-width:260px">
+      <span class="pill" style="margin-bottom:.75rem">Beachhead</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+        <strong style="color:var(--text)">$800M</strong> AI-native engineering tools subsegment<br>
+        Growing 45%+ annually<br><br>
+        EU industrial OEMs: €3B annual Dassault/ANSYS spend<br><br>
+        70% of engineers cite tool fragmentation as top-3 blocker
+      </p>
+    </div>
+    <div class="card" style="max-width:260px">
+      <span class="pill" style="margin-bottom:.75rem">Distribution</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+        <strong style="color:var(--text)">PLG:</strong> Free token tier → upgrade<br><br>
+        <strong style="color:var(--text)">Direct:</strong> Enterprise ACV $50K–$500K<br><br>
+        <strong style="color:var(--text)">Channel:</strong> Dassault/ANSYS resellers with existing client base<br><br>
+        20–30% revenue share per partner
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- SLIDE 10: Competition -->
+<!-- ══════════════════════════════════════════
+     SLIDE 10 — AI-Native Operations
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="9">
-  <p class="label">Competitive Landscape</p>
-  <h2>The only <span class="highlight">AI-native</span> full-stack<br>engineering platform</h2>
-  <div class="comp-map mt-2">
-    <div class="axis-y">AI-Native &larr;&mdash;&mdash;&mdash;&rarr; AI-Retrofitted</div>
-    <div class="axis-x">Point Solution &larr;&mdash;&mdash;&mdash;&rarr; Full Platform</div>
-    <div class="dot ode">ODE</div>
-    <div class="dot nc">Neural Concept ($100M+)</div>
-    <div class="dot emmi">Emmi AI</div>
-    <div class="dot autodesk">Autodesk Fusion</div>
-    <div class="dot onshape">Onshape</div>
-    <div class="dot simscale">SimScale</div>
+  <p class="label">AI-Native Operations</p>
+  <h2>8 people running<br>like <span class="accent">30–40</span></h2>
+  <p class="hero-sub center mt-2">Every team member uses AI agents as digital workforce. 1 person = 3–5 AI workers.</p>
+  <div class="row mt-4" style="max-width:920px">
+    <div class="ai-card">
+      <div class="role">CEO</div>
+      <div class="ratio">1:4</div>
+      <div class="tools">Claude · Perplexity · Gamma<br>AI drafts investor materials, LinkedIn, strategy docs</div>
+    </div>
+    <div class="ai-card">
+      <div class="role">CTO</div>
+      <div class="ratio">1:5</div>
+      <div class="tools">Claude Code · Cursor<br>AI-generated code, tests, architecture docs, changelogs</div>
+    </div>
+    <div class="ai-card">
+      <div class="role">Designer</div>
+      <div class="ratio">1:4</div>
+      <div class="tools">Figma + Claude Code<br>Figma → code-level design system, no handoff</div>
+    </div>
+    <div class="ai-card">
+      <div class="role">Frontend</div>
+      <div class="ratio">1:4</div>
+      <div class="tools">Cursor · Claude Code<br>2–3× faster feature delivery</div>
+    </div>
+    <div class="ai-card">
+      <div class="role">AI Marketing</div>
+      <div class="ratio">1:5</div>
+      <div class="tools">Claude · Midjourney · Buffer<br>5 content pieces/week, 0.5 FTE</div>
+    </div>
+    <div class="ai-card">
+      <div class="role">Sales</div>
+      <div class="ratio">1:4</div>
+      <div class="tools">Clay · HubSpot AI · Claude<br>100 leads/week, AI-personalised outreach</div>
+    </div>
   </div>
-  <p class="mt-3" style="font-size:.85rem;color:var(--text3);max-width:600px;text-align:center">No competitor combines AI-native architecture + full engineering platform + open standards + browser-first delivery.</p>
 </section>
 
-<!-- SLIDE 11: Team -->
+<!-- ══════════════════════════════════════════
+     SLIDE 11 — GTM: Three Channels
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="10">
-  <p class="label">Team</p>
-  <h2>Founded by <span class="highlight">engineers</span>,<br>for engineers</h2>
-  <p class="desc center mt-2">Deep expertise in Modelica, systems engineering, and AI. Based in Germany.</p>
-  <div class="row mt-3" style="max-width:800px;gap:1.5rem">
-    <div class="card" style="text-align:center;min-width:160px">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--primary-light)">6</div>
-      <h3>Today</h3>
-      <p>5 eng/product + 1 ops</p>
+  <p class="label">Go-to-Market</p>
+  <h2>Three channels.<br>All running <span class="accent">simultaneously.</span></h2>
+  <div class="row mt-4" style="max-width:900px">
+    <div class="card">
+      <span class="icon">🌱</span>
+      <h3>PLG — Token Free Tier</h3>
+      <p>Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade to Pro/Team. No sales call required.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 40% of ARR</p>
     </div>
-    <div class="card" style="text-align:center;min-width:160px">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--accent)">11</div>
-      <h3>Year 1 End</h3>
-      <p>5 eng + 4 GTM + 1 ops + CEO/CTO</p>
+    <div class="card">
+      <span class="icon">🎯</span>
+      <h3>Direct Sales</h3>
+      <p>AI-assisted ABM: 100 ICP accounts/week enriched in Clay. Personalised outreach → technical demo → 30-day pilot → enterprise service package.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 40% of ARR</p>
     </div>
-    <div class="card" style="text-align:center;min-width:160px">
-      <div style="font-family:var(--mono);font-size:2rem;font-weight:700;color:var(--green)">20+</div>
-      <h3>Post Series A</h3>
-      <p>Scale eng + GTM team</p>
+    <div class="card">
+      <span class="icon">🤝</span>
+      <h3>Distribution Channel</h3>
+      <p>Sign Dassault/ANSYS resellers and EU engineering consultancies. 20–30% revenue share. Each partner brings 10–50 existing clients.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 20% of ARR</p>
     </div>
-  </div>
-  <div class="col left mt-3" style="max-width:600px;gap:.5rem;font-size:.9rem">
-    <p><span style="color:var(--primary-light);font-weight:600">M1</span> <span style="color:var(--text2)">Head of Growth — build PLG engine, own $300K budget</span></p>
-    <p><span style="color:var(--primary-light);font-weight:600">M3</span> <span style="color:var(--text2)">Enterprise AE — close $300K+ in SLG pipeline</span></p>
-    <p><span style="color:var(--primary-light);font-weight:600">M4</span> <span style="color:var(--text2)">Content & DevRel — scale content, build community</span></p>
-    <p><span style="color:var(--primary-light);font-weight:600">M6</span> <span style="color:var(--text2)">SDR — accelerate enterprise pipeline generation</span></p>
-    <p><span style="color:var(--primary-light);font-weight:600">M8</span> <span style="color:var(--text2)">Customer Success — ensure retention, drive NRR >120%</span></p>
   </div>
 </section>
 
-<!-- SLIDE 12: The Ask -->
+<!-- ══════════════════════════════════════════
+     SLIDE 12 — Team
+══════════════════════════════════════════ -->
 <section class="slide center" data-slide="11">
-  <div class="glow" style="top:-100px;right:-100px"></div>
-  <p class="label">The Ask</p>
-  <h1 style="font-size:clamp(2.5rem,5vw,4rem)">Let's build the future of<br><span class="accent">engineering</span> together</h1>
-  <div class="row mt-4" style="max-width:700px">
-    <div class="stat"><div class="val accent" style="font-size:2rem">$[X]M</div><div class="lbl">Series Seed / A</div></div>
-  </div>
-  <p class="label mt-4">Use of Funds</p>
-  <div class="funds">
-    <div class="f1">Engineering 40%</div>
-    <div class="f2">Go-to-Market 30%</div>
-    <div class="f3">AI/ML 20%</div>
-    <div class="f4">Ops 10%</div>
-  </div>
-  <div class="mt-4" style="text-align:center">
-    <p style="font-size:1.2rem;font-weight:600;color:var(--text)">orthogonal.dev</p>
-    <p class="mt-1" style="font-size:.9rem;color:var(--text3)">contact@orthogonal.dev</p>
+  <p class="label">Team</p>
+  <h2>8 humans + <span class="accent">32 AI agents</span></h2>
+  <div class="team-grid mt-4">
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">CEO</div>
+      <div class="m-role">Strategy · Sales · Vision</div>
+      <div class="m-ai">Claude + Perplexity</div>
+    </div>
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">CTO</div>
+      <div class="m-role">AI Architecture · Product</div>
+      <div class="m-ai">Claude Code + Cursor</div>
+    </div>
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">Designer</div>
+      <div class="m-role">Figma · Design System</div>
+      <div class="m-ai">Figma + Claude Code</div>
+    </div>
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">Frontend Eng</div>
+      <div class="m-role">Product · UI · Perf</div>
+      <div class="m-ai">Cursor + Claude Code</div>
+    </div>
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">Backend Eng</div>
+      <div class="m-role">API · AI · Solvers</div>
+      <div class="m-ai">Cursor + Claude Code</div>
+    </div>
+    <div class="member">
+      <div class="avatar">👤</div>
+      <div class="m-name">Finance</div>
+      <div class="m-role">Finance · Legal · Ops</div>
+      <div class="m-ai">Claude + n8n</div>
+    </div>
+    <div class="member">
+      <div class="avatar" style="border-color:var(--accent)">🤝</div>
+      <div class="m-name">Sales & Channel</div>
+      <div class="m-role">Direct + Distribution</div>
+      <div class="m-ai" style="color:var(--warning)">Hiring now</div>
+    </div>
+    <div class="member">
+      <div class="avatar" style="border-color:var(--accent)">📣</div>
+      <div class="m-name">AI Marketing</div>
+      <div class="m-role">Content · SEO · 0.5 FTE</div>
+      <div class="m-ai" style="color:var(--warning)">Hiring now</div>
+    </div>
   </div>
 </section>
 
-</div>
+<!-- ══════════════════════════════════════════
+     SLIDE 13 — Traction & Financials
+══════════════════════════════════════════ -->
+<section class="slide center" data-slide="12">
+  <p class="label">Financials</p>
+  <h2>$0 → <span class="accent">$1M ARR</span><br>in 12 months</h2>
+  <div class="chart mt-4" id="mrr-chart">
+    <!-- Bars injected by JS -->
+  </div>
+  <div class="row mt-4" style="max-width:700px">
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2.2rem;color:var(--accent)">$3,500</div>
+      <div class="stat-label">Blended ARPU</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2.2rem;color:var(--success)">40%</div>
+      <div class="stat-label">Token Revenue (target)</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2.2rem">120%</div>
+      <div class="stat-label">Target NRR</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2.2rem;color:var(--ai)">70%+</div>
+      <div class="stat-label">Token Gross Margin</div>
+    </div>
+  </div>
+</section>
 
-<!-- Slide counter -->
-<div class="counter"><span id="current">1</span> / <span id="total">12</span></div>
-<div class="nav-hint">&larr; &rarr; to navigate</div>
+<!-- ══════════════════════════════════════════
+     SLIDE 14 — The Ask
+══════════════════════════════════════════ -->
+<section class="slide center" data-slide="13">
+  <p class="label">The Ask</p>
+  <h2>Raising <span class="accent">€2M</span> Seed</h2>
+  <p class="hero-sub center mt-3" style="max-width:580px">
+    To reach $1M ARR, validate the token model, and hire the GTM team that takes us to Series A at $5M ARR.
+  </p>
+  <div class="funds mt-4">
+    <div class="f1" style="flex:4">40% Product</div>
+    <div class="f2" style="flex:3">30% GTM</div>
+    <div class="f3" style="flex:2">20% AI Infra</div>
+    <div class="f4" style="flex:1">10% Ops</div>
+  </div>
+  <div class="row mt-4" style="max-width:700px">
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2rem">€800K</div>
+      <div class="stat-label">Product & Engineering</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2rem">€600K</div>
+      <div class="stat-label">GTM (Team + Marketing)</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2rem">€400K</div>
+      <div class="stat-label">AI Infra + Token Costs</div>
+    </div>
+    <div style="text-align:center;flex:1">
+      <div class="big-stat" style="font-size:2rem">€200K</div>
+      <div class="stat-label">Ops + Legal + Reserve</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SLIDE 15 — Close
+══════════════════════════════════════════ -->
+<section class="slide center" data-slide="14">
+  <p class="label">Orthogonal</p>
+  <div class="ode-logo" style="font-size:clamp(4rem,10vw,8rem)">ODE</div>
+  <div class="divider" style="margin:.75rem auto"></div>
+  <p style="font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text);font-weight:600;letter-spacing:-.01em">
+    The Dassault of the AI era.
+  </p>
+  <p class="mt-3" style="font-size:.9rem;color:var(--text3)">orthogonal.dev</p>
+</section>
+
+</div><!-- /deck -->
+
+<div class="counter" id="counter">1 / 15</div>
+<div class="nav-hint">← → or click to navigate</div>
 
 <script>
 (function(){
-  const slides=document.querySelectorAll('.slide');
-  const total=slides.length;
-  let current=0;
-  const currentEl=document.getElementById('current');
-  const totalEl=document.getElementById('total');
-  totalEl.textContent=total;
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let cur = 0;
+  const total = slides.length;
 
   function go(n){
-    if(n<0||n>=total)return;
-    slides[current].classList.remove('active');
-    slides[current].classList.add(n>current?'prev':'');
-    setTimeout(()=>slides[current===n?current:current].classList.remove('prev'),500);
-    const old=current;
-    current=n;
-    slides[current].classList.remove('prev');
-    slides[current].classList.add('active');
-    currentEl.textContent=current+1;
-    // Remove prev from old slide after transition
-    setTimeout(()=>{if(old!==current)slides[old].classList.remove('prev')},600);
+    slides[cur].classList.remove('active');
+    slides[cur].classList.add('prev');
+    cur = (n + total) % total;
+    slides.forEach((s,i)=>{
+      if(i !== cur) s.classList.remove('prev');
+    });
+    slides[cur].classList.remove('prev');
+    slides[cur].classList.add('active');
+    counter.textContent = (cur+1) + ' / ' + total;
+    progress.style.width = ((cur+1)/total*100) + '%';
   }
 
-  document.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight'||e.key===' ')go(current+1);
-    else if(e.key==='ArrowLeft')go(current-1);
-    else if(e.key==='Home')go(0);
-    else if(e.key==='End')go(total-1);
+  document.addEventListener('keydown', e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') go(cur+1);
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp') go(cur-1);
   });
 
-  // Click navigation (left half = back, right half = forward)
-  document.addEventListener('click',e=>{
-    const x=e.clientX/window.innerWidth;
-    if(x>0.5)go(current+1);else go(current-1);
-  });
+  document.getElementById('deck').addEventListener('click', ()=> go(cur+1));
 
   // Touch swipe
-  let touchX=0;
-  document.addEventListener('touchstart',e=>{touchX=e.touches[0].clientX});
-  document.addEventListener('touchend',e=>{
-    const diff=e.changedTouches[0].clientX-touchX;
-    if(Math.abs(diff)>50){diff<0?go(current+1):go(current-1)}
+  let tx=0;
+  document.addEventListener('touchstart', e=>{ tx=e.touches[0].clientX; },{passive:true});
+  document.addEventListener('touchend', e=>{
+    const dx = e.changedTouches[0].clientX - tx;
+    if(Math.abs(dx)>40){ dx<0 ? go(cur+1) : go(cur-1); }
+  },{passive:true});
+
+  // MRR chart
+  const mrr = [1,3,5,9,13,18,28,38,49,58,70,83];
+  const labels = ['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+  const chart = document.getElementById('mrr-chart');
+  const max = Math.max(...mrr);
+  mrr.forEach((v,i)=>{
+    const w = document.createElement('div');
+    w.className = 'bar-wrap';
+    w.innerHTML = `<div class="bar-val" style="font-size:.58rem">$${v}K</div>
+      <div class="bar" style="height:${Math.max(v/max*100,2)}%"></div>
+      <div class="bar-label">${labels[i]}</div>`;
+    chart.appendChild(w);
   });
+
+  progress.style.width = (1/total*100)+'%';
 })();
 </script>
 </body>

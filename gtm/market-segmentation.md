@@ -4,7 +4,8 @@
 
 ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering simulation and design market. Each segment has unique pain points, buying behaviors, and revenue potential. This document defines each ICP in detail to guide messaging, channel selection, sales motions, and product prioritization.
 
-**Revenue Target:** $1M ARR | **Blended ARPU:** $3,500/year | **Paid Users:** 280 | **Mix:** 40% PLG / 60% SLG
+**Revenue Target:** $1M ARR | **Token ARPU:** $3,500/year | **Paid Users:** 280 | **Mix:** 40% PLG / 60% SLG  
+**Business Model:** Token-first (AI compute billed per token) + Professional Services | **Distribution:** Direct + Channel (resellers)
 
 ---
 
@@ -18,7 +19,7 @@ ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering 
 | Industry | Automotive, Aerospace, Heavy Machinery, Consumer Electronics, Energy |
 | Annual Revenue | $100M - $50B+ |
 | Engineering Headcount | 50 - 5,000+ |
-| Current Toolchain | ANSYS, Abaqus, COMSOL, Siemens NX, CATIA, internal solvers |
+| Current Toolchain | **Dassault CATIA/SIMULIA/GENESYS**, ANSYS Mechanical/Fluent, Abaqus, COMSOL, Siemens NX, internal solvers |
 | IT Environment | On-prem data centers, hybrid cloud, strict security policies |
 | Geography | North America, Europe, Japan, South Korea |
 
@@ -39,6 +40,7 @@ ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering 
 3. **Slow Iteration Cycles** -- Traditional simulation workflows take days to weeks per design iteration due to manual mesh setup, long solver queues, and limited compute access.
 4. **Talent Shortage** -- Experienced simulation engineers are scarce and expensive; junior engineers need 12-18 months to become productive on legacy tools.
 5. **Collaboration Gaps** -- Sharing simulation results across teams and geographies requires exporting static reports, losing interactive exploration capability.
+6. **Legacy Architecture Lock-in** -- Dassault, ANSYS, and Siemens charge $30K–$150K/seat for architectures built in the 1990s. They cannot meaningfully rebuild for AI without destroying backwards compatibility. Customers are locked into multi-year contracts that deliver no AI-era value.
 
 ### Decision Criteria
 
@@ -67,7 +69,7 @@ ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering 
 | Sales Cycle | 6-12 months |
 | Expansion Potential | 3-10x over 24 months |
 | Preferred Channels | Direct sales, industry events, peer referrals |
-| Messaging Themes | "Reduce simulation cost by 60%", "10x faster design iteration", "Unified CAD+CAE platform" |
+| Messaging Themes | "Replace your Dassault stack at 10% of the cost", "AI-native FEM + CFD included in your token plan", "From CAD to MBSE to circuit design — one platform" |
 
 ---
 
@@ -127,7 +129,7 @@ ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering 
 | Sales Cycle | 4-8 weeks |
 | Expansion Potential | 2-5x as firm wins more projects |
 | Preferred Channels | Content marketing, LinkedIn, webinars, industry groups |
-| Messaging Themes | "Boost project margins by 20%", "Pay only when you simulate", "One platform for every client" |
+| Messaging Themes | "Token-based: pay per simulation run, not per seat-year", "ODE FEM + CFD replaces ANSYS + SolidWorks Simulation in one subscription", "AI does the meshing — your engineers do the thinking" |
 
 ---
 
@@ -273,6 +275,16 @@ ODE targets four distinct Ideal Customer Profiles (ICPs) across the engineering 
 
 ## Segment Prioritization Matrix
 
+### Priority 0: Distribution Channel Partners
+
+Engineering consultancies and Dassault/ANSYS resellers who want to offer a modern AI-native alternative to their existing client base. These partners multiply headcount coverage without additional hiring. Each partner has an existing book of 10–50 engineering clients with active simulation tool contracts.
+
+**Target partner profile:** EU-based engineering consulting firms (5–200 engineers), firms currently reselling ANSYS or Dassault licences, university tech-transfer offices.  
+**Goal:** 3–5 signed partners in Year 1, generating $200K+ pipeline.  
+**Model:** Revenue share 20–30% on first-year ACV; ODE provides training, demo licences, co-marketing budget.
+
+---
+
 ### Priority 1: Enterprise OEMs + Indie Engineers (Parallel)
 
 Enterprise OEMs drive the majority of revenue and provide logo credibility. Indie Engineers drive the majority of user volume and feed the PLG flywheel. These two segments operate through completely different motions (SLG vs. PLG) and can be pursued simultaneously without resource conflict.
@@ -291,11 +303,14 @@ Universities are a long-term pipeline investment. Students who learn ODE in cour
 
 | Segment | TAM | SAM | Year 1 SOM |
 |---------|-----|-----|------------|
-| Enterprise OEMs | $12B | $600M | $450K |
-| Engineering Consultancies | $3B | $200M | $250K |
+| Enterprise OEMs | $15B | $750M | $450K |
+| Engineering Consultancies | $4B | $250M | $250K |
 | Universities | $2B | $150M | $150K |
-| Indie Engineers | $1B | $100M | $150K |
-| **Total** | **$18B** | **$1.05B** | **$1M** |
+| Indie Engineers & Startups | $2B | $150M | $150K |
+| Channel / Reseller | — | — | $200K |
+| **Total** | **$23B** | **$1.30B** | **$1.2M** |
+
+*AI-native engineering tools emerging subsegment: ~$800M (2025), growing 45%+ annually — Orthogonal's primary beachhead.*
 
 ---
 
