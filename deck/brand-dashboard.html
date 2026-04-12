@@ -89,27 +89,28 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 </head>
 <body>
 
-<div class="page-header">
+<div class="page-header" style="display:flex;align-items:center">
   <div>
     <div class="ph-eyebrow">Orthogonal · ODE</div>
-    <div class="ph-title">Brand Strategy — Executive Dashboard</div>
+    <div class="ph-title" data-en="Brand Strategy — Executive Dashboard" data-zh="品牌策略 — 管理层仪表板">Brand Strategy — Executive Dashboard</div>
   </div>
-  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity</div>
+  <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>定位 · 架构 · 消息传递 · 视觉识别">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity</div>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 
 <nav class="dash-nav" id="nav">
-  <a href="#positioning" class="nav-item active">01 Positioning</a>
-  <a href="#competitive" class="nav-item">02 Competitive</a>
-  <a href="#architecture" class="nav-item">03 Architecture</a>
-  <a href="#messaging" class="nav-item">04 Messaging</a>
-  <a href="#identity" class="nav-item">05 Identity</a>
+  <a href="#positioning" class="nav-item active" data-en="01 Positioning" data-zh="01 品牌定位">01 Positioning</a>
+  <a href="#competitive" class="nav-item" data-en="02 Competitive" data-zh="02 竞争格局">02 Competitive</a>
+  <a href="#architecture" class="nav-item" data-en="03 Architecture" data-zh="03 品牌架构">03 Architecture</a>
+  <a href="#messaging" class="nav-item" data-en="04 Messaging" data-zh="04 消息传递">04 Messaging</a>
+  <a href="#identity" class="nav-item" data-en="05 Identity" data-zh="05 视觉识别">05 Identity</a>
 </nav>
 
 <div class="stats-bar">
-  <div class="stat-cell"><div class="stat-num">12</div><div class="stat-lbl">Engineering disciplines covered</div></div>
-  <div class="stat-cell"><div class="stat-num">4</div><div class="stat-lbl">Target ICP segments</div></div>
-  <div class="stat-cell"><div class="stat-num">5–50×</div><div class="stat-lbl">Cost advantage vs. legacy tools</div></div>
-  <div class="stat-cell"><div class="stat-num">1</div><div class="stat-lbl">Core brand anchor position</div></div>
+  <div class="stat-cell"><div class="stat-num">12</div><div class="stat-lbl" data-en="Engineering disciplines covered" data-zh="工程学科覆盖">Engineering disciplines covered</div></div>
+  <div class="stat-cell"><div class="stat-num">4</div><div class="stat-lbl" data-en="Target ICP segments" data-zh="目标客户画像数量">Target ICP segments</div></div>
+  <div class="stat-cell"><div class="stat-num">5–50×</div><div class="stat-lbl" data-en="Cost advantage vs. legacy tools" data-zh="相比传统工具的成本优势">Cost advantage vs. legacy tools</div></div>
+  <div class="stat-cell"><div class="stat-num">1</div><div class="stat-lbl" data-en="Core brand anchor position" data-zh="核心品牌锚点定位">Core brand anchor position</div></div>
 </div>
 
 <main class="dash-main">
@@ -118,59 +119,59 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="positioning">
     <div class="sec-hd">
       <span class="sec-num">01</span>
-      <span class="sec-title">Brand Positioning</span>
-      <span class="sec-sub">Core anchor · Taglines · Proof points</span>
+      <span class="sec-title" data-en="Brand Positioning" data-zh="品牌定位">Brand Positioning</span>
+      <span class="sec-sub" data-en="Core anchor · Taglines · Proof points" data-zh="核心锚点 · 标语体系 · 证明点">Core anchor · Taglines · Proof points</span>
     </div>
 
     <div class="insight">
-      <div class="ins-label">Core Positioning Statement</div>
-      <div class="ins-text">"Orthogonal is the Dassault of the AI era — the AI-native full-stack engineering platform covering CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, and circuit design, all in the browser with a built-in AI co-pilot, at 5–50× lower cost than Dassault, Siemens, or ANSYS."</div>
+      <div class="ins-label" data-en="Core Positioning Statement" data-zh="核心定位声明">Core Positioning Statement</div>
+      <div class="ins-text" data-en='"Orthogonal is the Dassault of the AI era — the AI-native full-stack engineering platform covering CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, and circuit design, all in the browser with a built-in AI co-pilot, at 5–50× lower cost than Dassault, Siemens, or ANSYS."' data-zh='"Orthogonal 是AI时代的Dassault — AI原生全栈工程平台，涵盖CAD、MBSE、系统仿真、FEM、CFD、科学计算、强化学习和电路设计，全部在浏览器中运行，内置AI协驾，成本比Dassault、Siemens或ANSYS低5–50倍。"'>"Orthogonal is the Dassault of the AI era — the AI-native full-stack engineering platform covering CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, and circuit design, all in the browser with a built-in AI co-pilot, at 5–50× lower cost than Dassault, Siemens, or ANSYS."</div>
     </div>
 
     <div class="g2">
       <div class="card">
-        <div class="card-title">Tagline Hierarchy</div>
+        <div class="card-title" data-en="Tagline Hierarchy" data-zh="标语层级体系">Tagline Hierarchy</div>
         <div style="display:flex;flex-direction:column;gap:1rem">
           <div>
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 1 — Primary Brand</div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem" data-en="Level 1 — Primary Brand" data-zh="第一层 — 主品牌">Level 1 — Primary Brand</div>
             <div style="font-size:1.05rem;font-weight:700;color:var(--midnight)">"The Dassault of the AI era."</div>
           </div>
           <div>
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 2 — Descriptive</div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem" data-en="Level 2 — Descriptive" data-zh="第二层 — 描述性定位">Level 2 — Descriptive</div>
             <div style="font-size:.88rem;color:var(--text2)">"AI-native full-stack engineering platform"</div>
           </div>
           <div>
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 3 — Value Proposition</div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem" data-en="Level 3 — Value Proposition" data-zh="第三层 — 价值主张">Level 3 — Value Proposition</div>
             <div style="font-size:.88rem;color:var(--text2)">"Same breadth as Dassault. AI-native from day one. 5–50× lower cost."</div>
           </div>
           <div>
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 4 — Competitive Hook</div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem" data-en="Level 4 — Competitive Hook" data-zh="第四层 — 竞争钩子">Level 4 — Competitive Hook</div>
             <div style="font-size:.88rem;color:var(--text2)">"Dassault-grade engineering. Not Dassault-grade pricing."</div>
           </div>
           <div>
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 5 — Audience-Specific</div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem" data-en="Level 5 — Audience-Specific" data-zh="第五层 — 受众专属">Level 5 — Audience-Specific</div>
             <div style="font-size:.88rem;color:var(--text2)">"We built the AI-era upgrade Dassault can never ship."</div>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Top 5 Differentiators — Ranked by Impact</div>
+        <div class="card-title" data-en="Top 5 Differentiators — Ranked by Impact" data-zh="五大差异化优势 — 按影响力排序">Top 5 Differentiators — Ranked by Impact</div>
         <table class="tbl">
           <tbody>
-            <tr><td style="width:24px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td><td style="font-weight:600;color:var(--text)">AI-Native, Not Retrofitted</td><td style="color:var(--text2)">Architecture designed for AI from day one</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td><td style="font-weight:600;color:var(--text)">Unified Engineering Platform</td><td style="color:var(--text2)">12 disciplines in one environment</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td><td style="font-weight:600;color:var(--text)">Modelica + LLM Synergy</td><td style="color:var(--text2)">Equation-based = natively AI-readable. Structural moat.</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td><td style="font-weight:600;color:var(--text)">Cloud-Native, Zero-Install</td><td style="color:var(--text2)">Browser-based, real-time collaboration</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">05</td><td style="font-weight:600;color:var(--text)">Open Standards First</td><td style="color:var(--text2)">Modelica 4.0, FMI 2.0/3.0, SysML v1.6</td></tr>
+            <tr><td style="width:24px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td><td style="font-weight:600;color:var(--text)" data-en="AI-Native, Not Retrofitted" data-zh="AI原生，非改造拼接">AI-Native, Not Retrofitted</td><td style="color:var(--text2)" data-en="Architecture designed for AI from day one" data-zh="架构从第一天起为AI而设计">Architecture designed for AI from day one</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td><td style="font-weight:600;color:var(--text)" data-en="Unified Engineering Platform" data-zh="统一工程平台">Unified Engineering Platform</td><td style="color:var(--text2)" data-en="12 disciplines in one environment" data-zh="12个学科在同一环境中">12 disciplines in one environment</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td><td style="font-weight:600;color:var(--text)" data-en="Modelica + LLM Synergy" data-zh="Modelica + 大模型协同">Modelica + LLM Synergy</td><td style="color:var(--text2)" data-en="Equation-based = natively AI-readable. Structural moat." data-zh="方程式驱动 = 原生AI可读。结构性护城河。">Equation-based = natively AI-readable. Structural moat.</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td><td style="font-weight:600;color:var(--text)" data-en="Cloud-Native, Zero-Install" data-zh="云原生，无需安装">Cloud-Native, Zero-Install</td><td style="color:var(--text2)" data-en="Browser-based, real-time collaboration" data-zh="浏览器端运行，实时协作">Browser-based, real-time collaboration</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">05</td><td style="font-weight:600;color:var(--text)" data-en="Open Standards First" data-zh="开放标准优先">Open Standards First</td><td style="color:var(--text2)" data-en="Modelica 4.0, FMI 2.0/3.0, SysML v1.6" data-zh="Modelica 4.0, FMI 2.0/3.0, SysML v1.6">Modelica 4.0, FMI 2.0/3.0, SysML v1.6</td></tr>
           </tbody>
         </table>
         <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.6rem">Key Proof Points</div>
+          <div class="card-title" style="margin-bottom:.6rem" data-en="Key Proof Points" data-zh="核心证明数据">Key Proof Points</div>
           <div class="g4">
-            <div class="stat-mini"><div class="sm-num">60s</div><div class="sm-lbl">Requirements → simulation</div></div>
-            <div class="stat-mini"><div class="sm-num">80%</div><div class="sm-lbl">Faster setup with AI</div></div>
-            <div class="stat-mini"><div class="sm-num">3+</div><div class="sm-lbl">Legacy tools replaced</div></div>
-            <div class="stat-mini"><div class="sm-num">97%</div><div class="sm-lbl">Cycle time reduction</div></div>
+            <div class="stat-mini"><div class="sm-num">60s</div><div class="sm-lbl" data-en="Requirements → simulation" data-zh="需求到仿真">Requirements → simulation</div></div>
+            <div class="stat-mini"><div class="sm-num">80%</div><div class="sm-lbl" data-en="Faster setup with AI" data-zh="AI加速建模">Faster setup with AI</div></div>
+            <div class="stat-mini"><div class="sm-num">3+</div><div class="sm-lbl" data-en="Legacy tools replaced" data-zh="替代传统工具数量">Legacy tools replaced</div></div>
+            <div class="stat-mini"><div class="sm-num">97%</div><div class="sm-lbl" data-en="Cycle time reduction" data-zh="仿真周期缩短">Cycle time reduction</div></div>
           </div>
         </div>
       </div>
@@ -181,15 +182,25 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="competitive">
     <div class="sec-hd">
       <span class="sec-num">02</span>
-      <span class="sec-title">Competitive Landscape</span>
-      <span class="sec-sub">Feature matrix · Threat levels · Structural moat</span>
+      <span class="sec-title" data-en="Competitive Landscape" data-zh="竞争格局">Competitive Landscape</span>
+      <span class="sec-sub" data-en="Feature matrix · Threat levels · Structural moat" data-zh="功能矩阵 · 威胁等级 · 结构性护城河">Feature matrix · Threat levels · Structural moat</span>
     </div>
 
     <div class="card">
-      <div class="card-title">Platform Capability Matrix</div>
+      <div class="card-title" data-en="Platform Capability Matrix" data-zh="平台能力矩阵">Platform Capability Matrix</div>
       <table class="tbl" style="margin-top:.5rem">
         <thead>
-          <tr><th>Platform</th><th>AI-Native</th><th>CAD</th><th>FEM / CFD</th><th>MBSE / SysML</th><th>Browser</th><th>Modelica</th><th>Annual Cost / Seat</th><th>Threat Level</th></tr>
+          <tr>
+            <th data-en="Platform" data-zh="平台">Platform</th>
+            <th data-en="AI-Native" data-zh="AI原生">AI-Native</th>
+            <th data-en="CAD" data-zh="CAD">CAD</th>
+            <th data-en="FEM / CFD" data-zh="FEM / CFD">FEM / CFD</th>
+            <th data-en="MBSE / SysML" data-zh="MBSE / SysML">MBSE / SysML</th>
+            <th data-en="Browser" data-zh="浏览器端">Browser</th>
+            <th data-en="Modelica" data-zh="Modelica">Modelica</th>
+            <th data-en="Annual Cost / Seat" data-zh="年费/席位">Annual Cost / Seat</th>
+            <th data-en="Threat Level" data-zh="威胁等级">Threat Level</th>
+          </tr>
         </thead>
         <tbody>
           <tr class="hl">
@@ -264,7 +275,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 
     <div class="g2" style="margin-top:1.5rem">
       <div class="card">
-        <div class="card-title">Structural Moat — Architecture Gap</div>
+        <div class="card-title" data-en="Structural Moat — Architecture Gap" data-zh="结构性护城河 — 架构鸿沟">Structural Moat — Architecture Gap</div>
         <div style="font-size:.82rem;color:var(--text2);line-height:1.7">
           Dassault's CATIA/SIMULIA architecture was built in the 1990s. Binary proprietary formats are opaque to large language models. Rebuilding for AI would destroy backwards compatibility — impossible for a company protecting $5B revenue and multi-year enterprise contracts.
           <br><br>
@@ -272,15 +283,41 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Competitive Response Matrix</div>
+        <div class="card-title" data-en="Competitive Response Matrix" data-zh="竞争应对矩阵">Competitive Response Matrix</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Competitor</th><th>When ODE Wins</th><th>When ODE Loses</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Competitor" data-zh="竞争对手">Competitor</th>
+              <th data-en="When ODE Wins" data-zh="ODE的胜出场景">When ODE Wins</th>
+              <th data-en="When ODE Loses" data-zh="ODE的劣势场景">When ODE Loses</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td><strong style="color:var(--text)">Neural Concept</strong></td><td>Full workflow needed (CAD + MBSE)</td><td>Pure CFD/FEA optimization only</td></tr>
-            <tr><td><strong style="color:var(--text)">Autodesk Fusion</strong></td><td>AI-native + open standards required</td><td>Deep Autodesk lock-in, CAM heavy</td></tr>
-            <tr><td><strong style="color:var(--text)">Onshape</strong></td><td>Need simulation + systems design</td><td>Geometry-only use case</td></tr>
-            <tr><td><strong style="color:var(--text)">SimScale</strong></td><td>Integrated platform value</td><td>Single simulation step only</td></tr>
-            <tr><td><strong style="color:var(--text)">Dassault</strong></td><td>Cost + AI + modern workflow</td><td>Existing 10-year Dassault investment</td></tr>
+            <tr>
+              <td><strong style="color:var(--text)">Neural Concept</strong></td>
+              <td data-en="Full workflow needed (CAD + MBSE)" data-zh="需要完整工作流（CAD + MBSE）">Full workflow needed (CAD + MBSE)</td>
+              <td data-en="Pure CFD/FEA optimization only" data-zh="纯CFD/FEA优化场景">Pure CFD/FEA optimization only</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Autodesk Fusion</strong></td>
+              <td data-en="AI-native + open standards required" data-zh="需要AI原生 + 开放标准">AI-native + open standards required</td>
+              <td data-en="Deep Autodesk lock-in, CAM heavy" data-zh="深度Autodesk锁定，重度CAM用户">Deep Autodesk lock-in, CAM heavy</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Onshape</strong></td>
+              <td data-en="Need simulation + systems design" data-zh="需要仿真 + 系统设计">Need simulation + systems design</td>
+              <td data-en="Geometry-only use case" data-zh="纯几何建模场景">Geometry-only use case</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">SimScale</strong></td>
+              <td data-en="Integrated platform value" data-zh="集成平台价值场景">Integrated platform value</td>
+              <td data-en="Single simulation step only" data-zh="仅需单一仿真步骤">Single simulation step only</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Dassault</strong></td>
+              <td data-en="Cost + AI + modern workflow" data-zh="成本 + AI + 现代工作流">Cost + AI + modern workflow</td>
+              <td data-en="Existing 10-year Dassault investment" data-zh="已有10年Dassault深度投入">Existing 10-year Dassault investment</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -291,56 +328,100 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="architecture">
     <div class="sec-hd">
       <span class="sec-num">03</span>
-      <span class="sec-title">Brand Architecture</span>
-      <span class="sec-sub">Platform structure · 12 disciplines · Open standards</span>
+      <span class="sec-title" data-en="Brand Architecture" data-zh="品牌架构">Brand Architecture</span>
+      <span class="sec-sub" data-en="Platform structure · 12 disciplines · Open standards" data-zh="平台结构 · 12个学科 · 开放标准">Platform structure · 12 disciplines · Open standards</span>
     </div>
 
     <div class="card">
-      <div class="card-title">ODE Tool Matrix — 12 Engineering Disciplines</div>
+      <div class="card-title" data-en="ODE Tool Matrix — 12 Engineering Disciplines" data-zh="ODE工具矩阵 — 12个工程学科">ODE Tool Matrix — 12 Engineering Disciplines</div>
       <div class="g6" style="margin-top:.75rem">
-        <div class="tool-cell"><div class="tc-name" style="color:#0071E3">Component</div><div class="tc-sub">Modelica AI physics modelling</div></div>
-        <div class="tool-cell"><div class="tc-name" style="color:#34C759">Geometry</div><div class="tc-sub">Parametric CAD in browser</div></div>
-        <div class="tool-cell"><div class="tc-name" style="color:#FF9F0A">System</div><div class="tc-sub">MBSE + SysML architecture</div></div>
-        <div class="tool-cell"><div class="tc-name" style="color:#5E5CE6">Vision</div><div class="tc-sub">Real-time 3D simulation</div></div>
-        <div class="tool-cell"><div class="tc-name" style="color:#FF3B30">Paper</div><div class="tc-sub">Collaborative engineering docs</div></div>
-        <div class="tool-cell"><div class="tc-name" style="color:#0A2540">Interaction</div><div class="tc-sub">Live parameter exploration</div></div>
-        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">FEM</div><div class="tc-sub">Finite element analysis</div></div>
-        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">CFD</div><div class="tc-sub">Computational fluid dynamics</div></div>
-        <div class="tool-cell" style="border-color:rgba(52,199,89,.3);background:rgba(52,199,89,.03)"><div class="tc-name" style="color:#34C759">Compute</div><div class="tc-sub">Scientific computing</div></div>
-        <div class="tool-cell" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.03)"><div class="tc-name" style="color:#FF9F0A">Optim</div><div class="tc-sub">Multi-objective optimisation</div></div>
-        <div class="tool-cell" style="border-color:rgba(94,92,230,.3);background:rgba(94,92,230,.03)"><div class="tc-name" style="color:#5E5CE6">RL</div><div class="tc-sub">Reinforcement learning</div></div>
-        <div class="tool-cell" style="border-color:rgba(255,59,48,.3);background:rgba(255,59,48,.03)"><div class="tc-name" style="color:#FF3B30">Circuit</div><div class="tc-sub">KiCad PCB + co-simulation</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#0071E3">Component</div><div class="tc-sub" data-en="Modelica AI physics modelling" data-zh="Modelica AI物理建模">Modelica AI physics modelling</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#34C759">Geometry</div><div class="tc-sub" data-en="Parametric CAD in browser" data-zh="浏览器参数化CAD">Parametric CAD in browser</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#FF9F0A">System</div><div class="tc-sub" data-en="MBSE + SysML architecture" data-zh="MBSE + SysML架构设计">MBSE + SysML architecture</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#5E5CE6">Vision</div><div class="tc-sub" data-en="Real-time 3D simulation" data-zh="实时3D仿真">Real-time 3D simulation</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#FF3B30">Paper</div><div class="tc-sub" data-en="Collaborative engineering docs" data-zh="协作工程文档">Collaborative engineering docs</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#0A2540">Interaction</div><div class="tc-sub" data-en="Live parameter exploration" data-zh="实时参数探索">Live parameter exploration</div></div>
+        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">FEM</div><div class="tc-sub" data-en="Finite element analysis" data-zh="有限元分析">Finite element analysis</div></div>
+        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">CFD</div><div class="tc-sub" data-en="Computational fluid dynamics" data-zh="计算流体力学">Computational fluid dynamics</div></div>
+        <div class="tool-cell" style="border-color:rgba(52,199,89,.3);background:rgba(52,199,89,.03)"><div class="tc-name" style="color:#34C759">Compute</div><div class="tc-sub" data-en="Scientific computing" data-zh="科学计算">Scientific computing</div></div>
+        <div class="tool-cell" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.03)"><div class="tc-name" style="color:#FF9F0A">Optim</div><div class="tc-sub" data-en="Multi-objective optimisation" data-zh="多目标优化">Multi-objective optimisation</div></div>
+        <div class="tool-cell" style="border-color:rgba(94,92,230,.3);background:rgba(94,92,230,.03)"><div class="tc-name" style="color:#5E5CE6">RL</div><div class="tc-sub" data-en="Reinforcement learning" data-zh="强化学习">Reinforcement learning</div></div>
+        <div class="tool-cell" style="border-color:rgba(255,59,48,.3);background:rgba(255,59,48,.03)"><div class="tc-name" style="color:#FF3B30">Circuit</div><div class="tc-sub" data-en="KiCad PCB + co-simulation" data-zh="KiCad PCB + 协同仿真">KiCad PCB + co-simulation</div></div>
       </div>
       <div style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:var(--white);border:1px solid var(--border);border-radius:2px;display:inline-block"></span>Phase 1 — Live (6 tools)</div>
-        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(0,113,227,.06);border:1px solid rgba(0,113,227,.3);border-radius:2px;display:inline-block"></span>Phase 2 — FEM + CFD</div>
-        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(52,199,89,.04);border:1px solid rgba(52,199,89,.3);border-radius:2px;display:inline-block"></span>Phase 3 — Compute + Optim</div>
-        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(94,92,230,.04);border:1px solid rgba(94,92,230,.3);border-radius:2px;display:inline-block"></span>Phase 4 — RL + Circuit</div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:var(--white);border:1px solid var(--border);border-radius:2px;display:inline-block"></span><span data-en="Phase 1 — Live (6 tools)" data-zh="第一阶段 — 已上线（6个工具）">Phase 1 — Live (6 tools)</span></div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(0,113,227,.06);border:1px solid rgba(0,113,227,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 2 — FEM + CFD" data-zh="第二阶段 — FEM + CFD">Phase 2 — FEM + CFD</span></div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(52,199,89,.04);border:1px solid rgba(52,199,89,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 3 — Compute + Optim" data-zh="第三阶段 — Compute + Optim">Phase 3 — Compute + Optim</span></div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(94,92,230,.04);border:1px solid rgba(94,92,230,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 4 — RL + Circuit" data-zh="第四阶段 — RL + Circuit">Phase 4 — RL + Circuit</span></div>
       </div>
     </div>
 
     <div class="g2" style="margin-top:1.5rem">
       <div class="card">
-        <div class="card-title">Open Standards Foundation</div>
+        <div class="card-title" data-en="Open Standards Foundation" data-zh="开放标准基础">Open Standards Foundation</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Standard</th><th>Application</th><th>Competitive Implication</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Standard" data-zh="标准">Standard</th>
+              <th data-en="Application" data-zh="应用">Application</th>
+              <th data-en="Competitive Implication" data-zh="竞争意义">Competitive Implication</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">Modelica 4.0</td><td>Physics modelling language</td><td>LLM-native; Dassault cannot match</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">FMI 2.0 / 3.0</td><td>Functional Mock-up Interface</td><td>Interop with legacy tools; no lock-in</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">SysML v1.6</td><td>Systems Modeling Language</td><td>MBSE depth no competitor offers</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">KiCad (Phase 4)</td><td>Open PCB design + co-sim</td><td>Hardware/software co-design — unique</td></tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Modelica 4.0</td>
+              <td data-en="Physics modelling language" data-zh="物理建模语言">Physics modelling language</td>
+              <td data-en="LLM-native; Dassault cannot match" data-zh="大模型原生；Dassault无法匹敌">LLM-native; Dassault cannot match</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">FMI 2.0 / 3.0</td>
+              <td data-en="Functional Mock-up Interface" data-zh="功能样机接口">Functional Mock-up Interface</td>
+              <td data-en="Interop with legacy tools; no lock-in" data-zh="与旧工具互通；无锁定">Interop with legacy tools; no lock-in</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">SysML v1.6</td>
+              <td data-en="Systems Modeling Language" data-zh="系统建模语言">Systems Modeling Language</td>
+              <td data-en="MBSE depth no competitor offers" data-zh="MBSE深度无竞争对手可及">MBSE depth no competitor offers</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">KiCad (Phase 4)</td>
+              <td data-en="Open PCB design + co-sim" data-zh="开放PCB设计 + 协同仿真">Open PCB design + co-sim</td>
+              <td data-en="Hardware/software co-design — unique" data-zh="软硬件协同设计 — 行业独特">Hardware/software co-design — unique</td>
+            </tr>
           </tbody>
         </table>
       </div>
       <div class="card">
-        <div class="card-title">Brand Values</div>
+        <div class="card-title" data-en="Brand Values" data-zh="品牌价值观">Brand Values</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Value</th><th>Definition</th><th>Expression</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Value" data-zh="价值观">Value</th>
+              <th data-en="Definition" data-zh="定义">Definition</th>
+              <th data-en="Expression" data-zh="体现">Expression</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">Innovation</td><td>AI-native architecture, not retrofitted</td><td>Modelica + LLM from day one</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Openness</td><td>Built on open standards</td><td>Modelica, FMI, SysML — portable</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Excellence</td><td>Production-grade solvers</td><td>Trusted results for safety-critical work</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Accessibility</td><td>Browser-based, affordable</td><td>Free tier; zero install; global access</td></tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)" data-en="Innovation" data-zh="创新">Innovation</td>
+              <td data-en="AI-native architecture, not retrofitted" data-zh="AI原生架构，非改造拼接">AI-native architecture, not retrofitted</td>
+              <td data-en="Modelica + LLM from day one" data-zh="Modelica + 大模型从第一天起">Modelica + LLM from day one</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)" data-en="Openness" data-zh="开放">Openness</td>
+              <td data-en="Built on open standards" data-zh="基于开放标准构建">Built on open standards</td>
+              <td data-en="Modelica, FMI, SysML — portable" data-zh="Modelica, FMI, SysML — 可移植">Modelica, FMI, SysML — portable</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)" data-en="Excellence" data-zh="卓越">Excellence</td>
+              <td data-en="Production-grade solvers" data-zh="生产级求解器">Production-grade solvers</td>
+              <td data-en="Trusted results for safety-critical work" data-zh="安全关键场景可信赖的结果">Trusted results for safety-critical work</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)" data-en="Accessibility" data-zh="普惠">Accessibility</td>
+              <td data-en="Browser-based, affordable" data-zh="浏览器端，价格普惠">Browser-based, affordable</td>
+              <td data-en="Free tier; zero install; global access" data-zh="免费层级；零安装；全球可用">Free tier; zero install; global access</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -351,57 +432,63 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="messaging">
     <div class="sec-hd">
       <span class="sec-num">04</span>
-      <span class="sec-title">Audience Messaging</span>
-      <span class="sec-sub">ICP-specific positioning · Hooks · Proof</span>
+      <span class="sec-title" data-en="Audience Messaging" data-zh="受众消息传递">Audience Messaging</span>
+      <span class="sec-sub" data-en="ICP-specific positioning · Hooks · Proof" data-zh="ICP专属定位 · 钩子 · 证明">ICP-specific positioning · Hooks · Proof</span>
     </div>
 
     <div class="card">
-      <div class="card-title">Messaging Matrix by ICP</div>
+      <div class="card-title" data-en="Messaging Matrix by ICP" data-zh="各ICP消息矩阵">Messaging Matrix by ICP</div>
       <table class="tbl" style="margin-top:.5rem">
         <thead>
-          <tr><th>Segment</th><th>Primary Persona</th><th>Core Message</th><th>Key Hook</th><th>Proof Point</th></tr>
+          <tr>
+            <th data-en="Segment" data-zh="客户分类">Segment</th>
+            <th data-en="Primary Persona" data-zh="核心决策人">Primary Persona</th>
+            <th data-en="Core Message" data-zh="核心信息">Core Message</th>
+            <th data-en="Key Hook" data-zh="关键钩子">Key Hook</th>
+            <th data-en="Proof Point" data-zh="证明点">Proof Point</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
-            <td>VP Engineering · Sr. Simulation Engineer</td>
-            <td>"Replace your Dassault stack at 10% of the cost"</td>
-            <td>$50K–$500K/seat with zero AI-era value; multi-year lock-in</td>
-            <td>AI-native FEM + CFD in token plan; full Dassault suite equivalent</td>
+            <td data-en='<strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span>' data-zh='<strong style="color:var(--text)">企业级OEM客户</strong><br><span style="font-size:.68rem;color:var(--text3)">汽车 · 航空航天 · 能源</span>'><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
+            <td data-en="VP Engineering · Sr. Simulation Engineer" data-zh="工程副总裁 · 高级仿真工程师">VP Engineering · Sr. Simulation Engineer</td>
+            <td data-en='"Replace your Dassault stack at 10% of the cost"' data-zh='"以10%的成本替换您的Dassault技术栈"'>"Replace your Dassault stack at 10% of the cost"</td>
+            <td data-en="$50K–$500K/seat with zero AI-era value; multi-year lock-in" data-zh="$50K–$500K/席位却无AI时代价值；多年锁定">$50K–$500K/seat with zero AI-era value; multi-year lock-in</td>
+            <td data-en="AI-native FEM + CFD in token plan; full Dassault suite equivalent" data-zh="Token计划内AI原生FEM + CFD；等效完整Dassault套件">AI-native FEM + CFD in token plan; full Dassault suite equivalent</td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
-            <td>Managing Director · Lead Engineer</td>
-            <td>"Token-based: pay per simulation run, not per seat-year"</td>
-            <td>License utilization 30–50% idle; tool costs = 15–25% of project budget</td>
-            <td>ODE FEM + CFD replaces ANSYS + SolidWorks in one subscription</td>
+            <td data-en='<strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span>' data-zh='<strong style="color:var(--text)">工程咨询公司</strong><br><span style="font-size:.68rem;color:var(--text3)">服务 · 测试 · 验证</span>'><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
+            <td data-en="Managing Director · Lead Engineer" data-zh="总监 · 首席工程师">Managing Director · Lead Engineer</td>
+            <td data-en='"Token-based: pay per simulation run, not per seat-year"' data-zh='"Token计费：按仿真次数付费，而非按席位年付费"'>"Token-based: pay per simulation run, not per seat-year"</td>
+            <td data-en="License utilization 30–50% idle; tool costs = 15–25% of project budget" data-zh="许可证使用率30–50%闲置；工具成本占项目预算15–25%">License utilization 30–50% idle; tool costs = 15–25% of project budget</td>
+            <td data-en="ODE FEM + CFD replaces ANSYS + SolidWorks in one subscription" data-zh="ODE FEM + CFD以单一订阅替代ANSYS + SolidWorks">ODE FEM + CFD replaces ANSYS + SolidWorks in one subscription</td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">Research · Teaching · R1 Labs</span></td>
-            <td>Professor · Department Chair</td>
-            <td>"Free for students, affordable for departments"</td>
-            <td>80%+ academic discount; browser-based = zero IT overhead</td>
-            <td>Graduate job-ready engineers; research-grade simulation in browser</td>
+            <td data-en='<strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">Research · Teaching · R1 Labs</span>' data-zh='<strong style="color:var(--text)">高校与科研机构</strong><br><span style="font-size:.68rem;color:var(--text3)">科研 · 教学 · R1实验室</span>'><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">Research · Teaching · R1 Labs</span></td>
+            <td data-en="Professor · Department Chair" data-zh="教授 · 系主任">Professor · Department Chair</td>
+            <td data-en='"Free for students, affordable for departments"' data-zh='"学生免费，院系可负担"'>"Free for students, affordable for departments"</td>
+            <td data-en="80%+ academic discount; browser-based = zero IT overhead" data-zh="80%以上学术折扣；浏览器端 = 零IT开销">80%+ academic discount; browser-based = zero IT overhead</td>
+            <td data-en="Graduate job-ready engineers; research-grade simulation in browser" data-zh="培养具备就业竞争力的工程师；浏览器中的研究级仿真">Graduate job-ready engineers; research-grade simulation in browser</td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers · Makers</span></td>
-            <td>Founder · CTO · Solo Engineer</td>
-            <td>"Enterprise-grade simulation for $49/month"</td>
-            <td>ANSYS single seat costs more than a seed-stage monthly cloud budget</td>
-            <td>AI does the meshing; first simulation in 60 seconds; ship hardware faster</td>
+            <td data-en='<strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers · Makers</span>' data-zh='<strong style="color:var(--text)">独立工程师</strong><br><span style="font-size:.68rem;color:var(--text3)">硬件创业公司 · 自由职业者 · 创客</span>'><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers · Makers</span></td>
+            <td data-en="Founder · CTO · Solo Engineer" data-zh="创始人 · CTO · 独立工程师">Founder · CTO · Solo Engineer</td>
+            <td data-en='"Enterprise-grade simulation for $49/month"' data-zh='"$49/月的企业级仿真"'>"Enterprise-grade simulation for $49/month"</td>
+            <td data-en="ANSYS single seat costs more than a seed-stage monthly cloud budget" data-zh="ANSYS单席位费用超过种子期月度云预算">ANSYS single seat costs more than a seed-stage monthly cloud budget</td>
+            <td data-en="AI does the meshing; first simulation in 60 seconds; ship hardware faster" data-zh="AI自动网格划分；60秒内完成首次仿真；更快交付硬件">AI does the meshing; first simulation in 60 seconds; ship hardware faster</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="card" style="margin-top:1.5rem">
-      <div class="card-title">Why ODE Messaging Pyramid</div>
+      <div class="card-title" data-en="Why ODE Messaging Pyramid" data-zh="ODE价值传递金字塔">Why ODE Messaging Pyramid</div>
       <div class="pyramid" style="margin-top:.75rem">
-        <div class="pyr-row" style="background:var(--midnight)">Vision — "Engineer the Future with AI"</div>
-        <div class="pyr-row" style="background:#0d3060">"The only platform where AI understands physics, tools are integrated, and standards are open"</div>
-        <div class="pyr-row" style="background:#0d4090">Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards</div>
-        <div class="pyr-row" style="background:var(--accent)">Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in</div>
-        <div class="pyr-row" style="background:#4da3ff;color:var(--midnight)">Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control</div>
+        <div class="pyr-row" style="background:var(--midnight)" data-en='Vision — "Engineer the Future with AI"' data-zh='愿景 — 「用AI重塑工程未来」'>Vision — "Engineer the Future with AI"</div>
+        <div class="pyr-row" style="background:#0d3060" data-en='"The only platform where AI understands physics, tools are integrated, and standards are open"' data-zh='"唯一一个AI理解物理、工具深度集成、标准完全开放的平台"'>"The only platform where AI understands physics, tools are integrated, and standards are open"</div>
+        <div class="pyr-row" style="background:#0d4090" data-en="Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards" data-zh="战略差异化 — AI原生架构 &nbsp;·&nbsp; 12大集成工具 &nbsp;·&nbsp; 开放标准">Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards</div>
+        <div class="pyr-row" style="background:var(--accent)" data-en="Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in" data-zh="功能价值 — 更快建模 &nbsp;·&nbsp; 更低成本 &nbsp;·&nbsp; 更好协作 &nbsp;·&nbsp; 无锁定">Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in</div>
+        <div class="pyr-row" style="background:#4da3ff;color:var(--midnight)" data-en="Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control" data-zh="产品特性 — AI生成 &nbsp;·&nbsp; 实时协作 &nbsp;·&nbsp; 云端计算 &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; 版本控制">Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control</div>
       </div>
     </div>
   </section>
@@ -410,24 +497,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="identity">
     <div class="sec-hd">
       <span class="sec-num">05</span>
-      <span class="sec-title">Visual Identity System</span>
-      <span class="sec-sub">Color tokens · Typography · Design principles</span>
+      <span class="sec-title" data-en="Visual Identity System" data-zh="视觉识别系统">Visual Identity System</span>
+      <span class="sec-sub" data-en="Color tokens · Typography · Design principles" data-zh="色彩系统 · 字体规范 · 设计原则">Color tokens · Typography · Design principles</span>
     </div>
 
     <div class="g2">
       <div class="card">
-        <div class="card-title">Color System — Light Mode (Marketing)</div>
+        <div class="card-title" data-en="Color System — Light Mode (Marketing)" data-zh="色彩系统 — 浅色模式（营销端）">Color System — Light Mode (Marketing)</div>
         <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem">
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0A2540"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Brand Midnight</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0A2540 — Primary brand, headers, anchor</div></div></div>
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0071E3"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Brand Accent</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0071E3 — CTAs, links, interactive elements</div></div></div>
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#FFFFFF;"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Background Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#FFFFFF — Cards, modals, content surfaces</div></div></div>
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#F5F5F7"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Background Secondary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#F5F5F7 — Page bg (Apple standard)</div></div></div>
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#1D1D1F"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Text Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#1D1D1F — Apple near-black body text</div></div></div>
-          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#000000"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Dark Mode BG</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#000000 — Product UI (app surfaces)</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0A2540"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Brand Midnight" data-zh="品牌深蓝">Brand Midnight</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0A2540 — Primary brand, headers, anchor</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0071E3"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Brand Accent" data-zh="品牌强调色">Brand Accent</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0071E3 — CTAs, links, interactive elements</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#FFFFFF;"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Background Primary" data-zh="主背景色">Background Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#FFFFFF — Cards, modals, content surfaces</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#F5F5F7"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Background Secondary" data-zh="次背景色">Background Secondary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#F5F5F7 — Page bg (Apple standard)</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#1D1D1F"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Text Primary" data-zh="主文本色">Text Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#1D1D1F — Apple near-black body text</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#000000"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)" data-en="Dark Mode BG" data-zh="深色模式背景">Dark Mode BG</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#000000 — Product UI (app surfaces)</div></div></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Typography System — SF Pro Stack</div>
+        <div class="card-title" data-en="Typography System — SF Pro Stack" data-zh="字体系统 — SF Pro 字体栈">Typography System — SF Pro Stack</div>
         <div style="margin-top:.5rem">
           <div class="type-row"><div style="font-size:2.2rem;font-weight:700;letter-spacing:-.04em;flex:1">Display</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">96px / -0.06em / Bold</div></div>
           <div class="type-row"><div style="font-size:1.7rem;font-weight:700;letter-spacing:-.03em;flex:1">Heading H1</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">40px / -0.03em / Bold</div></div>
@@ -437,14 +524,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
           <div class="type-row"><div style="font-size:.82rem;font-family:var(--mono);font-weight:400;flex:1">Code / Mono</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">SF Mono 15px / 0 / Regular</div></div>
         </div>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.6rem">Design Principles — Apple Tradition</div>
+          <div class="card-title" style="margin-bottom:.6rem" data-en="Design Principles — Apple Tradition" data-zh="设计原则 — Apple传统">Design Principles — Apple Tradition</div>
           <div style="display:flex;flex-direction:column;gap:.3rem">
-            <div style="font-size:.78rem;color:var(--text2)">Radical whitespace — minimum 60% of hero viewport empty</div>
-            <div style="font-size:.78rem;color:var(--text2)">Negative letter-spacing at large sizes (down to -0.06em at 96px)</div>
-            <div style="font-size:.78rem;color:var(--text2)">No gradients as backgrounds — solid colors only</div>
-            <div style="font-size:.78rem;color:var(--text2)">8pt spacing grid throughout all surfaces</div>
-            <div style="font-size:.78rem;color:var(--text2)">Motion: cubic-bezier(0.16, 1, 0.30, 1) at 300ms — Apple spring</div>
-            <div style="font-size:.78rem;color:var(--text2)">Dark mode for product UI only — marketing surfaces always light</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="Radical whitespace — minimum 60% of hero viewport empty" data-zh="极简留白 — 主视觉区至少60%为空白">Radical whitespace — minimum 60% of hero viewport empty</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="Negative letter-spacing at large sizes (down to -0.06em at 96px)" data-zh="大字号负字间距（96px时达-0.06em）">Negative letter-spacing at large sizes (down to -0.06em at 96px)</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="No gradients as backgrounds — solid colors only" data-zh="背景不使用渐变色 — 仅使用纯色">No gradients as backgrounds — solid colors only</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="8pt spacing grid throughout all surfaces" data-zh="全界面使用8pt间距网格">8pt spacing grid throughout all surfaces</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="Motion: cubic-bezier(0.16, 1, 0.30, 1) at 300ms — Apple spring" data-zh="动效：cubic-bezier(0.16, 1, 0.30, 1) 300ms — Apple弹簧曲线">Motion: cubic-bezier(0.16, 1, 0.30, 1) at 300ms — Apple spring</div>
+            <div style="font-size:.78rem;color:var(--text2)" data-en="Dark mode for product UI only — marketing surfaces always light" data-zh="深色模式仅用于产品界面 — 营销页面始终使用浅色">Dark mode for product UI only — marketing surfaces always light</div>
           </div>
         </div>
       </div>
@@ -465,6 +552,16 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { rootMargin: '-30% 0px -60% 0px' });
 sections.forEach(s => obs.observe(s));
+
+let _lang='en';
+function toggleLang(){
+  _lang=_lang==='en'?'zh':'en';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+  });
+  document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+  document.documentElement.lang=_lang;
+}
 </script>
 </body>
 </html>

@@ -87,27 +87,28 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 </style>
 </head>
 <body>
-<div class="page-header">
+<div class="page-header" style="display:flex;align-items:center">
   <div>
     <div class="ph-eyebrow">Orthogonal · ODE</div>
-    <div class="ph-title">Go-to-Market Strategy — Executive Dashboard</div>
+    <div class="ph-title" data-en="Go-to-Market Strategy — Executive Dashboard" data-zh="市场进入策略 — 管理层仪表板">Go-to-Market Strategy — Executive Dashboard</div>
   </div>
-  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap</div>
+  <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>市场 · 客户画像 · 营收 · 渠道 · 路线图">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap</div>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 <nav class="dash-nav" id="nav">
-  <a href="#market" class="nav-item active">01 Market</a>
-  <a href="#icp" class="nav-item">02 ICP Matrix</a>
-  <a href="#revenue" class="nav-item">03 Revenue Model</a>
-  <a href="#roadmap" class="nav-item">04 Roadmap</a>
-  <a href="#channels" class="nav-item">05 Channels</a>
-  <a href="#kpis" class="nav-item">06 KPIs</a>
+  <a href="#market" class="nav-item active" data-en="01 Market" data-zh="01 市场机会">01 Market</a>
+  <a href="#icp" class="nav-item" data-en="02 ICP Matrix" data-zh="02 客户画像矩阵">02 ICP Matrix</a>
+  <a href="#revenue" class="nav-item" data-en="03 Revenue Model" data-zh="03 营收模型">03 Revenue Model</a>
+  <a href="#roadmap" class="nav-item" data-en="04 Roadmap" data-zh="04 执行路线图">04 Roadmap</a>
+  <a href="#channels" class="nav-item" data-en="05 Channels" data-zh="05 渠道策略">05 Channels</a>
+  <a href="#kpis" class="nav-item" data-en="06 KPIs" data-zh="06 关键指标">06 KPIs</a>
 </nav>
 <div class="stats-bar">
-  <div class="stat-cell"><div class="stat-num">$1M</div><div class="stat-lbl">Year 1 ARR target</div></div>
-  <div class="stat-cell"><div class="stat-num">$23B</div><div class="stat-lbl">Global TAM (2025)</div></div>
-  <div class="stat-cell"><div class="stat-num">280</div><div class="stat-lbl">Paid users target (M12)</div></div>
-  <div class="stat-cell"><div class="stat-num">40/60</div><div class="stat-lbl">PLG / SLG revenue split</div></div>
-  <div class="stat-cell"><div class="stat-num">$3,500</div><div class="stat-lbl">Blended ARPU / year</div></div>
+  <div class="stat-cell"><div class="stat-num">$1M</div><div class="stat-lbl" data-en="Year 1 ARR target" data-zh="第一年ARR目标">Year 1 ARR target</div></div>
+  <div class="stat-cell"><div class="stat-num">$23B</div><div class="stat-lbl" data-en="Global TAM (2025)" data-zh="全球TAM（2025年）">Global TAM (2025)</div></div>
+  <div class="stat-cell"><div class="stat-num">280</div><div class="stat-lbl" data-en="Paid users target (M12)" data-zh="付费用户目标（第12个月）">Paid users target (M12)</div></div>
+  <div class="stat-cell"><div class="stat-num">40/60</div><div class="stat-lbl" data-en="PLG / SLG revenue split" data-zh="PLG / SLG营收比例">PLG / SLG revenue split</div></div>
+  <div class="stat-cell"><div class="stat-num">$3,500</div><div class="stat-lbl" data-en="Blended ARPU / year" data-zh="综合ARPU / 年">Blended ARPU / year</div></div>
 </div>
 
 <main class="dash-main">
@@ -116,55 +117,71 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="market">
     <div class="sec-hd">
       <span class="sec-num">01</span>
-      <span class="sec-title">Market Opportunity</span>
-      <span class="sec-sub">TAM · SAM · SOM · Why now</span>
+      <span class="sec-title" data-en="Market Opportunity" data-zh="市场机会">Market Opportunity</span>
+      <span class="sec-sub" data-en="TAM · SAM · SOM · Why now" data-zh="TAM · SAM · SOM · 为何是现在">TAM · SAM · SOM · Why now</span>
     </div>
     <div class="g4" style="margin-bottom:1.5rem">
       <div class="tam-box">
         <div class="tam-num">$23B</div>
-        <div class="tam-label">TAM</div>
-        <div class="tam-sub">Global engineering simulation market (2025)</div>
+        <div class="tam-label" data-en="TAM" data-zh="TAM 总可寻址市场">TAM</div>
+        <div class="tam-sub" data-en="Global engineering simulation market (2025)" data-zh="全球工程仿真市场（2025年）">Global engineering simulation market (2025)</div>
       </div>
       <div class="tam-box">
         <div class="tam-num">$1.3B</div>
-        <div class="tam-label">SAM</div>
-        <div class="tam-sub">AI-addressable engineering tools segment</div>
+        <div class="tam-label" data-en="SAM" data-zh="SAM 可服务市场">SAM</div>
+        <div class="tam-sub" data-en="AI-addressable engineering tools segment" data-zh="AI可服务工程工具细分市场">AI-addressable engineering tools segment</div>
       </div>
       <div class="tam-box">
         <div class="tam-num">$1.2M</div>
-        <div class="tam-label">SOM Year 1</div>
-        <div class="tam-sub">Realistic capture across all 4 segments</div>
+        <div class="tam-label" data-en="SOM Year 1" data-zh="SOM 第一年">SOM Year 1</div>
+        <div class="tam-sub" data-en="Realistic capture across all 4 segments" data-zh="4大客户群可实现的合理份额">Realistic capture across all 4 segments</div>
       </div>
       <div class="tam-box" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.04)">
         <div class="tam-num" style="color:var(--accent)">$800M</div>
-        <div class="tam-label">Beachhead</div>
-        <div class="tam-sub">AI-native tools subsegment · 45%+ growth</div>
+        <div class="tam-label" data-en="Beachhead" data-zh="滩头阵地">Beachhead</div>
+        <div class="tam-sub" data-en="AI-native tools subsegment · 45%+ growth" data-zh="AI原生工具细分市场 · 年增长45%+">AI-native tools subsegment · 45%+ growth</div>
       </div>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Why Now — Convergence of 4 Forces</div>
+        <div class="card-title" data-en="Why Now — Convergence of 4 Forces" data-zh="为何是现在 — 4股力量的汇聚">Why Now — Convergence of 4 Forces</div>
         <table class="tbl" style="margin-top:.25rem">
           <tbody>
-            <tr><td style="width:20px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td><td style="font-weight:600;color:var(--text)">LLMs reached engineering competence</td><td style="color:var(--text2)">Can reason about physics equations; Modelica is natively machine-readable</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td><td style="font-weight:600;color:var(--text)">Engineering teams receive AI budgets</td><td style="color:var(--text2)">First time in history; companies mandate AI adoption in 2025–2026</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td><td style="font-weight:600;color:var(--text)">Dassault's 30-year architecture cannot adapt</td><td style="color:var(--text2)">Binary format lock-in prevents AI rebuild; structural opening for new entrant</td></tr>
-            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td><td style="font-weight:600;color:var(--text)">Cloud + browser expectations normalized</td><td style="color:var(--text2)">Engineers expect Figma/Notion-style tools; desktop installs are a blocker</td></tr>
+            <tr>
+              <td style="width:20px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td>
+              <td style="font-weight:600;color:var(--text)" data-en="LLMs reached engineering competence" data-zh="大模型达到工程级能力">LLMs reached engineering competence</td>
+              <td style="color:var(--text2)" data-en="Can reason about physics equations; Modelica is natively machine-readable" data-zh="能推理物理方程；Modelica原生对大模型可读">Can reason about physics equations; Modelica is natively machine-readable</td>
+            </tr>
+            <tr>
+              <td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td>
+              <td style="font-weight:600;color:var(--text)" data-en="Engineering teams receive AI budgets" data-zh="工程团队首次获得AI预算">Engineering teams receive AI budgets</td>
+              <td style="color:var(--text2)" data-en="First time in history; companies mandate AI adoption in 2025–2026" data-zh="史上首次；企业在2025–2026年强制推行AI工具">First time in history; companies mandate AI adoption in 2025–2026</td>
+            </tr>
+            <tr>
+              <td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td>
+              <td style="font-weight:600;color:var(--text)" data-en="Dassault's 30-year architecture cannot adapt" data-zh="达索30年架构无法适配AI">Dassault's 30-year architecture cannot adapt</td>
+              <td style="color:var(--text2)" data-en="Binary format lock-in prevents AI rebuild; structural opening for new entrant" data-zh="二进制格式锁定阻止AI重建；为新进入者创造结构性机会">Binary format lock-in prevents AI rebuild; structural opening for new entrant</td>
+            </tr>
+            <tr>
+              <td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td>
+              <td style="font-weight:600;color:var(--text)" data-en="Cloud + browser expectations normalized" data-zh="云端与浏览器使用习惯已成常态">Cloud + browser expectations normalized</td>
+              <td style="color:var(--text2)" data-en="Engineers expect Figma/Notion-style tools; desktop installs are a blocker" data-zh="工程师期待Figma/Notion式工具；桌面安装已成障碍">Engineers expect Figma/Notion-style tools; desktop installs are a blocker</td>
+            </tr>
           </tbody>
         </table>
       </div>
       <div class="card">
-        <div class="card-title">SOM by Segment — Year 1 Target</div>
+        <div class="card-title" data-en="SOM by Segment — Year 1 Target" data-zh="各细分市场SOM — 第一年目标">SOM by Segment — Year 1 Target</div>
         <div style="margin-top:.25rem">
-          <div class="bc-row"><div class="bc-label">Enterprise OEMs</div><div class="bc-track"><div class="bc-fill" style="width:37.5%;background:var(--midnight)"></div></div><div class="bc-val">$450K</div></div>
-          <div class="bc-row"><div class="bc-label">Consultancies</div><div class="bc-track"><div class="bc-fill" style="width:20.8%;background:var(--accent)"></div></div><div class="bc-val">$250K</div></div>
-          <div class="bc-row"><div class="bc-label">Universities</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--ai)"></div></div><div class="bc-val">$150K</div></div>
-          <div class="bc-row"><div class="bc-label">Indie Engineers</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--success)"></div></div><div class="bc-val">$150K</div></div>
-          <div class="bc-row"><div class="bc-label">Channel Partners</div><div class="bc-track"><div class="bc-fill" style="width:16.6%;background:var(--warning)"></div></div><div class="bc-val">$200K</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Enterprise OEMs" data-zh="企业级OEM">Enterprise OEMs</div><div class="bc-track"><div class="bc-fill" style="width:37.5%;background:var(--midnight)"></div></div><div class="bc-val">$450K</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Consultancies" data-zh="工程咨询">Consultancies</div><div class="bc-track"><div class="bc-fill" style="width:20.8%;background:var(--accent)"></div></div><div class="bc-val">$250K</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Universities" data-zh="高校">Universities</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--ai)"></div></div><div class="bc-val">$150K</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Indie Engineers" data-zh="独立工程师">Indie Engineers</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--success)"></div></div><div class="bc-val">$150K</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Channel Partners" data-zh="渠道合作伙伴">Channel Partners</div><div class="bc-track"><div class="bc-fill" style="width:16.6%;background:var(--warning)"></div></div><div class="bc-val">$200K</div></div>
         </div>
         <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:.75rem">
-          <span style="color:var(--text3)">Market CAGR</span>
-          <span style="font-weight:600;color:var(--text)">12.1% global · 45%+ AI-native</span>
+          <span style="color:var(--text3)" data-en="Market CAGR" data-zh="市场年复合增长率">Market CAGR</span>
+          <span style="font-weight:600;color:var(--text)" data-en="12.1% global · 45%+ AI-native" data-zh="全球12.1% · AI原生45%+">12.1% global · 45%+ AI-native</span>
         </div>
       </div>
     </div>
@@ -174,63 +191,72 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="icp">
     <div class="sec-hd">
       <span class="sec-num">02</span>
-      <span class="sec-title">ICP Matrix</span>
-      <span class="sec-sub">4 segments · ACV · Sales motion · Channel priority</span>
+      <span class="sec-title" data-en="ICP Matrix" data-zh="客户画像矩阵">ICP Matrix</span>
+      <span class="sec-sub" data-en="4 segments · ACV · Sales motion · Channel priority" data-zh="4大客户群 · 合同价值 · 销售模式 · 渠道优先级">4 segments · ACV · Sales motion · Channel priority</span>
     </div>
     <div class="card">
-      <div class="card-title">Ideal Customer Profile Comparison</div>
+      <div class="card-title" data-en="Ideal Customer Profile Comparison" data-zh="理想客户画像对比">Ideal Customer Profile Comparison</div>
       <table class="tbl" style="margin-top:.5rem">
         <thead>
-          <tr><th>Segment</th><th>Size</th><th>Target ACV</th><th>Sales Cycle</th><th>Motion</th><th>Primary Channel</th><th>ARR Target</th><th>Priority</th></tr>
+          <tr>
+            <th data-en="Segment" data-zh="客户分类">Segment</th>
+            <th data-en="Size" data-zh="规模">Size</th>
+            <th data-en="Target ACV" data-zh="目标合同年价值">Target ACV</th>
+            <th data-en="Sales Cycle" data-zh="销售周期">Sales Cycle</th>
+            <th data-en="Motion" data-zh="销售模式">Motion</th>
+            <th data-en="Primary Channel" data-zh="主渠道">Primary Channel</th>
+            <th data-en="ARR Target" data-zh="ARR目标">ARR Target</th>
+            <th data-en="Priority" data-zh="优先级">Priority</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
+            <td data-en='<strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span>' data-zh='<strong style="color:var(--text)">企业级OEM</strong><br><span style="font-size:.68rem;color:var(--text3)">汽车 · 航空航天 · 能源</span>'><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
             <td>500–50,000+</td>
             <td style="font-family:var(--mono);color:var(--text)">$50K–$150K</td>
-            <td>6–12 months</td>
+            <td data-en="6–12 months" data-zh="6–12个月">6–12 months</td>
             <td><span class="pill p-navy">SLG Direct</span></td>
-            <td>ABM · Events · Referrals</td>
+            <td data-en="ABM · Events · Referrals" data-zh="ABM · 活动 · 转介绍">ABM · Events · Referrals</td>
             <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$450K (45%)</td>
             <td><span class="pill p-blue">P1</span></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
+            <td data-en='<strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span>' data-zh='<strong style="color:var(--text)">工程咨询公司</strong><br><span style="font-size:.68rem;color:var(--text3)">服务 · 测试 · 验证</span>'><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
             <td>10–500</td>
             <td style="font-family:var(--mono);color:var(--text)">$10K–$25K</td>
-            <td>4–8 weeks</td>
+            <td data-en="4–8 weeks" data-zh="4–8周">4–8 weeks</td>
             <td><span class="pill p-blue">SLG Light</span></td>
-            <td>Content · LinkedIn · Webinars</td>
+            <td data-en="Content · LinkedIn · Webinars" data-zh="内容营销 · LinkedIn · 网络研讨会">Content · LinkedIn · Webinars</td>
             <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$250K (25%)</td>
             <td><span class="pill p-blue">P2</span></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">R1 Research · Teaching · Labs</span></td>
-            <td>1K–50K students</td>
+            <td data-en='<strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">R1 Research · Teaching · Labs</span>' data-zh='<strong style="color:var(--text)">高校与科研机构</strong><br><span style="font-size:.68rem;color:var(--text3)">R1科研 · 教学 · 实验室</span>'><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">R1 Research · Teaching · Labs</span></td>
+            <td data-en="1K–50K students" data-zh="1K–50K学生">1K–50K students</td>
             <td style="font-family:var(--mono);color:var(--text)">$5K–$15K</td>
-            <td>3–8 months</td>
+            <td data-en="3–8 months" data-zh="3–8个月">3–8 months</td>
             <td><span class="pill p-amber">SLG Academic</span></td>
-            <td>Conferences · Free tier</td>
+            <td data-en="Conferences · Free tier" data-zh="学术会议 · 免费层级">Conferences · Free tier</td>
             <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150K (15%)</td>
             <td><span class="pill p-amber">P3</span></td>
           </tr>
           <tr>
-            <td><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers</span></td>
+            <td data-en='<strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers</span>' data-zh='<strong style="color:var(--text)">独立工程师与创业公司</strong><br><span style="font-size:.68rem;color:var(--text3)">硬件创业公司 · 自由职业者</span>'><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers</span></td>
             <td>1–50</td>
             <td style="font-family:var(--mono);color:var(--text)">$1.2K–$3K</td>
-            <td>Same-day–2 weeks</td>
+            <td data-en="Same-day–2 weeks" data-zh="当天–2周">Same-day–2 weeks</td>
             <td><span class="pill p-green">PLG Self-serve</span></td>
-            <td>SEO · Social · ProductHunt</td>
+            <td data-en="SEO · Social · ProductHunt" data-zh="SEO · 社交媒体 · ProductHunt">SEO · Social · ProductHunt</td>
             <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150K (15%)</td>
             <td><span class="pill p-blue">P1</span></td>
           </tr>
           <tr style="background:rgba(255,159,10,.04)">
-            <td><strong style="color:var(--text)">Channel Partners</strong><br><span style="font-size:.68rem;color:var(--text3)">EU Resellers · Dassault/ANSYS channel</span></td>
-            <td>5–200 engineers</td>
+            <td data-en='<strong style="color:var(--text)">Channel Partners</strong><br><span style="font-size:.68rem;color:var(--text3)">EU Resellers · Dassault/ANSYS channel</span>' data-zh='<strong style="color:var(--text)">渠道合作伙伴</strong><br><span style="font-size:.68rem;color:var(--text3)">欧盟经销商 · Dassault/ANSYS渠道</span>'><strong style="color:var(--text)">Channel Partners</strong><br><span style="font-size:.68rem;color:var(--text3)">EU Resellers · Dassault/ANSYS channel</span></td>
+            <td data-en="5–200 engineers" data-zh="5–200名工程师">5–200 engineers</td>
             <td style="font-family:var(--mono);color:var(--text)">$200K+ pipeline</td>
-            <td>30–60 days to sign</td>
+            <td data-en="30–60 days to sign" data-zh="30–60天签约">30–60 days to sign</td>
             <td><span class="pill p-amber">Partner SLG</span></td>
-            <td>Direct outreach · Clay</td>
+            <td data-en="Direct outreach · Clay" data-zh="直接触达 · Clay">Direct outreach · Clay</td>
             <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$200K+ (channel)</td>
             <td><span class="pill p-amber">P0</span></td>
           </tr>
@@ -239,26 +265,73 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
     </div>
     <div class="g2" style="margin-top:1.5rem">
       <div class="card">
-        <div class="card-title">Persona by Segment</div>
+        <div class="card-title" data-en="Persona by Segment" data-zh="各细分市场核心角色">Persona by Segment</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Segment</th><th>Champion</th><th>Decision Maker</th><th>Veto / Influence</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Segment" data-zh="客户分类">Segment</th>
+              <th data-en="Champion" data-zh="内部推动者">Champion</th>
+              <th data-en="Decision Maker" data-zh="决策者">Decision Maker</th>
+              <th data-en="Veto / Influence" data-zh="否决权/影响者">Veto / Influence</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td><strong style="color:var(--text)">Enterprise OEM</strong></td><td>Sr. Simulation Engineer</td><td>VP Engineering / CTO</td><td>IT Security Director</td></tr>
-            <tr><td><strong style="color:var(--text)">Consultancy</strong></td><td>Lead Simulation Engineer</td><td>Managing Director</td><td>Business Dev Manager</td></tr>
-            <tr><td><strong style="color:var(--text)">University</strong></td><td>Professor / Lab Director</td><td>Department Chair</td><td>IT Director (college)</td></tr>
-            <tr><td><strong style="color:var(--text)">Indie</strong></td><td colspan="3">Founder / CTO (sole authority)</td></tr>
+            <tr>
+              <td><strong style="color:var(--text)">Enterprise OEM</strong></td>
+              <td data-en="Sr. Simulation Engineer" data-zh="高级仿真工程师">Sr. Simulation Engineer</td>
+              <td data-en="VP Engineering / CTO" data-zh="工程副总裁 / CTO">VP Engineering / CTO</td>
+              <td data-en="IT Security Director" data-zh="IT安全总监">IT Security Director</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Consultancy</strong></td>
+              <td data-en="Lead Simulation Engineer" data-zh="首席仿真工程师">Lead Simulation Engineer</td>
+              <td data-en="Managing Director" data-zh="总经理">Managing Director</td>
+              <td data-en="Business Dev Manager" data-zh="业务发展经理">Business Dev Manager</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">University</strong></td>
+              <td data-en="Professor / Lab Director" data-zh="教授 / 实验室主任">Professor / Lab Director</td>
+              <td data-en="Department Chair" data-zh="系主任">Department Chair</td>
+              <td data-en="IT Director (college)" data-zh="IT总监（学院）">IT Director (college)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Indie</strong></td>
+              <td colspan="3" data-en="Founder / CTO (sole authority)" data-zh="创始人 / CTO（唯一决策人）">Founder / CTO (sole authority)</td>
+            </tr>
           </tbody>
         </table>
       </div>
       <div class="card">
-        <div class="card-title">Top Pain Points by Segment</div>
+        <div class="card-title" data-en="Top Pain Points by Segment" data-zh="各细分市场核心痛点">Top Pain Points by Segment</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Segment</th><th>Primary Pain</th><th>Secondary Pain</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Segment" data-zh="客户分类">Segment</th>
+              <th data-en="Primary Pain" data-zh="首要痛点">Primary Pain</th>
+              <th data-en="Secondary Pain" data-zh="次要痛点">Secondary Pain</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td><strong style="color:var(--text)">Enterprise OEM</strong></td><td>$50K–$500K/seat lock-in</td><td>Toolchain fragmentation (4–7 tools)</td></tr>
-            <tr><td><strong style="color:var(--text)">Consultancy</strong></td><td>30–50% license idle time</td><td>Margin pressure (15–25% of project)</td></tr>
-            <tr><td><strong style="color:var(--text)">University</strong></td><td>Shrinking software budgets</td><td>HPC queue bottlenecks</td></tr>
-            <tr><td><strong style="color:var(--text)">Indie</strong></td><td>Tool cost vs. runway</td><td>Skill gap — need approachable AI</td></tr>
+            <tr>
+              <td><strong style="color:var(--text)">Enterprise OEM</strong></td>
+              <td data-en="$50K–$500K/seat lock-in" data-zh="$50K–$500K/席位锁定">$50K–$500K/seat lock-in</td>
+              <td data-en="Toolchain fragmentation (4–7 tools)" data-zh="工具链碎片化（4–7个工具）">Toolchain fragmentation (4–7 tools)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Consultancy</strong></td>
+              <td data-en="30–50% license idle time" data-zh="30–50%许可证闲置">30–50% license idle time</td>
+              <td data-en="Margin pressure (15–25% of project)" data-zh="利润压力（占项目15–25%）">Margin pressure (15–25% of project)</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">University</strong></td>
+              <td data-en="Shrinking software budgets" data-zh="软件预算持续缩减">Shrinking software budgets</td>
+              <td data-en="HPC queue bottlenecks" data-zh="HPC排队瓶颈">HPC queue bottlenecks</td>
+            </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Indie</strong></td>
+              <td data-en="Tool cost vs. runway" data-zh="工具成本 vs. 融资跑道">Tool cost vs. runway</td>
+              <td data-en="Skill gap — need approachable AI" data-zh="技能缺口 — 需要易用的AI">Skill gap — need approachable AI</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -269,62 +342,160 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="revenue">
     <div class="sec-hd">
       <span class="sec-num">03</span>
-      <span class="sec-title">Revenue Model</span>
-      <span class="sec-sub">Token-first · Pricing tiers · Services packages · ARPU breakdown</span>
+      <span class="sec-title" data-en="Revenue Model" data-zh="营收模型">Revenue Model</span>
+      <span class="sec-sub" data-en="Token-first · Pricing tiers · Services packages · ARPU breakdown" data-zh="Token优先 · 定价层级 · 服务套餐 · ARPU拆解">Token-first · Pricing tiers · Services packages · ARPU breakdown</span>
     </div>
     <div class="insight">
-      <div class="ins-label">Business Model Principle</div>
-      <div class="ins-text">Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows.</div>
+      <div class="ins-label" data-en="Business Model Principle" data-zh="商业模式原则">Business Model Principle</div>
+      <div class="ins-text" data-en="Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows." data-zh="订阅是访问载体，Token是营收引擎。每一个AI操作——模型生成、仿真设置、结果解读、优化运行——都消耗Token。随着使用量增长，ARPU持续提升。">Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows.</div>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Subscription Pricing Tiers</div>
+        <div class="card-title" data-en="Subscription Pricing Tiers" data-zh="订阅定价层级">Subscription Pricing Tiers</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Tier</th><th>Price / mo</th><th>Token Bundle</th><th>Target ICP</th></tr></thead>
+          <thead>
+            <tr>
+              <th data-en="Tier" data-zh="层级">Tier</th>
+              <th data-en="Price / mo" data-zh="月费">Price / mo</th>
+              <th data-en="Token Bundle" data-zh="Token套餐">Token Bundle</th>
+              <th data-en="Target ICP" data-zh="目标客户">Target ICP</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">Free</td><td style="font-family:var(--mono)">$0</td><td>500 tokens / day</td><td>Students, explorers</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Starter</td><td style="font-family:var(--mono)">$49</td><td>500K tokens / mo</td><td>Indie engineers</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Pro</td><td style="font-family:var(--mono)">$99</td><td>5M tokens / mo</td><td>Consultancies, professionals</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Team</td><td style="font-family:var(--mono)">$199/seat</td><td>20M tokens / seat</td><td>Engineering teams</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Enterprise</td><td style="font-family:var(--mono)">Custom</td><td>Dedicated pool</td><td>OEMs, large orgs</td></tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Free</td>
+              <td style="font-family:var(--mono)">$0</td>
+              <td data-en="500 tokens / day" data-zh="500 tokens / 天">500 tokens / day</td>
+              <td data-en="Students, explorers" data-zh="学生、探索用户">Students, explorers</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Starter</td>
+              <td style="font-family:var(--mono)">$49</td>
+              <td data-en="500K tokens / mo" data-zh="500K tokens / 月">500K tokens / mo</td>
+              <td data-en="Indie engineers" data-zh="独立工程师">Indie engineers</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Pro</td>
+              <td style="font-family:var(--mono)">$99</td>
+              <td data-en="5M tokens / mo" data-zh="5M tokens / 月">5M tokens / mo</td>
+              <td data-en="Consultancies, professionals" data-zh="咨询公司、专业人士">Consultancies, professionals</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Team</td>
+              <td style="font-family:var(--mono)">$199/seat</td>
+              <td data-en="20M tokens / seat" data-zh="20M tokens / 席位">20M tokens / seat</td>
+              <td data-en="Engineering teams" data-zh="工程团队">Engineering teams</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Enterprise</td>
+              <td style="font-family:var(--mono)">Custom</td>
+              <td data-en="Dedicated pool" data-zh="专属Token池">Dedicated pool</td>
+              <td data-en="OEMs, large orgs" data-zh="OEM客户、大型组织">OEMs, large orgs</td>
+            </tr>
           </tbody>
         </table>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.6rem">Token Overage Rates</div>
+          <div class="card-title" style="margin-bottom:.6rem" data-en="Token Overage Rates" data-zh="Token超额计费标准">Token Overage Rates</div>
           <div style="font-size:.78rem;color:var(--text2)">Starter: $0.03 / 1K &nbsp;·&nbsp; Pro: $0.02 / 1K &nbsp;·&nbsp; Team: $0.015 / 1K &nbsp;·&nbsp; Enterprise: $0.01 / 1K</div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Blended ARPU Composition — $3,500/year</div>
+        <div class="card-title" data-en="Blended ARPU Composition — $3,500/year" data-zh="综合ARPU构成 — $3,500/年">Blended ARPU Composition — $3,500/year</div>
         <div style="margin-top:.75rem">
-          <div class="bc-row"><div class="bc-label">Subscriptions</div><div class="bc-track"><div class="bc-fill" style="width:35%;background:var(--midnight)"></div></div><div class="bc-val">35% · $1,225</div></div>
-          <div class="bc-row"><div class="bc-label">AI Tokens</div><div class="bc-track"><div class="bc-fill" style="width:30%;background:var(--accent)"></div></div><div class="bc-val">30% · $1,050</div></div>
-          <div class="bc-row"><div class="bc-label">Compute</div><div class="bc-track"><div class="bc-fill" style="width:25%;background:var(--ai)"></div></div><div class="bc-val">25% · $875</div></div>
-          <div class="bc-row"><div class="bc-label">Storage</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--success)"></div></div><div class="bc-val">10% · $350</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Subscriptions" data-zh="订阅费">Subscriptions</div><div class="bc-track"><div class="bc-fill" style="width:35%;background:var(--midnight)"></div></div><div class="bc-val">35% · $1,225</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="AI Tokens" data-zh="AI Token">AI Tokens</div><div class="bc-track"><div class="bc-fill" style="width:30%;background:var(--accent)"></div></div><div class="bc-val">30% · $1,050</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Compute" data-zh="算力">Compute</div><div class="bc-track"><div class="bc-fill" style="width:25%;background:var(--ai)"></div></div><div class="bc-val">25% · $875</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Storage" data-zh="存储">Storage</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--success)"></div></div><div class="bc-val">10% · $350</div></div>
         </div>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.6rem">Professional Services</div>
+          <div class="card-title" style="margin-bottom:.6rem" data-en="Professional Services" data-zh="专业服务">Professional Services</div>
           <table class="tbl">
             <tbody>
-              <tr><td style="font-weight:600;color:var(--text)">Onboarding Sprint</td><td style="font-family:var(--mono)">€5,000</td><td style="color:var(--text2)">2-week guided setup</td></tr>
-              <tr><td style="font-weight:600;color:var(--text)">Integration Pack</td><td style="font-family:var(--mono)">€10K–25K</td><td style="color:var(--text2)">FMI / PLM (Teamcenter, Windchill)</td></tr>
-              <tr><td style="font-weight:600;color:var(--text)">AI Fine-tuning</td><td style="font-family:var(--mono)">€15K–40K</td><td style="color:var(--text2)">Customer engineering data</td></tr>
-              <tr><td style="font-weight:600;color:var(--text)">CSM Retainer</td><td style="font-family:var(--mono)">€3,000/mo</td><td style="color:var(--text2)">AI-assisted customer success</td></tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Onboarding Sprint</td>
+                <td style="font-family:var(--mono)">€5,000</td>
+                <td style="color:var(--text2)" data-en="2-week guided setup" data-zh="2周专家指导上线">2-week guided setup</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Integration Pack</td>
+                <td style="font-family:var(--mono)">€10K–25K</td>
+                <td style="color:var(--text2)" data-en="FMI / PLM (Teamcenter, Windchill)" data-zh="FMI / PLM集成服务（Teamcenter, Windchill）">FMI / PLM (Teamcenter, Windchill)</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">AI Fine-tuning</td>
+                <td style="font-family:var(--mono)">€15K–40K</td>
+                <td style="color:var(--text2)" data-en="Customer engineering data" data-zh="客户工程数据微调">Customer engineering data</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">CSM Retainer</td>
+                <td style="font-family:var(--mono)">€3,000/mo</td>
+                <td style="color:var(--text2)" data-en="AI-assisted customer success" data-zh="AI辅助客户成功">AI-assisted customer success</td>
+              </tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
     <div class="card" style="margin-top:1.5rem">
-      <div class="card-title">ARPU by Segment — Year 1 at $1M ARR</div>
+      <div class="card-title" data-en="ARPU by Segment — Year 1 at $1M ARR" data-zh="各细分市场ARPU — 第一年$1M ARR">ARPU by Segment — Year 1 at $1M ARR</div>
       <table class="tbl" style="margin-top:.5rem">
-        <thead><tr><th>Segment</th><th>Paid Users</th><th>% of Users</th><th>ARPU</th><th>Segment ARR</th><th>% of ARR</th><th>Notes</th></tr></thead>
+        <thead>
+          <tr>
+            <th data-en="Segment" data-zh="客户分类">Segment</th>
+            <th data-en="Paid Users" data-zh="付费用户">Paid Users</th>
+            <th data-en="% of Users" data-zh="用户占比">% of Users</th>
+            <th data-en="ARPU" data-zh="ARPU">ARPU</th>
+            <th data-en="Segment ARR" data-zh="细分ARR">Segment ARR</th>
+            <th data-en="% of ARR" data-zh="ARR占比">% of ARR</th>
+            <th data-en="Notes" data-zh="备注">Notes</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td style="font-weight:600;color:var(--text)">Enterprise OEMs</td><td style="font-family:var(--mono)">42</td><td>15%</td><td style="font-family:var(--mono);color:var(--accent)">$10,714</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$450,000</td><td>45%</td><td>Services + high token consumption</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Consultancies</td><td style="font-family:var(--mono)">56</td><td>20%</td><td style="font-family:var(--mono);color:var(--accent)">$4,464</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$250,000</td><td>25%</td><td>Pro/Team tier, project-based usage</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Universities</td><td style="font-family:var(--mono)">70</td><td>25%</td><td style="font-family:var(--mono);color:var(--accent)">$2,143</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td><td>15%</td><td>80% academic discount applied</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Indie Engineers</td><td style="font-family:var(--mono)">112</td><td>40%</td><td style="font-family:var(--mono);color:var(--accent)">$1,339</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td><td>15%</td><td>PLG-driven, Starter/Pro mix</td></tr>
-          <tr class="hl"><td><strong>Total</strong></td><td style="font-family:var(--mono);font-weight:700">280</td><td>100%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$3,571</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$1,000,000</td><td>100%</td><td>Blended ARPU target</td></tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Enterprise OEMs" data-zh="企业级OEM">Enterprise OEMs</td>
+            <td style="font-family:var(--mono)">42</td>
+            <td>15%</td>
+            <td style="font-family:var(--mono);color:var(--accent)">$10,714</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$450,000</td>
+            <td>45%</td>
+            <td data-en="Services + high token consumption" data-zh="专业服务 + 高Token消耗">Services + high token consumption</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Consultancies" data-zh="工程咨询公司">Consultancies</td>
+            <td style="font-family:var(--mono)">56</td>
+            <td>20%</td>
+            <td style="font-family:var(--mono);color:var(--accent)">$4,464</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$250,000</td>
+            <td>25%</td>
+            <td data-en="Pro/Team tier, project-based usage" data-zh="Pro/Team层级，按项目使用">Pro/Team tier, project-based usage</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Universities" data-zh="高校与科研机构">Universities</td>
+            <td style="font-family:var(--mono)">70</td>
+            <td>25%</td>
+            <td style="font-family:var(--mono);color:var(--accent)">$2,143</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td>
+            <td>15%</td>
+            <td data-en="80% academic discount applied" data-zh="已应用80%学术折扣">80% academic discount applied</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Indie Engineers" data-zh="独立工程师">Indie Engineers</td>
+            <td style="font-family:var(--mono)">112</td>
+            <td>40%</td>
+            <td style="font-family:var(--mono);color:var(--accent)">$1,339</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td>
+            <td>15%</td>
+            <td data-en="PLG-driven, Starter/Pro mix" data-zh="PLG驱动，Starter/Pro混合">PLG-driven, Starter/Pro mix</td>
+          </tr>
+          <tr class="hl">
+            <td data-en="<strong>Total</strong>" data-zh="<strong>合计</strong>"><strong>Total</strong></td>
+            <td style="font-family:var(--mono);font-weight:700">280</td>
+            <td>100%</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$3,571</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$1,000,000</td>
+            <td>100%</td>
+            <td data-en="Blended ARPU target" data-zh="综合ARPU目标">Blended ARPU target</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -334,21 +505,41 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="roadmap">
     <div class="sec-hd">
       <span class="sec-num">04</span>
-      <span class="sec-title">12-Month Execution Roadmap</span>
-      <span class="sec-sub">5 phases · MRR ramp · Key milestones</span>
+      <span class="sec-title" data-en="12-Month Execution Roadmap" data-zh="12个月执行路线图">12-Month Execution Roadmap</span>
+      <span class="sec-sub" data-en="5 phases · MRR ramp · Key milestones" data-zh="5个阶段 · MRR增长曲线 · 关键里程碑">5 phases · MRR ramp · Key milestones</span>
     </div>
     <div class="card" style="margin-bottom:1.5rem">
-      <div class="card-title">MRR Ramp — $0 to $83K (Month 1–12)</div>
+      <div class="card-title" data-en="MRR Ramp — $0 to $83K (Month 1–12)" data-zh="MRR增长 — $0至$83K（第1–12个月）">MRR Ramp — $0 to $83K (Month 1–12)</div>
       <div class="mrr-chart" id="mrr-chart"></div>
     </div>
     <div class="card">
-      <div class="card-title">Phase Execution Plan — All Phases Run in Parallel</div>
+      <div class="card-title" data-en="Phase Execution Plan — All Phases Run in Parallel" data-zh="阶段执行计划 — 所有阶段并行推进">Phase Execution Plan — All Phases Run in Parallel</div>
       <div style="margin-top:.75rem">
-        <div class="phase-row"><div class="ph-num">Phase A<br>M1–M2</div><div class="ph-title-cell"><strong>Foundation + AI-Native Ops</strong> — AI tool stack for all 8 roles, website rebuild ("Dassault of AI era"), token pricing page, design system, 200 free users</div><div class="ph-target">Budget: $60K<br>MRR: $3.3K</div></div>
-        <div class="phase-row"><div class="ph-num">Phase B<br>M2–M4</div><div class="ph-title-cell"><strong>Traction + Channel Launch</strong> — PLG funnel validated (40% activation), first channel partner signed, enterprise ABM 50 accounts, TCO calculator live, 65 paid users</div><div class="ph-target">Budget: $75K<br>MRR: $18K</div></div>
-        <div class="phase-row"><div class="ph-num">Phase C<br>M4–M6</div><div class="ph-title-cell"><strong>Enterprise Pipeline + FEM/CFD Beta</strong> — 3 enterprise contracts closed ($150K+ ACV), FEM/CFD beta 20 users, 3 customer case studies, 5 universities onboarded</div><div class="ph-target">Budget: $80K<br>MRR: $48K</div></div>
-        <div class="phase-row"><div class="ph-num">Phase D<br>M6–M9</div><div class="ph-title-cell"><strong>Channel Growth + Token Scale</strong> — 3 channel partners producing pipeline, FEM/CFD full launch, token revenue 35%+ MRR, NRR >115%, Series A deck v1</div><div class="ph-target">Budget: $80K<br>MRR: $70K</div></div>
-        <div class="phase-row"><div class="ph-num">Phase E<br>M9–M12</div><div class="ph-title-cell"><strong>$1M ARR + Series A Readiness</strong> — $83K+ MRR, 280 paid users, token revenue 40%+ ARR, Series A data room, Year 2 roadmap published</div><div class="ph-target">Budget: $75K<br>MRR: $83K+</div></div>
+        <div class="phase-row">
+          <div class="ph-num" data-en="Phase A<br>M1–M2" data-zh="阶段A<br>M1–M2">Phase A<br>M1–M2</div>
+          <div class="ph-title-cell" data-en="<strong>Foundation + AI-Native Ops</strong> — AI tool stack for all 8 roles, website rebuild (&quot;Dassault of AI era&quot;), token pricing page, design system, 200 free users" data-zh="<strong>基础建设 + AI原生运营</strong> — 为全部8个职能部署AI工具栈，网站重建（"AI时代的Dassault"），Token定价页面，设计系统，200名免费用户"><strong>Foundation + AI-Native Ops</strong> — AI tool stack for all 8 roles, website rebuild ("Dassault of AI era"), token pricing page, design system, 200 free users</div>
+          <div class="ph-target">Budget: $60K<br>MRR: $3.3K</div>
+        </div>
+        <div class="phase-row">
+          <div class="ph-num" data-en="Phase B<br>M2–M4" data-zh="阶段B<br>M2–M4">Phase B<br>M2–M4</div>
+          <div class="ph-title-cell" data-en="<strong>Traction + Channel Launch</strong> — PLG funnel validated (40% activation), first channel partner signed, enterprise ABM 50 accounts, TCO calculator live, 65 paid users" data-zh="<strong>牵引力 + 渠道启动</strong> — PLG漏斗验证（40%激活率），首个渠道合作伙伴签约，企业ABM触达50个账户，TCO计算器上线，65名付费用户"><strong>Traction + Channel Launch</strong> — PLG funnel validated (40% activation), first channel partner signed, enterprise ABM 50 accounts, TCO calculator live, 65 paid users</div>
+          <div class="ph-target">Budget: $75K<br>MRR: $18K</div>
+        </div>
+        <div class="phase-row">
+          <div class="ph-num" data-en="Phase C<br>M4–M6" data-zh="阶段C<br>M4–M6">Phase C<br>M4–M6</div>
+          <div class="ph-title-cell" data-en="<strong>Enterprise Pipeline + FEM/CFD Beta</strong> — 3 enterprise contracts closed ($150K+ ACV), FEM/CFD beta 20 users, 3 customer case studies, 5 universities onboarded" data-zh="<strong>企业渠道 + FEM/CFD测试版</strong> — 3份企业合同签订（$150K+ ACV），FEM/CFD测试版20名用户，3个客户案例研究，5所高校完成入驻"><strong>Enterprise Pipeline + FEM/CFD Beta</strong> — 3 enterprise contracts closed ($150K+ ACV), FEM/CFD beta 20 users, 3 customer case studies, 5 universities onboarded</div>
+          <div class="ph-target">Budget: $80K<br>MRR: $48K</div>
+        </div>
+        <div class="phase-row">
+          <div class="ph-num" data-en="Phase D<br>M6–M9" data-zh="阶段D<br>M6–M9">Phase D<br>M6–M9</div>
+          <div class="ph-title-cell" data-en="<strong>Channel Growth + Token Scale</strong> — 3 channel partners producing pipeline, FEM/CFD full launch, token revenue 35%+ MRR, NRR &gt;115%, Series A deck v1" data-zh="<strong>渠道扩张 + Token规模化</strong> — 3个渠道合作伙伴产生业务管道，FEM/CFD正式发布，Token收入占MRR 35%+，NRR &gt;115%，A轮融资材料v1"><strong>Channel Growth + Token Scale</strong> — 3 channel partners producing pipeline, FEM/CFD full launch, token revenue 35%+ MRR, NRR &gt;115%, Series A deck v1</div>
+          <div class="ph-target">Budget: $80K<br>MRR: $70K</div>
+        </div>
+        <div class="phase-row">
+          <div class="ph-num" data-en="Phase E<br>M9–M12" data-zh="阶段E<br>M9–M12">Phase E<br>M9–M12</div>
+          <div class="ph-title-cell" data-en="<strong>$1M ARR + Series A Readiness</strong> — $83K+ MRR, 280 paid users, token revenue 40%+ ARR, Series A data room, Year 2 roadmap published" data-zh="<strong>$1M ARR + A轮融资就绪</strong> — $83K+ MRR，280名付费用户，Token收入占ARR 40%+，A轮融资数据室，第二年路线图发布"><strong>$1M ARR + Series A Readiness</strong> — $83K+ MRR, 280 paid users, token revenue 40%+ ARR, Series A data room, Year 2 roadmap published</div>
+          <div class="ph-target">Budget: $75K<br>MRR: $83K+</div>
+        </div>
       </div>
     </div>
   </section>
@@ -357,42 +548,42 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="channels">
     <div class="sec-hd">
       <span class="sec-num">05</span>
-      <span class="sec-title">Channel Strategy</span>
-      <span class="sec-sub">PLG · Direct SLG · Distribution partners · Budget allocation</span>
+      <span class="sec-title" data-en="Channel Strategy" data-zh="渠道策略">Channel Strategy</span>
+      <span class="sec-sub" data-en="PLG · Direct SLG · Distribution partners · Budget allocation" data-zh="PLG · 直销SLG · 分销合作 · 预算分配">PLG · Direct SLG · Distribution partners · Budget allocation</span>
     </div>
     <div class="g3" style="margin-bottom:1.5rem">
       <div class="card" style="border-color:rgba(0,113,227,.25);background:rgba(0,113,227,.03)">
-        <div class="card-title">PLG — Product-Led Growth</div>
-        <div style="font-size:1.4rem;font-weight:700;color:var(--accent);font-family:var(--mono);margin-bottom:.3rem">40% of ARR</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>
+        <div class="card-title" data-en="PLG — Product-Led Growth" data-zh="PLG — 产品主导增长">PLG — Product-Led Growth</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--accent);font-family:var(--mono);margin-bottom:.3rem" data-en="40% of ARR" data-zh="占ARR 40%">40% of ARR</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>Funnel: Sign-up → First simulation (60s) → 40% activation (7 days) → 5% free→paid (30 days)" data-zh="免费50K tokens/月。工程师自主激活。触达限额→升级。无需销售通话。CAC目标：&lt;$500。<br><br>漏斗：注册 → 首次仿真（60秒）→ 40%激活率（7天）→ 5%免费转付费（30天）">Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>
         Funnel: Sign-up → First simulation (60s) → 40% activation (7 days) → 5% free→paid (30 days)</div>
       </div>
       <div class="card" style="border-color:rgba(10,37,64,.2);background:rgba(10,37,64,.03)">
-        <div class="card-title">Direct Sales — SLG</div>
+        <div class="card-title" data-en="Direct Sales — SLG" data-zh="直销 — 销售主导增长">Direct Sales — SLG</div>
         <div style="font-size:1.4rem;font-weight:700;color:var(--midnight);font-family:var(--mono);margin-bottom:.3rem">40% of ARR</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>ACV: $50K–$500K · Cycle: 3–6 months · Pilot→close: 30%" data-zh="AI辅助ABM：每周在Clay中触达100个ICP账户。个性化触达 → 发现需求 → 30天试用 → 企业服务套餐。<br><br>ACV: $50K–$500K · 周期: 3–6个月 · 试用转签: 30%">AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>
         ACV: $50K–$500K · Cycle: 3–6 months · Pilot→close: 30%</div>
       </div>
       <div class="card" style="border-color:rgba(255,159,10,.25);background:rgba(255,159,10,.03)">
-        <div class="card-title">Distribution Channel — Partners</div>
+        <div class="card-title" data-en="Distribution Channel — Partners" data-zh="分销渠道 — 合作伙伴">Distribution Channel — Partners</div>
         <div style="font-size:1.4rem;font-weight:700;color:var(--warning);font-family:var(--mono);margin-bottom:.3rem">20% of ARR</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">3–5 EU engineering consultancies and Dassault/ANSYS resellers. Each brings 10–50 existing clients. Rev share 20–30%.<br><br>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="3–5 EU engineering consultancies and Dassault/ANSYS resellers. Each brings 10–50 existing clients. Rev share 20–30%.<br><br>Year 1 target: 3 signed partners · $200K+ pipeline contribution" data-zh="3–5家欧盟工程咨询公司及Dassault/ANSYS经销商。每家带来10–50个现有客户。收入分成20–30%。<br><br>第一年目标：3个签约合作伙伴 · $200K+管道贡献">3–5 EU engineering consultancies and Dassault/ANSYS resellers. Each brings 10–50 existing clients. Rev share 20–30%.<br><br>
         Year 1 target: 3 signed partners · $200K+ pipeline contribution</div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Monthly Channel Budget Allocation — ~$20K/month</div>
+      <div class="card-title" data-en="Monthly Channel Budget Allocation — ~$20K/month" data-zh="月度渠道预算分配 — 约$20K/月">Monthly Channel Budget Allocation — ~$20K/month</div>
       <div style="margin-top:.75rem">
-        <div class="bc-row"><div class="bc-label">LinkedIn Ads</div><div class="bc-track"><div class="bc-fill" style="width:20%;background:var(--midnight)"></div></div><div class="bc-val">$4,000</div></div>
-        <div class="bc-row"><div class="bc-label">ABM / Outreach</div><div class="bc-track"><div class="bc-fill" style="width:15%;background:var(--midnight)"></div></div><div class="bc-val">$3,000</div></div>
-        <div class="bc-row"><div class="bc-label">Google Ads</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--accent)"></div></div><div class="bc-val">$2,500</div></div>
-        <div class="bc-row"><div class="bc-label">SEO / Website</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--accent)"></div></div><div class="bc-val">$2,000</div></div>
-        <div class="bc-row"><div class="bc-label">Events / Conf.</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--ai)"></div></div><div class="bc-val">$2,000</div></div>
-        <div class="bc-row"><div class="bc-label">Retargeting</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--ai)"></div></div><div class="bc-val">$1,000</div></div>
-        <div class="bc-row"><div class="bc-label">Community / GitHub</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
-        <div class="bc-row"><div class="bc-label">YouTube</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
-        <div class="bc-row"><div class="bc-label">Partners</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--warning)"></div></div><div class="bc-val">$1,000</div></div>
-        <div class="bc-row"><div class="bc-label">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:7.5%;background:var(--warning)"></div></div><div class="bc-val">$1,500</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="LinkedIn Ads" data-zh="LinkedIn广告">LinkedIn Ads</div><div class="bc-track"><div class="bc-fill" style="width:20%;background:var(--midnight)"></div></div><div class="bc-val">$4,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="ABM / Outreach" data-zh="ABM / 定向触达">ABM / Outreach</div><div class="bc-track"><div class="bc-fill" style="width:15%;background:var(--midnight)"></div></div><div class="bc-val">$3,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Google Ads" data-zh="Google广告">Google Ads</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--accent)"></div></div><div class="bc-val">$2,500</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="SEO / Website" data-zh="SEO / 官网">SEO / Website</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--accent)"></div></div><div class="bc-val">$2,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Events / Conf." data-zh="展会 / 会议">Events / Conf.</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--ai)"></div></div><div class="bc-val">$2,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Retargeting" data-zh="再营销">Retargeting</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--ai)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Community / GitHub" data-zh="社区 / GitHub">Community / GitHub</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="YouTube" data-zh="YouTube">YouTube</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Partners" data-zh="合作伙伴">Partners</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--warning)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label" data-en="Sponsorships" data-zh="赞助">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:7.5%;background:var(--warning)"></div></div><div class="bc-val">$1,500</div></div>
       </div>
     </div>
   </section>
@@ -401,38 +592,98 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="kpis">
     <div class="sec-hd">
       <span class="sec-num">06</span>
-      <span class="sec-title">KPI Tracker</span>
-      <span class="sec-sub">Quarterly progression · Q1 through Q4</span>
+      <span class="sec-title" data-en="KPI Tracker" data-zh="KPI追踪">KPI Tracker</span>
+      <span class="sec-sub" data-en="Quarterly progression · Q1 through Q4" data-zh="季度进展 · Q1至Q4">Quarterly progression · Q1 through Q4</span>
     </div>
     <div class="card">
-      <div class="card-title">Key Performance Indicators — Quarterly Targets</div>
+      <div class="card-title" data-en="Key Performance Indicators — Quarterly Targets" data-zh="关键绩效指标 — 季度目标">Key Performance Indicators — Quarterly Targets</div>
       <table class="tbl" style="margin-top:.5rem">
-        <thead><tr><th>KPI</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4 (Year-End)</th></tr></thead>
+        <thead>
+          <tr>
+            <th data-en="KPI" data-zh="关键指标">KPI</th>
+            <th data-en="Q1" data-zh="第一季度">Q1</th>
+            <th data-en="Q2" data-zh="第二季度">Q2</th>
+            <th data-en="Q3" data-zh="第三季度">Q3</th>
+            <th data-en="Q4 (Year-End)" data-zh="第四季度（年底）">Q4 (Year-End)</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td style="font-weight:600;color:var(--text)">MRR</td><td style="font-family:var(--mono)">$3,300</td><td style="font-family:var(--mono)">$18,000</td><td style="font-family:var(--mono)">$49,000</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$83,000+</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Paid Users (cumulative)</td><td style="font-family:var(--mono)">15</td><td style="font-family:var(--mono)">65</td><td style="font-family:var(--mono)">150</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">280</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Free Sign-ups (cumulative)</td><td style="font-family:var(--mono)">500</td><td style="font-family:var(--mono)">1,500</td><td style="font-family:var(--mono)">2,800</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">4,500</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Enterprise Accounts</td><td style="font-family:var(--mono)">0</td><td style="font-family:var(--mono)">3</td><td style="font-family:var(--mono)">6</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">12–15</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Token Revenue Share</td><td style="font-family:var(--mono)">—</td><td style="font-family:var(--mono)">20%</td><td style="font-family:var(--mono)">35%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">40%+</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Net Revenue Retention</td><td style="font-family:var(--mono)">—</td><td style="font-family:var(--mono)">105%</td><td style="font-family:var(--mono)">115%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">120%+</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Channel Partners</td><td style="font-family:var(--mono)">0</td><td style="font-family:var(--mono)">1</td><td style="font-family:var(--mono)">2</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">3–5</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Organic Traffic / month</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono)">7,500</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">10,000</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Blended CAC</td><td colspan="3" style="color:var(--text2)">Monitor monthly</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">&lt;$800</td></tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="MRR" data-zh="月度经常性收入">MRR</td>
+            <td style="font-family:var(--mono)">$3,300</td>
+            <td style="font-family:var(--mono)">$18,000</td>
+            <td style="font-family:var(--mono)">$49,000</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$83,000+</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Paid Users (cumulative)" data-zh="付费用户（累计）">Paid Users (cumulative)</td>
+            <td style="font-family:var(--mono)">15</td>
+            <td style="font-family:var(--mono)">65</td>
+            <td style="font-family:var(--mono)">150</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">280</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Free Sign-ups (cumulative)" data-zh="免费注册（累计）">Free Sign-ups (cumulative)</td>
+            <td style="font-family:var(--mono)">500</td>
+            <td style="font-family:var(--mono)">1,500</td>
+            <td style="font-family:var(--mono)">2,800</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">4,500</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Enterprise Accounts" data-zh="企业客户数">Enterprise Accounts</td>
+            <td style="font-family:var(--mono)">0</td>
+            <td style="font-family:var(--mono)">3</td>
+            <td style="font-family:var(--mono)">6</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">12–15</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Token Revenue Share" data-zh="Token收入占比">Token Revenue Share</td>
+            <td style="font-family:var(--mono)">—</td>
+            <td style="font-family:var(--mono)">20%</td>
+            <td style="font-family:var(--mono)">35%</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">40%+</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Net Revenue Retention" data-zh="净收入留存率">Net Revenue Retention</td>
+            <td style="font-family:var(--mono)">—</td>
+            <td style="font-family:var(--mono)">105%</td>
+            <td style="font-family:var(--mono)">115%</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">120%+</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Channel Partners" data-zh="渠道合作伙伴">Channel Partners</td>
+            <td style="font-family:var(--mono)">0</td>
+            <td style="font-family:var(--mono)">1</td>
+            <td style="font-family:var(--mono)">2</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">3–5</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Organic Traffic / month" data-zh="月自然流量">Organic Traffic / month</td>
+            <td style="font-family:var(--mono)">2,000</td>
+            <td style="font-family:var(--mono)">5,000</td>
+            <td style="font-family:var(--mono)">7,500</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">10,000</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Blended CAC" data-zh="综合获客成本">Blended CAC</td>
+            <td colspan="3" style="color:var(--text2)" data-en="Monitor monthly" data-zh="每月监测">Monitor monthly</td>
+            <td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">&lt;$800</td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div class="g3" style="margin-top:1.5rem">
       <div class="card">
-        <div class="card-title">Scale Paid Spend (M3)</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: CAC &lt;$500, website→signup &gt;2%<br>Action: Scale LinkedIn + Google to $10K/month</div>
+        <div class="card-title" data-en="Scale Paid Spend (M3)" data-zh="扩大付费投放（M3）">Scale Paid Spend (M3)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="Criteria: CAC &lt;$500, website→signup &gt;2%<br>Action: Scale LinkedIn + Google to $10K/month" data-zh="标准：CAC &lt;$500，官网→注册转化率 &gt;2%<br>行动：将LinkedIn + Google扩展至$10K/月">Criteria: CAC &lt;$500, website→signup &gt;2%<br>Action: Scale LinkedIn + Google to $10K/month</div>
       </div>
       <div class="card">
-        <div class="card-title">Commit to Direct Enterprise (M4)</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: 2+ active pilots, positive feedback<br>Action: Hire Account Executive, expand ABM list</div>
+        <div class="card-title" data-en="Commit to Direct Enterprise (M4)" data-zh="确认企业直销路线（M4）">Commit to Direct Enterprise (M4)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="Criteria: 2+ active pilots, positive feedback<br>Action: Hire Account Executive, expand ABM list" data-zh="标准：2个以上活跃试用，正面反馈<br>行动：招聘客户主管，扩展ABM名单">Criteria: 2+ active pilots, positive feedback<br>Action: Hire Account Executive, expand ABM list</div>
       </div>
       <div class="card">
-        <div class="card-title">Begin Series A Prep (M7)</div>
-        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: &gt;$50K MRR, token revenue &gt;25%<br>Action: AI-compiled metrics dashboard, deck v1</div>
+        <div class="card-title" data-en="Begin Series A Prep (M7)" data-zh="开启A轮融资准备（M7）">Begin Series A Prep (M7)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="Criteria: &gt;$50K MRR, token revenue &gt;25%<br>Action: AI-compiled metrics dashboard, deck v1" data-zh="标准：&gt;$50K MRR，Token收入 &gt;25%<br>行动：AI汇编指标仪表板，融资材料v1">Criteria: &gt;$50K MRR, token revenue &gt;25%<br>Action: AI-compiled metrics dashboard, deck v1</div>
       </div>
     </div>
   </section>
@@ -454,6 +705,16 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navItems.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+id));}});
 },{rootMargin:'-30% 0px -60% 0px'});
 sections.forEach(s=>obs.observe(s));
+
+let _lang='en';
+function toggleLang(){
+  _lang=_lang==='en'?'zh':'en';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+  });
+  document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+  document.documentElement.lang=_lang;
+}
 </script>
 </body>
 </html>

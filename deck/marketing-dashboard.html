@@ -89,27 +89,28 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 </style>
 </head>
 <body>
-<div class="page-header">
+<div class="page-header" style="display:flex;align-items:center">
   <div>
     <div class="ph-eyebrow">Orthogonal · ODE</div>
-    <div class="ph-title">Marketing Strategy — Executive Dashboard</div>
+    <div class="ph-title" data-en="Marketing Strategy — Executive Dashboard" data-zh="市场营销策略 — 管理层仪表板">Marketing Strategy — Executive Dashboard</div>
   </div>
-  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Content · Channels · Funnel · Email · SEO</div>
+  <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Content · Channels · Funnel · Email · SEO" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>内容 · 渠道 · 转化漏斗 · 邮件 · SEO">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Content · Channels · Funnel · Email · SEO</div>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 <nav class="dash-nav" id="nav">
-  <a href="#content" class="nav-item active">01 Content Engine</a>
-  <a href="#channels" class="nav-item">02 Channel Mix</a>
-  <a href="#funnel" class="nav-item">03 Conversion Funnel</a>
-  <a href="#email" class="nav-item">04 Email Sequences</a>
-  <a href="#seo" class="nav-item">05 SEO</a>
-  <a href="#webinars" class="nav-item">06 Webinars</a>
+  <a href="#content" class="nav-item active" data-en="01 Content Engine" data-zh="01 内容引擎">01 Content Engine</a>
+  <a href="#channels" class="nav-item" data-en="02 Channel Mix" data-zh="02 渠道组合">02 Channel Mix</a>
+  <a href="#funnel" class="nav-item" data-en="03 Conversion Funnel" data-zh="03 转化漏斗">03 Conversion Funnel</a>
+  <a href="#email" class="nav-item" data-en="04 Email Sequences" data-zh="04 邮件序列">04 Email Sequences</a>
+  <a href="#seo" class="nav-item" data-en="05 SEO" data-zh="05 SEO策略">05 SEO</a>
+  <a href="#webinars" class="nav-item" data-en="06 Webinars" data-zh="06 网络研讨会">06 Webinars</a>
 </nav>
 <div class="stats-bar">
-  <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-lbl">Content pieces / week</div></div>
-  <div class="stat-cell"><div class="stat-num">25K</div><div class="stat-lbl">Organic traffic / mo (Q4)</div></div>
-  <div class="stat-cell"><div class="stat-num">8,000</div><div class="stat-lbl">Email list target (Q4)</div></div>
-  <div class="stat-cell"><div class="stat-num">120</div><div class="stat-lbl">MQLs / month (Q4)</div></div>
-  <div class="stat-cell"><div class="stat-num">$7.5K</div><div class="stat-lbl">Monthly paid media budget</div></div>
+  <div class="stat-cell"><div class="stat-num">5+</div><div class="stat-lbl" data-en="Content pieces / week" data-zh="内容产出 / 周">Content pieces / week</div></div>
+  <div class="stat-cell"><div class="stat-num">25K</div><div class="stat-lbl" data-en="Organic traffic / mo (Q4)" data-zh="自然流量 / 月（Q4）">Organic traffic / mo (Q4)</div></div>
+  <div class="stat-cell"><div class="stat-num">8,000</div><div class="stat-lbl" data-en="Email list target (Q4)" data-zh="邮件列表目标（Q4）">Email list target (Q4)</div></div>
+  <div class="stat-cell"><div class="stat-num">120</div><div class="stat-lbl" data-en="MQLs / month (Q4)" data-zh="营销合格线索 / 月（Q4）">MQLs / month (Q4)</div></div>
+  <div class="stat-cell"><div class="stat-num">$7.5K</div><div class="stat-lbl" data-en="Monthly paid media budget" data-zh="月度付费媒体预算">Monthly paid media budget</div></div>
 </div>
 
 <main class="dash-main">
@@ -118,79 +119,79 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="content">
     <div class="sec-hd">
       <span class="sec-num">01</span>
-      <span class="sec-title">Content Engine</span>
-      <span class="sec-sub">AI-generated · Human-approved · 4 strategic pillars</span>
+      <span class="sec-title" data-en="Content Engine" data-zh="内容引擎">Content Engine</span>
+      <span class="sec-sub" data-en="AI-generated · Human-approved · 4 strategic pillars" data-zh="AI生成 · 人工审核 · 4大战略支柱">AI-generated · Human-approved · 4 strategic pillars</span>
     </div>
     <div class="insight">
-      <div class="ins-label">Execution Principle</div>
-      <div class="ins-text">No human writes a cold first draft. Claude generates; AI Marketing (0.5 FTE) refines in under 15 minutes. 5 content pieces per week, every week, from Day 1. AI output tracked as a team KPI.</div>
+      <div class="ins-label" data-en="Execution Principle" data-zh="执行原则">Execution Principle</div>
+      <div class="ins-text" data-en="No human writes a cold first draft. Claude generates; AI Marketing (0.5 FTE) refines in under 15 minutes. 5 content pieces per week, every week, from Day 1. AI output tracked as a team KPI." data-zh="没有人工撰写初稿。Claude生成；AI营销专员（0.5 FTE）在15分钟内精修。每周至少5篇内容，从第一天起持续执行。AI产出作为团队KPI追踪。">No human writes a cold first draft. Claude generates; AI Marketing (0.5 FTE) refines in under 15 minutes. 5 content pieces per week, every week, from Day 1. AI output tracked as a team KPI.</div>
     </div>
     <div class="g4" style="margin-bottom:1.5rem">
       <div class="pillar" style="border-top-color:var(--midnight)">
         <div class="pillar-num" style="color:var(--midnight)">01</div>
-        <div class="pillar-title">AI-Native Engineering</div>
-        <div class="pillar-sub">Why legacy CAD cannot be retrofitted for AI. Architecture-level analysis. CEO thought leadership.</div>
+        <div class="pillar-title" data-en="AI-Native Engineering" data-zh="AI原生工程">AI-Native Engineering</div>
+        <div class="pillar-sub" data-en="Why legacy CAD cannot be retrofitted for AI. Architecture-level analysis. CEO thought leadership." data-zh="传统CAD为何无法为AI改造。架构层分析。CEO思想领导力。">Why legacy CAD cannot be retrofitted for AI. Architecture-level analysis. CEO thought leadership.</div>
       </div>
       <div class="pillar" style="border-top-color:var(--accent)">
         <div class="pillar-num" style="color:var(--accent)">02</div>
-        <div class="pillar-title">Modelica + AI</div>
-        <div class="pillar-sub">Open-standard physics modelling + LLMs via MCP Server. Technical deep dives for engineers.</div>
+        <div class="pillar-title" data-en="Modelica + AI" data-zh="Modelica + AI">Modelica + AI</div>
+        <div class="pillar-sub" data-en="Open-standard physics modelling + LLMs via MCP Server. Technical deep dives for engineers." data-zh="开放标准物理建模 + 大模型（via MCP Server）。面向工程师的技术深度内容。">Open-standard physics modelling + LLMs via MCP Server. Technical deep dives for engineers.</div>
       </div>
       <div class="pillar" style="border-top-color:var(--success)">
         <div class="pillar-num" style="color:var(--success)">03</div>
-        <div class="pillar-title">Open Standards</div>
-        <div class="pillar-sub">FMI/FMU interoperability, vendor independence, Modelica ecosystem. Trust and credibility.</div>
+        <div class="pillar-title" data-en="Open Standards" data-zh="开放标准">Open Standards</div>
+        <div class="pillar-sub" data-en="FMI/FMU interoperability, vendor independence, Modelica ecosystem. Trust and credibility." data-zh="FMI/FMU互操作性、厂商独立性、Modelica生态。建立信任与公信力。">FMI/FMU interoperability, vendor independence, Modelica ecosystem. Trust and credibility.</div>
       </div>
       <div class="pillar" style="border-top-color:var(--ai)">
         <div class="pillar-num" style="color:var(--ai)">04</div>
-        <div class="pillar-title">Engineering Productivity</div>
-        <div class="pillar-sub">Time-to-simulation, collaboration, browser access. Customer stories, before/after data.</div>
+        <div class="pillar-title" data-en="Engineering Productivity" data-zh="工程效率">Engineering Productivity</div>
+        <div class="pillar-sub" data-en="Time-to-simulation, collaboration, browser access. Customer stories, before/after data." data-zh="仿真时间、协作体验、浏览器访问。客户案例，前后对比数据。">Time-to-simulation, collaboration, browser access. Customer stories, before/after data.</div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">Weekly Content Production — AI-Native Workflow</div>
+      <div class="card-title" data-en="Weekly Content Production — AI-Native Workflow" data-zh="每周内容产出 — AI原生工作流">Weekly Content Production — AI-Native Workflow</div>
       <div style="margin-top:.25rem">
         <div class="cad-row">
-          <div class="cad-channel">LinkedIn (Company)</div>
+          <div class="cad-channel" data-en="LinkedIn (Company)" data-zh="LinkedIn（公司）">LinkedIn (Company)</div>
           <div class="cad-freq">5× / week</div>
           <div class="cad-tool">Claude — Mon: thought leadership · Tue: demo · Wed: story · Thu: technical · Fri: culture</div>
-          <div class="cad-human">Edit + approve (&lt;10 min/post)</div>
+          <div class="cad-human" data-en="Edit + approve (&lt;10 min/post)" data-zh="编辑+审核（&lt;10分钟/篇）">Edit + approve (&lt;10 min/post)</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">LinkedIn (CEO)</div>
+          <div class="cad-channel" data-en="LinkedIn (CEO)" data-zh="LinkedIn（CEO）">LinkedIn (CEO)</div>
           <div class="cad-freq">3× / week</div>
           <div class="cad-tool">Claude — voice-matched drafts; "Dassault of AI era" narrative</div>
-          <div class="cad-human">Voice-match + approve</div>
+          <div class="cad-human" data-en="Voice-match + approve" data-zh="语气匹配+审核">Voice-match + approve</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">Technical Blog</div>
+          <div class="cad-channel" data-en="Technical Blog" data-zh="技术博客">Technical Blog</div>
           <div class="cad-freq">2× / week</div>
           <div class="cad-tool">Claude + Perplexity — FEM, CFD, MBSE vs. legacy tool comparisons</div>
-          <div class="cad-human">Review for accuracy (&lt;30 min)</div>
+          <div class="cad-human" data-en="Review for accuracy (&lt;30 min)" data-zh="准确性审核（&lt;30分钟）">Review for accuracy (&lt;30 min)</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">Email Newsletter</div>
+          <div class="cad-channel" data-en="Email Newsletter" data-zh="邮件简报">Email Newsletter</div>
           <div class="cad-freq">1× / week</div>
           <div class="cad-tool">Claude + Customer.io — ICP-segmented nurture sequence</div>
-          <div class="cad-human">Approve and send</div>
+          <div class="cad-human" data-en="Approve and send" data-zh="审核后发送">Approve and send</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">YouTube</div>
+          <div class="cad-channel" data-en="YouTube" data-zh="YouTube">YouTube</div>
           <div class="cad-freq">2× / month</div>
           <div class="cad-tool">Runway + Descript — product demos, simulation walkthroughs</div>
-          <div class="cad-human">Light edit</div>
+          <div class="cad-human" data-en="Light edit" data-zh="轻度编辑">Light edit</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">SEO Landing Pages</div>
+          <div class="cad-channel" data-en="SEO Landing Pages" data-zh="SEO落地页">SEO Landing Pages</div>
           <div class="cad-freq">2× / month</div>
           <div class="cad-tool">Cursor + Framer — competitor comparison pages ("ODE vs. ANSYS")</div>
-          <div class="cad-human">QA and publish</div>
+          <div class="cad-human" data-en="QA and publish" data-zh="质检后发布">QA and publish</div>
         </div>
         <div class="cad-row">
-          <div class="cad-channel">Twitter / X</div>
+          <div class="cad-channel" data-en="Twitter / X" data-zh="Twitter / X">Twitter / X</div>
           <div class="cad-freq">3–5× / week</div>
           <div class="cad-tool">Claude — community engagement, Modelica/AI ecosystem</div>
-          <div class="cad-human">Quick review</div>
+          <div class="cad-human" data-en="Quick review" data-zh="快速审核">Quick review</div>
         </div>
       </div>
     </div>
@@ -200,36 +201,36 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="channels">
     <div class="sec-hd">
       <span class="sec-num">02</span>
-      <span class="sec-title">Channel Mix</span>
-      <span class="sec-sub">Budget allocation · Performance targets · Q2–Q4 progression</span>
+      <span class="sec-title" data-en="Channel Mix" data-zh="渠道组合">Channel Mix</span>
+      <span class="sec-sub" data-en="Budget allocation · Performance targets · Q2–Q4 progression" data-zh="预算分配 · 效果目标 · Q2至Q4进展">Budget allocation · Performance targets · Q2–Q4 progression</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Monthly Paid Media Budget — $7,500</div>
+        <div class="card-title" data-en="Monthly Paid Media Budget — $7,500" data-zh="月度付费媒体预算 — $7,500">Monthly Paid Media Budget — $7,500</div>
         <div style="margin-top:.75rem">
-          <div class="bc-row"><div class="bc-label">Google Search Ads</div><div class="bc-track"><div class="bc-fill" style="width:40%;background:var(--midnight)"></div></div><div class="bc-val">$3,000</div></div>
-          <div class="bc-row"><div class="bc-label">LinkedIn Sponsored</div><div class="bc-track"><div class="bc-fill" style="width:26.6%;background:var(--accent)"></div></div><div class="bc-val">$2,000</div></div>
-          <div class="bc-row"><div class="bc-label">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:20%;background:var(--ai)"></div></div><div class="bc-val">$1,500</div></div>
-          <div class="bc-row"><div class="bc-label">Retargeting</div><div class="bc-track"><div class="bc-fill" style="width:13.3%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Google Search Ads" data-zh="Google搜索广告">Google Search Ads</div><div class="bc-track"><div class="bc-fill" style="width:40%;background:var(--midnight)"></div></div><div class="bc-val">$3,000</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="LinkedIn Sponsored" data-zh="LinkedIn赞助内容">LinkedIn Sponsored</div><div class="bc-track"><div class="bc-fill" style="width:26.6%;background:var(--accent)"></div></div><div class="bc-val">$2,000</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Sponsorships" data-zh="赞助合作">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:20%;background:var(--ai)"></div></div><div class="bc-val">$1,500</div></div>
+          <div class="bc-row"><div class="bc-label" data-en="Retargeting" data-zh="再营销">Retargeting</div><div class="bc-track"><div class="bc-fill" style="width:13.3%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
         </div>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div style="font-size:.72rem;color:var(--text3);margin-bottom:.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em">LinkedIn Campaign Targets</div>
-          <div style="font-size:.78rem;color:var(--text2)">Audience: Engineering Managers, VP Eng, CTO at 500+ employee manufacturers<br>CPL target: $15–$25 &nbsp;·&nbsp; CPC target: &lt;$50 (high-intent keywords)</div>
+          <div style="font-size:.72rem;color:var(--text3);margin-bottom:.4rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em" data-en="LinkedIn Campaign Targets" data-zh="LinkedIn广告目标">LinkedIn Campaign Targets</div>
+          <div style="font-size:.78rem;color:var(--text2)" data-en="Audience: Engineering Managers, VP Eng, CTO at 500+ employee manufacturers<br>CPL target: $15–$25 &nbsp;·&nbsp; CPC target: &lt;$50 (high-intent keywords)" data-zh="受众：500人以上制造业企业的工程总监、VP Engineering、CTO<br>CPL目标：$15–$25 &nbsp;·&nbsp; CPC目标：&lt;$50（高意图关键词）">Audience: Engineering Managers, VP Eng, CTO at 500+ employee manufacturers<br>CPL target: $15–$25 &nbsp;·&nbsp; CPC target: &lt;$50 (high-intent keywords)</div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Channel Performance Targets — Q2 to Q4</div>
+        <div class="card-title" data-en="Channel Performance Targets — Q2 to Q4" data-zh="渠道效果目标 — Q2至Q4">Channel Performance Targets — Q2 to Q4</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Metric</th><th>Q2</th><th>Q4</th></tr></thead>
+          <thead><tr><th data-en="Metric" data-zh="指标">Metric</th><th data-en="Q2" data-zh="第二季度">Q2</th><th data-en="Q4" data-zh="第四季度">Q4</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">Monthly organic traffic</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">25,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Email list size</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Blog→signup conversion</td><td style="font-family:var(--mono)">2%</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">4%</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Webinar attendance (avg)</td><td style="font-family:var(--mono)">50</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">150</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">LinkedIn followers</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">YouTube subscribers</td><td style="font-family:var(--mono)">300</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">1,500</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Content-sourced MQLs/mo</td><td style="font-family:var(--mono)">30</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">120</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Content pipeline/mo</td><td style="font-family:var(--mono)">$50K</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">$200K</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Monthly organic traffic" data-zh="月自然流量">Monthly organic traffic</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">25,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Email list size" data-zh="邮件列表规模">Email list size</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Blog→signup conversion" data-zh="博客→注册转化率">Blog→signup conversion</td><td style="font-family:var(--mono)">2%</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">4%</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Webinar attendance (avg)" data-zh="网络研讨会平均参与人数">Webinar attendance (avg)</td><td style="font-family:var(--mono)">50</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">150</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="LinkedIn followers" data-zh="LinkedIn粉丝数">LinkedIn followers</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="YouTube subscribers" data-zh="YouTube订阅数">YouTube subscribers</td><td style="font-family:var(--mono)">300</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">1,500</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Content-sourced MQLs/mo" data-zh="内容来源MQL/月">Content-sourced MQLs/mo</td><td style="font-family:var(--mono)">30</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">120</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Content pipeline/mo" data-zh="内容贡献管道/月">Content pipeline/mo</td><td style="font-family:var(--mono)">$50K</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">$200K</td></tr>
           </tbody>
         </table>
       </div>
@@ -240,60 +241,60 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="funnel">
     <div class="sec-hd">
       <span class="sec-num">03</span>
-      <span class="sec-title">Conversion Funnel</span>
-      <span class="sec-sub">Visitor to paid — rates and actions per stage</span>
+      <span class="sec-title" data-en="Conversion Funnel" data-zh="转化漏斗">Conversion Funnel</span>
+      <span class="sec-sub" data-en="Visitor to paid — rates and actions per stage" data-zh="从访客到付费 — 各阶段转化率与行动">Visitor to paid — rates and actions per stage</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">PLG Conversion Funnel</div>
+        <div class="card-title" data-en="PLG Conversion Funnel" data-zh="PLG转化漏斗">PLG Conversion Funnel</div>
         <div style="margin-top:.75rem">
           <div class="funnel-step">
-            <div class="fs-bar" style="background:var(--midnight)">Website Visitors</div>
+            <div class="fs-bar" style="background:var(--midnight)" data-en="Website Visitors" data-zh="网站访客">Website Visitors</div>
             <div class="fs-rate">10,000 / mo (Q4)</div>
           </div>
           <div class="funnel-step">
-            <div class="fs-bar" style="background:#1a3a6e;width:30%">Sign-ups</div>
-            <div class="fs-rate">3% conversion</div>
+            <div class="fs-bar" style="background:#1a3a6e;width:30%" data-en="Sign-ups" data-zh="注册用户">Sign-ups</div>
+            <div class="fs-rate" data-en="3% conversion" data-zh="3%转化率">3% conversion</div>
           </div>
           <div class="funnel-step">
-            <div class="fs-bar" style="background:#1a5cbf;width:12%">Activated</div>
-            <div class="fs-rate">40% within 7 days</div>
+            <div class="fs-bar" style="background:#1a5cbf;width:12%" data-en="Activated" data-zh="激活用户">Activated</div>
+            <div class="fs-rate" data-en="40% within 7 days" data-zh="7天内40%激活">40% within 7 days</div>
           </div>
           <div class="funnel-step">
-            <div class="fs-bar" style="background:var(--accent);width:6%">Paid</div>
-            <div class="fs-rate">5% free→paid</div>
+            <div class="fs-bar" style="background:var(--accent);width:6%" data-en="Paid" data-zh="付费用户">Paid</div>
+            <div class="fs-rate" data-en="5% free→paid" data-zh="5%免费转付费">5% free→paid</div>
           </div>
           <div class="funnel-step">
-            <div class="fs-bar" style="background:var(--success);width:2.5%">Expanded</div>
-            <div class="fs-rate">15% upgrade (90d)</div>
+            <div class="fs-bar" style="background:var(--success);width:2.5%" data-en="Expanded" data-zh="扩展用户">Expanded</div>
+            <div class="fs-rate" data-en="15% upgrade (90d)" data-zh="15%升级（90天）">15% upgrade (90d)</div>
           </div>
         </div>
         <div style="margin-top:1rem;padding:.75rem;background:rgba(0,113,227,.06);border-radius:8px">
-          <div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.3rem">Activation Gate</div>
-          <div style="font-size:.78rem;color:var(--text2)">Build 1+ AI model within 7 days = 40% target activation rate. This is the single most predictive signal for paid conversion.</div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.3rem" data-en="Activation Gate" data-zh="激活门槛">Activation Gate</div>
+          <div style="font-size:.78rem;color:var(--text2)" data-en="Build 1+ AI model within 7 days = 40% target activation rate. This is the single most predictive signal for paid conversion." data-zh="7天内生成1个以上AI模型 = 40%激活率目标。这是付费转化的最强预测信号。">Build 1+ AI model within 7 days = 40% target activation rate. This is the single most predictive signal for paid conversion.</div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Key Conversion Metrics</div>
+        <div class="card-title" data-en="Key Conversion Metrics" data-zh="核心转化指标">Key Conversion Metrics</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Stage</th><th>Metric</th><th>Target</th><th>Owner</th></tr></thead>
+          <thead><tr><th data-en="Stage" data-zh="阶段">Stage</th><th data-en="Metric" data-zh="指标">Metric</th><th data-en="Target" data-zh="目标">Target</th><th data-en="Owner" data-zh="负责方">Owner</th></tr></thead>
           <tbody>
-            <tr><td>Visitor → Sign-up</td><td>Sign-up rate</td><td style="font-family:var(--mono);color:var(--accent)">3%</td><td>Marketing</td></tr>
-            <tr><td>Sign-up → Activation</td><td>First model (7-day)</td><td style="font-family:var(--mono);color:var(--accent)">40%</td><td>Product + Marketing</td></tr>
-            <tr><td>Activated → Paid (30d)</td><td>Free→paid conv.</td><td style="font-family:var(--mono);color:var(--accent)">5%</td><td>Product + Email</td></tr>
-            <tr><td>Paid → Upgraded (90d)</td><td>Tier expansion</td><td style="font-family:var(--mono);color:var(--accent)">15%</td><td>Sales + CSM</td></tr>
-            <tr><td>Enterprise Proposal → Pilot</td><td>Proposal close</td><td style="font-family:var(--mono);color:var(--accent)">50%</td><td>Sales</td></tr>
-            <tr><td>Time to first simulation</td><td>Time-to-value</td><td style="font-family:var(--mono);color:var(--accent)">&lt;10 min</td><td>Product</td></tr>
-            <tr class="hl"><td>Blended CAC</td><td>Across all channels</td><td style="font-family:var(--mono)">&lt;$800</td><td>Marketing</td></tr>
+            <tr><td data-en="Visitor → Sign-up" data-zh="访客→注册">Visitor → Sign-up</td><td>Sign-up rate</td><td style="font-family:var(--mono);color:var(--accent)">3%</td><td data-en="Marketing" data-zh="市场部">Marketing</td></tr>
+            <tr><td data-en="Sign-up → Activation" data-zh="注册→激活">Sign-up → Activation</td><td>First model (7-day)</td><td style="font-family:var(--mono);color:var(--accent)">40%</td><td data-en="Product + Marketing" data-zh="产品+市场">Product + Marketing</td></tr>
+            <tr><td data-en="Activated → Paid (30d)" data-zh="激活→付费（30天）">Activated → Paid (30d)</td><td>Free→paid conv.</td><td style="font-family:var(--mono);color:var(--accent)">5%</td><td data-en="Product + Email" data-zh="产品+邮件">Product + Email</td></tr>
+            <tr><td data-en="Paid → Upgraded (90d)" data-zh="付费→升级（90天）">Paid → Upgraded (90d)</td><td>Tier expansion</td><td style="font-family:var(--mono);color:var(--accent)">15%</td><td data-en="Sales + CSM" data-zh="销售+客户成功">Sales + CSM</td></tr>
+            <tr><td data-en="Enterprise Proposal → Pilot" data-zh="企业提案→试点">Enterprise Proposal → Pilot</td><td>Proposal close</td><td style="font-family:var(--mono);color:var(--accent)">50%</td><td data-en="Sales" data-zh="销售">Sales</td></tr>
+            <tr><td data-en="Time to first simulation" data-zh="首次仿真时长">Time to first simulation</td><td>Time-to-value</td><td style="font-family:var(--mono);color:var(--accent)">&lt;10 min</td><td data-en="Product" data-zh="产品部">Product</td></tr>
+            <tr class="hl"><td data-en="Blended CAC" data-zh="综合获客成本">Blended CAC</td><td>Across all channels</td><td style="font-family:var(--mono)">&lt;$800</td><td data-en="Marketing" data-zh="市场部">Marketing</td></tr>
           </tbody>
         </table>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.5rem">Expansion Trigger Signals</div>
+          <div class="card-title" style="margin-bottom:.5rem" data-en="Expansion Trigger Signals" data-zh="扩展触发信号">Expansion Trigger Signals</div>
           <div style="font-size:.78rem;color:var(--text2);display:flex;flex-direction:column;gap:.3rem">
-            <div>80% AI token usage → automated upgrade prompt</div>
-            <div>3+ team members invited → "Upgrade to Team" push</div>
-            <div>5+ active projects → account review by Sales</div>
-            <div>Advanced features requested → route to enterprise AE</div>
+            <div data-en="80% AI token usage → automated upgrade prompt" data-zh="AI Token使用率达80% → 自动升级提示">80% AI token usage → automated upgrade prompt</div>
+            <div data-en='3+ team members invited → "Upgrade to Team" push' data-zh='邀请3个以上团队成员 → 推送「升级至Team」'>3+ team members invited → "Upgrade to Team" push</div>
+            <div data-en="5+ active projects → account review by Sales" data-zh="5个以上活跃项目 → 销售进行账户审查">5+ active projects → account review by Sales</div>
+            <div data-en="Advanced features requested → route to enterprise AE" data-zh="请求高级功能 → 转至企业客户经理">Advanced features requested → route to enterprise AE</div>
           </div>
         </div>
       </div>
@@ -304,69 +305,69 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="email">
     <div class="sec-hd">
       <span class="sec-num">04</span>
-      <span class="sec-title">Email Sequences</span>
-      <span class="sec-sub">4 automated flows · Triggers · Conversion goals</span>
+      <span class="sec-title" data-en="Email Sequences" data-zh="邮件序列">Email Sequences</span>
+      <span class="sec-sub" data-en="4 automated flows · Triggers · Conversion goals" data-zh="4条自动化流程 · 触发条件 · 转化目标">4 automated flows · Triggers · Conversion goals</span>
     </div>
     <div class="g2">
       <div>
         <div class="seq-card">
-          <div class="seq-trigger">Sequence 1 — Trigger: Free sign-up</div>
-          <div class="seq-title">Welcome & Onboarding (5 emails · 14 days)</div>
-          <div class="seq-meta" style="margin-bottom:.6rem">Goal: First AI model within 7 days · 40% activation target</div>
+          <div class="seq-trigger" data-en="Sequence 1 — Trigger: Free sign-up" data-zh="序列1 — 触发：免费注册">Sequence 1 — Trigger: Free sign-up</div>
+          <div class="seq-title" data-en="Welcome &amp; Onboarding (5 emails · 14 days)" data-zh="欢迎与引导（5封邮件 · 14天）">Welcome &amp; Onboarding (5 emails · 14 days)</div>
+          <div class="seq-meta" style="margin-bottom:.6rem" data-en="Goal: First AI model within 7 days · 40% activation target" data-zh="目标：7天内生成首个AI模型 · 40%激活率">Goal: First AI model within 7 days · 40% activation target</div>
           <table class="tbl">
-            <thead><tr><th>Day</th><th>Subject</th><th>Action</th></tr></thead>
+            <thead><tr><th data-en="Day" data-zh="天数">Day</th><th data-en="Subject" data-zh="邮件主题">Subject</th><th data-en="Action" data-zh="行动目标">Action</th></tr></thead>
             <tbody>
-              <tr><td style="font-family:var(--mono)">0</td><td>Welcome to ODE</td><td style="color:var(--text2)">Account confirm + first step CTA</td></tr>
-              <tr><td style="font-family:var(--mono)">1</td><td>Build your first AI model</td><td style="color:var(--text2)">3-step guided tutorial</td></tr>
-              <tr><td style="font-family:var(--mono)">3</td><td>Explore all 6 tools</td><td style="color:var(--text2)">Feature tour — Component, Geometry, System</td></tr>
-              <tr><td style="font-family:var(--mono)">7</td><td>Power user tips</td><td style="color:var(--text2)">5 shortcuts; deepens engagement</td></tr>
-              <tr><td style="font-family:var(--mono)">14</td><td>Unlock more with Pro</td><td style="color:var(--text2)">Usage-based upgrade prompt</td></tr>
+              <tr><td style="font-family:var(--mono)">0</td><td data-en="Welcome to ODE" data-zh="欢迎加入ODE">Welcome to ODE</td><td style="color:var(--text2)" data-en="Account confirm + first step CTA" data-zh="账户确认 + 第一步行动">Account confirm + first step CTA</td></tr>
+              <tr><td style="font-family:var(--mono)">1</td><td data-en="Build your first AI model" data-zh="构建你的第一个AI模型">Build your first AI model</td><td style="color:var(--text2)" data-en="3-step guided tutorial" data-zh="3步引导教程">3-step guided tutorial</td></tr>
+              <tr><td style="font-family:var(--mono)">3</td><td data-en="Explore all 6 tools" data-zh="探索全部6个工具">Explore all 6 tools</td><td style="color:var(--text2)" data-en="Feature tour — Component, Geometry, System" data-zh="功能导览 — Component, Geometry, System">Feature tour — Component, Geometry, System</td></tr>
+              <tr><td style="font-family:var(--mono)">7</td><td data-en="Power user tips" data-zh="高效使用技巧">Power user tips</td><td style="color:var(--text2)" data-en="5 shortcuts; deepens engagement" data-zh="5个快捷技巧；加深使用深度">5 shortcuts; deepens engagement</td></tr>
+              <tr><td style="font-family:var(--mono)">14</td><td data-en="Unlock more with Pro" data-zh="升级Pro，解锁更多">Unlock more with Pro</td><td style="color:var(--text2)" data-en="Usage-based upgrade prompt" data-zh="基于用量的升级提示">Usage-based upgrade prompt</td></tr>
             </tbody>
           </table>
         </div>
         <div class="seq-card" style="margin-top:1rem">
-          <div class="seq-trigger">Sequence 3 — Trigger: Sales adds manually</div>
-          <div class="seq-title">Enterprise Cold Outreach (4 emails)</div>
-          <div class="seq-meta" style="margin-bottom:.6rem">Goal: Discovery call · Response target &gt;15% for Tier 1 accounts</div>
+          <div class="seq-trigger" data-en="Sequence 3 — Trigger: Sales adds manually" data-zh="序列3 — 触发：销售手动添加">Sequence 3 — Trigger: Sales adds manually</div>
+          <div class="seq-title" data-en="Enterprise Cold Outreach (4 emails)" data-zh="企业冷开发（4封邮件）">Enterprise Cold Outreach (4 emails)</div>
+          <div class="seq-meta" style="margin-bottom:.6rem" data-en="Goal: Discovery call · Response target &gt;15% for Tier 1 accounts" data-zh="目标：探索通话 · T1账户回复率&gt;15%">Goal: Discovery call · Response target &gt;15% for Tier 1 accounts</div>
           <table class="tbl">
-            <thead><tr><th>Day</th><th>Approach</th><th>Content</th></tr></thead>
+            <thead><tr><th data-en="Day" data-zh="天数">Day</th><th data-en="Approach" data-zh="方式">Approach</th><th data-en="Content" data-zh="内容">Content</th></tr></thead>
             <tbody>
-              <tr><td style="font-family:var(--mono)">0</td><td>Pain-led question</td><td style="color:var(--text2)">Simulation turnaround time hook</td></tr>
-              <tr><td style="font-family:var(--mono)">4</td><td>Video follow-up</td><td style="color:var(--text2)">60-second Loom demo</td></tr>
-              <tr><td style="font-family:var(--mono)">9</td><td>Social proof</td><td style="color:var(--text2)">Similar company case study</td></tr>
-              <tr><td style="font-family:var(--mono)">16</td><td>Low-pressure close</td><td style="color:var(--text2)">"Check back in Q" — keep door open</td></tr>
+              <tr><td style="font-family:var(--mono)">0</td><td data-en="Pain-led question" data-zh="痛点切入">Pain-led question</td><td style="color:var(--text2)" data-en="Simulation turnaround time hook" data-zh="仿真周期时间钩子">Simulation turnaround time hook</td></tr>
+              <tr><td style="font-family:var(--mono)">4</td><td data-en="Video follow-up" data-zh="视频跟进">Video follow-up</td><td style="color:var(--text2)" data-en="60-second Loom demo" data-zh="60秒Loom演示视频">60-second Loom demo</td></tr>
+              <tr><td style="font-family:var(--mono)">9</td><td data-en="Social proof" data-zh="社会证明">Social proof</td><td style="color:var(--text2)" data-en="Similar company case study" data-zh="同类企业案例">Similar company case study</td></tr>
+              <tr><td style="font-family:var(--mono)">16</td><td data-en="Low-pressure close" data-zh="低压力收尾">Low-pressure close</td><td style="color:var(--text2)" data-en='"Check back in Q" — keep door open' data-zh='「下季度再联系」 — 保持联系'>"Check back in Q" — keep door open</td></tr>
             </tbody>
           </table>
         </div>
       </div>
       <div>
         <div class="seq-card">
-          <div class="seq-trigger">Sequence 2 — Trigger: Activated but unpaid after 14 days</div>
-          <div class="seq-title">Free to Paid Nurture (7 emails · 30 days)</div>
-          <div class="seq-meta" style="margin-bottom:.6rem">Goal: 20–30% of activated free users convert to paid</div>
+          <div class="seq-trigger" data-en="Sequence 2 — Trigger: Activated but unpaid after 14 days" data-zh="序列2 — 触发：激活14天未付费">Sequence 2 — Trigger: Activated but unpaid after 14 days</div>
+          <div class="seq-title" data-en="Free to Paid Nurture (7 emails · 30 days)" data-zh="免费转付费培育（7封邮件 · 30天）">Free to Paid Nurture (7 emails · 30 days)</div>
+          <div class="seq-meta" style="margin-bottom:.6rem" data-en="Goal: 20–30% of activated free users convert to paid" data-zh="目标：20–30%的激活免费用户转为付费">Goal: 20–30% of activated free users convert to paid</div>
           <table class="tbl">
-            <thead><tr><th>Day</th><th>Subject</th><th>Tactic</th></tr></thead>
+            <thead><tr><th data-en="Day" data-zh="天数">Day</th><th data-en="Subject" data-zh="邮件主题">Subject</th><th data-en="Tactic" data-zh="策略">Tactic</th></tr></thead>
             <tbody>
-              <tr><td style="font-family:var(--mono)">15</td><td>How [company] cut sim time 90%</td><td style="color:var(--text2)">ICP-specific ROI case study</td></tr>
-              <tr><td style="font-family:var(--mono)">18</td><td>Feature you haven't tried yet</td><td style="color:var(--text2)">Advanced AI capability spotlight</td></tr>
-              <tr><td style="font-family:var(--mono)">22</td><td>500 engineers already on Pro</td><td style="color:var(--text2)">Social proof + adoption numbers</td></tr>
-              <tr><td style="font-family:var(--mono)">25</td><td>ODE vs. [their current tool]</td><td style="color:var(--text2)">Direct comparison + TCO frame</td></tr>
-              <tr><td style="font-family:var(--mono)">28</td><td>Exclusive: 20% off Pro — 3 months</td><td style="color:var(--text2)">Time-limited discount offer</td></tr>
-              <tr><td style="font-family:var(--mono)">32</td><td>Bring your team</td><td style="color:var(--text2)">Collaboration pitch — Team tier</td></tr>
-              <tr><td style="font-family:var(--mono)">37</td><td>Last chance — offer expires</td><td style="color:var(--text2)">Urgency close on discount</td></tr>
+              <tr><td style="font-family:var(--mono)">15</td><td data-en="How [company] cut sim time 90%" data-zh="[公司]如何将仿真时间缩短90%">How [company] cut sim time 90%</td><td style="color:var(--text2)" data-en="ICP-specific ROI case study" data-zh="ICP专属ROI案例">ICP-specific ROI case study</td></tr>
+              <tr><td style="font-family:var(--mono)">18</td><td data-en="Feature you haven't tried yet" data-zh="你还没用过的这个功能">Feature you haven't tried yet</td><td style="color:var(--text2)" data-en="Advanced AI capability spotlight" data-zh="高级AI能力聚焦">Advanced AI capability spotlight</td></tr>
+              <tr><td style="font-family:var(--mono)">22</td><td data-en="500 engineers already on Pro" data-zh="已有500位工程师升级Pro">500 engineers already on Pro</td><td style="color:var(--text2)" data-en="Social proof + adoption numbers" data-zh="社会证明 + 用户数量">Social proof + adoption numbers</td></tr>
+              <tr><td style="font-family:var(--mono)">25</td><td data-en="ODE vs. [their current tool]" data-zh="ODE vs. [他们当前的工具]">ODE vs. [their current tool]</td><td style="color:var(--text2)" data-en="Direct comparison + TCO frame" data-zh="直接对比 + TCO框架">Direct comparison + TCO frame</td></tr>
+              <tr><td style="font-family:var(--mono)">28</td><td data-en="Exclusive: 20% off Pro — 3 months" data-zh="专属优惠：Pro 8折 — 前3个月">Exclusive: 20% off Pro — 3 months</td><td style="color:var(--text2)" data-en="Time-limited discount offer" data-zh="限时折扣优惠">Time-limited discount offer</td></tr>
+              <tr><td style="font-family:var(--mono)">32</td><td data-en="Bring your team" data-zh="邀请你的团队">Bring your team</td><td style="color:var(--text2)" data-en="Collaboration pitch — Team tier" data-zh="协作功能推介 — Team层级">Collaboration pitch — Team tier</td></tr>
+              <tr><td style="font-family:var(--mono)">37</td><td data-en="Last chance — offer expires" data-zh="最后机会 — 优惠即将到期">Last chance — offer expires</td><td style="color:var(--text2)" data-en="Urgency close on discount" data-zh="折扣到期紧迫性收尾">Urgency close on discount</td></tr>
             </tbody>
           </table>
         </div>
         <div class="seq-card" style="margin-top:1rem">
-          <div class="seq-trigger">Sequence 4 — Trigger: 30+ days inactive (paid)</div>
-          <div class="seq-title">Re-engagement (3 emails)</div>
-          <div class="seq-meta" style="margin-bottom:.6rem">Goal: Reactivate before renewal or churn event</div>
+          <div class="seq-trigger" data-en="Sequence 4 — Trigger: 30+ days inactive (paid)" data-zh="序列4 — 触发：付费用户超30天未活跃">Sequence 4 — Trigger: 30+ days inactive (paid)</div>
+          <div class="seq-title" data-en="Re-engagement (3 emails)" data-zh="重新激活（3封邮件）">Re-engagement (3 emails)</div>
+          <div class="seq-meta" style="margin-bottom:.6rem" data-en="Goal: Reactivate before renewal or churn event" data-zh="目标：在续费或流失前重新激活">Goal: Reactivate before renewal or churn event</div>
           <table class="tbl">
-            <thead><tr><th>Day</th><th>Approach</th><th>Content</th></tr></thead>
+            <thead><tr><th data-en="Day" data-zh="天数">Day</th><th data-en="Approach" data-zh="方式">Approach</th><th data-en="Content" data-zh="内容">Content</th></tr></thead>
             <tbody>
-              <tr><td style="font-family:var(--mono)">30</td><td>Soft re-entry</td><td style="color:var(--text2)">"We noticed you've been away" — value reminder</td></tr>
-              <tr><td style="font-family:var(--mono)">45</td><td>Feature highlight</td><td style="color:var(--text2)">Biggest new feature since last login</td></tr>
-              <tr><td style="font-family:var(--mono)">60</td><td>Account check-in</td><td style="color:var(--text2)">Keep account or graceful goodbye</td></tr>
+              <tr><td style="font-family:var(--mono)">30</td><td data-en="Soft re-entry" data-zh="温和回归">Soft re-entry</td><td style="color:var(--text2)" data-en='"We noticed you&#39;ve been away" — value reminder' data-zh='「我们注意到你已离开一段时间」 — 价值提醒'>"We noticed you've been away" — value reminder</td></tr>
+              <tr><td style="font-family:var(--mono)">45</td><td data-en="Feature highlight" data-zh="功能亮点">Feature highlight</td><td style="color:var(--text2)" data-en="Biggest new feature since last login" data-zh="上次登录以来的最大新功能">Biggest new feature since last login</td></tr>
+              <tr><td style="font-family:var(--mono)">60</td><td data-en="Account check-in" data-zh="账户回访">Account check-in</td><td style="color:var(--text2)" data-en="Keep account or graceful goodbye" data-zh="保留账户或优雅告别">Keep account or graceful goodbye</td></tr>
             </tbody>
           </table>
         </div>
@@ -378,43 +379,43 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="seo">
     <div class="sec-hd">
       <span class="sec-num">05</span>
-      <span class="sec-title">SEO Strategy</span>
-      <span class="sec-sub">Priority keywords · Content pillars · Organic traffic goal</span>
+      <span class="sec-title" data-en="SEO Strategy" data-zh="SEO策略">SEO Strategy</span>
+      <span class="sec-sub" data-en="Priority keywords · Content pillars · Organic traffic goal" data-zh="优先关键词 · 内容支柱 · 自然流量目标">Priority keywords · Content pillars · Organic traffic goal</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Priority Keyword Targets</div>
+        <div class="card-title" data-en="Priority Keyword Targets" data-zh="优先关键词目标">Priority Keyword Targets</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Keyword</th><th>Monthly Volume</th><th>Difficulty</th><th>Intent</th></tr></thead>
+          <thead><tr><th data-en="Keyword" data-zh="关键词">Keyword</th><th data-en="Monthly Volume" data-zh="月搜索量">Monthly Volume</th><th data-en="Difficulty" data-zh="难度">Difficulty</th><th data-en="Intent" data-zh="搜索意图">Intent</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">AI CAD software</td><td style="font-family:var(--mono)">2,400</td><td><span class="pill p-amber">Medium</span></td><td>High purchase</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">AI simulation software</td><td style="font-family:var(--mono)">1,800</td><td><span class="pill p-amber">Medium</span></td><td>High purchase</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">AI engineering platform</td><td style="font-family:var(--mono)">1,300</td><td><span class="pill p-green">Low–Med</span></td><td>High purchase</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Browser-based CAD</td><td style="font-family:var(--mono)">1,100</td><td><span class="pill p-amber">Medium</span></td><td>High purchase</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Modelica simulation online</td><td style="font-family:var(--mono)">500</td><td><span class="pill p-green">Low</span></td><td>High purchase</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">AI-powered simulation</td><td style="font-family:var(--mono)">600</td><td><span class="pill p-green">Low</span></td><td>High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">AI CAD software</td><td style="font-family:var(--mono)">2,400</td><td><span class="pill p-amber">Medium</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">AI simulation software</td><td style="font-family:var(--mono)">1,800</td><td><span class="pill p-amber">Medium</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">AI engineering platform</td><td style="font-family:var(--mono)">1,300</td><td><span class="pill p-green">Low–Med</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Browser-based CAD</td><td style="font-family:var(--mono)">1,100</td><td><span class="pill p-amber">Medium</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Modelica simulation online</td><td style="font-family:var(--mono)">500</td><td><span class="pill p-green">Low</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">AI-powered simulation</td><td style="font-family:var(--mono)">600</td><td><span class="pill p-green">Low</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
             <tr><td style="font-weight:600;color:var(--text)">Cloud engineering tools</td><td style="font-family:var(--mono)">2,000</td><td><span class="pill" style="background:rgba(255,59,48,.1);color:var(--error)">High</span></td><td>Medium</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Cloud engineering simulation tool</td><td style="font-family:var(--mono)">260</td><td><span class="pill p-green">Low</span></td><td>High purchase</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Cloud engineering simulation tool</td><td style="font-family:var(--mono)">260</td><td><span class="pill p-green">Low</span></td><td data-en="High purchase" data-zh="高购买意图">High purchase</td></tr>
           </tbody>
         </table>
       </div>
       <div class="card">
-        <div class="card-title">SEO Content Roadmap</div>
-        <div style="font-size:.78rem;color:var(--text2);margin-bottom:1rem;line-height:1.6">
+        <div class="card-title" data-en="SEO Content Roadmap" data-zh="SEO内容路线图">SEO Content Roadmap</div>
+        <div style="font-size:.78rem;color:var(--text2);margin-bottom:1rem;line-height:1.6" data-en='Target: <strong style="color:var(--text)">25,000 organic visits/month by Q4</strong>. Starting from zero — requires 8 pillar posts + 2 competitor comparison pages/month minimum.' data-zh='目标：<strong style="color:var(--text)">Q4实现每月2.5万次自然访问</strong>。从零开始 — 至少需要8篇支柱文章 + 每月2篇竞品对比页。'>
           Target: <strong style="color:var(--text)">25,000 organic visits/month by Q4</strong>. Starting from zero — requires 8 pillar posts + 2 competitor comparison pages/month minimum.
         </div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Content Type</th><th>Cadence</th><th>Primary Goal</th><th>AI Tool</th></tr></thead>
+          <thead><tr><th data-en="Content Type" data-zh="内容类型">Content Type</th><th data-en="Cadence" data-zh="发布频率">Cadence</th><th data-en="Primary Goal" data-zh="首要目标">Primary Goal</th><th data-en="AI Tool" data-zh="AI工具">AI Tool</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">Pillar posts (&gt;2,000 words)</td><td>2× / week</td><td>Rank for primary keywords</td><td>Claude + Perplexity</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Competitor comparisons</td><td>2× / month</td><td>Capture competitor traffic</td><td>Claude + Cursor</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Tutorial / how-to</td><td>1× / week</td><td>Long-tail activation</td><td>Claude</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Industry pages (Aerospace, etc.)</td><td>1× / month</td><td>ICP-specific landing</td><td>Claude + Framer</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Customer case studies</td><td>1× / month</td><td>Social proof + SEO</td><td>Claude (AI-drafted)</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Technical whitepapers</td><td>1× / quarter</td><td>Lead magnet + authority</td><td>Claude + designer polish</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Pillar posts (&gt;2,000 words)" data-zh="支柱文章（&gt;2000字）">Pillar posts (&gt;2,000 words)</td><td>2× / week</td><td data-en="Rank for primary keywords" data-zh="主关键词排名">Rank for primary keywords</td><td>Claude + Perplexity</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Competitor comparisons" data-zh="竞品对比页">Competitor comparisons</td><td>2× / month</td><td data-en="Capture competitor traffic" data-zh="截取竞品流量">Capture competitor traffic</td><td>Claude + Cursor</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Tutorial / how-to" data-zh="教程 / 操作指南">Tutorial / how-to</td><td>1× / week</td><td data-en="Long-tail activation" data-zh="长尾词激活">Long-tail activation</td><td>Claude</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Industry pages (Aerospace, etc.)" data-zh="行业专题页（航空航天等）">Industry pages (Aerospace, etc.)</td><td>1× / month</td><td data-en="ICP-specific landing" data-zh="ICP专属落地页">ICP-specific landing</td><td>Claude + Framer</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Customer case studies" data-zh="客户案例">Customer case studies</td><td>1× / month</td><td data-en="Social proof + SEO" data-zh="社会证明 + SEO">Social proof + SEO</td><td>Claude (AI-drafted)</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Technical whitepapers" data-zh="技术白皮书">Technical whitepapers</td><td>1× / quarter</td><td data-en="Lead magnet + authority" data-zh="获客钩子 + 权威性建立">Lead magnet + authority</td><td>Claude + designer polish</td></tr>
           </tbody>
         </table>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,113,227,.06);border-radius:8px;font-size:.78rem;color:var(--text2)">
+        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,113,227,.06);border-radius:8px;font-size:.78rem;color:var(--text2)" data-en='<strong style="color:var(--accent)">Phase A Priority:</strong> 8 pillar posts published before paid ads scale — "Dassault vs. ODE" comparisons, FEM/CFD guides, Modelica tutorials. These are the SEO foundation.' data-zh='<strong style="color:var(--accent)">阶段A优先：</strong>付费广告扩大规模前，先发布8篇支柱文章 — "达索 vs. ODE"对比、FEM/CFD指南、Modelica教程。这是SEO的基础。'>
           <strong style="color:var(--accent)">Phase A Priority:</strong> 8 pillar posts published before paid ads scale — "Dassault vs. ODE" comparisons, FEM/CFD guides, Modelica tutorials. These are the SEO foundation.
         </div>
       </div>
@@ -425,42 +426,42 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="webinars">
     <div class="sec-hd">
       <span class="sec-num">06</span>
-      <span class="sec-title">Webinar Calendar</span>
-      <span class="sec-sub">"AI-Native Engineering Workshop" series · Q2–Q3 2026</span>
+      <span class="sec-title" data-en="Webinar Calendar" data-zh="网络研讨会日历">Webinar Calendar</span>
+      <span class="sec-sub" data-en='"AI-Native Engineering Workshop" series · Q2–Q3 2026' data-zh='「AI原生工程研讨会」系列 · 2026年Q2–Q3'>"AI-Native Engineering Workshop" series · Q2–Q3 2026</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Q2 2026 — April to June</div>
+        <div class="card-title" data-en="Q2 2026 — April to June" data-zh="2026年Q2 — 四月至六月">Q2 2026 — April to June</div>
         <div style="margin-top:.25rem">
-          <div class="wb-row"><div class="wb-date">Apr 15</div><div class="wb-title">ODE 101: Your First AI-Assisted Simulation in 15 Minutes</div><div class="wb-icp">Indie Engineers · Universities</div></div>
-          <div class="wb-row"><div class="wb-date">Apr 29</div><div class="wb-title">Enterprise Simulation at Scale: From Prototype to Production</div><div class="wb-icp">Enterprise OEMs</div></div>
-          <div class="wb-row"><div class="wb-date">May 13</div><div class="wb-title">Modelica + Claude: Building Multi-Domain Models with AI</div><div class="wb-icp">Consultancies · Universities</div></div>
-          <div class="wb-row"><div class="wb-date">May 27</div><div class="wb-title">Migrating from MATLAB/Simulink to ODE — A 30-Day Guide</div><div class="wb-icp">Enterprise OEMs · Consultancies</div></div>
-          <div class="wb-row"><div class="wb-date">Jun 10</div><div class="wb-title">Teaching Systems Engineering with AI: A Professor's Toolkit</div><div class="wb-icp">Universities</div></div>
-          <div class="wb-row"><div class="wb-date">Jun 24</div><div class="wb-title">ODE for Automotive: Thermal, Electrical, and Powertrain Co-simulation</div><div class="wb-icp">Enterprise OEMs</div></div>
+          <div class="wb-row"><div class="wb-date">Apr 15</div><div class="wb-title" data-en="ODE 101: Your First AI-Assisted Simulation in 15 Minutes" data-zh="ODE入门：15分钟完成你的第一次AI辅助仿真">ODE 101: Your First AI-Assisted Simulation in 15 Minutes</div><div class="wb-icp" data-en="Indie Engineers · Universities" data-zh="独立工程师 · 高校">Indie Engineers · Universities</div></div>
+          <div class="wb-row"><div class="wb-date">Apr 29</div><div class="wb-title" data-en="Enterprise Simulation at Scale: From Prototype to Production" data-zh="企业级仿真规模化：从原型到生产">Enterprise Simulation at Scale: From Prototype to Production</div><div class="wb-icp" data-en="Enterprise OEMs" data-zh="企业级OEM">Enterprise OEMs</div></div>
+          <div class="wb-row"><div class="wb-date">May 13</div><div class="wb-title" data-en="Modelica + Claude: Building Multi-Domain Models with AI" data-zh="Modelica + Claude：用AI构建多域模型">Modelica + Claude: Building Multi-Domain Models with AI</div><div class="wb-icp" data-en="Consultancies · Universities" data-zh="咨询机构 · 高校">Consultancies · Universities</div></div>
+          <div class="wb-row"><div class="wb-date">May 27</div><div class="wb-title" data-en="Migrating from MATLAB/Simulink to ODE — A 30-Day Guide" data-zh="从MATLAB/Simulink迁移至ODE — 30天实战指南">Migrating from MATLAB/Simulink to ODE — A 30-Day Guide</div><div class="wb-icp" data-en="Enterprise OEMs · Consultancies" data-zh="企业级OEM · 咨询机构">Enterprise OEMs · Consultancies</div></div>
+          <div class="wb-row"><div class="wb-date">Jun 10</div><div class="wb-title" data-en="Teaching Systems Engineering with AI: A Professor's Toolkit" data-zh="用AI教授系统工程：教授工具包">Teaching Systems Engineering with AI: A Professor's Toolkit</div><div class="wb-icp" data-en="Universities" data-zh="高校">Universities</div></div>
+          <div class="wb-row"><div class="wb-date">Jun 24</div><div class="wb-title" data-en="ODE for Automotive: Thermal, Electrical, and Powertrain Co-simulation" data-zh="ODE汽车应用：热、电、动力总成联合仿真">ODE for Automotive: Thermal, Electrical, and Powertrain Co-simulation</div><div class="wb-icp" data-en="Enterprise OEMs" data-zh="企业级OEM">Enterprise OEMs</div></div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Q3 2026 — July to September</div>
+        <div class="card-title" data-en="Q3 2026 — July to September" data-zh="2026年Q3 — 七月至九月">Q3 2026 — July to September</div>
         <div style="margin-top:.25rem">
-          <div class="wb-row"><div class="wb-date">Jul 8</div><div class="wb-title">The Solo Engineer's Toolkit: How ODE Replaces 5 Desktop Tools</div><div class="wb-icp">Indie Engineers</div></div>
-          <div class="wb-row"><div class="wb-date">Jul 22</div><div class="wb-title">Building Digital Twins with ODE and FMI/FMU</div><div class="wb-icp">Enterprise OEMs · Consultancies</div></div>
-          <div class="wb-row"><div class="wb-date">Aug 5</div><div class="wb-title">AI-Assisted Design Optimisation: From Concept to Converged</div><div class="wb-icp">All ICPs</div></div>
-          <div class="wb-row"><div class="wb-date">Aug 19</div><div class="wb-title">ODE API Deep-Dive: Automating Engineering Workflows at Scale</div><div class="wb-icp">Enterprise OEMs · Consultancies</div></div>
-          <div class="wb-row"><div class="wb-date">Sep 2</div><div class="wb-title">Customer Showcase: Cut Simulation Setup Time by 90%</div><div class="wb-icp">Enterprise OEMs</div></div>
-          <div class="wb-row"><div class="wb-date">Sep 16</div><div class="wb-title">Open Standards in Practice: Interoperability and Data Freedom</div><div class="wb-icp">All ICPs</div></div>
+          <div class="wb-row"><div class="wb-date">Jul 8</div><div class="wb-title" data-en="The Solo Engineer's Toolkit: How ODE Replaces 5 Desktop Tools" data-zh="独立工程师工具箱：ODE如何替代5款桌面工具">The Solo Engineer's Toolkit: How ODE Replaces 5 Desktop Tools</div><div class="wb-icp" data-en="Indie Engineers" data-zh="独立工程师">Indie Engineers</div></div>
+          <div class="wb-row"><div class="wb-date">Jul 22</div><div class="wb-title" data-en="Building Digital Twins with ODE and FMI/FMU" data-zh="用ODE和FMI/FMU构建数字孪生">Building Digital Twins with ODE and FMI/FMU</div><div class="wb-icp" data-en="Enterprise OEMs · Consultancies" data-zh="企业级OEM · 咨询机构">Enterprise OEMs · Consultancies</div></div>
+          <div class="wb-row"><div class="wb-date">Aug 5</div><div class="wb-title" data-en="AI-Assisted Design Optimisation: From Concept to Converged" data-zh="AI辅助设计优化：从概念到收敛">AI-Assisted Design Optimisation: From Concept to Converged</div><div class="wb-icp" data-en="All ICPs" data-zh="所有ICP">All ICPs</div></div>
+          <div class="wb-row"><div class="wb-date">Aug 19</div><div class="wb-title" data-en="ODE API Deep-Dive: Automating Engineering Workflows at Scale" data-zh="ODE API深度解析：大规模自动化工程流程">ODE API Deep-Dive: Automating Engineering Workflows at Scale</div><div class="wb-icp" data-en="Enterprise OEMs · Consultancies" data-zh="企业级OEM · 咨询机构">Enterprise OEMs · Consultancies</div></div>
+          <div class="wb-row"><div class="wb-date">Sep 2</div><div class="wb-title" data-en="Customer Showcase: Cut Simulation Setup Time by 90%" data-zh="客户案例：将仿真准备时间缩短90%">Customer Showcase: Cut Simulation Setup Time by 90%</div><div class="wb-icp" data-en="Enterprise OEMs" data-zh="企业级OEM">Enterprise OEMs</div></div>
+          <div class="wb-row"><div class="wb-date">Sep 16</div><div class="wb-title" data-en="Open Standards in Practice: Interoperability and Data Freedom" data-zh="开放标准实践：互操作性与数据自由">Open Standards in Practice: Interoperability and Data Freedom</div><div class="wb-icp" data-en="All ICPs" data-zh="所有ICP">All ICPs</div></div>
         </div>
       </div>
     </div>
     <div class="card" style="margin-top:1.5rem">
-      <div class="card-title">Webinar Operations — Post-Event Funnel</div>
+      <div class="card-title" data-en="Webinar Operations — Post-Event Funnel" data-zh="网络研讨会运营 — 活动后转化漏斗">Webinar Operations — Post-Event Funnel</div>
       <table class="tbl" style="margin-top:.25rem">
-        <thead><tr><th>Channel</th><th>Promotion Timing</th><th>Post-Event Action</th><th>Target</th></tr></thead>
+        <thead><tr><th data-en="Channel" data-zh="渠道">Channel</th><th data-en="Promotion Timing" data-zh="推广时机">Promotion Timing</th><th data-en="Post-Event Action" data-zh="活动后行动">Post-Event Action</th><th data-en="Target" data-zh="目标">Target</th></tr></thead>
         <tbody>
-          <tr><td>Email list + CRM</td><td>2 weeks + 1 week + 1 day before</td><td>Full attendee list enters nurture sequence</td><td>50% email open rate</td></tr>
-          <tr><td>LinkedIn (company + CEO)</td><td>5 posts per webinar</td><td>Recording clip as short-form content (3–5 clips)</td><td>200+ registrations/event (Q4)</td></tr>
-          <tr><td>YouTube</td><td>Teaser clip 1 week before</td><td>Full recording published (SEO-optimised title)</td><td>150+ avg attendance (Q4)</td></tr>
-          <tr><td>Blog</td><td>N/A</td><td>Summary post published within 48 hours</td><td>50+ MQLs per webinar (Q4)</td></tr>
+          <tr><td data-en="Email list + CRM" data-zh="邮件列表 + CRM">Email list + CRM</td><td data-en="2 weeks + 1 week + 1 day before" data-zh="活动前2周 + 1周 + 1天">2 weeks + 1 week + 1 day before</td><td data-en="Full attendee list enters nurture sequence" data-zh="全部参会者进入培育序列">Full attendee list enters nurture sequence</td><td data-en="50% email open rate" data-zh="邮件打开率50%">50% email open rate</td></tr>
+          <tr><td data-en="LinkedIn (company + CEO)" data-zh="LinkedIn（公司 + CEO）">LinkedIn (company + CEO)</td><td data-en="5 posts per webinar" data-zh="每场5篇帖子">5 posts per webinar</td><td data-en="Recording clip as short-form content (3–5 clips)" data-zh="录播剪辑作为短视频内容（3–5个）">Recording clip as short-form content (3–5 clips)</td><td data-en="200+ registrations/event (Q4)" data-zh="每场200+注册（Q4）">200+ registrations/event (Q4)</td></tr>
+          <tr><td data-en="YouTube" data-zh="YouTube">YouTube</td><td data-en="Teaser clip 1 week before" data-zh="活动前1周发布预告片">Teaser clip 1 week before</td><td data-en="Full recording published (SEO-optimised title)" data-zh="完整录播发布（SEO优化标题）">Full recording published (SEO-optimised title)</td><td data-en="150+ avg attendance (Q4)" data-zh="平均参与人数150+（Q4）">150+ avg attendance (Q4)</td></tr>
+          <tr><td data-en="Blog" data-zh="博客">Blog</td><td>N/A</td><td data-en="Summary post published within 48 hours" data-zh="48小时内发布总结文章">Summary post published within 48 hours</td><td data-en="50+ MQLs per webinar (Q4)" data-zh="每场50+ MQL（Q4）">50+ MQLs per webinar (Q4)</td></tr>
         </tbody>
       </table>
     </div>
@@ -474,6 +475,15 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navItems.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+id));}});
 },{rootMargin:'-30% 0px -60% 0px'});
 sections.forEach(s=>obs.observe(s));
+let _lang='en';
+function toggleLang(){
+  _lang=_lang==='en'?'zh':'en';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+  });
+  document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+  document.documentElement.lang=_lang;
+}
 </script>
 </body>
 </html>

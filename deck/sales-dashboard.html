@@ -100,27 +100,28 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 </style>
 </head>
 <body>
-<div class="page-header">
+<div class="page-header" style="display:flex;align-items:center">
   <div>
     <div class="ph-eyebrow">Orthogonal · ODE</div>
-    <div class="ph-title">Sales Playbook — Executive Dashboard</div>
+    <div class="ph-title" data-en="Sales Playbook — Executive Dashboard" data-zh="销售手册 — 管理层仪表板">Sales Playbook — Executive Dashboard</div>
   </div>
-  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Pipeline · Qualification · Demo · Objections · Journey</div>
+  <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Pipeline · Qualification · Demo · Objections · Journey" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>销售管道 · 资质评估 · 演示 · 异议处理 · 客户旅程">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Pipeline · Qualification · Demo · Objections · Journey</div>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 <nav class="dash-nav" id="nav">
-  <a href="#pipeline" class="nav-item active">01 Pipeline</a>
-  <a href="#qualification" class="nav-item">02 Qualification</a>
-  <a href="#demo" class="nav-item">03 Demo Playbook</a>
-  <a href="#objections" class="nav-item">04 Objections</a>
-  <a href="#journey" class="nav-item">05 Customer Journey</a>
-  <a href="#roi" class="nav-item">06 ROI Framework</a>
+  <a href="#pipeline" class="nav-item active" data-en="01 Pipeline" data-zh="01 销售管道">01 Pipeline</a>
+  <a href="#qualification" class="nav-item" data-en="02 Qualification" data-zh="02 客户资质评估">02 Qualification</a>
+  <a href="#demo" class="nav-item" data-en="03 Demo Playbook" data-zh="03 演示手册">03 Demo Playbook</a>
+  <a href="#objections" class="nav-item" data-en="04 Objections" data-zh="04 异议处理">04 Objections</a>
+  <a href="#journey" class="nav-item" data-en="05 Customer Journey" data-zh="05 客户旅程">05 Customer Journey</a>
+  <a href="#roi" class="nav-item" data-en="06 ROI Framework" data-zh="06 ROI框架">06 ROI Framework</a>
 </nav>
 <div class="stats-bar">
-  <div class="stat-cell"><div class="stat-num">$2M</div><div class="stat-lbl">Qualified pipeline target (Q3)</div></div>
-  <div class="stat-cell"><div class="stat-num">$50K–$500K</div><div class="stat-lbl">Enterprise ACV range</div></div>
-  <div class="stat-cell"><div class="stat-num">30%</div><div class="stat-lbl">Pilot-to-contract close rate</div></div>
-  <div class="stat-cell"><div class="stat-num">120%+</div><div class="stat-lbl">Target Net Revenue Retention</div></div>
-  <div class="stat-cell"><div class="stat-num">&lt;$800</div><div class="stat-lbl">Blended CAC target</div></div>
+  <div class="stat-cell"><div class="stat-num">$2M</div><div class="stat-lbl" data-en="Qualified pipeline target (Q3)" data-zh="合格管道目标（Q3）">Qualified pipeline target (Q3)</div></div>
+  <div class="stat-cell"><div class="stat-num">$50K–$500K</div><div class="stat-lbl" data-en="Enterprise ACV range" data-zh="企业客户合同年价值范围">Enterprise ACV range</div></div>
+  <div class="stat-cell"><div class="stat-num">30%</div><div class="stat-lbl" data-en="Pilot-to-contract close rate" data-zh="试点转合同转化率">Pilot-to-contract close rate</div></div>
+  <div class="stat-cell"><div class="stat-num">120%+</div><div class="stat-lbl" data-en="Target Net Revenue Retention" data-zh="目标净收入留存率">Target Net Revenue Retention</div></div>
+  <div class="stat-cell"><div class="stat-num">&lt;$800</div><div class="stat-lbl" data-en="Blended CAC target" data-zh="综合获客成本目标">Blended CAC target</div></div>
 </div>
 
 <main class="dash-main">
@@ -129,44 +130,44 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="pipeline">
     <div class="sec-hd">
       <span class="sec-num">01</span>
-      <span class="sec-title">Pipeline Overview</span>
-      <span class="sec-sub">Stage funnel · Conversion rates · Targets by segment</span>
+      <span class="sec-title" data-en="Pipeline Overview" data-zh="销售管道概览">Pipeline Overview</span>
+      <span class="sec-sub" data-en="Stage funnel · Conversion rates · Targets by segment" data-zh="阶段漏斗 · 转化率 · 各细分目标">Stage funnel · Conversion rates · Targets by segment</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Enterprise Sales Funnel — Stage Conversion</div>
+        <div class="card-title" data-en="Enterprise Sales Funnel — Stage Conversion" data-zh="企业销售漏斗 — 阶段转化">Enterprise Sales Funnel — Stage Conversion</div>
         <div style="margin-top:.75rem">
-          <div class="pipe-stage"><div class="ps-label">Target Accounts</div><div class="ps-bar"><div class="ps-fill" style="width:100%;background:var(--midnight)"></div></div><div class="ps-pct">100%</div><div class="ps-conv">50 accs</div></div>
-          <div class="pipe-stage"><div class="ps-label">Discovery Call</div><div class="ps-bar"><div class="ps-fill" style="width:60%;background:#1a3a6e"></div></div><div class="ps-pct">60%</div><div class="ps-conv">30 calls</div></div>
-          <div class="pipe-stage"><div class="ps-label">Live Demo</div><div class="ps-bar"><div class="ps-fill" style="width:40%;background:var(--accent)"></div></div><div class="ps-pct">40%</div><div class="ps-conv">20 demos</div></div>
-          <div class="pipe-stage"><div class="ps-label">Pilot Signed</div><div class="ps-bar"><div class="ps-fill" style="width:20%;background:#2ea8ff"></div></div><div class="ps-pct">20%</div><div class="ps-conv">10 pilots</div></div>
-          <div class="pipe-stage"><div class="ps-label">Contract Closed</div><div class="ps-bar"><div class="ps-fill" style="width:6%;background:var(--success)"></div></div><div class="ps-pct">6%</div><div class="ps-conv">3+ deals</div></div>
+          <div class="pipe-stage"><div class="ps-label" data-en="Target Accounts" data-zh="目标客户">Target Accounts</div><div class="ps-bar"><div class="ps-fill" style="width:100%;background:var(--midnight)"></div></div><div class="ps-pct">100%</div><div class="ps-conv">50 accs</div></div>
+          <div class="pipe-stage"><div class="ps-label" data-en="Discovery Call" data-zh="探索通话">Discovery Call</div><div class="ps-bar"><div class="ps-fill" style="width:60%;background:#1a3a6e"></div></div><div class="ps-pct">60%</div><div class="ps-conv">30 calls</div></div>
+          <div class="pipe-stage"><div class="ps-label" data-en="Live Demo" data-zh="产品演示">Live Demo</div><div class="ps-bar"><div class="ps-fill" style="width:40%;background:var(--accent)"></div></div><div class="ps-pct">40%</div><div class="ps-conv">20 demos</div></div>
+          <div class="pipe-stage"><div class="ps-label" data-en="Pilot Signed" data-zh="试点签约">Pilot Signed</div><div class="ps-bar"><div class="ps-fill" style="width:20%;background:#2ea8ff"></div></div><div class="ps-pct">20%</div><div class="ps-conv">10 pilots</div></div>
+          <div class="pipe-stage"><div class="ps-label" data-en="Contract Closed" data-zh="合同签订">Contract Closed</div><div class="ps-bar"><div class="ps-fill" style="width:6%;background:var(--success)"></div></div><div class="ps-pct">6%</div><div class="ps-conv">3+ deals</div></div>
         </div>
-        <div style="margin-top:.85rem;padding:.7rem;background:rgba(52,199,89,.08);border-radius:8px;font-size:.75rem;color:var(--text2)">
+        <div style="margin-top:.85rem;padding:.7rem;background:rgba(52,199,89,.08);border-radius:8px;font-size:.75rem;color:var(--text2)" data-en="<strong style=&quot;color:var(--text)&quot;>Discovery → Demo:</strong> 40% conversion &nbsp;·&nbsp; <strong style=&quot;color:var(--text)&quot;>Demo → Pilot:</strong> 50% &nbsp;·&nbsp; <strong style=&quot;color:var(--text)&quot;>Pilot → Close:</strong> 30%" data-zh="<strong style=&quot;color:var(--text)&quot;>探索→演示：</strong>40%转化 &nbsp;·&nbsp; <strong style=&quot;color:var(--text)&quot;>演示→试点：</strong>50% &nbsp;·&nbsp; <strong style=&quot;color:var(--text)&quot;>试点→签约：</strong>30%">
           <strong style="color:var(--text)">Discovery → Demo:</strong> 40% conversion &nbsp;·&nbsp; <strong style="color:var(--text)">Demo → Pilot:</strong> 50% &nbsp;·&nbsp; <strong style="color:var(--text)">Pilot → Close:</strong> 30%
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Revenue Targets by Sales Role</div>
+        <div class="card-title" data-en="Revenue Targets by Sales Role" data-zh="各销售角色营收目标">Revenue Targets by Sales Role</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Role</th><th>Revenue Target</th><th>Motion</th><th>M1 Start</th></tr></thead>
+          <thead><tr><th data-en="Role" data-zh="角色">Role</th><th data-en="Revenue Target" data-zh="营收目标">Revenue Target</th><th data-en="Motion" data-zh="销售模式">Motion</th><th data-en="M1 Start" data-zh="M1启动时间">M1 Start</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)">CEO (founder-led)</td><td style="font-family:var(--mono)">$150K</td><td>SLG — top 5 enterprise</td><td>Immediate · 60% GTM time</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Head of Growth</td><td style="font-family:var(--mono)">$400K</td><td>PLG — entire funnel</td><td>Hire M1</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Account Executive</td><td style="font-family:var(--mono)">$300K</td><td>SLG — enterprise pipeline</td><td>Hire M3</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">Customer Success</td><td style="font-family:var(--mono)">$150K expansion</td><td>Both — NRR &gt;120%</td><td>Hire M8</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)">SDR / BDR</td><td>Pipeline only</td><td>SLG — qualified meetings</td><td>Hire M6</td></tr>
-            <tr class="hl"><td><strong>Total ARR</strong></td><td style="font-family:var(--mono);font-weight:700">$1,000,000</td><td colspan="2">Year-end target</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">CEO (founder-led)</td><td style="font-family:var(--mono)">$150K</td><td data-en="SLG — top 5 enterprise" data-zh="SLG — 顶级5家企业">SLG — top 5 enterprise</td><td data-en="Immediate · 60% GTM time" data-zh="立即启动 · 60% GTM时间">Immediate · 60% GTM time</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Head of Growth</td><td style="font-family:var(--mono)">$400K</td><td data-en="PLG — entire funnel" data-zh="PLG — 全漏斗">PLG — entire funnel</td><td data-en="Hire M1" data-zh="M1招聘">Hire M1</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Account Executive</td><td style="font-family:var(--mono)">$300K</td><td data-en="SLG — enterprise pipeline" data-zh="SLG — 企业销售管道">SLG — enterprise pipeline</td><td data-en="Hire M3" data-zh="M3招聘">Hire M3</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Customer Success</td><td style="font-family:var(--mono)">$150K expansion</td><td data-en="Both — NRR &gt;120%" data-zh="双路径 — NRR &gt;120%">Both — NRR &gt;120%</td><td data-en="Hire M8" data-zh="M8招聘">Hire M8</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">SDR / BDR</td><td data-en="Pipeline only" data-zh="仅管道建设">Pipeline only</td><td data-en="SLG — qualified meetings" data-zh="SLG — 合格会议">SLG — qualified meetings</td><td data-en="Hire M6" data-zh="M6招聘">Hire M6</td></tr>
+            <tr class="hl"><td><strong data-en="Total ARR" data-zh="总年度经常性收入">Total ARR</strong></td><td style="font-family:var(--mono);font-weight:700">$1,000,000</td><td colspan="2" data-en="Year-end target" data-zh="年末目标">Year-end target</td></tr>
           </tbody>
         </table>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.5rem">CEO GTM Time Evolution</div>
+          <div class="card-title" style="margin-bottom:.5rem" data-en="CEO GTM Time Evolution" data-zh="CEO GTM时间分配演变">CEO GTM Time Evolution</div>
           <table class="tbl">
             <tbody>
-              <tr><td style="font-family:var(--mono);color:var(--accent)">M1–M3</td><td style="font-weight:600;color:var(--text)">60%</td><td style="color:var(--text2)">Founder-led sales — all enterprise conversations</td></tr>
-              <tr><td style="font-family:var(--mono);color:var(--accent)">M3–M6</td><td style="font-weight:600;color:var(--text)">40%</td><td style="color:var(--text2)">Support AE, speaking, case studies</td></tr>
-              <tr><td style="font-family:var(--mono);color:var(--accent)">M6–M9</td><td style="font-weight:600;color:var(--text)">30%</td><td style="color:var(--text2)">Strategic deals, thought leadership only</td></tr>
-              <tr><td style="font-family:var(--mono);color:var(--accent)">M9–M12</td><td style="font-weight:600;color:var(--text)">20%</td><td style="color:var(--text2)">Series A fundraising, strategy</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M1–M3</td><td style="font-weight:600;color:var(--text)">60%</td><td style="color:var(--text2)" data-en="Founder-led sales — all enterprise conversations" data-zh="创始人主导销售 — 负责所有企业对话">Founder-led sales — all enterprise conversations</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M3–M6</td><td style="font-weight:600;color:var(--text)">40%</td><td style="color:var(--text2)" data-en="Support AE, speaking, case studies" data-zh="支持客户经理、演讲、案例研究">Support AE, speaking, case studies</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M6–M9</td><td style="font-weight:600;color:var(--text)">30%</td><td style="color:var(--text2)" data-en="Strategic deals, thought leadership only" data-zh="战略性交易、思想领导力">Strategic deals, thought leadership only</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M9–M12</td><td style="font-weight:600;color:var(--text)">20%</td><td style="color:var(--text2)" data-en="Series A fundraising, strategy" data-zh="A轮融资、战略规划">Series A fundraising, strategy</td></tr>
             </tbody>
           </table>
         </div>
@@ -178,89 +179,89 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="qualification">
     <div class="sec-hd">
       <span class="sec-num">02</span>
-      <span class="sec-title">BANT+ Qualification Framework</span>
-      <span class="sec-sub">5-point scoring · Hot / warm / cold segmentation</span>
+      <span class="sec-title" data-en="BANT+ Qualification Framework" data-zh="BANT+客户资质评估框架">BANT+ Qualification Framework</span>
+      <span class="sec-sub" data-en="5-point scoring · Hot / warm / cold segmentation" data-zh="5维度评分 · 热/温/冷客户分级">5-point scoring · Hot / warm / cold segmentation</span>
     </div>
     <div class="insight">
-      <div class="ins-label">Scoring Rule</div>
-      <div class="ins-text">Score 5/5 = Hot (fast-track to demo) · Score 4/5 = Warm (qualify further) · Score 3/5 = Lukewarm (nurture 30 days) · Score &lt;3 = Cold (remove from active pipeline)</div>
+      <div class="ins-label" data-en="Scoring Rule" data-zh="评分规则">Scoring Rule</div>
+      <div class="ins-text" data-en="Score 5/5 = Hot (fast-track to demo) · Score 4/5 = Warm (qualify further) · Score 3/5 = Lukewarm (nurture 30 days) · Score &lt;3 = Cold (remove from active pipeline)" data-zh="5分满分 = 热门客户（快速推进演示）· 4分 = 温热客户（进一步挖掘）· 3分 = 温和客户（30天培育）· 低于3分 = 冷客户（移出活跃管道）">Score 5/5 = Hot (fast-track to demo) · Score 4/5 = Warm (qualify further) · Score 3/5 = Lukewarm (nurture 30 days) · Score &lt;3 = Cold (remove from active pipeline)</div>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">BANT+ Criteria</div>
+        <div class="card-title" data-en="BANT+ Criteria" data-zh="BANT+评估标准">BANT+ Criteria</div>
         <div style="margin-top:.25rem">
           <div class="bant-row">
             <div class="bant-letter">B</div>
             <div class="bant-info">
-              <div class="bant-criteria">Budget — Dedicated simulation / AI budget exists</div>
-              <div class="bant-strong">Strong: "We have a CAD/simulation budget line" · "Our AI tools budget is approved"</div>
-              <div class="bant-weak">Weak: "Need to find budget" · "I'd need to request it"</div>
+              <div class="bant-criteria" data-en="Budget — Dedicated simulation / AI budget exists" data-zh="预算 — 存在专项仿真/AI预算">Budget — Dedicated simulation / AI budget exists</div>
+              <div class="bant-strong"><span data-en='Strong:' data-zh='强信号：'>Strong:</span> "We have a CAD/simulation budget line" · "Our AI tools budget is approved"</div>
+              <div class="bant-weak"><span data-en='Weak:' data-zh='弱信号：'>Weak:</span> "Need to find budget" · "I'd need to request it"</div>
             </div>
           </div>
           <div class="bant-row">
             <div class="bant-letter">A</div>
             <div class="bant-info">
-              <div class="bant-criteria">Authority — Speaking with decision maker or champion with access</div>
-              <div class="bant-strong">Strong: VP Engineering / CTO / Managing Director in meeting</div>
-              <div class="bant-weak">Weak: "I need to run this by my manager" without named access</div>
+              <div class="bant-criteria" data-en="Authority — Speaking with decision maker or champion with access" data-zh="权限 — 与决策者或有授权的内部推动者对话">Authority — Speaking with decision maker or champion with access</div>
+              <div class="bant-strong"><span data-en='Strong:' data-zh='强信号：'>Strong:</span> VP Engineering / CTO / Managing Director in meeting</div>
+              <div class="bant-weak"><span data-en='Weak:' data-zh='弱信号：'>Weak:</span> "I need to run this by my manager" without named access</div>
             </div>
           </div>
           <div class="bant-row">
             <div class="bant-letter">N</div>
             <div class="bant-info">
-              <div class="bant-criteria">Need — Active pain around simulation speed, tool fragmentation, or AI adoption</div>
-              <div class="bant-strong">Strong: Mentions tool silos, slow iteration cycles, license cost burden</div>
-              <div class="bant-weak">Weak: "Happy with current tools" · "No active projects requiring this"</div>
+              <div class="bant-criteria" data-en="Need — Active pain around simulation speed, tool fragmentation, or AI adoption" data-zh="需求 — 在仿真速度、工具碎片化或AI采用方面存在明确痛点">Need — Active pain around simulation speed, tool fragmentation, or AI adoption</div>
+              <div class="bant-strong"><span data-en='Strong:' data-zh='强信号：'>Strong:</span> Mentions tool silos, slow iteration cycles, license cost burden</div>
+              <div class="bant-weak"><span data-en='Weak:' data-zh='弱信号：'>Weak:</span> "Happy with current tools" · "No active projects requiring this"</div>
             </div>
           </div>
           <div class="bant-row">
             <div class="bant-letter">T</div>
             <div class="bant-info">
-              <div class="bant-criteria">Timeline — Decision expected within 2 quarters</div>
-              <div class="bant-strong">Strong: "This quarter" · "Q2/Q3 rollout planned"</div>
-              <div class="bant-weak">Weak: "Maybe next year" · "No immediate urgency"</div>
+              <div class="bant-criteria" data-en="Timeline — Decision expected within 2 quarters" data-zh="时间线 — 预期在2个季度内做出决策">Timeline — Decision expected within 2 quarters</div>
+              <div class="bant-strong"><span data-en='Strong:' data-zh='强信号：'>Strong:</span> "This quarter" · "Q2/Q3 rollout planned"</div>
+              <div class="bant-weak"><span data-en='Weak:' data-zh='弱信号：'>Weak:</span> "Maybe next year" · "No immediate urgency"</div>
             </div>
           </div>
           <div class="bant-row">
             <div class="bant-letter" style="background:var(--accent)">+</div>
             <div class="bant-info">
-              <div class="bant-criteria">Tech Fit — Active simulation workflow; open to Modelica/FMI</div>
-              <div class="bant-strong">Strong: Active Modelica user · FMI/FMU requirement · 5+ simulation engineers</div>
-              <div class="bant-weak">Weak: No simulation experience · Excel-based analysis only</div>
+              <div class="bant-criteria" data-en="Tech Fit — Active simulation workflow; open to Modelica/FMI" data-zh="技术匹配 — 有活跃的仿真工作流；对Modelica/FMI开放">Tech Fit — Active simulation workflow; open to Modelica/FMI</div>
+              <div class="bant-strong"><span data-en='Strong:' data-zh='强信号：'>Strong:</span> Active Modelica user · FMI/FMU requirement · 5+ simulation engineers</div>
+              <div class="bant-weak"><span data-en='Weak:' data-zh='弱信号：'>Weak:</span> No simulation experience · Excel-based analysis only</div>
             </div>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Discovery Questions by ICP</div>
+        <div class="card-title" data-en="Discovery Questions by ICP" data-zh="各ICP探索问题">Discovery Questions by ICP</div>
         <table class="tbl" style="margin-top:.25rem">
-          <thead><tr><th>Segment</th><th>Opening Question</th><th>Follow-up</th></tr></thead>
+          <thead><tr><th data-en="Segment" data-zh="客户分类">Segment</th><th data-en="Opening Question" data-zh="开场问题">Opening Question</th><th data-en="Follow-up" data-zh="跟进问题">Follow-up</th></tr></thead>
           <tbody>
             <tr>
               <td style="font-weight:600;color:var(--text)">Enterprise OEM</td>
-              <td>"How long does your current simulation setup take from CAD import to first result?"</td>
-              <td>"How many tools does that workflow touch?"</td>
+              <td data-en='"How long does your current simulation setup take from CAD import to first result?"' data-zh='"从CAD导入到第一个结果，您当前的仿真设置需要多长时间？"'>"How long does your current simulation setup take from CAD import to first result?"</td>
+              <td data-en='"How many tools does that workflow touch?"' data-zh='"这个工作流涉及多少个工具？"'>"How many tools does that workflow touch?"</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--text)">Consultancy</td>
-              <td>"What percentage of your tool licenses are actively used vs. idle at any given time?"</td>
-              <td>"How does licensing cost factor into your project bids?"</td>
+              <td data-en='"What percentage of your tool licenses are actively used vs. idle at any given time?"' data-zh='"在任意时间点，您的工具许可证中有多少比例在活跃使用，多少处于闲置？"'>"What percentage of your tool licenses are actively used vs. idle at any given time?"</td>
+              <td data-en='"How does licensing cost factor into your project bids?"' data-zh='"许可费用如何影响您的项目报价？"'>"How does licensing cost factor into your project bids?"</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--text)">University</td>
-              <td>"What simulation tools are your students using, and how accessible are they from home?"</td>
-              <td>"What's your annual software budget for the engineering department?"</td>
+              <td data-en='"What simulation tools are your students using, and how accessible are they from home?"' data-zh='"您的学生在使用哪些仿真工具，他们在家能方便地访问这些工具吗？"'>"What simulation tools are your students using, and how accessible are they from home?"</td>
+              <td data-en='"What\'s your annual software budget for the engineering department?"' data-zh='"工程系的年度软件预算是多少？"'>"What's your annual software budget for the engineering department?"</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--text)">Indie / Startup</td>
-              <td>"What simulation tools are you using today, and how are you paying for them?"</td>
-              <td>"How long does it take you to set up and run a basic stress analysis?"</td>
+              <td data-en='"What simulation tools are you using today, and how are you paying for them?"' data-zh='"您目前在使用哪些仿真工具，如何支付费用？"'>"What simulation tools are you using today, and how are you paying for them?"</td>
+              <td data-en='"How long does it take you to set up and run a basic stress analysis?"' data-zh='"设置并运行一个基本的应力分析需要多长时间？"'>"How long does it take you to set up and run a basic stress analysis?"</td>
             </tr>
           </tbody>
         </table>
         <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
-          <div class="card-title" style="margin-bottom:.5rem">Pilot Agreement — Success Criteria Template</div>
-          <div style="font-size:.78rem;color:var(--text2);line-height:1.6">
+          <div class="card-title" style="margin-bottom:.5rem" data-en="Pilot Agreement — Success Criteria Template" data-zh="试点协议 — 成功标准模板">Pilot Agreement — Success Criteria Template</div>
+          <div style="font-size:.78rem;color:var(--text2);line-height:1.6" data-en="30-day paid pilot. Week 1: Setup + first project. Weeks 1–2: First client/internal project on ODE. Weeks 2–3: Team adoption (&gt;3 engineers). Weeks 3–4: Results review against defined success criteria with sponsor." data-zh="30天付费试点。第1周：部署+首个项目。第1-2周：在ODE上完成首个客户/内部项目。第2-3周：团队采用（&gt;3名工程师）。第3-4周：与赞助人一起按既定成功标准进行结果评审。">
             30-day paid pilot. Week 1: Setup + first project. Weeks 1–2: First client/internal project on ODE. Weeks 2–3: Team adoption (&gt;3 engineers). Weeks 3–4: Results review against defined success criteria with sponsor.
           </div>
         </div>
@@ -272,93 +273,93 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="demo">
     <div class="sec-hd">
       <span class="sec-num">03</span>
-      <span class="sec-title">Demo Playbook</span>
-      <span class="sec-sub">15-min quick demo · 45-min deep dive · Live AI script</span>
+      <span class="sec-title" data-en="Demo Playbook" data-zh="演示手册">Demo Playbook</span>
+      <span class="sec-sub" data-en="15-min quick demo · 45-min deep dive · Live AI script" data-zh="15分钟快速演示 · 45分钟深度演示 · 实时AI脚本">15-min quick demo · 45-min deep dive · Live AI script</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Quick Demo — 15 Minutes (Indie / Inbound)</div>
+        <div class="card-title" data-en="Quick Demo — 15 Minutes (Indie / Inbound)" data-zh="快速演示 — 15分钟（独立工程师 / 入站）">Quick Demo — 15 Minutes (Indie / Inbound)</div>
         <div style="margin-top:.25rem">
           <div class="demo-step">
             <div class="ds-time">0–2 min</div>
             <div>
-              <div class="ds-action">Hook — Time question</div>
-              <div class="ds-goal">"How long does it take you today to set up a simulation after importing CAD?" — anchor the time savings</div>
+              <div class="ds-action" data-en="Hook — Time question" data-zh="钩子 — 时间问题">Hook — Time question</div>
+              <div class="ds-goal" data-en='"How long does it take you today to set up a simulation after importing CAD?" — anchor the time savings' data-zh='"从导入CAD到完成仿真设置，您目前需要多长时间？" — 锚定时间节省的价值'>"How long does it take you today to set up a simulation after importing CAD?" — anchor the time savings</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">2–8 min</div>
             <div>
-              <div class="ds-action">Live AI demo — Plain English to simulation</div>
-              <div class="ds-goal">Describe system → AI generates Modelica model → AI sets up solver → Simulation runs → AI interprets results. Do it live in 6 minutes.</div>
+              <div class="ds-action" data-en="Live AI demo — Plain English to simulation" data-zh="实时AI演示 — 自然语言到仿真">Live AI demo — Plain English to simulation</div>
+              <div class="ds-goal" data-en="Describe system → AI generates Modelica model → AI sets up solver → Simulation runs → AI interprets results. Do it live in 6 minutes." data-zh="描述系统 → AI生成Modelica模型 → AI设置求解器 → 仿真运行 → AI解读结果。6分钟内现场完成。">Describe system → AI generates Modelica model → AI sets up solver → Simulation runs → AI interprets results. Do it live in 6 minutes.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">8–12 min</div>
             <div>
-              <div class="ds-action">Platform tour — 2 tools max</div>
-              <div class="ds-goal">Geometry (parametric CAD) + Component (Modelica editor). Keep it focused on their use case.</div>
+              <div class="ds-action" data-en="Platform tour — 2 tools max" data-zh="平台导览 — 最多2个工具">Platform tour — 2 tools max</div>
+              <div class="ds-goal" data-en="Geometry (parametric CAD) + Component (Modelica editor). Keep it focused on their use case." data-zh="Geometry（参数化CAD）+ Component（Modelica编辑器）。聚焦他们的应用场景。">Geometry (parametric CAD) + Component (Modelica editor). Keep it focused on their use case.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">12–14 min</div>
             <div>
-              <div class="ds-action">Value statement</div>
-              <div class="ds-goal">"You just saw 5 minutes. Your current workflow takes how long?" — quantify the delta with their own number.</div>
+              <div class="ds-action" data-en="Value statement" data-zh="价值陈述">Value statement</div>
+              <div class="ds-goal" data-en='"You just saw 5 minutes. Your current workflow takes how long?" — quantify the delta with their own number.' data-zh='「你刚刚看到的是5分钟。你现在的流程需要多长时间？」 — 用他们自己的数字量化差距。'>"You just saw 5 minutes. Your current workflow takes how long?" — quantify the delta with their own number.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">14–15 min</div>
             <div>
-              <div class="ds-action">CTA — Free account</div>
-              <div class="ds-goal">"Sign up for free — bring your own model. No credit card. First simulation in under 10 minutes."</div>
+              <div class="ds-action" data-en="CTA — Free account" data-zh="行动号召 — 免费账户">CTA — Free account</div>
+              <div class="ds-goal" data-en='"Sign up for free — bring your own model. No credit card. First simulation in under 10 minutes."' data-zh='"免费注册 — 带上你自己的模型。无需信用卡。10分钟内完成首次仿真。"'>"Sign up for free — bring your own model. No credit card. First simulation in under 10 minutes."</div>
             </div>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Deep Dive Demo — 45 Minutes (Enterprise)</div>
+        <div class="card-title" data-en="Deep Dive Demo — 45 Minutes (Enterprise)" data-zh="深度演示 — 45分钟（企业客户）">Deep Dive Demo — 45 Minutes (Enterprise)</div>
         <div style="margin-top:.25rem">
           <div class="demo-step">
             <div class="ds-time">0–5 min</div>
             <div>
-              <div class="ds-action">Discovery — specific workflow pain</div>
-              <div class="ds-goal">Name their tools. Identify one painful workflow. Use their vocabulary throughout the demo.</div>
+              <div class="ds-action" data-en="Discovery — specific workflow pain" data-zh="探索 — 具体工作流痛点">Discovery — specific workflow pain</div>
+              <div class="ds-goal" data-en="Name their tools. Identify one painful workflow. Use their vocabulary throughout the demo." data-zh="了解他们的工具。找出一个痛点工作流。整个演示过程中使用他们的语言。">Name their tools. Identify one painful workflow. Use their vocabulary throughout the demo.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">5–10 min</div>
             <div>
-              <div class="ds-action">Positioning — 3 differentiators</div>
-              <div class="ds-goal">AI-native (not retrofitted). 12 tools, one platform. Open standards (Modelica, FMI). No more than 3 points — keep sharp.</div>
+              <div class="ds-action" data-en="Positioning — 3 differentiators" data-zh="定位 — 3大差异化优势">Positioning — 3 differentiators</div>
+              <div class="ds-goal" data-en="AI-native (not retrofitted). 12 tools, one platform. Open standards (Modelica, FMI). No more than 3 points — keep sharp." data-zh="AI原生（非改造而来）。12个工具，一个平台。开放标准（Modelica, FMI）。不超过3个要点 — 保持清晰。">AI-native (not retrofitted). 12 tools, one platform. Open standards (Modelica, FMI). No more than 3 points — keep sharp.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">10–30 min</div>
             <div>
-              <div class="ds-action">Custom live demo — their industry</div>
-              <div class="ds-goal">Pre-prepare a model relevant to their domain (automotive thermal, aerospace structure, etc.). Run it live. Show AI generation + results interpretation.</div>
+              <div class="ds-action" data-en="Custom live demo — their industry" data-zh="定制实时演示 — 针对其行业">Custom live demo — their industry</div>
+              <div class="ds-goal" data-en="Pre-prepare a model relevant to their domain (automotive thermal, aerospace structure, etc.). Run it live. Show AI generation + results interpretation." data-zh="预先准备与其领域相关的模型（汽车热力、航空结构等）。实时运行。展示AI生成 + 结果解读。">Pre-prepare a model relevant to their domain (automotive thermal, aerospace structure, etc.). Run it live. Show AI generation + results interpretation.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">30–35 min</div>
             <div>
-              <div class="ds-action">Collaboration features</div>
-              <div class="ds-goal">Real-time co-editing, team comment threads, result sharing without static PDFs. Address their collab pain.</div>
+              <div class="ds-action" data-en="Collaboration features" data-zh="协作功能">Collaboration features</div>
+              <div class="ds-goal" data-en="Real-time co-editing, team comment threads, result sharing without static PDFs. Address their collab pain." data-zh="实时协同编辑、团队评论线程、无需静态PDF的结果共享。解决他们的协作痛点。">Real-time co-editing, team comment threads, result sharing without static PDFs. Address their collab pain.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">35–40 min</div>
             <div>
-              <div class="ds-action">ROI discussion</div>
-              <div class="ds-goal">Use ROI calculator live. Input their numbers: team size, hours per cycle, license costs. Show 3-year savings.</div>
+              <div class="ds-action" data-en="ROI discussion" data-zh="ROI讨论">ROI discussion</div>
+              <div class="ds-goal" data-en="Use ROI calculator live. Input their numbers: team size, hours per cycle, license costs. Show 3-year savings." data-zh="实时使用ROI计算器。输入他们的数据：团队规模、每周期工时、许可费用。展示3年节省。">Use ROI calculator live. Input their numbers: team size, hours per cycle, license costs. Show 3-year savings.</div>
             </div>
           </div>
           <div class="demo-step">
             <div class="ds-time">40–45 min</div>
             <div>
-              <div class="ds-action">Pilot proposal + next steps</div>
-              <div class="ds-goal">"30-day paid pilot, one real project, defined success criteria. What project would give you the clearest proof?"</div>
+              <div class="ds-action" data-en="Pilot proposal + next steps" data-zh="试点提案 + 后续步骤">Pilot proposal + next steps</div>
+              <div class="ds-goal" data-en='"30-day paid pilot, one real project, defined success criteria. What project would give you the clearest proof?"' data-zh='"30天付费试点，一个真实项目，明确成功标准。哪个项目能给您最清晰的验证？"'>"30-day paid pilot, one real project, defined success criteria. What project would give you the clearest proof?"</div>
             </div>
           </div>
         </div>
@@ -370,49 +371,49 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="objections">
     <div class="sec-hd">
       <span class="sec-num">04</span>
-      <span class="sec-title">Objection Handling Map</span>
-      <span class="sec-sub">8 critical objections · Validated responses</span>
+      <span class="sec-title" data-en="Objection Handling Map" data-zh="异议处理图谱">Objection Handling Map</span>
+      <span class="sec-sub" data-en="8 critical objections · Validated responses" data-zh="8大关键异议 · 经过验证的回应">8 critical objections · Validated responses</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">Objections 01–04</div>
+        <div class="card-title" data-en="Objections 01–04" data-zh="异议 01–04">Objections 01–04</div>
         <div>
           <div class="obj-row">
-            <div class="obj-q">01 — "It's too expensive / we don't have budget."</div>
-            <div class="obj-a">ODE replaces 3+ tools (ANSYS + SolidWorks Simulation + CATIA). Show TCO: combined license cost vs. ODE Pro/Team. The ROI on license consolidation alone typically covers 3× the ODE cost. Start with the free tier — zero budget required.</div>
+            <div class="obj-q" data-en='01 — "It&apos;s too expensive / we don&apos;t have budget."' data-zh='01 — 「价格太贵了 / 我们没有预算。」'>01 — "It's too expensive / we don't have budget."</div>
+            <div class="obj-a" data-en="ODE replaces 3+ tools (ANSYS + SolidWorks Simulation + CATIA). Show TCO: combined license cost vs. ODE Pro/Team. The ROI on license consolidation alone typically covers 3× the ODE cost. Start with the free tier — zero budget required." data-zh="ODE可替代3款以上工具（ANSYS + SolidWorks Simulation + CATIA）。展示TCO：合并许可费用 vs. ODE Pro/Team。仅许可整合的ROI通常就能覆盖ODE费用的3倍。从免费套餐开始 — 零预算门槛。">ODE replaces 3+ tools (ANSYS + SolidWorks Simulation + CATIA). Show TCO: combined license cost vs. ODE Pro/Team. The ROI on license consolidation alone typically covers 3× the ODE cost. Start with the free tier — zero budget required.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">02 — "We already use Dassault / Autodesk / ANSYS."</div>
-            <div class="obj-a">ODE works alongside existing tools via FMI export — no rip-and-replace required. Most customers run ODE in parallel for 60 days. Results speak. Propose a phase-in approach: use ODE for one specific workflow, measure the time savings, then decide.</div>
+            <div class="obj-q" data-en='02 — "We already use Dassault / Autodesk / ANSYS."' data-zh='02 — 「我们已经在用达索 / Autodesk / ANSYS了。」'>02 — "We already use Dassault / Autodesk / ANSYS."</div>
+            <div class="obj-a" data-en="ODE works alongside existing tools via FMI export — no rip-and-replace required. Most customers run ODE in parallel for 60 days. Results speak. Propose a phase-in approach: use ODE for one specific workflow, measure the time savings, then decide." data-zh="ODE通过FMI导出与现有工具并行运作 — 无需彻底替换。大多数客户并行使用ODE 60天。结果自会说话。建议分阶段切入：先用ODE处理一个具体工作流，量化时间节省，再做决策。">ODE works alongside existing tools via FMI export — no rip-and-replace required. Most customers run ODE in parallel for 60 days. Results speak. Propose a phase-in approach: use ODE for one specific workflow, measure the time savings, then decide.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">03 — "Can we trust AI-generated simulation results?"</div>
-            <div class="obj-a">ODE AI generates standard, auditable Modelica code — not a black box. The engineer reviews and validates the model before running. Full audit trail. Every simulation output is reproducible and explainable. Your engineers remain in control.</div>
+            <div class="obj-q" data-en='03 — "Can we trust AI-generated simulation results?"' data-zh='03 — 「我们能信任AI生成的仿真结果吗？」'>03 — "Can we trust AI-generated simulation results?"</div>
+            <div class="obj-a" data-en="ODE AI generates standard, auditable Modelica code — not a black box. The engineer reviews and validates the model before running. Full audit trail. Every simulation output is reproducible and explainable. Your engineers remain in control." data-zh="ODE AI生成标准的、可审计的Modelica代码 — 不是黑箱。工程师在运行前审查并验证模型。完整审计追踪。每个仿真输出都可复现、可解释。您的工程师始终掌握控制权。">ODE AI generates standard, auditable Modelica code — not a black box. The engineer reviews and validates the model before running. Full audit trail. Every simulation output is reproducible and explainable. Your engineers remain in control.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">04 — "We have security concerns about cloud."</div>
-            <div class="obj-a">Enterprise tier: SSO/SAML, role-based access, data residency (EU/US), full audit logs. SOC 2 Type II path in progress. On-premise deployment available for regulated industries. IT security review package provided immediately upon request.</div>
+            <div class="obj-q" data-en='04 — "We have security concerns about cloud."' data-zh='04 — 「我们对云端存在安全顾虑。」'>04 — "We have security concerns about cloud."</div>
+            <div class="obj-a" data-en="Enterprise tier: SSO/SAML, role-based access, data residency (EU/US), full audit logs. SOC 2 Type II path in progress. On-premise deployment available for regulated industries. IT security review package provided immediately upon request." data-zh="企业版：SSO/SAML、基于角色的访问控制、数据驻留（欧盟/美国）、完整审计日志。SOC 2 Type II认证进行中。受监管行业可本地部署。IT安全审查资料包可立即应要求提供。">Enterprise tier: SSO/SAML, role-based access, data residency (EU/US), full audit logs. SOC 2 Type II path in progress. On-premise deployment available for regulated industries. IT security review package provided immediately upon request.</div>
           </div>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Objections 05–08</div>
+        <div class="card-title" data-en="Objections 05–08" data-zh="异议 05–08">Objections 05–08</div>
         <div>
           <div class="obj-row">
-            <div class="obj-q">05 — "We need to evaluate other alternatives first."</div>
-            <div class="obj-a">Encourage it. "Run the same benchmark in ODE and your current tool. We'll give you a free Pro trial for 30 days to make the comparison fair." Confidence in the product — no need to resist evaluation.</div>
+            <div class="obj-q" data-en='05 — "We need to evaluate other alternatives first."' data-zh='05 — 「我们需要先评估其他替代方案。」'>05 — "We need to evaluate other alternatives first."</div>
+            <div class="obj-a" data-en='Encourage it. "Run the same benchmark in ODE and your current tool. We&apos;ll give you a free Pro trial for 30 days to make the comparison fair." Confidence in the product — no need to resist evaluation.' data-zh='欢迎对比。"用ODE和您现有工具运行相同的基准测试。我们提供30天免费Pro试用，让对比更公平。"对产品充满信心 — 无需回避评估。'>Encourage it. "Run the same benchmark in ODE and your current tool. We'll give you a free Pro trial for 30 days to make the comparison fair." Confidence in the product — no need to resist evaluation.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">06 — "Our team isn't ready for AI in engineering workflows."</div>
-            <div class="obj-a">Start with free tier — zero-risk experimentation for one engineer. ODE doesn't replace engineer judgment — it eliminates the tedious setup work. The AI handles meshing and solver configuration; engineers handle the physics insight and decision-making.</div>
+            <div class="obj-q" data-en='06 — "Our team isn&apos;t ready for AI in engineering workflows."' data-zh='06 — 「我们的团队还没准备好在工程流程中引入AI。」'>06 — "Our team isn't ready for AI in engineering workflows."</div>
+            <div class="obj-a" data-en="Start with free tier — zero-risk experimentation for one engineer. ODE doesn't replace engineer judgment — it eliminates the tedious setup work. The AI handles meshing and solver configuration; engineers handle the physics insight and decision-making." data-zh="从免费套餐开始 — 为单个工程师提供零风险试验机会。ODE不替代工程师判断 — 它消除繁琐的准备工作。AI负责网格划分和求解器配置；工程师负责物理洞察和决策。">Start with free tier — zero-risk experimentation for one engineer. ODE doesn't replace engineer judgment — it eliminates the tedious setup work. The AI handles meshing and solver configuration; engineers handle the physics insight and decision-making.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">07 — "My team won't adopt a new tool."</div>
-            <div class="obj-a">No installation required — runs in the browser right now. Onboarding is under 10 minutes. Bottom-up adoption: let one engineer try it on one project. When colleagues see simulation setup go from 3 days to 3 hours, adoption follows organically.</div>
+            <div class="obj-q" data-en='07 — "My team won&apos;t adopt a new tool."' data-zh='07 — 「我的团队不会接受新工具的。」'>07 — "My team won't adopt a new tool."</div>
+            <div class="obj-a" data-en="No installation required — runs in the browser right now. Onboarding is under 10 minutes. Bottom-up adoption: let one engineer try it on one project. When colleagues see simulation setup go from 3 days to 3 hours, adoption follows organically." data-zh="无需安装 — 现在就可以在浏览器中运行。引导上手不到10分钟。自下而上的采用：让一名工程师在一个项目上试用。当同事看到仿真设置从3天缩短到3小时，采用自然会跟进。">No installation required — runs in the browser right now. Onboarding is under 10 minutes. Bottom-up adoption: let one engineer try it on one project. When colleagues see simulation setup go from 3 days to 3 hours, adoption follows organically.</div>
           </div>
           <div class="obj-row">
-            <div class="obj-q">08 — "What if your company shuts down?"</div>
-            <div class="obj-a">All models are stored in standard Modelica format — fully portable. Export your entire project at any time. FMI/FMU output runs in any compliant solver. Zero vendor lock-in. Your engineering data belongs to you, always.</div>
+            <div class="obj-q" data-en='08 — "What if your company shuts down?"' data-zh='08 — 「如果你们公司倒闭了怎么办？」'>08 — "What if your company shuts down?"</div>
+            <div class="obj-a" data-en="All models are stored in standard Modelica format — fully portable. Export your entire project at any time. FMI/FMU output runs in any compliant solver. Zero vendor lock-in. Your engineering data belongs to you, always." data-zh="所有模型以标准Modelica格式存储 — 完全可迁移。随时导出您的整个项目。FMI/FMU输出可在任何合规求解器中运行。零供应商锁定。您的工程数据永远属于您。">All models are stored in standard Modelica format — fully portable. Export your entire project at any time. FMI/FMU output runs in any compliant solver. Zero vendor lock-in. Your engineering data belongs to you, always.</div>
           </div>
         </div>
       </div>
@@ -423,84 +424,84 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="journey">
     <div class="sec-hd">
       <span class="sec-num">05</span>
-      <span class="sec-title">Customer Journey Map</span>
-      <span class="sec-sub">7 stages · Signals · Actions · Churn risk thresholds</span>
+      <span class="sec-title" data-en="Customer Journey Map" data-zh="客户旅程地图">Customer Journey Map</span>
+      <span class="sec-sub" data-en="7 stages · Signals · Actions · Churn risk thresholds" data-zh="7个阶段 · 信号 · 行动 · 流失风险阈值">7 stages · Signals · Actions · Churn risk thresholds</span>
     </div>
     <div class="card">
-      <div class="card-title">Full Journey — Awareness to Advocacy</div>
+      <div class="card-title" data-en="Full Journey — Awareness to Advocacy" data-zh="完整旅程 — 从认知到倡导">Full Journey — Awareness to Advocacy</div>
       <div style="margin-top:.5rem">
         <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;gap:.75rem;padding:.5rem 0;border-bottom:2px solid var(--border);margin-bottom:.3rem">
-          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Stage</div>
-          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">PLG Signal</div>
-          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">SLG Signal</div>
-          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Success Metric</div>
-          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Owner Action</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)" data-en="Stage" data-zh="阶段">Stage</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)" data-en="PLG Signal" data-zh="PLG信号">PLG Signal</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)" data-en="SLG Signal" data-zh="SLG信号">SLG Signal</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)" data-en="Success Metric" data-zh="成功指标">Success Metric</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)" data-en="Owner Action" data-zh="负责方行动">Owner Action</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Awareness</div>
-          <div class="jr-signal">Google search, LinkedIn, GitHub star, blog read</div>
-          <div class="jr-signal">ABM outreach response, LinkedIn InMail</div>
-          <div class="jr-label">5,000 website visitors/mo (Q4)</div>
-          <div class="jr-action">Marketing: SEO + paid ads + content engine</div>
+          <div class="jr-stage" data-en="Awareness" data-zh="认知">Awareness</div>
+          <div class="jr-signal" data-en="Google search, LinkedIn, GitHub star, blog read" data-zh="Google搜索、LinkedIn、GitHub star、博客阅读">Google search, LinkedIn, GitHub star, blog read</div>
+          <div class="jr-signal" data-en="ABM outreach response, LinkedIn InMail" data-zh="ABM触达回应、LinkedIn InMail">ABM outreach response, LinkedIn InMail</div>
+          <div class="jr-label" data-en="5,000 website visitors/mo (Q4)" data-zh="每月5,000次网站访问（Q4）">5,000 website visitors/mo (Q4)</div>
+          <div class="jr-action" data-en="Marketing: SEO + paid ads + content engine" data-zh="市场：SEO + 付费广告 + 内容引擎">Marketing: SEO + paid ads + content engine</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Consideration</div>
-          <div class="jr-signal">Demo page view, pricing review, feature exploration</div>
-          <div class="jr-signal">Discovery call booked, custom demo requested</div>
-          <div class="jr-label">40% demo completion rate</div>
-          <div class="jr-action">Marketing: retargeting · Sales: demo prep brief</div>
+          <div class="jr-stage" data-en="Consideration" data-zh="考量">Consideration</div>
+          <div class="jr-signal" data-en="Demo page view, pricing review, feature exploration" data-zh="演示页浏览、定价查看、功能探索">Demo page view, pricing review, feature exploration</div>
+          <div class="jr-signal" data-en="Discovery call booked, custom demo requested" data-zh="预约探索通话、申请定制演示">Discovery call booked, custom demo requested</div>
+          <div class="jr-label" data-en="40% demo completion rate" data-zh="演示完成率40%">40% demo completion rate</div>
+          <div class="jr-action" data-en="Marketing: retargeting · Sales: demo prep brief" data-zh="市场：再营销 · 销售：演示准备简报">Marketing: retargeting · Sales: demo prep brief</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Decision</div>
-          <div class="jr-signal">Free sign-up (3% of visitors)</div>
-          <div class="jr-signal">Pilot agreement signed, champion assigned</div>
-          <div class="jr-label">PLG: 3% · SLG: 50% pilot close</div>
-          <div class="jr-action">Product: zero-friction onboarding · Sales: pilot SoW</div>
+          <div class="jr-stage" data-en="Decision" data-zh="决策">Decision</div>
+          <div class="jr-signal" data-en="Free sign-up (3% of visitors)" data-zh="免费注册（访客的3%）">Free sign-up (3% of visitors)</div>
+          <div class="jr-signal" data-en="Pilot agreement signed, champion assigned" data-zh="试点协议签署、确定内部推动者">Pilot agreement signed, champion assigned</div>
+          <div class="jr-label" data-en="PLG: 3% · SLG: 50% pilot close" data-zh="PLG：3% · SLG：50%试点签约">PLG: 3% · SLG: 50% pilot close</div>
+          <div class="jr-action" data-en="Product: zero-friction onboarding · Sales: pilot SoW" data-zh="产品：零摩擦引导 · 销售：试点工作说明书">Product: zero-friction onboarding · Sales: pilot SoW</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Onboarding</div>
-          <div class="jr-signal">Day 0–14: 5-email welcome sequence</div>
-          <div class="jr-signal">Week 1–4: Guided setup, first project, team intro</div>
-          <div class="jr-label">40% activation (first model, 7 days)</div>
-          <div class="jr-action">Product + CSM: check activation day 7</div>
+          <div class="jr-stage" data-en="Onboarding" data-zh="入驻引导">Onboarding</div>
+          <div class="jr-signal" data-en="Day 0–14: 5-email welcome sequence" data-zh="第0–14天：5封欢迎邮件序列">Day 0–14: 5-email welcome sequence</div>
+          <div class="jr-signal" data-en="Week 1–4: Guided setup, first project, team intro" data-zh="第1–4周：引导配置、首个项目、团队介绍">Week 1–4: Guided setup, first project, team intro</div>
+          <div class="jr-label" data-en="40% activation (first model, 7 days)" data-zh="40%激活（首个模型，7天内）">40% activation (first model, 7 days)</div>
+          <div class="jr-action" data-en="Product + CSM: check activation day 7" data-zh="产品 + CSM：第7天检查激活情况">Product + CSM: check activation day 7</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Activation</div>
-          <div class="jr-signal">First AI model &lt;10 min · First sim run Day 1–3 · 3rd project Week 2–4</div>
-          <div class="jr-signal">First team invite · First token purchase</div>
-          <div class="jr-label">5% free→paid (30-day window)</div>
-          <div class="jr-action">Automated upgrade prompt at 80% token usage</div>
+          <div class="jr-stage" data-en="Activation" data-zh="激活">Activation</div>
+          <div class="jr-signal" data-en="First AI model &lt;10 min · First sim run Day 1–3 · 3rd project Week 2–4" data-zh="首个AI模型&lt;10分钟 · 第1–3天完成首次仿真 · 第2–4周完成第3个项目">First AI model &lt;10 min · First sim run Day 1–3 · 3rd project Week 2–4</div>
+          <div class="jr-signal" data-en="First team invite · First token purchase" data-zh="首次团队邀请 · 首次Token购买">First team invite · First token purchase</div>
+          <div class="jr-label" data-en="5% free→paid (30-day window)" data-zh="5%免费转付费（30天窗口期）">5% free→paid (30-day window)</div>
+          <div class="jr-action" data-en="Automated upgrade prompt at 80% token usage" data-zh="Token使用率达80%时自动升级提示">Automated upgrade prompt at 80% token usage</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Expansion</div>
-          <div class="jr-signal">80% token usage, 3+ invites, 5+ projects, advanced feature request</div>
-          <div class="jr-signal">Cross-dept interest, QBR conversation</div>
-          <div class="jr-label">NRR &gt;120% · 15% upgrade rate (90d)</div>
-          <div class="jr-action">CSM: account review · Sales: expansion proposal</div>
+          <div class="jr-stage" data-en="Expansion" data-zh="扩展">Expansion</div>
+          <div class="jr-signal" data-en="80% token usage, 3+ invites, 5+ projects, advanced feature request" data-zh="80% Token使用率、3+邀请、5+项目、请求高级功能">80% token usage, 3+ invites, 5+ projects, advanced feature request</div>
+          <div class="jr-signal" data-en="Cross-dept interest, QBR conversation" data-zh="跨部门兴趣、季度业务回顾对话">Cross-dept interest, QBR conversation</div>
+          <div class="jr-label" data-en="NRR &gt;120% · 15% upgrade rate (90d)" data-zh="NRR &gt;120% · 升级率15%（90天）">NRR &gt;120% · 15% upgrade rate (90d)</div>
+          <div class="jr-action" data-en="CSM: account review · Sales: expansion proposal" data-zh="CSM：账户审查 · 销售：扩展提案">CSM: account review · Sales: expansion proposal</div>
         </div>
         <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
-          <div class="jr-stage">Advocacy</div>
-          <div class="jr-signal">Referral sent, community model shared, review posted</div>
-          <div class="jr-signal">Co-authored case study, conference speaking</div>
-          <div class="jr-label">1 referral / 10 paid users · 3 case studies Q4</div>
-          <div class="jr-action">Marketing: activate reference program</div>
+          <div class="jr-stage" data-en="Advocacy" data-zh="倡导">Advocacy</div>
+          <div class="jr-signal" data-en="Referral sent, community model shared, review posted" data-zh="发出推荐、分享社区模型、发布评价">Referral sent, community model shared, review posted</div>
+          <div class="jr-signal" data-en="Co-authored case study, conference speaking" data-zh="联合撰写案例、会议演讲">Co-authored case study, conference speaking</div>
+          <div class="jr-label" data-en="1 referral / 10 paid users · 3 case studies Q4" data-zh="每10名付费用户1次推荐 · Q4 3个案例">1 referral / 10 paid users · 3 case studies Q4</div>
+          <div class="jr-action" data-en="Marketing: activate reference program" data-zh="市场：启动推荐计划">Marketing: activate reference program</div>
         </div>
       </div>
     </div>
     <div class="card" style="margin-top:1.5rem">
-      <div class="card-title">Churn Risk Signals and Intervention Triggers</div>
+      <div class="card-title" data-en="Churn Risk Signals and Intervention Triggers" data-zh="流失风险信号与干预触发器">Churn Risk Signals and Intervention Triggers</div>
       <table class="tbl" style="margin-top:.25rem">
-        <thead><tr><th>Risk Signal</th><th>Threshold</th><th>Intervention</th><th>Owner</th></tr></thead>
+        <thead><tr><th data-en="Risk Signal" data-zh="风险信号">Risk Signal</th><th data-en="Threshold" data-zh="阈值">Threshold</th><th data-en="Intervention" data-zh="干预措施">Intervention</th><th data-en="Owner" data-zh="负责方">Owner</th></tr></thead>
         <tbody>
-          <tr><td style="font-weight:600;color:var(--text)">Login drop-off</td><td>7 days no login (paid)</td><td>Automated re-engagement email (Sequence 4)</td><td>Product + Marketing</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Usage decline</td><td>&lt;50% of prior month activity</td><td>Account owner personal check-in call</td><td>CSM</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Support spike</td><td>3+ tickets in one week</td><td>Priority support escalation; root cause review</td><td>CSM + CTO</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Failed simulations</td><td>&gt;50% failure rate</td><td>Proactive technical support outreach</td><td>CTO + CSM</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Champion departure</td><td>Key user account deactivated</td><td>Identify new champion within 5 business days</td><td>AE + CSM</td></tr>
-          <tr><td style="font-weight:600;color:var(--text)">Renewal approaching</td><td>60 days before renewal</td><td>QBR with ROI summary; expansion proposal</td><td>AE + CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Login drop-off" data-zh="登录中断">Login drop-off</td><td data-en="7 days no login (paid)" data-zh="付费用户7天未登录">7 days no login (paid)</td><td data-en="Automated re-engagement email (Sequence 4)" data-zh="自动重新激活邮件（序列4）">Automated re-engagement email (Sequence 4)</td><td data-en="Product + Marketing" data-zh="产品 + 市场">Product + Marketing</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Usage decline" data-zh="使用量下降">Usage decline</td><td data-en="&lt;50% of prior month activity" data-zh="低于上月活跃度50%">&lt;50% of prior month activity</td><td data-en="Account owner personal check-in call" data-zh="账户负责人个人回访电话">Account owner personal check-in call</td><td>CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Support spike" data-zh="支持请求激增">Support spike</td><td data-en="3+ tickets in one week" data-zh="一周内3张以上工单">3+ tickets in one week</td><td data-en="Priority support escalation; root cause review" data-zh="优先支持升级；根本原因审查">Priority support escalation; root cause review</td><td>CSM + CTO</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Failed simulations" data-zh="仿真失败率过高">Failed simulations</td><td data-en="&gt;50% failure rate" data-zh="失败率&gt;50%">&gt;50% failure rate</td><td data-en="Proactive technical support outreach" data-zh="主动技术支持联系">Proactive technical support outreach</td><td>CTO + CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Champion departure" data-zh="关键用户离职">Champion departure</td><td data-en="Key user account deactivated" data-zh="关键用户账户停用">Key user account deactivated</td><td data-en="Identify new champion within 5 business days" data-zh="5个工作日内确定新的内部推动者">Identify new champion within 5 business days</td><td>AE + CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)" data-en="Renewal approaching" data-zh="续费日期临近">Renewal approaching</td><td data-en="60 days before renewal" data-zh="续费前60天">60 days before renewal</td><td data-en="QBR with ROI summary; expansion proposal" data-zh="含ROI摘要的季度业务回顾；扩展提案">QBR with ROI summary; expansion proposal</td><td>AE + CSM</td></tr>
         </tbody>
       </table>
-      <div style="margin-top:1rem;padding:.75rem;background:rgba(255,59,48,.06);border-radius:8px;font-size:.78rem;color:var(--text2)">
+      <div style="margin-top:1rem;padding:.75rem;background:rgba(255,59,48,.06);border-radius:8px;font-size:.78rem;color:var(--text2)" data-en='<strong style="color:var(--error)">Churn Escalation:</strong> Day 7 automated → Day 14 personal email → Day 21 phone call → Day 30 executive involvement. Do not wait until renewal to address churn signals.' data-zh='<strong style="color:var(--error)">流失升级响应：</strong>第7天自动化 → 第14天个人邮件 → 第21天电话 → 第30天高管介入。不要等到续费时才处理流失信号。'>
         <strong style="color:var(--error)">Churn Escalation:</strong> Day 7 automated → Day 14 personal email → Day 21 phone call → Day 30 executive involvement. Do not wait until renewal to address churn signals.
       </div>
     </div>
@@ -510,52 +511,52 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
   <section class="section" id="roi">
     <div class="sec-hd">
       <span class="sec-num">06</span>
-      <span class="sec-title">ROI Framework</span>
-      <span class="sec-sub">Calculator inputs · Formula · 10-engineer reference example</span>
+      <span class="sec-title" data-en="ROI Framework" data-zh="ROI框架">ROI Framework</span>
+      <span class="sec-sub" data-en="Calculator inputs · Formula · 10-engineer reference example" data-zh="计算器输入 · 公式 · 10人工程团队参考案例">Calculator inputs · Formula · 10-engineer reference example</span>
     </div>
     <div class="g2">
       <div class="card">
-        <div class="card-title">ROI Calculator — 10-Engineer Team (Reference Example)</div>
+        <div class="card-title" data-en="ROI Calculator — 10-Engineer Team (Reference Example)" data-zh="ROI计算器 — 10人工程团队（参考案例）">ROI Calculator — 10-Engineer Team (Reference Example)</div>
         <div style="margin-top:.75rem">
-          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem">Inputs</div>
-          <div class="roi-row"><div class="roi-label">Engineers using simulation</div><div class="roi-val">10</div></div>
-          <div class="roi-row"><div class="roi-label">Avg. simulation cycles / project</div><div class="roi-val">10 cycles</div></div>
-          <div class="roi-row"><div class="roi-label">Hours per simulation cycle (before)</div><div class="roi-val">8 hours</div></div>
-          <div class="roi-row"><div class="roi-label">AI setup reduction</div><div class="roi-val">75%</div></div>
-          <div class="roi-row"><div class="roi-label">Hourly rate (blended)</div><div class="roi-val">$100 / hr</div></div>
-          <div class="roi-row"><div class="roi-label">Projects per year</div><div class="roi-val">30</div></div>
-          <div class="roi-row"><div class="roi-label">Current tool licenses (annual)</div><div class="roi-val">$150,000</div></div>
-          <div class="roi-row"><div class="roi-label">ODE Team plan (10 seats × $199/mo)</div><div class="roi-val">$23,880</div></div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem" data-en="Inputs" data-zh="输入参数">Inputs</div>
+          <div class="roi-row"><div class="roi-label" data-en="Engineers using simulation" data-zh="使用仿真的工程师人数">Engineers using simulation</div><div class="roi-val">10</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="Avg. simulation cycles / project" data-zh="平均仿真周期数/项目">Avg. simulation cycles / project</div><div class="roi-val">10 cycles</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="Hours per simulation cycle (before)" data-zh="每个仿真周期耗时（改造前）">Hours per simulation cycle (before)</div><div class="roi-val">8 hours</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="AI setup reduction" data-zh="AI带来的准备时间压缩">AI setup reduction</div><div class="roi-val">75%</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="Hourly rate (blended)" data-zh="综合时薪">Hourly rate (blended)</div><div class="roi-val">$100 / hr</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="Projects per year" data-zh="年项目数">Projects per year</div><div class="roi-val">30</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="Current tool licenses (annual)" data-zh="当前工具许可费（年）">Current tool licenses (annual)</div><div class="roi-val">$150,000</div></div>
+          <div class="roi-row"><div class="roi-label" data-en="ODE Team plan (10 seats × $199/mo)" data-zh="ODE Team套餐（10席位 × $199/月）">ODE Team plan (10 seats × $199/mo)</div><div class="roi-val">$23,880</div></div>
           <div style="margin-top:1rem">
-            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem">Savings Calculation</div>
-            <div class="roi-row"><div class="roi-label">Time saved / cycle</div><div class="roi-val">6 hours</div></div>
-            <div class="roi-row"><div class="roi-label">Total hours saved / year</div><div class="roi-val">1,800 hrs</div></div>
-            <div class="roi-row"><div class="roi-label">Time value of savings</div><div class="roi-val">$180,000</div></div>
-            <div class="roi-row"><div class="roi-label">License cost reduction</div><div class="roi-val">$126,120</div></div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem" data-en="Savings Calculation" data-zh="节省计算">Savings Calculation</div>
+            <div class="roi-row"><div class="roi-label" data-en="Time saved / cycle" data-zh="每周期节省时间">Time saved / cycle</div><div class="roi-val">6 hours</div></div>
+            <div class="roi-row"><div class="roi-label" data-en="Total hours saved / year" data-zh="年节省总小时数">Total hours saved / year</div><div class="roi-val">1,800 hrs</div></div>
+            <div class="roi-row"><div class="roi-label" data-en="Time value of savings" data-zh="时间节省的货币价值">Time value of savings</div><div class="roi-val">$180,000</div></div>
+            <div class="roi-row"><div class="roi-label" data-en="License cost reduction" data-zh="许可费节省">License cost reduction</div><div class="roi-val">$126,120</div></div>
             <div class="roi-total">
-              <div class="roi-t-label">Total Annual Value from ODE</div>
+              <div class="roi-t-label" data-en="Total Annual Value from ODE" data-zh="ODE带来的年度总价值">Total Annual Value from ODE</div>
               <div class="roi-t-val">$306,120</div>
             </div>
-            <div style="font-size:.72rem;color:var(--text3);margin-top:.4rem;text-align:right">vs. ODE annual cost of $23,880 — 12.8× ROI</div>
+            <div style="font-size:.72rem;color:var(--text3);margin-top:.4rem;text-align:right" data-en="vs. ODE annual cost of $23,880 — 12.8× ROI" data-zh="vs. ODE年费$23,880 — ROI达12.8倍">vs. ODE annual cost of $23,880 — 12.8× ROI</div>
           </div>
         </div>
       </div>
       <div>
         <div class="card" style="margin-bottom:1.5rem">
-          <div class="card-title">ROI Formula</div>
+          <div class="card-title" data-en="ROI Formula" data-zh="ROI计算公式">ROI Formula</div>
           <div style="background:var(--bg);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.75rem;color:var(--midnight);line-height:2">
             Time Savings = (hours_per_cycle × AI_reduction% × cycles_per_year × engineers × hourly_rate)<br>
             License Savings = (current_license_cost − ODE_annual_cost)<br>
             <strong>Total Annual ROI = Time Savings + License Savings</strong>
           </div>
-          <div style="margin-top:1rem;font-size:.78rem;color:var(--text2);line-height:1.6">
+          <div style="margin-top:1rem;font-size:.78rem;color:var(--text2);line-height:1.6" data-en="Present this calculation live during the demo. Use the prospect's own numbers — ask setup time, cycle count, team size, and current tool spend in discovery. Never use generic estimates when real inputs are available." data-zh="在演示中实时呈现这个计算。使用潜在客户自己的数字 — 在探索阶段询问准备时间、周期数量、团队规模和当前工具费用。有真实数据时，永远不要使用通用估算。">
             Present this calculation live during the demo. Use the prospect's own numbers — ask setup time, cycle count, team size, and current tool spend in discovery. Never use generic estimates when real inputs are available.
           </div>
         </div>
         <div class="card">
-          <div class="card-title">Competitive TCO — 3-Year Comparison</div>
+          <div class="card-title" data-en="Competitive TCO — 3-Year Comparison" data-zh="竞品TCO对比 — 3年总成本">Competitive TCO — 3-Year Comparison</div>
           <table class="tbl" style="margin-top:.25rem">
-            <thead><tr><th>Tool</th><th>Year 1</th><th>3-Year Total</th><th>AI Included</th></tr></thead>
+            <thead><tr><th data-en="Tool" data-zh="工具">Tool</th><th data-en="Year 1" data-zh="第一年">Year 1</th><th data-en="3-Year Total" data-zh="3年总计">3-Year Total</th><th data-en="AI Included" data-zh="含AI">AI Included</th></tr></thead>
             <tbody>
               <tr class="hl"><td><strong>ODE Pro (10 seats)</strong></td><td style="font-family:var(--mono);color:var(--success)">$23,880</td><td style="font-family:var(--mono);color:var(--success)">$71,640</td><td><span class="pill p-green">Yes</span></td></tr>
               <tr><td>ANSYS Mechanical</td><td style="font-family:var(--mono);color:var(--error)">$300K+</td><td style="font-family:var(--mono);color:var(--error)">$900K+</td><td><span class="pill p-amber">Partial</span></td></tr>
@@ -577,6 +578,15 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navItems.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+id));}});
 },{rootMargin:'-30% 0px -60% 0px'});
 sections.forEach(s=>obs.observe(s));
+let _lang='en';
+function toggleLang(){
+  _lang=_lang==='en'?'zh':'en';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+  });
+  document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+  document.documentElement.lang=_lang;
+}
 </script>
 </body>
 </html>

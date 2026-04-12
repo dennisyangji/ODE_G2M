@@ -269,17 +269,18 @@ h3{
 </head>
 <body>
 <div class="progress" id="progress"></div>
+<button id="lang-btn" onclick="toggleLang()" style="position:fixed;top:16px;right:80px;z-index:200;padding:.3rem .85rem;background:rgba(10,37,64,.85);color:white;border:1px solid rgba(255,255,255,.2);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s">中文</button>
 <div class="deck" id="deck">
 
 <!-- ══════════════════════════════════════════
      SLIDE 1 — Cover
 ══════════════════════════════════════════ -->
 <section class="slide active center" data-slide="0">
-  <p class="label">Orthogonal</p>
+  <p class="label" data-en="Orthogonal" data-zh="Orthogonal">Orthogonal</p>
   <div class="ode-logo">ODE</div>
   <div class="divider" style="margin:.75rem auto"></div>
-  <p class="tagline">The Dassault of the AI era.</p>
-  <p class="mt-4" style="font-size:.85rem;color:var(--text3)">
+  <p class="tagline" data-en="The Dassault of the AI era." data-zh="AI时代的达索。">The Dassault of the AI era.</p>
+  <p class="mt-4" style="font-size:.85rem;color:var(--text3)" data-en="12 Engineering Disciplines &nbsp;·&nbsp; AI-Native &nbsp;·&nbsp; Token-First &nbsp;·&nbsp; Browser-Based" data-zh="12大工程学科 &nbsp;·&nbsp; AI原生 &nbsp;·&nbsp; Token优先 &nbsp;·&nbsp; 浏览器端运行">
     12 Engineering Disciplines &nbsp;·&nbsp; AI-Native &nbsp;·&nbsp; Token-First &nbsp;·&nbsp; Browser-Based
   </p>
 </section>
@@ -288,13 +289,13 @@ h3{
      SLIDE 2 — The Generational Shift
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="1">
-  <p class="label">The Shift</p>
-  <h2>Dassault defined engineering software<br>for <span class="accent">30 years.</span></h2>
-  <p class="hero-sub mt-3 center" style="max-width:680px">
+  <p class="label" data-en="The Shift" data-zh="时代转变">The Shift</p>
+  <h2 data-en="Dassault defined engineering software<br>for <span class='accent'>30 years.</span>" data-zh="达索定义了工程软件<br>长达 <span class='accent'>30年。</span>">Dassault defined engineering software<br>for <span class="accent">30 years.</span></h2>
+  <p class="hero-sub mt-3 center" style="max-width:680px" data-en="CATIA. SIMULIA. ENOVIA. GENESYS. Every discipline, one suite — built in the 1990s, priced for the Fortune 500, impossible to rebuild for AI." data-zh="CATIA. SIMULIA. ENOVIA. GENESYS. 覆盖每个学科，一套完整工具 — 建于20世纪90年代，面向财富500强定价，无法为AI进行重构。">
     CATIA. SIMULIA. ENOVIA. GENESYS. Every discipline, one suite —
     built in the 1990s, priced for the Fortune 500, impossible to rebuild for AI.
   </p>
-  <p class="hero-sub mt-3 center" style="max-width:680px;color:var(--midnight);font-weight:600">
+  <p class="hero-sub mt-3 center" style="max-width:680px;color:var(--midnight);font-weight:600" data-en="We are building what Dassault would build today<br>if it started from scratch." data-zh="我们正在构建的，是<br>达索如果从今天重新起步会打造的产品。">
     We are building what Dassault would build today<br>if it started from scratch.
   </p>
 </section>
@@ -303,24 +304,24 @@ h3{
      SLIDE 3 — Problem
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="2">
-  <p class="label">The Problem</p>
-  <h2>Engineering software is<br>a <span class="accent">30-year-old monopoly</span></h2>
+  <p class="label" data-en="The Problem" data-zh="核心问题">The Problem</p>
+  <h2 data-en="Engineering software is<br>a <span class='accent'>30-year-old monopoly</span>" data-zh="工程软件是<br>一个 <span class='accent'>长达30年的垄断</span>">Engineering software is<br>a <span class="accent">30-year-old monopoly</span></h2>
   <div class="row mt-4" style="max-width:960px">
     <div class="card">
-      <h3>$50K–$500K per seat</h3>
-      <p>Dassault CATIA + SIMULIA + GENESYS. Multi-year lock-in. Price hasn't changed in a decade.</p>
+      <h3 data-en="$50K–$500K per seat" data-zh="$50K–$500K / 席位">$50K–$500K per seat</h3>
+      <p data-en="Dassault CATIA + SIMULIA + GENESYS. Multi-year lock-in. Price hasn't changed in a decade." data-zh="达索CATIA + SIMULIA + GENESYS。多年锁定合同。价格十年未变。">Dassault CATIA + SIMULIA + GENESYS. Multi-year lock-in. Price hasn't changed in a decade.</p>
     </div>
     <div class="card">
-      <h3>7 disconnected tools</h3>
-      <p>CAD → meshing → solver → post-processing → MBSE → docs → PLM. Engineers lose hours daily on file conversion.</p>
+      <h3 data-en="7 disconnected tools" data-zh="7款互不连通的工具">7 disconnected tools</h3>
+      <p data-en="CAD → meshing → solver → post-processing → MBSE → docs → PLM. Engineers lose hours daily on file conversion." data-zh="CAD → 网格 → 求解器 → 后处理 → MBSE → 文档 → PLM。工程师每天在文件转换上浪费数小时。">CAD → meshing → solver → post-processing → MBSE → docs → PLM. Engineers lose hours daily on file conversion.</p>
     </div>
     <div class="card">
-      <h3>AI bolted on, not built in</h3>
-      <p>30-year-old binary formats. AI cannot reason about proprietary geometry files. "AI features" = a chatbot sidebar.</p>
+      <h3 data-en="AI bolted on, not built in" data-zh="AI拼接，非原生内建">AI bolted on, not built in</h3>
+      <p data-en='30-year-old binary formats. AI cannot reason about proprietary geometry files. "AI features" = a chatbot sidebar.' data-zh="30年历史的二进制格式。AI无法推理专有几何文件。「AI功能」= 一个侧边栏聊天机器人。">30-year-old binary formats. AI cannot reason about proprietary geometry files. "AI features" = a chatbot sidebar.</p>
     </div>
     <div class="card">
-      <h3>Desktop-only, no collab</h3>
-      <p>IT approval takes months. No real-time collaboration. Sharing results = exporting static PDFs.</p>
+      <h3 data-en="Desktop-only, no collab" data-zh="仅限桌面，无法协作">Desktop-only, no collab</h3>
+      <p data-en="IT approval takes months. No real-time collaboration. Sharing results = exporting static PDFs." data-zh="IT审批需要数月。无实时协作。分享结果 = 导出静态PDF。">IT approval takes months. No real-time collaboration. Sharing results = exporting static PDFs.</p>
     </div>
   </div>
 </section>
@@ -329,28 +330,28 @@ h3{
      SLIDE 4 — Solution
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="3">
-  <p class="label">The Solution</p>
-  <h2>Orthogonal ODE —<br><span class="accent">every discipline, AI-native</span></h2>
-  <p class="hero-sub center mt-3" style="max-width:620px">
+  <p class="label" data-en="The Solution" data-zh="解决方案">The Solution</p>
+  <h2 data-en="Orthogonal ODE —<br><span class='accent'>every discipline, AI-native</span>" data-zh="Orthogonal ODE —<br><span class='accent'>全学科，AI原生</span>">Orthogonal ODE —<br><span class="accent">every discipline, AI-native</span></h2>
+  <p class="hero-sub center mt-3" style="max-width:620px" data-en="Same breadth as Dassault's full suite. AI-native architecture built from scratch. Browser-based. 5–50× lower cost. Billed by token, not by seat-year." data-zh="与达索完整工具套件同等广度。从零构建的AI原生架构。浏览器端运行。成本降低5至50倍。按Token计费，而非按席位年付。">
     Same breadth as Dassault's full suite. AI-native architecture built from scratch.
     Browser-based. 5–50× lower cost. Billed by token, not by seat-year.
   </p>
   <div class="row mt-4" style="max-width:700px;justify-content:center">
     <div style="text-align:center;flex:1;min-width:110px">
       <div class="big-stat">12</div>
-      <div class="stat-label">Disciplines</div>
+      <div class="stat-label" data-en="Disciplines" data-zh="学科覆盖">Disciplines</div>
     </div>
     <div style="text-align:center;flex:1;min-width:110px">
       <div class="big-stat">0</div>
-      <div class="stat-label">Install Required</div>
+      <div class="stat-label" data-en="Install Required" data-zh="需要安装">Install Required</div>
     </div>
     <div style="text-align:center;flex:1;min-width:110px">
       <div class="big-stat">10×</div>
-      <div class="stat-label">Faster Iteration</div>
+      <div class="stat-label" data-en="Faster Iteration" data-zh="更快迭代">Faster Iteration</div>
     </div>
     <div style="text-align:center;flex:1;min-width:110px">
       <div class="big-stat" style="font-size:clamp(1.5rem,3.5vw,2.8rem)">5–50×</div>
-      <div class="stat-label">Lower Cost</div>
+      <div class="stat-label" data-en="Lower Cost" data-zh="更低成本">Lower Cost</div>
     </div>
   </div>
 </section>
@@ -359,59 +360,59 @@ h3{
      SLIDE 5 — Product: Full Tool Matrix
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="4">
-  <p class="label">Product</p>
-  <h2>One platform. Every discipline.<br><span class="accent">AI in every tool.</span></h2>
+  <p class="label" data-en="Product" data-zh="产品">Product</p>
+  <h2 data-en="One platform. Every discipline.<br><span class='accent'>AI in every tool.</span>" data-zh="一个平台。覆盖全学科。<br><span class='accent'>每个工具内置AI。</span>">One platform. Every discipline.<br><span class="accent">AI in every tool.</span></h2>
   <div class="tool-grid mt-4">
     <div class="tool">
       <div class="t-name" style="color:#0071E3">Component</div>
-      <div class="t-sub">Modelica AI physics modelling</div>
+      <div class="t-sub" data-en="Modelica AI physics modelling" data-zh="Modelica AI物理建模">Modelica AI physics modelling</div>
     </div>
     <div class="tool">
       <div class="t-name" style="color:#34C759">Geometry</div>
-      <div class="t-sub">Browser-based parametric CAD</div>
+      <div class="t-sub" data-en="Browser-based parametric CAD" data-zh="浏览器端参数化CAD">Browser-based parametric CAD</div>
     </div>
     <div class="tool">
       <div class="t-name" style="color:#FF9F0A">System</div>
-      <div class="t-sub">MBSE + SysML architecture</div>
+      <div class="t-sub" data-en="MBSE + SysML architecture" data-zh="MBSE + SysML系统架构">MBSE + SysML architecture</div>
     </div>
     <div class="tool">
       <div class="t-name" style="color:#5E5CE6">Vision</div>
-      <div class="t-sub">Real-time 3D simulation</div>
+      <div class="t-sub" data-en="Real-time 3D simulation" data-zh="实时3D仿真">Real-time 3D simulation</div>
     </div>
     <div class="tool">
       <div class="t-name" style="color:#FF3B30">Paper</div>
-      <div class="t-sub">Collaborative engineering docs</div>
+      <div class="t-sub" data-en="Collaborative engineering docs" data-zh="协作工程文档">Collaborative engineering docs</div>
     </div>
     <div class="tool">
       <div class="t-name" style="color:#0A2540">Interaction</div>
-      <div class="t-sub">Live parameter exploration</div>
+      <div class="t-sub" data-en="Live parameter exploration" data-zh="实时参数探索">Live parameter exploration</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#0071E3">FEM</div>
-      <div class="t-sub">Finite element analysis</div>
+      <div class="t-sub" data-en="Finite element analysis" data-zh="有限元分析">Finite element analysis</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#0071E3">CFD</div>
-      <div class="t-sub">Computational fluid dynamics</div>
+      <div class="t-sub" data-en="Computational fluid dynamics" data-zh="计算流体力学">Computational fluid dynamics</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#34C759">Compute</div>
-      <div class="t-sub">Scientific computing & analysis</div>
+      <div class="t-sub" data-en="Scientific computing &amp; analysis" data-zh="科学计算与分析">Scientific computing &amp; analysis</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#FF9F0A">Optim</div>
-      <div class="t-sub">Multi-objective optimisation</div>
+      <div class="t-sub" data-en="Multi-objective optimisation" data-zh="多目标优化">Multi-objective optimisation</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#5E5CE6">RL</div>
-      <div class="t-sub">Reinforcement learning control</div>
+      <div class="t-sub" data-en="Reinforcement learning control" data-zh="强化学习控制">Reinforcement learning control</div>
     </div>
     <div class="tool new">
       <div class="t-name" style="color:#FF3B30">Circuit</div>
-      <div class="t-sub">KiCad PCB + co-simulation</div>
+      <div class="t-sub" data-en="KiCad PCB + co-simulation" data-zh="KiCad PCB + 联合仿真">KiCad PCB + co-simulation</div>
     </div>
   </div>
-  <p class="mt-3" style="font-size:.8rem;color:var(--text3)">
+  <p class="mt-3" style="font-size:.8rem;color:var(--text3)" data-en="Open standards: Modelica 4.0 · FMI 2.0/3.0 · SysML v1.6 · KiCad" data-zh="开放标准：Modelica 4.0 · FMI 2.0/3.0 · SysML v1.6 · KiCad">
     Open standards: Modelica 4.0 · FMI 2.0/3.0 · SysML v1.6 · KiCad
   </p>
 </section>
@@ -420,35 +421,35 @@ h3{
      SLIDE 6 — AI Structural Moat
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="5">
-  <p class="label">AI Structural Moat</p>
-  <h2>From requirements to simulation<br>in <span class="accent">60 seconds</span></h2>
+  <p class="label" data-en="AI Structural Moat" data-zh="AI结构性护城河">AI Structural Moat</p>
+  <h2 data-en="From requirements to simulation<br>in <span class='accent'>60 seconds</span>" data-zh="从需求到仿真<br>只需 <span class='accent'>60秒</span>">From requirements to simulation<br>in <span class="accent">60 seconds</span></h2>
   <div class="flow mt-4">
     <div class="step">
       <div class="num">1</div>
-      <div class="txt">Describe system<br>in plain English</div>
+      <div class="txt" data-en="Describe system<br>in plain English" data-zh="用自然语言<br>描述系统">Describe system<br>in plain English</div>
     </div>
     <div class="arrow">→</div>
     <div class="step">
       <div class="num">2</div>
-      <div class="txt">AI generates<br>Modelica model</div>
+      <div class="txt" data-en="AI generates<br>Modelica model" data-zh="AI生成<br>Modelica模型">AI generates<br>Modelica model</div>
     </div>
     <div class="arrow">→</div>
     <div class="step">
       <div class="num">3</div>
-      <div class="txt">AI meshes<br>& sets up solver</div>
+      <div class="txt" data-en="AI meshes<br>&amp; sets up solver" data-zh="AI自动网格划分<br>并配置求解器">AI meshes<br>&amp; sets up solver</div>
     </div>
     <div class="arrow">→</div>
     <div class="step">
       <div class="num">4</div>
-      <div class="txt">Run simulation<br>in cloud</div>
+      <div class="txt" data-en="Run simulation<br>in cloud" data-zh="在云端<br>运行仿真">Run simulation<br>in cloud</div>
     </div>
     <div class="arrow">→</div>
     <div class="step">
       <div class="num">5</div>
-      <div class="txt">AI interprets<br>& iterates</div>
+      <div class="txt" data-en="AI interprets<br>&amp; iterates" data-zh="AI解读结果<br>并迭代优化">AI interprets<br>&amp; iterates</div>
     </div>
   </div>
-  <p class="hero-sub center mt-4" style="max-width:620px">
+  <p class="hero-sub center mt-4" style="max-width:620px" data-en="Modelica is equation-based and structured — inherently machine-readable. Dassault's binary CATIA files cannot be reasoned about by AI. <strong style='color:var(--midnight)'>This is our structural moat.</strong>" data-zh="Modelica是方程式驱动的结构化语言 — 天然对机器可读。达索的CATIA二进制文件无法被AI推理。<strong style='color:var(--midnight)'>这就是我们的结构性护城河。</strong>">
     Modelica is equation-based and structured — inherently machine-readable.
     Dassault's binary CATIA files cannot be reasoned about by AI.
     <strong style="color:var(--midnight)">This is our structural moat.</strong>
@@ -459,55 +460,55 @@ h3{
      SLIDE 7 — Business Model: Token-First
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="6">
-  <p class="label">Business Model</p>
-  <h2>Token-first. Services on top.<br><span class="accent">Compounding by design.</span></h2>
+  <p class="label" data-en="Business Model" data-zh="商业模式">Business Model</p>
+  <h2 data-en="Token-first. Services on top.<br><span class='accent'>Compounding by design.</span>" data-zh="Token优先。服务叠加。<br><span class='accent'>设计层面的复利增长。</span>">Token-first. Services on top.<br><span class="accent">Compounding by design.</span></h2>
   <div class="row mt-4" style="max-width:900px;align-items:flex-start">
     <div class="col" style="flex:1;min-width:240px;gap:.75rem">
-      <p class="label" style="font-size:.7rem">Token Revenue (Usage-Based)</p>
+      <p class="label" style="font-size:.7rem" data-en="Token Revenue (Usage-Based)" data-zh="Token营收（按使用量计费）">Token Revenue (Usage-Based)</p>
       <div class="token-stack">
         <div class="token-row">
-          <span class="token-name">Subscriptions</span>
+          <span class="token-name" data-en="Subscriptions" data-zh="订阅费">Subscriptions</span>
           <div class="token-bar-bg"><div class="token-bar-fill" style="width:35%;background:var(--midnight)"></div></div>
           <span class="token-pct">35%</span>
         </div>
         <div class="token-row">
-          <span class="token-name">AI Tokens</span>
+          <span class="token-name" data-en="AI Tokens" data-zh="AI Token">AI Tokens</span>
           <div class="token-bar-bg"><div class="token-bar-fill" style="width:30%"></div></div>
           <span class="token-pct">30%</span>
         </div>
         <div class="token-row">
-          <span class="token-name">Compute</span>
+          <span class="token-name" data-en="Compute" data-zh="算力">Compute</span>
           <div class="token-bar-bg"><div class="token-bar-fill" style="width:25%;background:var(--ai)"></div></div>
           <span class="token-pct">25%</span>
         </div>
         <div class="token-row">
-          <span class="token-name">Storage</span>
+          <span class="token-name" data-en="Storage" data-zh="存储">Storage</span>
           <div class="token-bar-bg"><div class="token-bar-fill" style="width:10%;background:var(--success)"></div></div>
           <span class="token-pct">10%</span>
         </div>
       </div>
-      <p style="font-size:.75rem;color:var(--text3);margin-top:.3rem">
+      <p style="font-size:.75rem;color:var(--text3);margin-top:.3rem" data-en="Blended ARPU: <strong style='color:var(--text)'>$3,500/yr</strong> &nbsp;·&nbsp; Token margin: <strong style='color:var(--text)'>70%+</strong>" data-zh="综合ARPU：<strong style='color:var(--text)'>$3,500/年</strong> &nbsp;·&nbsp; Token毛利率：<strong style='color:var(--text)'>70%+</strong>">
         Blended ARPU: <strong style="color:var(--text)">$3,500/yr</strong> &nbsp;·&nbsp; Token margin: <strong style="color:var(--text)">70%+</strong>
       </p>
     </div>
     <div class="col" style="flex:1;min-width:240px;gap:.75rem">
-      <p class="label" style="font-size:.7rem">Professional Services</p>
+      <p class="label" style="font-size:.7rem" data-en="Professional Services" data-zh="专业服务">Professional Services</p>
       <div class="col" style="gap:.5rem">
         <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
-          <span style="font-size:.82rem;font-weight:600;color:var(--text)">Onboarding Sprint</span>
-          <span style="font-size:.75rem;color:var(--text2)">€5,000 · 2-week guided setup</span>
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)" data-en="Onboarding Sprint" data-zh="上线冲刺">Onboarding Sprint</span>
+          <span style="font-size:.75rem;color:var(--text2)" data-en="€5,000 · 2-week guided setup" data-zh="€5,000 · 2周专家指导">€5,000 · 2-week guided setup</span>
         </div>
         <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
-          <span style="font-size:.82rem;font-weight:600;color:var(--text)">Integration Pack</span>
-          <span style="font-size:.75rem;color:var(--text2)">€10K–25K · FMI / PLM integration</span>
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)" data-en="Integration Pack" data-zh="集成套餐">Integration Pack</span>
+          <span style="font-size:.75rem;color:var(--text2)" data-en="€10K–25K · FMI / PLM integration" data-zh="€10K–25K · FMI/PLM集成">€10K–25K · FMI / PLM integration</span>
         </div>
         <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
-          <span style="font-size:.82rem;font-weight:600;color:var(--text)">AI Fine-tuning</span>
-          <span style="font-size:.75rem;color:var(--text2)">€15K–40K · Customer data fine-tune</span>
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)" data-en="AI Fine-tuning" data-zh="AI微调">AI Fine-tuning</span>
+          <span style="font-size:.75rem;color:var(--text2)" data-en="€15K–40K · Customer data fine-tune" data-zh="€15K–40K · 客户数据微调">€15K–40K · Customer data fine-tune</span>
         </div>
         <div class="token-row" style="flex-direction:column;align-items:flex-start;gap:.2rem">
-          <span style="font-size:.82rem;font-weight:600;color:var(--text)">CSM Retainer</span>
-          <span style="font-size:.75rem;color:var(--text2)">€3,000/mo · AI-assisted success</span>
+          <span style="font-size:.82rem;font-weight:600;color:var(--text)" data-en="CSM Retainer" data-zh="客户成功顾问">CSM Retainer</span>
+          <span style="font-size:.75rem;color:var(--text2)" data-en="€3,000/mo · AI-assisted success" data-zh="€3,000/月 · AI辅助客户成功">€3,000/mo · AI-assisted success</span>
         </div>
       </div>
     </div>
@@ -518,20 +519,20 @@ h3{
      SLIDE 8 — Competitive Position
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="7">
-  <p class="label">Competitive Position</p>
-  <h2>Same disciplines as Dassault.<br><span class="accent">AI-native architecture.</span> 10% of the cost.</h2>
+  <p class="label" data-en="Competitive Position" data-zh="竞争定位">Competitive Position</p>
+  <h2 data-en="Same disciplines as Dassault.<br><span class='accent'>AI-native architecture.</span> 10% of the cost." data-zh="与达索相同的学科广度。<br><span class='accent'>AI原生架构。</span>仅需其10%的成本。">Same disciplines as Dassault.<br><span class="accent">AI-native architecture.</span> 10% of the cost.</h2>
   <div class="mt-4" style="overflow-x:auto;width:100%">
     <table class="comp-table">
       <thead>
         <tr>
-          <th>Platform</th>
-          <th>CAD</th>
-          <th>FEM/CFD</th>
-          <th>MBSE</th>
-          <th>AI-Native</th>
-          <th>Browser</th>
-          <th>Circuit</th>
-          <th>Price/seat/yr</th>
+          <th data-en="Platform" data-zh="平台">Platform</th>
+          <th data-en="CAD" data-zh="CAD">CAD</th>
+          <th data-en="FEM/CFD" data-zh="FEM/CFD">FEM/CFD</th>
+          <th data-en="MBSE" data-zh="MBSE">MBSE</th>
+          <th data-en="AI-Native" data-zh="AI原生">AI-Native</th>
+          <th data-en="Browser" data-zh="浏览器端">Browser</th>
+          <th data-en="Circuit" data-zh="电路设计">Circuit</th>
+          <th data-en="Price/seat/yr" data-zh="年费/席位">Price/seat/yr</th>
         </tr>
       </thead>
       <tbody>
@@ -550,7 +551,7 @@ h3{
           <td class="check">✓</td>
           <td class="check">✓</td>
           <td class="check">✓</td>
-          <td class="cross">Partial</td>
+          <td class="cross" data-en="Partial" data-zh="部分支持">Partial</td>
           <td class="cross">✗</td>
           <td class="cross">✗</td>
           <td style="font-family:var(--mono);color:var(--error)">$50K–500K</td>
@@ -560,7 +561,7 @@ h3{
           <td class="cross">✗</td>
           <td class="check">✓</td>
           <td class="cross">✗</td>
-          <td class="cross">Partial</td>
+          <td class="cross" data-en="Partial" data-zh="部分支持">Partial</td>
           <td class="cross">✗</td>
           <td class="cross">✗</td>
           <td style="font-family:var(--mono);color:var(--error)">$30K–150K</td>
@@ -569,7 +570,7 @@ h3{
           <td>Siemens NX</td>
           <td class="check">✓</td>
           <td class="check">✓</td>
-          <td class="cross">Partial</td>
+          <td class="cross" data-en="Partial" data-zh="部分支持">Partial</td>
           <td class="cross">✗</td>
           <td class="cross">✗</td>
           <td class="cross">✗</td>
@@ -580,7 +581,7 @@ h3{
           <td class="cross">✗</td>
           <td class="check">✓</td>
           <td class="cross">✗</td>
-          <td class="cross">Partial</td>
+          <td class="cross" data-en="Partial" data-zh="部分支持">Partial</td>
           <td class="check">✓</td>
           <td class="cross">✗</td>
           <td style="font-family:var(--mono)">$2.4K–4.8K</td>
@@ -590,7 +591,7 @@ h3{
           <td class="check">✓</td>
           <td class="cross">✗</td>
           <td class="cross">✗</td>
-          <td class="cross">Partial</td>
+          <td class="cross" data-en="Partial" data-zh="部分支持">Partial</td>
           <td class="check">✓</td>
           <td class="cross">✗</td>
           <td style="font-family:var(--mono)">$2.1K–4.8K</td>
@@ -604,15 +605,15 @@ h3{
      SLIDE 9 — Market
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="8">
-  <p class="label">Market Opportunity</p>
+  <p class="label" data-en="Market Opportunity" data-zh="市场机会">Market Opportunity</p>
   <div class="big-stat" style="font-size:clamp(3.5rem,8vw,6rem)">$23B</div>
-  <p class="hero-sub center mt-2" style="font-size:1.2rem">
+  <p class="hero-sub center mt-2" style="font-size:1.2rem" data-en="Global engineering simulation market · <strong style='color:var(--midnight)'>12.1% CAGR</strong>" data-zh="全球工程仿真市场 · <strong style='color:var(--midnight)'>年复合增长率12.1%</strong>">
     Global engineering simulation market · <strong style="color:var(--midnight)">12.1% CAGR</strong>
   </p>
   <div class="row mt-4" style="max-width:860px">
     <div class="card" style="max-width:260px">
-      <span class="pill" style="margin-bottom:.75rem">Why Now</span>
-      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+      <span class="pill" style="margin-bottom:.75rem" data-en="Why Now" data-zh="为何是现在">Why Now</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6" data-en="LLMs reached engineering competence — can reason about physics equations<br><br>Modelica + LLM synergy: equation-based = natively machine-readable<br><br>Engineering teams receiving AI budgets for the first time<br><br>Dassault's 30-year architecture <em>cannot</em> be rebuilt for AI" data-zh="大模型达到工程级能力 — 能推理物理方程<br><br>Modelica + 大模型协同：方程式驱动 = 原生可读<br><br>工程团队首次获得AI专项预算<br><br>达索30年架构无法为AI进行重构">
         LLMs reached engineering competence — can reason about physics equations<br><br>
         Modelica + LLM synergy: equation-based = natively machine-readable<br><br>
         Engineering teams receiving AI budgets for the first time<br><br>
@@ -620,8 +621,8 @@ h3{
       </p>
     </div>
     <div class="card" style="max-width:260px">
-      <span class="pill" style="margin-bottom:.75rem">Beachhead</span>
-      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+      <span class="pill" style="margin-bottom:.75rem" data-en="Beachhead" data-zh="滩头阵地">Beachhead</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6" data-en="<strong style='color:var(--text)'>$800M</strong> AI-native engineering tools subsegment<br>Growing 45%+ annually<br><br>EU industrial OEMs: €3B annual Dassault/ANSYS spend<br><br>70% of engineers cite tool fragmentation as top-3 blocker" data-zh="<strong style='color:var(--text)'>$800M</strong> AI原生工程工具细分市场<br>年增长45%+<br><br>欧洲工业OEM：每年在达索/ANSYS上的支出达€30亿<br><br>70%的工程师将工具碎片化列为前三大障碍">
         <strong style="color:var(--text)">$800M</strong> AI-native engineering tools subsegment<br>
         Growing 45%+ annually<br><br>
         EU industrial OEMs: €3B annual Dassault/ANSYS spend<br><br>
@@ -629,8 +630,8 @@ h3{
       </p>
     </div>
     <div class="card" style="max-width:260px">
-      <span class="pill" style="margin-bottom:.75rem">Distribution</span>
-      <p style="font-size:.85rem;color:var(--text2);line-height:1.6">
+      <span class="pill" style="margin-bottom:.75rem" data-en="Distribution" data-zh="分销模式">Distribution</span>
+      <p style="font-size:.85rem;color:var(--text2);line-height:1.6" data-en="<strong style='color:var(--text)'>PLG:</strong> Free token tier → upgrade<br><br><strong style='color:var(--text)'>Direct:</strong> Enterprise ACV $50K–$500K<br><br><strong style='color:var(--text)'>Channel:</strong> Dassault/ANSYS resellers with existing client base<br><br>20–30% revenue share per partner" data-zh="<strong style='color:var(--text)'>PLG：</strong>免费Token层级 → 升级<br><br><strong style='color:var(--text)'>直销：</strong>企业ACV $50K–$500K<br><br><strong style='color:var(--text)'>渠道：</strong>现有客户基础的达索/ANSYS经销商<br><br>每个合作伙伴20–30%的营收分成">
         <strong style="color:var(--text)">PLG:</strong> Free token tier → upgrade<br><br>
         <strong style="color:var(--text)">Direct:</strong> Enterprise ACV $50K–$500K<br><br>
         <strong style="color:var(--text)">Channel:</strong> Dassault/ANSYS resellers with existing client base<br><br>
@@ -644,39 +645,39 @@ h3{
      SLIDE 10 — AI-Native Operations
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="9">
-  <p class="label">AI-Native Operations</p>
-  <h2>8 people running<br>like <span class="accent">30–40</span></h2>
-  <p class="hero-sub center mt-2">Every team member uses AI agents as digital workforce. 1 person = 3–5 AI workers.</p>
+  <p class="label" data-en="AI-Native Operations" data-zh="AI原生运营">AI-Native Operations</p>
+  <h2 data-en="8 people running<br>like <span class='accent'>30–40</span>" data-zh="8个人的团队<br>运转效率堪比 <span class='accent'>30至40人</span>">8 people running<br>like <span class="accent">30–40</span></h2>
+  <p class="hero-sub center mt-2" data-en="Every team member uses AI agents as digital workforce. 1 person = 3–5 AI workers." data-zh="每位团队成员将AI智能体作为数字劳动力使用。1人 = 3至5个AI数字员工。">Every team member uses AI agents as digital workforce. 1 person = 3–5 AI workers.</p>
   <div class="row mt-4" style="max-width:920px">
     <div class="ai-card">
       <div class="role">CEO</div>
       <div class="ratio">1:4</div>
-      <div class="tools">Claude · Perplexity · Gamma<br>AI drafts investor materials, LinkedIn, strategy docs</div>
+      <div class="tools" data-en="Claude · Perplexity · Gamma<br>AI drafts investor materials, LinkedIn, strategy docs" data-zh="Claude · Perplexity · Gamma<br>AI起草投资材料、LinkedIn内容、战略文档">Claude · Perplexity · Gamma<br>AI drafts investor materials, LinkedIn, strategy docs</div>
     </div>
     <div class="ai-card">
       <div class="role">CTO</div>
       <div class="ratio">1:5</div>
-      <div class="tools">Claude Code · Cursor<br>AI-generated code, tests, architecture docs, changelogs</div>
+      <div class="tools" data-en="Claude Code · Cursor<br>AI-generated code, tests, architecture docs, changelogs" data-zh="Claude Code · Cursor<br>AI生成代码、测试、架构文档、更新日志">Claude Code · Cursor<br>AI-generated code, tests, architecture docs, changelogs</div>
     </div>
     <div class="ai-card">
       <div class="role">Designer</div>
       <div class="ratio">1:4</div>
-      <div class="tools">Figma + Claude Code<br>Figma → code-level design system, no handoff</div>
+      <div class="tools" data-en="Figma + Claude Code<br>Figma → code-level design system, no handoff" data-zh="Figma + Claude Code<br>Figma → 代码级设计系统，无交付障碍">Figma + Claude Code<br>Figma → code-level design system, no handoff</div>
     </div>
     <div class="ai-card">
       <div class="role">Frontend</div>
       <div class="ratio">1:4</div>
-      <div class="tools">Cursor · Claude Code<br>2–3× faster feature delivery</div>
+      <div class="tools" data-en="Cursor · Claude Code<br>2–3× faster feature delivery" data-zh="Cursor · Claude Code<br>功能交付速度提升2至3倍">Cursor · Claude Code<br>2–3× faster feature delivery</div>
     </div>
     <div class="ai-card">
       <div class="role">AI Marketing</div>
       <div class="ratio">1:5</div>
-      <div class="tools">Claude · Midjourney · Buffer<br>5 content pieces/week, 0.5 FTE</div>
+      <div class="tools" data-en="Claude · Midjourney · Buffer<br>5 content pieces/week, 0.5 FTE" data-zh="Claude · Midjourney · Buffer<br>每周5篇内容，0.5全职当量">Claude · Midjourney · Buffer<br>5 content pieces/week, 0.5 FTE</div>
     </div>
     <div class="ai-card">
       <div class="role">Sales</div>
       <div class="ratio">1:4</div>
-      <div class="tools">Clay · HubSpot AI · Claude<br>100 leads/week, AI-personalised outreach</div>
+      <div class="tools" data-en="Clay · HubSpot AI · Claude<br>100 leads/week, AI-personalised outreach" data-zh="Clay · HubSpot AI · Claude<br>每周100条线索，AI个性化触达">Clay · HubSpot AI · Claude<br>100 leads/week, AI-personalised outreach</div>
     </div>
   </div>
 </section>
@@ -685,23 +686,23 @@ h3{
      SLIDE 11 — GTM: Three Channels
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="10">
-  <p class="label">Go-to-Market</p>
-  <h2>Three channels.<br>All running <span class="accent">simultaneously.</span></h2>
+  <p class="label" data-en="Go-to-Market" data-zh="市场进入策略">Go-to-Market</p>
+  <h2 data-en="Three channels.<br>All running <span class='accent'>simultaneously.</span>" data-zh="三条渠道。<br>全部 <span class='accent'>同步推进。</span>">Three channels.<br>All running <span class="accent">simultaneously.</span></h2>
   <div class="row mt-4" style="max-width:900px">
     <div class="card">
-      <h3>PLG — Token Free Tier</h3>
-      <p>Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade to Pro/Team. No sales call required.</p>
-      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 40% of ARR</p>
+      <h3 data-en="PLG — Token Free Tier" data-zh="PLG — Token免费层级">PLG — Token Free Tier</h3>
+      <p data-en="Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade to Pro/Team. No sales call required." data-zh="每月5万免费Token。工程师自主激活。触及限额 → 升级至Pro/Team。无需销售介入。">Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade to Pro/Team. No sales call required.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600" data-en="Target: 40% of ARR" data-zh="目标：占ARR 40%">Target: 40% of ARR</p>
     </div>
     <div class="card">
-      <h3>Direct Sales</h3>
-      <p>AI-assisted ABM: 100 ICP accounts/week enriched in Clay. Personalised outreach → technical demo → 30-day pilot → enterprise service package.</p>
-      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 40% of ARR</p>
+      <h3 data-en="Direct Sales" data-zh="直销">Direct Sales</h3>
+      <p data-en="AI-assisted ABM: 100 ICP accounts/week enriched in Clay. Personalised outreach → technical demo → 30-day pilot → enterprise service package." data-zh="AI辅助ABM：每周在Clay中丰富100个ICP账户。个性化触达 → 技术演示 → 30天试点 → 企业服务套餐。">AI-assisted ABM: 100 ICP accounts/week enriched in Clay. Personalised outreach → technical demo → 30-day pilot → enterprise service package.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600" data-en="Target: 40% of ARR" data-zh="目标：占ARR 40%">Target: 40% of ARR</p>
     </div>
     <div class="card">
-      <h3>Distribution Channel</h3>
-      <p>Sign Dassault/ANSYS resellers and EU engineering consultancies. 20–30% revenue share. Each partner brings 10–50 existing clients.</p>
-      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600">Target: 20% of ARR</p>
+      <h3 data-en="Distribution Channel" data-zh="分销渠道">Distribution Channel</h3>
+      <p data-en="Sign Dassault/ANSYS resellers and EU engineering consultancies. 20–30% revenue share. Each partner brings 10–50 existing clients." data-zh="签约达索/ANSYS经销商和欧洲工程咨询公司。20至30%营收分成。每个合作伙伴带来10至50个现有客户。">Sign Dassault/ANSYS resellers and EU engineering consultancies. 20–30% revenue share. Each partner brings 10–50 existing clients.</p>
+      <p style="margin-top:.75rem;font-size:.8rem;color:var(--accent);font-weight:600" data-en="Target: 20% of ARR" data-zh="目标：占ARR 20%">Target: 20% of ARR</p>
     </div>
   </div>
 </section>
@@ -710,56 +711,56 @@ h3{
      SLIDE 12 — Team
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="11">
-  <p class="label">Team</p>
-  <h2>8 humans + <span class="accent">32 AI agents</span></h2>
+  <p class="label" data-en="Team" data-zh="团队">Team</p>
+  <h2 data-en="8 humans + <span class='accent'>32 AI agents</span>" data-zh="8位员工 + <span class='accent'>32个AI智能体</span>">8 humans + <span class="accent">32 AI agents</span></h2>
   <div class="team-grid mt-4">
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">CEO</div>
-      <div class="m-role">Strategy · Sales · Vision</div>
+      <div class="m-role" data-en="Strategy · Sales · Vision" data-zh="战略 · 销售 · 愿景">Strategy · Sales · Vision</div>
       <div class="m-ai">Claude + Perplexity</div>
     </div>
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">CTO</div>
-      <div class="m-role">AI Architecture · Product</div>
+      <div class="m-role" data-en="AI Architecture · Product" data-zh="AI架构 · 产品">AI Architecture · Product</div>
       <div class="m-ai">Claude Code + Cursor</div>
     </div>
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">Designer</div>
-      <div class="m-role">Figma · Design System</div>
+      <div class="m-role" data-en="Figma · Design System" data-zh="Figma · 设计系统">Figma · Design System</div>
       <div class="m-ai">Figma + Claude Code</div>
     </div>
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">Frontend Eng</div>
-      <div class="m-role">Product · UI · Perf</div>
+      <div class="m-role" data-en="Product · UI · Perf" data-zh="产品 · 界面 · 性能">Product · UI · Perf</div>
       <div class="m-ai">Cursor + Claude Code</div>
     </div>
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">Backend Eng</div>
-      <div class="m-role">API · AI · Solvers</div>
+      <div class="m-role" data-en="API · AI · Solvers" data-zh="API · AI · 求解器">API · AI · Solvers</div>
       <div class="m-ai">Cursor + Claude Code</div>
     </div>
     <div class="member">
       <div class="avatar"></div>
       <div class="m-name">Finance</div>
-      <div class="m-role">Finance · Legal · Ops</div>
+      <div class="m-role" data-en="Finance · Legal · Ops" data-zh="财务 · 法务 · 运营">Finance · Legal · Ops</div>
       <div class="m-ai">Claude + n8n</div>
     </div>
     <div class="member">
       <div class="avatar" style="border-color:var(--accent)"></div>
-      <div class="m-name">Sales & Channel</div>
-      <div class="m-role">Direct + Distribution</div>
-      <div class="m-ai" style="color:var(--warning)">Hiring now</div>
+      <div class="m-name">Sales &amp; Channel</div>
+      <div class="m-role" data-en="Direct + Distribution" data-zh="直销 + 渠道分销">Direct + Distribution</div>
+      <div class="m-ai" style="color:var(--warning)" data-en="Hiring now" data-zh="正在招聘">Hiring now</div>
     </div>
     <div class="member">
       <div class="avatar" style="border-color:var(--accent)"></div>
       <div class="m-name">AI Marketing</div>
-      <div class="m-role">Content · SEO · 0.5 FTE</div>
-      <div class="m-ai" style="color:var(--warning)">Hiring now</div>
+      <div class="m-role" data-en="Content · SEO · 0.5 FTE" data-zh="内容 · SEO · 0.5全职">Content · SEO · 0.5 FTE</div>
+      <div class="m-ai" style="color:var(--warning)" data-en="Hiring now" data-zh="正在招聘">Hiring now</div>
     </div>
   </div>
 </section>
@@ -768,27 +769,27 @@ h3{
      SLIDE 13 — Traction & Financials
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="12">
-  <p class="label">Financials</p>
-  <h2>$0 → <span class="accent">$1M ARR</span><br>in 12 months</h2>
+  <p class="label" data-en="Financials" data-zh="财务数据">Financials</p>
+  <h2 data-en="$0 → <span class='accent'>$1M ARR</span><br>in 12 months" data-zh="$0 → <span class='accent'>$1M ARR</span><br>12个月达成">$0 → <span class="accent">$1M ARR</span><br>in 12 months</h2>
   <div class="chart mt-4" id="mrr-chart">
     <!-- Bars injected by JS -->
   </div>
   <div class="row mt-4" style="max-width:700px">
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2.2rem;color:var(--accent)">$3,500</div>
-      <div class="stat-label">Blended ARPU</div>
+      <div class="stat-label" data-en="Blended ARPU" data-zh="综合ARPU">Blended ARPU</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2.2rem;color:var(--success)">40%</div>
-      <div class="stat-label">Token Revenue (target)</div>
+      <div class="stat-label" data-en="Token Revenue (target)" data-zh="Token营收（目标）">Token Revenue (target)</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2.2rem">120%</div>
-      <div class="stat-label">Target NRR</div>
+      <div class="stat-label" data-en="Target NRR" data-zh="目标净收入留存率">Target NRR</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2.2rem;color:var(--ai)">70%+</div>
-      <div class="stat-label">Token Gross Margin</div>
+      <div class="stat-label" data-en="Token Gross Margin" data-zh="Token毛利率">Token Gross Margin</div>
     </div>
   </div>
 </section>
@@ -797,33 +798,33 @@ h3{
      SLIDE 14 — The Ask
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="13">
-  <p class="label">The Ask</p>
-  <h2>Raising <span class="accent">€2M</span> Seed</h2>
-  <p class="hero-sub center mt-3" style="max-width:580px">
+  <p class="label" data-en="The Ask" data-zh="融资需求">The Ask</p>
+  <h2 data-en="Raising <span class='accent'>€2M</span> Seed" data-zh="寻求 <span class='accent'>€200万</span> 种子轮融资">Raising <span class="accent">€2M</span> Seed</h2>
+  <p class="hero-sub center mt-3" style="max-width:580px" data-en="To reach $1M ARR, validate the token model, and hire the GTM team that takes us to Series A at $5M ARR." data-zh="目标达成$1M ARR，验证Token商业模式，招募GTM团队，推进至$5M ARR的A轮融资。">
     To reach $1M ARR, validate the token model, and hire the GTM team that takes us to Series A at $5M ARR.
   </p>
   <div class="funds mt-4">
-    <div class="f1" style="flex:4">40% Product</div>
-    <div class="f2" style="flex:3">30% GTM</div>
-    <div class="f3" style="flex:2">20% AI Infra</div>
-    <div class="f4" style="flex:1">10% Ops</div>
+    <div class="f1" style="flex:4" data-en="40% Product" data-zh="40% 产品研发">40% Product</div>
+    <div class="f2" style="flex:3" data-en="30% GTM" data-zh="30% GTM团队">30% GTM</div>
+    <div class="f3" style="flex:2" data-en="20% AI Infra" data-zh="20% AI基础设施">20% AI Infra</div>
+    <div class="f4" style="flex:1" data-en="10% Ops" data-zh="10% 运营">10% Ops</div>
   </div>
   <div class="row mt-4" style="max-width:700px">
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2rem">€800K</div>
-      <div class="stat-label">Product & Engineering</div>
+      <div class="stat-label" data-en="Product &amp; Engineering" data-zh="产品与工程">Product &amp; Engineering</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2rem">€600K</div>
-      <div class="stat-label">GTM (Team + Marketing)</div>
+      <div class="stat-label" data-en="GTM (Team + Marketing)" data-zh="GTM（团队+市场）">GTM (Team + Marketing)</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2rem">€400K</div>
-      <div class="stat-label">AI Infra + Token Costs</div>
+      <div class="stat-label" data-en="AI Infra + Token Costs" data-zh="AI基础设施+Token成本">AI Infra + Token Costs</div>
     </div>
     <div style="text-align:center;flex:1">
       <div class="big-stat" style="font-size:2rem">€200K</div>
-      <div class="stat-label">Ops + Legal + Reserve</div>
+      <div class="stat-label" data-en="Ops + Legal + Reserve" data-zh="运营+法务+储备">Ops + Legal + Reserve</div>
     </div>
   </div>
 </section>
@@ -832,10 +833,10 @@ h3{
      SLIDE 15 — Close
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="14">
-  <p class="label">Orthogonal</p>
+  <p class="label" data-en="Orthogonal" data-zh="Orthogonal">Orthogonal</p>
   <div class="ode-logo" style="font-size:clamp(4rem,10vw,8rem)">ODE</div>
   <div class="divider" style="margin:.75rem auto"></div>
-  <p style="font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text);font-weight:600;letter-spacing:-.01em">
+  <p style="font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text);font-weight:600;letter-spacing:-.01em" data-en="The Dassault of the AI era." data-zh="AI时代的达索。">
     The Dassault of the AI era.
   </p>
   <p class="mt-3" style="font-size:.9rem;color:var(--text3)">orthogonal.dev</p>
@@ -897,6 +898,16 @@ h3{
   });
 
   progress.style.width = (1/total*100)+'%';
+
+  // Language toggle
+  let _lang='en';
+  window.toggleLang=function(){
+    _lang=_lang==='en'?'zh':'en';
+    document.querySelectorAll('[data-zh]').forEach(el=>{
+      el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    });
+    document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+  };
 })();
 </script>
 </body>
