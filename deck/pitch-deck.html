@@ -5,32 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orthogonal — The Dassault of the AI Era</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── Linear AI-Era Design System ── */
+/* ── ode. Brand System ── */
 :root{
-  --bg:#08090a;
-  --bg-white:#0f1011;
-  --bg-card:#191a1b;
-  --text:#f7f8f8;
-  --text2:#d0d6e0;
-  --text3:#8a8f98;
-  --border:rgba(255,255,255,0.08);
-  --accent:#7170ff;
-  --accent-h:#828fff;
-  --midnight:#191a1b;
+  --bg:#0A0A09;
+  --bg-white:#111009;
+  --bg-card:#1A1916;
+  --text:#F7F5F0;
+  --text2:#C8C3BB;
+  --text3:#8E8980;
+  --border:rgba(239,236,231,0.07);
+  --accent:#FF5C3A;
+  --accent-h:#FF7255;
+  --midnight:#1A1916;
   --success:#10b981;
   --warning:#fbbf24;
   --error:#fb7185;
-  --ai:#7170ff;
-  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
-  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  --shadow-sm:0 0 0 1px rgba(255,255,255,0.05);
-  --shadow-md:0 0 0 1px rgba(255,255,255,0.08),0 4px 16px rgba(0,0,0,0.4);
-  --shadow-lg:0 0 0 1px rgba(255,255,255,0.08),0 8px 32px rgba(0,0,0,0.5);
+  --ai:#FF5C3A;
+  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --shadow-sm:0 0 0 1px rgba(239,236,231,0.05);
+  --shadow-md:0 0 0 1px rgba(239,236,231,0.07),0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 0 0 1px rgba(239,236,231,0.07),0 8px 32px rgba(0,0,0,0.5);
 }
 
 html,body{
@@ -38,7 +38,7 @@ html,body{
   background:var(--bg);color:var(--text);
   font-family:var(--font);
   -webkit-font-smoothing:antialiased;
-  font-feature-settings:"cv01","ss03";
+  font-feature-settings:"ss01","ss02";
 }
 
 /* ── Deck & Slide Engine ── */
@@ -183,7 +183,7 @@ h3{
 .bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
 .bar{
   width:100%;border-radius:5px 5px 0 0;min-height:3px;
-  background:linear-gradient(to top,rgba(113,112,255,.35),var(--accent));
+  background:linear-gradient(to top,rgba(255,92,58,.35),var(--accent));
   transition:height .7s cubic-bezier(0.16,1,.3,1);
 }
 .bar-label{font-size:.6rem;color:var(--text3);margin-top:4px;font-family:var(--mono)}
@@ -231,11 +231,11 @@ h3{
   display:flex;align-items:center;justify-content:center;
   font-size:.68rem;font-weight:600;color:white;
 }
-.f1{background:rgba(113,112,255,.25)}.f2{background:var(--accent)}.f3{background:var(--ai)}.f4{background:var(--success)}
+.f1{background:var(--accent)}.f2{background:rgba(255,92,58,.6)}.f3{background:rgba(239,236,231,.14)}.f4{background:rgba(16,185,129,.6)}
 
 /* ── Cover logo ── */
 .ode-logo{
-  font-size:clamp(6rem,14vw,11rem);font-weight:700;
+  font-size:clamp(6rem,14vw,11rem);font-weight:800;
   letter-spacing:-.05em;line-height:1;
   color:var(--text);
   font-family:var(--font);
@@ -252,8 +252,8 @@ h3{
 /* ── Pill badge ── */
 .pill{
   display:inline-flex;align-items:center;
-  background:rgba(113,112,255,.12);color:var(--accent);
-  border:1px solid rgba(113,112,255,.2);
+  background:rgba(255,92,58,.12);color:var(--accent);
+  border:1px solid rgba(255,92,58,.2);
   border-radius:999px;padding:.25rem .8rem;
   font-size:.78rem;font-weight:600;
 }
@@ -280,8 +280,8 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<a href="index.html" id="back-btn" style="position:fixed;top:16px;left:32px;z-index:200;padding:.3rem .85rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:.72rem;font-weight:600;text-decoration:none;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s,color .2s" onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.04)';this.style.color='rgba(255,255,255,.65)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
-<button id="lang-btn" onclick="toggleLang()" style="position:fixed;top:16px;right:80px;z-index:200;padding:.3rem .85rem;background:rgba(10,37,64,.85);color:white;border:1px solid rgba(255,255,255,.2);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s">中文</button>
+<a href="index.html" id="back-btn" style="position:fixed;top:16px;left:32px;z-index:200;padding:.3rem .85rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:.72rem;font-weight:600;text-decoration:none;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s,color .2s" onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.04)';this.style.color='rgba(255,255,255,.65)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
+<button id="lang-btn" onclick="toggleLang()" style="position:fixed;top:16px;right:80px;z-index:200;padding:.3rem .85rem;background:rgba(10,37,64,.85);color:white;border:1px solid rgba(255,255,255,.2);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s">中文</button>
 <div class="deck" id="deck">
 
 <!-- ══════════════════════════════════════════
@@ -289,7 +289,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 ══════════════════════════════════════════ -->
 <section class="slide active center" data-slide="0">
   <p class="label" data-en="Orthogonal" data-zh="Orthogonal">Orthogonal</p>
-  <div class="ode-logo">ODE</div>
+  <div class="ode-logo">ode<span style="color:var(--accent)">.</span></div>
   <div class="divider" style="margin:.75rem auto"></div>
   <p class="tagline" data-en="The Dassault of the AI era." data-zh="AI时代的达索。">The Dassault of the AI era.</p>
   <p class="mt-4" style="font-size:.85rem;color:var(--text3)" data-en="12 Engineering Disciplines &nbsp;·&nbsp; AI-Native &nbsp;·&nbsp; Token-First &nbsp;·&nbsp; Browser-Based" data-zh="12大工程学科 &nbsp;·&nbsp; AI原生 &nbsp;·&nbsp; Token优先 &nbsp;·&nbsp; 浏览器端运行">
@@ -343,7 +343,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="3">
   <p class="label" data-en="The Solution" data-zh="解决方案">The Solution</p>
-  <h2 data-en="Orthogonal ODE —<br><span class='accent'>outcomes, not just tools</span>" data-zh="Orthogonal ODE —<br><span class='accent'>交付结果，而非仅售工具</span>">Orthogonal ODE —<br><span class="accent">outcomes, not just tools</span></h2>
+  <h2 data-en="ode<span style='color:var(--accent)'>.</span> —<br><span class='accent'>outcomes, not just tools</span>" data-zh="ode<span style='color:var(--accent)'>.</span> —<br><span class='accent'>交付结果，而非仅售工具</span>">ode<span style="color:var(--accent)">.</span> —<br><span class="accent">outcomes, not just tools</span></h2>
   <p class="hero-sub center mt-3" style="max-width:620px" data-en="Same breadth as Dassault's full suite. AI-native architecture built from scratch. Browser-based. 5–50× lower cost. But the real disruption: ODE's AI does what the specialist did — mesh, solve, interpret, iterate. You describe the problem. We deliver the result." data-zh="与达索完整工具套件同等广度。从零构建的AI原生架构。浏览器端运行。成本降低5至50倍。但真正的颠覆在于：ODE的AI承担了专家的工作——网格划分、求解、解读、迭代。你描述问题，我们交付结果。">
     Same breadth as Dassault's full suite. AI-native architecture built from scratch. Browser-based. 5–50× lower cost. But the real disruption: ODE's AI does what the specialist did — mesh, solve, interpret, iterate. You describe the problem. We deliver the result.
   </p>
@@ -503,17 +503,17 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
      style="position:absolute;bottom:2.75rem;left:50%;transform:translateX(-50%);
             display:inline-flex;align-items:center;gap:.65rem;
             padding:.85rem 2rem;
-            background:var(--accent-bg);
+            background:var(--accent);
             color:white;
             border-radius:10px;
             font-size:.95rem;font-weight:600;
             text-decoration:none;
             letter-spacing:-.01em;
             white-space:nowrap;
-            box-shadow:0 0 0 1px rgba(113,112,255,0.4),0 8px 32px rgba(113,112,255,0.25);
+            box-shadow:0 0 0 1px rgba(255,92,58,0.4),0 8px 32px rgba(255,92,58,0.25);
             transition:background .2s,box-shadow .2s"
-     onmouseover="this.style.background='#7170ff';this.style.boxShadow='0 0 0 1px rgba(130,143,255,0.5),0 12px 40px rgba(113,112,255,0.35)'"
-     onmouseout="this.style.background='#5e6ad2';this.style.boxShadow='0 0 0 1px rgba(113,112,255,0.4),0 8px 32px rgba(113,112,255,0.25)'">
+     onmouseover="this.style.background='#FF7255';this.style.boxShadow='0 0 0 1px rgba(255,114,85,0.5),0 12px 40px rgba(255,92,58,0.35)'"
+     onmouseout="this.style.background='#FF5C3A';this.style.boxShadow='0 0 0 1px rgba(255,92,58,0.4),0 8px 32px rgba(255,92,58,0.25)'">
     <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
       <circle cx="10" cy="10" r="8"/>
       <polygon points="8,7 14,10 8,13" fill="currentColor" stroke="none"/>
@@ -565,7 +565,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     </div>
 
     <!-- ODE -->
-    <div class="card" style="flex:1;border:1px solid rgba(113,112,255,0.28);background:rgba(113,112,255,0.05)">
+    <div class="card" style="flex:1;border:1px solid rgba(255,92,58,0.28);background:rgba(255,92,58,0.05)">
       <h3 style="color:var(--accent);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem" data-en="ODE — outcome delivered" data-zh="ODE — 直接交付结果">ODE — outcome delivered</h3>
       <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.8rem">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
@@ -588,7 +588,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
           <span style="color:var(--text2)" data-en="Browser · zero IT · instant start" data-zh="浏览器 · 零IT · 即开即用">Browser · zero IT · instant start</span>
           <span style="font-family:var(--mono);color:var(--success);font-weight:600;font-size:.78rem" data-en="0 days" data-zh="0天">0 days</span>
         </div>
-        <div style="border-top:1px solid rgba(113,112,255,0.2);padding-top:.5rem;display:flex;justify-content:space-between;align-items:baseline">
+        <div style="border-top:1px solid rgba(255,92,58,0.2);padding-top:.5rem;display:flex;justify-content:space-between;align-items:baseline">
           <span style="color:var(--text);font-weight:600" data-en="True cost per team / year" data-zh="团队年度真实成本">True cost per team / year</span>
           <span style="font-family:var(--mono);color:var(--success);font-weight:700;font-size:.9rem">$2K–24K</span>
         </div>
@@ -750,7 +750,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
   <div class="row mt-4" style="max-width:880px;align-items:stretch;gap:1.5rem">
 
     <!-- Enterprise -->
-    <div class="card" style="flex:1;border:1px solid rgba(113,112,255,0.25);background:rgba(113,112,255,0.04)">
+    <div class="card" style="flex:1;border:1px solid rgba(255,92,58,0.25);background:rgba(255,92,58,0.04)">
       <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:.85rem" data-en="Enterprise · Professional" data-zh="企业版 · 专业级">Enterprise · Professional</div>
       <div style="font-size:.85rem;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:.45rem">
         <div>🏭 <span data-en="Aerospace · Automotive · Defense · Medical" data-zh="航空航天 · 汽车 · 国防 · 医疗">Aerospace · Automotive · Defense · Medical</span></div>
@@ -866,16 +866,16 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="20" stroke="#7170ff" stroke-width=".7" stroke-opacity=".15"/>
-          <line x1="32" y1="10" x2="32" y2="54" stroke="#7170ff" stroke-width=".8" stroke-opacity=".18"/>
-          <line x1="10" y1="32" x2="54" y2="32" stroke="#7170ff" stroke-width=".8" stroke-opacity=".18"/>
-          <circle cx="32" cy="14" r="2.2" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="50" cy="32" r="2.2" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="32" cy="50" r="2.2" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="14" cy="32" r="2.2" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="32" cy="32" r="6" fill="#7170ff" fill-opacity=".18"/>
-          <circle cx="32" cy="32" r="4" fill="#7170ff"/>
-          <circle cx="32" cy="32" r="2" fill="#828fff"/>
+          <circle cx="32" cy="32" r="20" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".15"/>
+          <line x1="32" y1="10" x2="32" y2="54" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".18"/>
+          <line x1="10" y1="32" x2="54" y2="32" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".18"/>
+          <circle cx="32" cy="14" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="50" cy="32" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="32" cy="50" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="14" cy="32" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="6" fill="#FF5C3A" fill-opacity=".18"/>
+          <circle cx="32" cy="32" r="4" fill="#FF5C3A"/>
+          <circle cx="32" cy="32" r="2" fill="#FF9A85"/>
         </svg>
       </div>
       <div class="m-name">CEO</div>
@@ -981,17 +981,17 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="29" stroke="#7170ff" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
-          <line x1="32" y1="32" x2="32" y2="17" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="32" x2="45" y2="40" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="32" x2="19" y2="40" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="17" x2="45" y2="40" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
-          <line x1="45" y1="40" x2="19" y2="40" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
-          <line x1="19" y1="40" x2="32" y2="17" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
-          <circle cx="32" cy="17" r="3" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="45" cy="40" r="3" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="19" cy="40" r="3" fill="#7170ff" fill-opacity=".65"/>
-          <circle cx="32" cy="32" r="3.5" fill="#7170ff" fill-opacity=".35"/>
+          <circle cx="32" cy="32" r="29" stroke="#FF5C3A" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <line x1="32" y1="32" x2="32" y2="17" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="45" y2="40" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="19" y2="40" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="17" x2="45" y2="40" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="45" y1="40" x2="19" y2="40" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="19" y1="40" x2="32" y2="17" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
+          <circle cx="32" cy="17" r="3" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="45" cy="40" r="3" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="19" cy="40" r="3" fill="#FF5C3A" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="3.5" fill="#FF5C3A" fill-opacity=".35"/>
         </svg>
       </div>
       <div class="m-name">Sales &amp; Channel</div>
@@ -1004,12 +1004,12 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="29" stroke="#7170ff" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
-          <path d="M 26 40 A 6 6 0 0 1 38 40" stroke="#7170ff" stroke-width="1.4" stroke-opacity=".85" stroke-linecap="round"/>
-          <path d="M 20 40 A 12 12 0 0 1 44 40" stroke="#7170ff" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"/>
-          <path d="M 14 40 A 18 18 0 0 1 50 40" stroke="#7170ff" stroke-width=".8" stroke-opacity=".25" stroke-linecap="round"/>
-          <circle cx="32" cy="40" r="3" fill="#7170ff" fill-opacity=".75"/>
-          <circle cx="32" cy="40" r="1.4" fill="#828fff"/>
+          <circle cx="32" cy="32" r="29" stroke="#FF5C3A" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <path d="M 26 40 A 6 6 0 0 1 38 40" stroke="#FF5C3A" stroke-width="1.4" stroke-opacity=".85" stroke-linecap="round"/>
+          <path d="M 20 40 A 12 12 0 0 1 44 40" stroke="#FF5C3A" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"/>
+          <path d="M 14 40 A 18 18 0 0 1 50 40" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".25" stroke-linecap="round"/>
+          <circle cx="32" cy="40" r="3" fill="#FF5C3A" fill-opacity=".75"/>
+          <circle cx="32" cy="40" r="1.4" fill="#FF9A85"/>
         </svg>
       </div>
       <div class="m-name">AI Marketing</div>
@@ -1089,7 +1089,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="14">
   <p class="label" data-en="Orthogonal" data-zh="Orthogonal">Orthogonal</p>
-  <div class="ode-logo" style="font-size:clamp(4rem,10vw,8rem)">ODE</div>
+  <div class="ode-logo" style="font-size:clamp(4rem,10vw,8rem)">ode<span style="color:var(--accent)">.</span></div>
   <div class="divider" style="margin:.75rem auto"></div>
   <p style="font-size:clamp(1.1rem,2.2vw,1.6rem);color:var(--text);font-weight:600;letter-spacing:-.01em" data-en="The Dassault of the AI era." data-zh="AI时代的达索。">
     The Dassault of the AI era.
