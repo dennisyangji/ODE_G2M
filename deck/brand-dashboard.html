@@ -5,113 +5,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ODE — Brand Strategy Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#08090a;
-  --white:#0f1011;
-  --text:#f7f8f8;
-  --text2:#d0d6e0;
-  --text3:#8a8f98;
-  --text4:#62666d;
-  --border:rgba(255,255,255,0.08);
-  --border-s:rgba(255,255,255,0.05);
-  --accent:#7170ff;
-  --midnight:#191a1b;
-  --success:#10b981;
-  --warning:#fbbf24;
-  --error:#fb7185;
-  --ai:#7170ff;
-  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
-  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  --sh:0 0 0 1px rgba(255,255,255,0.06),0 2px 8px rgba(0,0,0,0.3);
-  --shm:0 0 0 1px rgba(255,255,255,0.08),0 4px 16px rgba(0,0,0,0.4);
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-feature-settings:"cv01","ss03"}
-
-.page-header{background:rgba(8,9,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
-.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,0.35);margin-bottom:.2rem}
-.ph-title{font-size:.95rem;font-weight:600;color:white}
-.ph-meta{font-size:.68rem;color:rgba(255,255,255,0.28);text-align:right;line-height:1.6}
-
-.dash-nav{background:#0f1011;border-bottom:1px solid var(--border-s);box-shadow:none;padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;overflow-x:auto}
-.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text3);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
-.nav-item:hover{color:var(--text);border-bottom-color:var(--accent)}.nav-item.active{color:var(--text);border-bottom-color:var(--accent)}
-
-.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-s);border-bottom:1px solid var(--border-s)}
-.stat-cell{background:#08090a;padding:1.25rem 2.5rem}
-.stat-num{font-size:2rem;font-weight:700;color:var(--text);font-family:var(--mono);line-height:1}
-.stat-lbl{font-size:.68rem;color:var(--text3);margin-top:.3rem;text-transform:uppercase;letter-spacing:.09em}
-
-.dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
-.section{margin-bottom:4.5rem}
-.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border-s);margin-bottom:2rem}
-.sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
-.sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
-.sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
-
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+@import url("gtm-sales-base.css");
 .g6{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem}
-
-.card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh);transition:background .2s}
-.card:hover{background:rgba(255,255,255,0.04)}
-.card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
-
-.insight{background:rgba(113,112,255,0.08);border:1px solid rgba(113,112,255,0.18);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
-.ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
-.ins-text{font-size:.95rem;font-weight:600;line-height:1.55;color:white}
-
-.tbl{width:100%;border-collapse:collapse;font-size:.8rem}
-.tbl th{text-align:left;padding:.6rem .9rem;background:#191a1b;color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
-.tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
-.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border-s);color:var(--text3);vertical-align:top;line-height:1.5}
-.tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:rgba(113,112,255,0.04)}
-.tbl .hl td{background:rgba(113,112,255,0.06);color:var(--text2)}
-
-.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
-.p-blue{background:rgba(113,112,255,0.15);color:var(--accent)}
-.p-green{background:rgba(16,185,129,.15);color:#10b981}
-.p-amber{background:rgba(255,159,10,.12);color:#fbbf24}
-.p-red{background:rgba(251,113,133,.15);color:var(--error)}
-.p-navy{background:rgba(255,255,255,0.07);color:var(--text2)}
-
-.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.35rem;flex-shrink:0;vertical-align:middle}
-.d-g{background:var(--success)}.d-a{background:var(--warning)}.d-r{background:var(--error)}.d-b{background:var(--accent)}
-
 .swatch{width:36px;height:36px;border-radius:7px;border:1px solid var(--border);flex-shrink:0}
-
-.tool-cell{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:9px;padding:.8rem;text-align:center}
+.tool-cell{background:rgba(12,14,26,0.02);border:1px solid var(--border);border-radius:9px;padding:.8rem;text-align:center}
 .tc-name{font-size:.78rem;font-weight:700;margin-bottom:.2rem}
 .tc-sub{font-size:.62rem;color:var(--text3);line-height:1.4}
-
 .pyramid{display:flex;flex-direction:column;gap:2px;max-width:620px;margin:0 auto}
-.pyr-row{display:flex;align-items:center;justify-content:center;padding:.8rem 1.25rem;color:white;font-size:.8rem;font-weight:500;text-align:center;border-radius:5px;line-height:1.4}
-
+.pyr-row{display:flex;align-items:center;justify-content:center;padding:.8rem 1.25rem;color:var(--text);font-size:.8rem;font-weight:500;text-align:center;border-radius:5px;line-height:1.4}
 .type-row{display:flex;align-items:baseline;gap:1.5rem;padding:.75rem 0;border-bottom:1px solid var(--border-s)}
 .type-row:last-child{border-bottom:none}
-
 .stat-mini{text-align:center;padding:.75rem}
 .sm-num{font-size:1.6rem;font-weight:700;color:var(--text);font-family:var(--mono);line-height:1}
 .sm-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.07em}
-
-@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.g6{grid-template-columns:repeat(3,1fr)}.stats-bar{grid-template-columns:1fr 1fr}.dash-main{padding:1.5rem 1rem}}
+@media(max-width:900px){.g6{grid-template-columns:repeat(3,1fr)}}
 </style>
+<link rel="stylesheet" href="deck-theme.css">
 </head>
 <body>
 
 <div class="page-header" style="display:flex;align-items:center">
-  <a href="index.html" style="padding:.28rem .8rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.1);border-radius:6px;font-size:.7rem;font-weight:590;text-decoration:none;letter-spacing:.04em;flex-shrink:0;margin-right:1.25rem;white-space:nowrap;transition:background .18s,color .18s" onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.background='rgba(255,255,255,.04)';this.style.color='rgba(255,255,255,.6)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
+  <a href="index.html" style="padding:.28rem .8rem;background:rgba(12,14,26,.05);color:rgba(12,14,26,.6);border:1px solid rgba(12,14,26,.12);border-radius:6px;font-size:.7rem;font-weight:590;text-decoration:none;letter-spacing:.04em;flex-shrink:0;margin-right:1.25rem;white-space:nowrap;transition:background .18s,color .18s" onmouseover="this.style.background='rgba(12,14,26,.10)';this.style.color='rgba(12,14,26,.9)'" onmouseout="this.style.background='rgba(12,14,26,.05)';this.style.color='rgba(12,14,26,.6)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
   <div>
     <div class="ph-eyebrow">Orthogonal Design Engineering · ODE</div>
-    <div class="ph-title" data-en="Brand Strategy — Executive Dashboard" data-zh="品牌策略 — 管理层仪表板">Brand Strategy — Executive Dashboard</div>
+    <div class="ph-title" data-en="Brand Strategy" data-zh="品牌策略">Brand Strategy</div>
   </div>
   <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>定位 · 架构 · 消息传递 · 视觉识别">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity</div>
-  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(12,14,26,.08);color:var(--text);border:1px solid rgba(12,14,26,.15);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 
 <nav class="dash-nav" id="nav">
@@ -406,8 +328,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         <div class="tool-cell"><div class="tc-name" style="color:#5E5CE6">Vision</div><div class="tc-sub" data-en="Real-time 3D simulation" data-zh="实时3D仿真">Real-time 3D simulation</div></div>
         <div class="tool-cell"><div class="tc-name" style="color:#FF3B30">Paper</div><div class="tc-sub" data-en="Collaborative engineering docs" data-zh="协作工程文档">Collaborative engineering docs</div></div>
         <div class="tool-cell"><div class="tc-name" style="color:#8a8f98">Interaction</div><div class="tc-sub" data-en="Live parameter exploration" data-zh="实时参数探索">Live parameter exploration</div></div>
-        <div class="tool-cell" style="border-color:rgba(113,112,255,.3);background:rgba(113,112,255,.06)"><div class="tc-name" style="color:#0071E3">FEM</div><div class="tc-sub" data-en="Finite element analysis" data-zh="有限元分析">Finite element analysis</div></div>
-        <div class="tool-cell" style="border-color:rgba(113,112,255,.3);background:rgba(113,112,255,.06)"><div class="tc-name" style="color:#0071E3">CFD</div><div class="tc-sub" data-en="Computational fluid dynamics" data-zh="计算流体力学">Computational fluid dynamics</div></div>
+        <div class="tool-cell" style="border-color:rgba(99,91,255,.16);background:rgba(99,91,255,.06)"><div class="tc-name" style="color:#635BFF">FEM</div><div class="tc-sub" data-en="Finite element analysis" data-zh="有限元分析">Finite element analysis</div></div>
+        <div class="tool-cell" style="border-color:rgba(99,91,255,.16);background:rgba(99,91,255,.06)"><div class="tc-name" style="color:#635BFF">CFD</div><div class="tc-sub" data-en="Computational fluid dynamics" data-zh="计算流体力学">Computational fluid dynamics</div></div>
         <div class="tool-cell" style="border-color:rgba(52,199,89,.3);background:rgba(52,199,89,.03)"><div class="tc-name" style="color:#34C759">Compute</div><div class="tc-sub" data-en="Scientific computing" data-zh="科学计算">Scientific computing</div></div>
         <div class="tool-cell" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.03)"><div class="tc-name" style="color:#FF9F0A">Optim</div><div class="tc-sub" data-en="Multi-objective optimisation" data-zh="多目标优化">Multi-objective optimisation</div></div>
         <div class="tool-cell" style="border-color:rgba(94,92,230,.3);background:rgba(94,92,230,.03)"><div class="tc-name" style="color:#5E5CE6">RL</div><div class="tc-sub" data-en="Reinforcement learning" data-zh="强化学习">Reinforcement learning</div></div>
@@ -415,7 +337,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
       </div>
       <div style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap">
         <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:var(--white);border:1px solid var(--border);border-radius:2px;display:inline-block"></span><span data-en="Phase 1 — Live (6 tools)" data-zh="第一阶段 — 已上线（6个工具）">Phase 1 — Live (6 tools)</span></div>
-        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(113,112,255,.08);border:1px solid rgba(113,112,255,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 2 — FEM + CFD" data-zh="第二阶段 — FEM + CFD">Phase 2 — FEM + CFD</span></div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(99,91,255,.08);border:1px solid rgba(99,91,255,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 2 — FEM + CFD" data-zh="第二阶段 — FEM + CFD">Phase 2 — FEM + CFD</span></div>
         <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(52,199,89,.04);border:1px solid rgba(52,199,89,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 3 — Compute + Optim" data-zh="第三阶段 — Compute + Optim">Phase 3 — Compute + Optim</span></div>
         <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(94,92,230,.04);border:1px solid rgba(94,92,230,.3);border-radius:2px;display:inline-block"></span><span data-en="Phase 4 — RL + Circuit" data-zh="第四阶段 — RL + Circuit">Phase 4 — RL + Circuit</span></div>
       </div>
@@ -504,7 +426,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
           <div style="font-size:.88rem;font-weight:700;color:var(--success);margin-bottom:.4rem" data-en="Maker CAD" data-zh="Maker CAD">Maker CAD</div>
           <div style="font-size:.78rem;color:var(--text2);line-height:1.6" data-en="LEGO-style modular parametric CAD — snap-together design that outputs 3D-printable files. Makes hardware design as intuitive as assembling blocks, while retaining full parametric control and AI assistance. Target: advanced LEGO hobbyists, 3D printing enthusiasts, hardware prototypers." data-zh="LEGO式模块化参数化CAD——积木拼合设计，直接输出3D打印文件。让硬件设计像拼积木一样直觉化，同时保留完整参数控制和AI辅助。目标用户：高级LEGO爱好者、3D打印发烧友、硬件原型开发者。">LEGO-style modular parametric CAD — snap-together design that outputs 3D-printable files. Makes hardware design as intuitive as assembling blocks, while retaining full parametric control and AI assistance. Target: advanced LEGO hobbyists, 3D printing enthusiasts, hardware prototypers.</div>
         </div>
-        <div style="border:1px solid rgba(113,112,255,.2);border-radius:10px;padding:1rem">
+        <div style="border:1px solid rgba(99,91,255,.2);border-radius:10px;padding:1rem">
           <div style="font-size:.88rem;font-weight:700;color:var(--accent);margin-bottom:.4rem" data-en="Firmware IDE" data-zh="固件IDE">Firmware IDE</div>
           <div style="font-size:.78rem;color:var(--text2);line-height:1.6" data-en="AI-assisted Arduino/Raspberry Pi firmware development environment — browser-based, integrated with CAD, real-time AI code suggestions, hardware pin mapping, and one-click flash. Target: Arduino developers, firmware engineers, Raspberry Pi makers, IoT builders." data-zh="AI辅助Arduino/Raspberry Pi固件开发环境——浏览器端，与CAD集成，实时AI代码建议，硬件引脚映射，一键烧录。目标用户：Arduino开发者、固件工程师、Raspberry Pi创客、IoT构建者。">AI-assisted Arduino/Raspberry Pi firmware development environment — browser-based, integrated with CAD, real-time AI code suggestions, hardware pin mapping, and one-click flash. Target: Arduino developers, firmware engineers, Raspberry Pi makers, IoT builders.</div>
         </div>
@@ -575,10 +497,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
     <div class="card" style="margin-top:1.5rem">
       <div class="card-title" data-en="Why ODE Messaging Pyramid" data-zh="ODE价值传递金字塔">Why ODE Messaging Pyramid</div>
       <div class="pyramid" style="margin-top:.75rem">
-        <div class="pyr-row" style="background:rgba(113,112,255,0.25);border:1px solid rgba(113,112,255,0.35)" data-en='Vision — "Engineer the Future with AI"' data-zh='愿景 — 「用AI重塑工程未来」'>Vision — "Engineer the Future with AI"</div>
-        <div class="pyr-row" style="background:rgba(113,112,255,0.16);border:1px solid rgba(113,112,255,0.25)" data-en='"The only platform where AI understands physics, tools are integrated, and standards are open"' data-zh='"唯一一个AI理解物理、工具深度集成、标准完全开放的平台"'>"The only platform where AI understands physics, tools are integrated, and standards are open"</div>
-        <div class="pyr-row" style="background:rgba(113,112,255,0.22);border:1px solid rgba(113,112,255,0.30)" data-en="Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards" data-zh="战略差异化 — AI原生架构 &nbsp;·&nbsp; 12大集成工具 &nbsp;·&nbsp; 开放标准">Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards</div>
-        <div class="pyr-row" style="background:var(--accent)" data-en="Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in" data-zh="功能价值 — 更快建模 &nbsp;·&nbsp; 更低成本 &nbsp;·&nbsp; 更好协作 &nbsp;·&nbsp; 无锁定">Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in</div>
+        <div class="pyr-row" style="background:rgba(99,91,255,0.16);border:1px solid rgba(99,91,255,0.22)" data-en='Vision — "Engineer the Future with AI"' data-zh='愿景 — 「用AI重塑工程未来」'>Vision — "Engineer the Future with AI"</div>
+        <div class="pyr-row" style="background:rgba(99,91,255,0.12);border:1px solid rgba(99,91,255,0.18)" data-en='"The only platform where AI understands physics, tools are integrated, and standards are open"' data-zh='"唯一一个AI理解物理、工具深度集成、标准完全开放的平台"'>"The only platform where AI understands physics, tools are integrated, and standards are open"</div>
+        <div class="pyr-row" style="background:rgba(99,91,255,0.14);border:1px solid rgba(99,91,255,0.20)" data-en="Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards" data-zh="战略差异化 — AI原生架构 &nbsp;·&nbsp; 12大集成工具 &nbsp;·&nbsp; 开放标准">Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards</div>
+        <div class="pyr-row" style="background:var(--accent);color:#fff" data-en="Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in" data-zh="功能价值 — 更快建模 &nbsp;·&nbsp; 更低成本 &nbsp;·&nbsp; 更好协作 &nbsp;·&nbsp; 无锁定">Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in</div>
         <div class="pyr-row" style="background:#4da3ff;color:#fff" data-en="Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control" data-zh="产品特性 — AI生成 &nbsp;·&nbsp; 实时协作 &nbsp;·&nbsp; 云端计算 &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; 版本控制">Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control</div>
       </div>
     </div>

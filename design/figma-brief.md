@@ -88,21 +88,21 @@ Map `design-tokens.json` to Figma variables:
 ```
 Collection: Colors
 ├── Mode: Light (Marketing default)
-│   ├── brand/midnight:  #0A2540
-│   ├── brand/accent:    #0071E3
-│   ├── bg/primary:      #FFFFFF
-│   ├── bg/secondary:    #F5F5F7
-│   ├── text/primary:    #1D1D1F
-│   ├── text/secondary:  #6E6E73
-│   ├── border/default:  #D2D2D7
+│   ├── brand/midnight:  #0A0A09
+│   ├── brand/accent:    #FF5C3A
+│   ├── bg/primary:      #F7F5F0
+│   ├── bg/secondary:    #EFECE7
+│   ├── text/primary:    #0A0A09
+│   ├── text/secondary:  #3C3A36
+│   ├── border/default:  #D7D2C8
 │   └── ...
 └── Mode: Dark (Product UI default)
-    ├── bg/primary:      #000000
-    ├── bg/secondary:    #1C1C1E
-    ├── bg/tertiary:     #2C2C2E
-    ├── text/primary:    #F5F5F7
-    ├── text/secondary:  #AEAEB2
-    ├── border/default:  #3A3A3C
+    ├── bg/primary:      #0A0A09
+    ├── bg/secondary:    #1A1916
+    ├── bg/tertiary:     #2E2C28
+    ├── text/primary:    #F7F5F0
+    ├── text/secondary:  #C8C3BB
+    ├── border/default:  #3A3733
     └── ...
 ```
 
@@ -120,20 +120,20 @@ Collection: Spacing
 └── space/20: 80px
 ```
 
-### Typography Styles (SF Pro System)
+### Typography Styles (Warm Neutral System)
 ```
 Text Styles:
-├── display/hero:    SF Pro Display 96px/-0.06em Bold
-├── display/xl:      SF Pro Display 80px/-0.05em Bold
-├── display/lg:      SF Pro Display 56px/-0.04em Bold
-├── heading/h1:      SF Pro Display 40px/-0.03em Bold
-├── heading/h2:      SF Pro Display 28px/-0.02em SemiBold
-├── heading/h3:      SF Pro Text   21px/-0.01em SemiBold
-├── body/base:       SF Pro Text   17px/0      Regular   (Apple standard)
-├── body/sm:         SF Pro Text   13px/0      Regular
-├── body/xs:         SF Pro Text   11px/+0.01  Regular
-├── code/base:       SF Mono       15px/0      Regular
-└── code/sm:         SF Mono       13px/0      Regular
+├── display/hero:    Plus Jakarta Sans 96px/-0.06em Bold
+├── display/xl:      Plus Jakarta Sans 80px/-0.05em Bold
+├── display/lg:      Plus Jakarta Sans 56px/-0.04em Bold
+├── heading/h1:      Plus Jakarta Sans 40px/-0.03em Bold
+├── heading/h2:      Plus Jakarta Sans 28px/-0.02em SemiBold
+├── heading/h3:      Plus Jakarta Sans 21px/-0.01em SemiBold
+├── body/base:       Plus Jakarta Sans 17px/0      Regular
+├── body/sm:         Plus Jakarta Sans 13px/0      Regular
+├── body/xs:         Plus Jakarta Sans 11px/+0.01  Regular
+├── code/base:       JetBrains Mono    15px/0      Regular
+└── code/sm:         JetBrains Mono    13px/0      Regular
 ```
 
 ---
@@ -215,12 +215,12 @@ Use Tailwind + cva. Match the Apple design system in DESIGN.md."
 
 # Update tokens after Figma changes
 "Update design-tokens.css: change --color-brand-accent from
-#0071E3 to #0066CC. Propagate to tailwind.config.ts."
+#FF5C3A to #FF7A5D. Propagate to tailwind.config.ts."
 
 # Generate full page from wireframe description
 "Build the pricing page layout using our component library.
 Three tiers: Free, Pro $99, Team $199/seat.
-Apple-style: off-white background, SF Pro, minimal.
+Warm neutral style: off-white background, Plus Jakarta Sans, minimal.
 Token consumption chart below each tier."
 ```
 

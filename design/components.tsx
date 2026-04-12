@@ -18,7 +18,7 @@ function cn(...classes: (string | undefined | false)[]) {
 // ── Button ───────────────────────────────────────────────────────────────────
 
 const buttonVariants = cva(
-  // Base: Apple-style — no border, crisp corners, SF Pro weight
+  // Base: warm neutral marketing style — no border, crisp corners, compact weight
   [
     "inline-flex items-center justify-center gap-2",
     "font-sans font-medium rounded-md",
@@ -46,7 +46,7 @@ const buttonVariants = cva(
           "bg-error text-white",
           "hover:bg-red-500 active:bg-red-600",
         ].join(" "),
-        // Apple-style filled dark button (used on light marketing pages)
+        // Filled button used on light marketing pages
         dark: [
           "bg-brand-midnight text-white",
           "hover:bg-opacity-90 active:bg-opacity-80",
@@ -156,7 +156,7 @@ const cardVariants = cva(
         default:  "border border-border-default shadow-xs",
         elevated: "shadow-md",
         ghost:    "border-0 shadow-none",
-        // Apple-style "frosted" card for dark mode overlays
+        // "Frosted" card for dark mode overlays
         frosted:  "backdrop-blur-xl bg-surface-overlay border border-border-default shadow-lg",
       },
       interactive: {
@@ -222,7 +222,7 @@ export function Badge({ variant, children, className }: BadgeProps) {
 
 // ── Typography ────────────────────────────────────────────────────────────────
 
-// Hero headline — Apple-scale, tight tracking
+// Hero headline — large display, tight tracking
 export function HeroHeadline({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <h1

@@ -5,42 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ode. — Brand Identity System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  /* ── Core ── */
-  --ink:     #0A0A09;
-  --paper:   #F7F5F0;
-  --signal:  #FF5C3A;
-  --signal-d:#E84827;
-  --signal-s:rgba(255,92,58,0.08);
-  --signal-b:rgba(255,92,58,0.22);
-
-  /* ── Aluminum scale (warm greys) ── */
-  --al-1: #EFECE7;
-  --al-2: #C8C3BB;
-  --al-3: #8E8980;
-  --al-4: #585450;
-  --al-5: #2E2C28;
-  --al-6: #1A1916;
-
-  /* ── Surfaces ── */
-  --surface:  #111009;
-  --surface2: #1A1916;
-  --border:   rgba(239,236,231,0.07);
-  --border-s: rgba(239,236,231,0.04);
-
-  --font: 'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
-  --mono: 'JetBrains Mono',ui-monospace,'SF Mono',monospace;
+  --ink:    #0C0E1A;
+  --paper:  #FFFFFF;
+  --signal: #635BFF;
+  --signal-d:#4F46E5;
+  --signal-s:rgba(99,91,255,0.08);
+  --signal-b:rgba(99,91,255,0.18);
+  --al-1: #F7F8FC;
+  --al-2: #9EA3B8;
+  --al-3: #6B6F8E;
+  --al-4: #3D4166;
+  --al-5: #1A1D3A;
+  --al-6: #0C0E1A;
+  --surface:  #F7F8FC;
+  --surface2: #ECEEF6;
+  --surface3: #E0E3EF;
+  --border:   rgba(12,14,26,0.08);
+  --border-s: rgba(12,14,26,0.05);
+  --font: 'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono: 'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
 }
 
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font);
-  background:var(--ink);
-  color:var(--paper);
+  background:var(--paper);
+  color:var(--ink);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   line-height:1.6;
@@ -48,12 +43,11 @@ body{
 
 /* ── Utilities ── */
 .signal{color:var(--signal)}
-.section{padding:5.5rem 6vw;max-width:1160px;margin:0 auto}
-.section-wide{padding:5.5rem 6vw;width:100%}
-hr.div{border:none;border-top:1px solid var(--border)}
+.section{padding:5.5rem 2.5rem;max-width:980px;margin:0 auto}
+hr.div{border:none;border-top:1px solid var(--border-s)}
 .label{
   font-size:.62rem;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--al-4);
+  text-transform:uppercase;color:var(--al-3);
   display:block;margin-bottom:2rem
 }
 
@@ -61,246 +55,302 @@ hr.div{border:none;border-top:1px solid var(--border)}
 nav{
   position:sticky;top:0;z-index:200;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 6vw;height:52px;
-  background:rgba(10,10,9,.92);
+  padding:0 max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));height:52px;
+  background:rgba(255,255,255,0.96);
   backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border-s);
 }
+.nav-left{display:flex;align-items:center;gap:1.5rem}
 .nav-mark{
   font-size:.95rem;font-weight:800;letter-spacing:-.035em;
-  color:var(--paper);text-decoration:none
+  color:var(--ink);text-decoration:none
 }
 .nav-mark .dot{color:var(--signal)}
+.nav-back{
+  font-size:.7rem;font-weight:500;color:var(--al-3);
+  text-decoration:none;letter-spacing:.02em;
+  transition:color .18s;
+}
+.nav-back:hover{color:var(--ink)}
 .nav-right{
   font-size:.62rem;font-weight:500;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--al-4)
+  text-transform:uppercase;color:var(--al-3)
 }
 
 /* ── HERO ── */
 .hero{
-  min-height:100vh;
+  min-height:92vh;
   display:flex;flex-direction:column;justify-content:center;
-  padding:0 6vw;position:relative;overflow:hidden
+  padding:0 max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#FFFFFF 60%,#F3F4FB 100%);
 }
-.hero::after{
+.hero::before{
   content:'';position:absolute;
-  top:-10%;right:-5%;
-  width:55%;height:120%;
-  background:radial-gradient(ellipse at 75% 45%,rgba(255,92,58,.05) 0%,transparent 60%);
+  top:-20%;right:-8%;
+  width:65%;height:130%;
+  background:radial-gradient(ellipse at 70% 40%,rgba(99,91,255,.06) 0%,transparent 55%);
   pointer-events:none
 }
 .hero-wm{
-  font-size:clamp(5.5rem,15vw,14rem);
-  font-weight:800;letter-spacing:-.045em;line-height:.9;
-  color:var(--paper);position:relative;z-index:1;
+  font-size:clamp(6rem,16vw,14rem);
+  font-weight:800;letter-spacing:-.048em;line-height:.88;
+  color:var(--ink);position:relative;z-index:1;
   display:inline-flex;align-items:baseline
 }
 .hero-wm .dot{color:var(--signal)}
 .hero-bottom{
-  margin-top:3rem;
-  display:flex;align-items:flex-start;gap:0;
+  margin-top:2.5rem;
+  display:flex;align-items:flex-start;
   flex-direction:column;
-  max-width:600px
+  max-width:560px;
+  position:relative;z-index:1
 }
 .hero-tagline{
-  font-size:clamp(1rem,1.8vw,1.3rem);
-  font-weight:400;color:var(--al-2);
-  line-height:1.55;letter-spacing:-.01em;
+  font-size:clamp(1.05rem,2vw,1.35rem);
+  font-weight:400;color:var(--al-3);
+  line-height:1.6;letter-spacing:-.01em;
   margin-bottom:1.5rem
 }
-.hero-byline{
-  display:flex;align-items:center;gap:1rem
-}
-.hero-sep{width:28px;height:1px;background:var(--al-5)}
+.hero-byline{display:flex;align-items:center;gap:1rem}
+.hero-sep{width:28px;height:1px;background:var(--surface3)}
 .hero-by{
   font-size:.65rem;font-weight:500;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--al-4)
+  text-transform:uppercase;color:var(--al-3)
 }
-.hero-scroll-hint{
-  position:absolute;bottom:2.5rem;left:6vw;
+.hero-meta{
+  position:absolute;bottom:2.5rem;left:max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));right:max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));
+  display:flex;align-items:center;justify-content:space-between;
   font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--al-5);display:flex;align-items:center;gap:.75rem
+  color:var(--al-2)
 }
-.hero-scroll-hint::before{
+.hero-meta-line{display:flex;align-items:center;gap:.75rem}
+.hero-meta-line::before{
   content:'';display:block;
-  width:20px;height:1px;background:var(--al-5)
+  width:20px;height:1px;background:var(--surface3)
+}
+
+/* ── SECTION HEADER ── */
+.sec-header{
+  display:flex;align-items:center;gap:1.5rem;
+  margin-bottom:2.5rem;
+  padding-bottom:1.25rem;
+  border-bottom:1px solid var(--border-s)
+}
+.sec-n{
+  font-family:var(--mono);font-size:.6rem;font-weight:400;
+  color:var(--al-2);letter-spacing:.08em;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;padding:.25rem .65rem
+}
+.sec-title{font-size:1.05rem;font-weight:600;color:var(--ink);letter-spacing:-.02em}
+.sec-desc{
+  margin-left:auto;font-size:.75rem;color:var(--al-3);
+  max-width:320px;text-align:right;line-height:1.6
 }
 
 /* ── PHILOSOPHY PILLARS ── */
 .pillars{
   display:grid;grid-template-columns:repeat(3,1fr);
-  border:1px solid var(--border);border-radius:14px;overflow:hidden
+  gap:1px;background:var(--border-s);
+  border:1px solid var(--border);border-radius:16px;overflow:hidden
 }
 .pillar{
-  padding:2.5rem 2rem;border-right:1px solid var(--border);
-  position:relative
+  padding:2.5rem 2rem;background:var(--paper);
+  position:relative;transition:background .2s
 }
-.pillar:last-child{border-right:none}
+.pillar:hover{background:var(--surface)}
 .pillar-n{
-  font-size:.6rem;font-weight:500;letter-spacing:.1em;
-  color:var(--al-4);display:block;margin-bottom:1.25rem;
+  font-size:.58rem;font-weight:500;letter-spacing:.1em;
+  color:var(--al-2);display:block;margin-bottom:1.25rem;
   font-family:var(--mono)
 }
 .pillar-word{
   font-size:1.9rem;font-weight:800;letter-spacing:-.04em;
-  color:var(--paper);display:block;margin-bottom:1rem
+  color:var(--ink);display:block;margin-bottom:1rem
 }
 .pillar-word.warm{color:var(--signal)}
-.pillar-p{font-size:.83rem;color:var(--al-3);line-height:1.75}
+.pillar-p{font-size:.83rem;color:var(--al-3);line-height:1.78}
 
 /* ── MARK SECTION ── */
 .mark-insight{
-  max-width:580px;margin-bottom:2.5rem;
-  font-size:.87rem;color:var(--al-3);line-height:1.75
+  max-width:600px;margin-bottom:2.5rem;
+  font-size:.88rem;color:var(--al-3);line-height:1.8
 }
-.mark-insight strong{color:var(--paper);font-weight:600}
+.mark-insight strong{color:var(--ink);font-weight:600}
 .mark-insight .hi{
-  color:var(--signal);
-  font-weight:600;
-  display:inline-flex;align-items:baseline
+  display:inline-flex;align-items:baseline;
+  font-weight:700;color:var(--ink);
 }
+.mark-insight .hi .dot{color:var(--signal)}
 
 .mark-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-  border-radius:14px;overflow:hidden
+  gap:1px;background:var(--border-s);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden
 }
 .mark-cell{
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  gap:1.25rem;padding:4rem 3rem
+  gap:1.25rem;padding:4rem 3rem;
+  position:relative;
 }
-.mc-ink   {background:var(--ink)}
-.mc-surf  {background:var(--surface)}
+.mc-dark  {background:var(--ink)}
+.mc-navy  {background:#1A1D3A}
+.mc-surf  {background:var(--surface2)}
 .mc-paper {background:var(--paper)}
-.mc-al    {background:var(--al-1)}
 
 .wm{
-  font-weight:800;letter-spacing:-.045em;line-height:1;
+  font-weight:800;letter-spacing:-.048em;line-height:1;
   display:inline-flex;align-items:baseline
 }
 .wm .dot{color:var(--signal)}
-.wm-dark{color:var(--paper)}
-.wm-light{color:var(--ink)}
+.wm-on-dark{color:#FFFFFF}
+.wm-on-light{color:var(--ink)}
 
 .wm-xl{font-size:4.5rem}
 .wm-lg{font-size:3rem}
 .wm-md{font-size:2rem}
 .wm-sm{font-size:1.1rem}
 
-.wm-lockup{display:flex;flex-direction:column;align-items:center;gap:.35rem}
+.wm-lockup{display:flex;flex-direction:column;align-items:center;gap:.4rem}
 .wm-by{
   font-size:.52rem;font-weight:500;letter-spacing:.14em;
   text-transform:uppercase
 }
-.wm-by-dk{color:var(--al-5)}
+.wm-by-dk{color:rgba(255,255,255,.38)}
 .wm-by-lt{color:var(--al-3)}
 
-.mark-cap{font-size:.6rem;letter-spacing:.08em;text-transform:uppercase}
-.mark-cap-dk{color:var(--al-5)}
+.mark-cap{font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.mark-cap-dk{color:rgba(255,255,255,.3)}
 .mark-cap-lt{color:var(--al-3)}
 
 /* Scale row */
 .scale-row{
   margin-top:2.5rem;
   display:flex;align-items:baseline;gap:2.5rem;
-  flex-wrap:wrap;padding:2rem;
-  background:var(--surface);border-radius:12px;
+  flex-wrap:wrap;padding:2.25rem 2.5rem;
+  background:var(--surface);border-radius:14px;
   border:1px solid var(--border)
+}
+.scale-note{
+  margin-left:auto;font-size:.65rem;color:var(--al-3);
+  letter-spacing:.06em;text-transform:uppercase;
+  font-weight:500;align-self:center;font-family:var(--mono)
+}
+
+/* Don'ts grid */
+.donts-grid{
+  margin-top:2rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:1rem
+}
+.dont-card{
+  padding:1.75rem;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px
+}
+.dont-label{
+  font-size:.65rem;color:var(--al-3);
+  margin-top:.85rem;line-height:1.55
 }
 
 /* ── COLOR SYSTEM ── */
 .color-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(148px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(152px,1fr));
   gap:1rem;margin-bottom:2rem
 }
-.swatch{border-radius:10px;overflow:hidden;border:1px solid var(--border)}
-.swatch-chip{height:86px}
-.swatch-body{padding:.8rem 1rem;background:var(--surface)}
+.swatch{border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.swatch-chip{height:90px}
+.swatch-body{padding:.9rem 1rem;background:var(--paper);border-top:1px solid var(--border-s)}
 .sw-name{
   font-size:.72rem;font-weight:600;
-  color:var(--paper);display:block;margin-bottom:.2rem
+  color:var(--ink);display:block;margin-bottom:.25rem
 }
 .sw-hex{
-  font-size:.63rem;color:var(--al-3);
+  font-size:.63rem;color:var(--signal);
   font-family:var(--mono);letter-spacing:.04em
 }
 .sw-role{
-  font-size:.6rem;color:var(--al-4);
-  margin-top:.3rem;display:block;line-height:1.5
+  font-size:.6rem;color:var(--al-3);
+  margin-top:.35rem;display:block;line-height:1.55
 }
 
 .signal-rules{
-  padding:1.75rem 2rem;
+  padding:2rem 2.25rem;
   background:var(--surface);border:1px solid var(--border);
-  border-radius:12px
+  border-radius:14px
 }
 .signal-rules-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1.5rem;margin-top:1rem
+  gap:1.5rem;margin-top:1.25rem
 }
 .sr-head{
   font-size:.72rem;font-weight:600;
-  margin-bottom:.4rem;display:block
+  margin-bottom:.5rem;display:block
 }
-.sr-text{font-size:.78rem;color:var(--al-3);line-height:1.75}
+.sr-text{font-size:.78rem;color:var(--al-3);line-height:1.78}
 
 /* ── TYPOGRAPHY ── */
+.type-grid{display:flex;flex-direction:column}
 .type-row{
   display:flex;align-items:baseline;gap:2rem;
   padding:1.75rem 0;border-bottom:1px solid var(--border-s)
 }
 .type-row:last-child{border-bottom:none}
-.type-meta{width:110px;flex-shrink:0}
+.type-meta{width:116px;flex-shrink:0}
 .tm-name{
   font-size:.6rem;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--al-3);display:block
+  text-transform:uppercase;color:var(--signal);display:block
 }
 .tm-spec{
-  font-size:.58rem;color:var(--al-5);
+  font-size:.58rem;color:var(--al-2);
   letter-spacing:.02em;display:block;
-  margin-top:.3rem;line-height:1.65
+  margin-top:.3rem;line-height:1.65;
+  font-family:var(--mono)
 }
 .type-sample{flex:1}
 
 /* ── VOICE ── */
 .voice-grid{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-  border-radius:14px;overflow:hidden
+  gap:1px;background:var(--border-s);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden
 }
-.voice-cell{padding:2rem 2.5rem;background:var(--surface)}
+.voice-cell{padding:2rem 2.5rem;background:var(--paper)}
+.voice-cell.vc-do{background:var(--ink)}
 .v-label{
   font-size:.6rem;font-weight:600;
   letter-spacing:.1em;text-transform:uppercase;
   display:block;margin-bottom:1rem
 }
-.v-bad{color:var(--al-5);text-decoration:line-through}
-.v-good{color:var(--signal)}
-.v-text{font-size:.88rem;line-height:1.75}
-.v-text-bad{color:var(--al-4)}
-.v-text-good{color:var(--paper)}
+.v-dont{color:var(--al-3)}
+.v-do{color:var(--signal)}
+.v-text{font-size:.88rem;line-height:1.78}
+.v-text-dont{color:var(--al-3)}
+.v-text-do{color:rgba(255,255,255,.85)}
 
 /* ── APPLICATIONS ── */
 .app-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:1.5rem
+  gap:1.25rem
 }
-.app-card{border-radius:14px;overflow:hidden;border:1px solid var(--border)}
+.app-card{border-radius:16px;overflow:hidden;border:1px solid var(--border)}
 .app-tag{
   padding:.85rem 1.5rem;
-  font-size:.6rem;letter-spacing:.08em;text-transform:uppercase
+  font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;
+  font-weight:500;
 }
-.app-tag-dk{background:var(--al-6);color:var(--al-4);border-top:1px solid var(--border)}
-.app-tag-lt{background:var(--al-1);color:var(--al-3);border-top:1px solid var(--al-2)}
+.app-tag-dk{background:var(--al-5);color:rgba(255,255,255,.4);border-top:1px solid rgba(255,255,255,.06)}
+.app-tag-lt{background:var(--surface);color:var(--al-3);border-top:1px solid var(--border-s)}
 
-/* UI mock */
-.ui-mock{background:var(--surface);padding:2rem}
+/* Dark UI mock */
+.ui-mock{background:var(--ink);padding:2rem}
 .ui-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
-.ui-mark{font-size:.95rem;font-weight:800;letter-spacing:-.035em;color:var(--paper)}
+.ui-mark{font-size:.95rem;font-weight:800;letter-spacing:-.035em;color:#fff}
 .ui-mark .dot{color:var(--signal)}
 .ui-badge{
   font-size:.6rem;font-weight:600;letter-spacing:.06em;
@@ -310,24 +360,21 @@ nav{
 }
 .ui-title{
   font-size:1.05rem;font-weight:700;letter-spacing:-.02em;
-  color:var(--paper);margin-bottom:.35rem
+  color:#fff;margin-bottom:.35rem
 }
-.ui-sub{font-size:.8rem;color:var(--al-3);line-height:1.5}
+.ui-sub{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.5}
 .ui-prog{
   margin-top:1.5rem;height:2px;
-  background:var(--al-5);border-radius:2px;overflow:hidden
+  background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden
 }
-.ui-bar{
-  height:100%;background:var(--signal);
-  border-radius:2px;width:68%
-}
+.ui-bar{height:100%;background:var(--signal);border-radius:2px;width:68%}
 .ui-stats{
   margin-top:1rem;display:flex;justify-content:space-between;
-  font-size:.72rem;color:var(--al-3)
+  font-size:.72rem;color:rgba(255,255,255,.4)
 }
-.ui-stats strong{color:var(--paper);font-weight:600}
+.ui-stats strong{color:rgba(255,255,255,.8);font-weight:600}
 
-/* Result card (light) */
+/* Light result mock */
 .result-mock{background:var(--paper);padding:2rem}
 .result-header{
   display:flex;align-items:center;gap:.75rem;
@@ -335,7 +382,7 @@ nav{
 }
 .result-wm{font-size:1rem;font-weight:800;letter-spacing:-.03em;color:var(--ink)}
 .result-wm .dot{color:var(--signal)}
-.result-sep{width:1px;height:16px;background:var(--al-2)}
+.result-sep{width:1px;height:16px;background:var(--surface3)}
 .result-by{
   font-size:.58rem;font-weight:500;letter-spacing:.1em;
   text-transform:uppercase;color:var(--al-3)
@@ -344,7 +391,7 @@ nav{
   font-size:1.25rem;font-weight:700;letter-spacing:-.02em;
   color:var(--ink);margin-bottom:.5rem
 }
-.result-body{font-size:.82rem;color:var(--al-3);line-height:1.7}
+.result-body{font-size:.82rem;color:var(--al-3);line-height:1.72}
 .result-cta{
   margin-top:1.25rem;
   display:inline-flex;align-items:center;gap:.4rem;
@@ -360,70 +407,68 @@ nav{
 .biz::after{
   content:'';position:absolute;bottom:-20%;right:-10%;
   width:50%;height:80%;
-  background:radial-gradient(ellipse at 100% 100%,rgba(255,92,58,.05) 0%,transparent 70%);
+  background:radial-gradient(ellipse at 100% 100%,rgba(99,91,255,.08) 0%,transparent 70%);
   pointer-events:none
 }
 .biz-top-mark{
   font-size:1.35rem;font-weight:800;
-  letter-spacing:-.04em;color:var(--paper)
+  letter-spacing:-.04em;color:#fff
 }
 .biz-top-mark .dot{color:var(--signal)}
 .biz-top-by{
   font-size:.52rem;font-weight:500;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--al-4);margin-top:.15rem
+  text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:.15rem
 }
-.biz-name{
-  font-size:.95rem;font-weight:600;color:var(--paper);
-  letter-spacing:-.01em
-}
-.biz-role{font-size:.68rem;color:var(--al-3);margin-top:.15rem}
-.biz-contact{font-size:.64rem;color:var(--al-4);margin-top:.75rem;line-height:1.9}
+.biz-name{font-size:.95rem;font-weight:600;color:#fff;letter-spacing:-.01em}
+.biz-role{font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.15rem}
+.biz-contact{font-size:.64rem;color:rgba(255,255,255,.3);margin-top:.75rem;line-height:1.9}
 .biz-arrow{color:var(--signal);margin-right:.3rem}
 
-/* ── HIERARCHY ── */
+/* ── BRAND HIERARCHY ── */
 .hierarchy{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border);
-  border-radius:14px;overflow:hidden;margin-bottom:2.5rem
+  gap:1px;background:var(--border-s);
+  border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;margin-bottom:2.5rem
 }
-.h-cell{padding:3rem;background:var(--surface)}
+.h-cell{padding:3rem;background:var(--paper)}
 .h-type{
   font-size:.6rem;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--al-4);display:block;margin-bottom:1.5rem
+  text-transform:uppercase;color:var(--al-3);display:block;margin-bottom:1.5rem
 }
 .h-orth{
   font-size:1.8rem;font-weight:700;letter-spacing:-.025em;
-  color:var(--al-3);display:block;margin-bottom:1.75rem
+  color:var(--ink);display:block;margin-bottom:1.75rem;opacity:.45
 }
 .h-ode{
-  font-size:2.4rem;font-weight:800;letter-spacing:-.045em;
-  color:var(--paper);display:flex;align-items:baseline;margin-bottom:1.75rem
+  font-size:2.4rem;font-weight:800;letter-spacing:-.048em;
+  color:var(--ink);display:flex;align-items:baseline;margin-bottom:1.75rem
 }
 .h-ode .dot{color:var(--signal)}
-.h-list{display:flex;flex-direction:column;gap:.6rem}
+.h-list{display:flex;flex-direction:column;gap:.65rem}
 .h-item{
   display:flex;align-items:flex-start;gap:.7rem;
   font-size:.8rem;color:var(--al-3)
 }
 .h-bullet{
   width:4px;height:4px;border-radius:50%;
-  flex-shrink:0;margin-top:.45rem
+  flex-shrink:0;margin-top:.5rem
 }
-.hb-al{background:var(--al-5)}
+.hb-al{background:var(--al-2)}
 .hb-co{background:var(--signal)}
 
-/* Side-by-side logo comparison */
+/* Brand compare */
 .brand-compare{
   padding:2.5rem;background:var(--surface);
-  border:1px solid var(--border);border-radius:12px;
-  display:flex;align-items:center;gap:3.5rem;flex-wrap:wrap
+  border:1px solid var(--border);border-radius:14px;
+  display:flex;align-items:center;gap:3.5rem;flex-wrap:wrap;
+  margin-bottom:2rem
 }
-.bc-label{
+.bc-col-label{
   font-size:.58rem;font-weight:500;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--al-5);
+  text-transform:uppercase;color:var(--al-3);
   display:block;margin-bottom:.75rem
 }
-.bc-orth svg{opacity:.55;display:block}
 .bc-sep{
   width:1px;height:56px;
   background:linear-gradient(to bottom,transparent,var(--border),transparent);
@@ -431,33 +476,40 @@ nav{
 }
 .bc-ode-wm{
   font-size:2.4rem;font-weight:800;
-  letter-spacing:-.045em;color:var(--paper);
+  letter-spacing:-.048em;color:var(--ink);
   display:flex;align-items:baseline
 }
 .bc-ode-wm .dot{color:var(--signal)}
+.bc-note{
+  margin-left:auto;padding:1.25rem 1.5rem;
+  background:var(--paper);border-radius:10px;
+  border:1px solid var(--border);max-width:240px;
+  font-size:.78rem;color:var(--al-3);line-height:1.75
+}
+.bc-note em{font-style:normal;color:var(--ink);font-weight:500}
 
 /* ── FOOTER ── */
 footer{
   border-top:1px solid var(--border-s);
-  padding:2rem 6vw;
+  padding:2rem max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));
   display:flex;align-items:center;justify-content:space-between
 }
 .ft-mark{
   font-size:.95rem;font-weight:800;
-  letter-spacing:-.035em;color:var(--paper)
+  letter-spacing:-.035em;color:var(--ink)
 }
 .ft-mark .dot{color:var(--signal)}
-.ft-copy{font-size:.65rem;color:var(--al-5)}
+.ft-copy{font-size:.65rem;color:var(--al-3);letter-spacing:.03em}
 
 @media(max-width:700px){
   .pillars{grid-template-columns:1fr}
-  .pillar{border-right:none;border-bottom:1px solid var(--border)}
   .mark-grid{grid-template-columns:1fr}
   .voice-grid{grid-template-columns:1fr}
   .hierarchy{grid-template-columns:1fr}
   .brand-compare{gap:2rem}
   .bc-sep{width:40px;height:1px}
   .hero-wm{font-size:clamp(4.5rem,18vw,9rem)}
+  .scale-row{gap:1.5rem}
 }
 </style>
 </head>
@@ -465,7 +517,10 @@ footer{
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="index.html" class="nav-mark">ode<span class="dot">.</span></a>
+  <div class="nav-left">
+    <a href="index.html" class="nav-back">← Hub</a>
+    <a href="#" class="nav-mark">ode<span class="dot">.</span></a>
+  </div>
   <div class="nav-right">Brand Identity System · 2026</div>
 </nav>
 
@@ -481,7 +536,10 @@ footer{
       <span class="hero-by">by Orthogonal</span>
     </div>
   </div>
-  <div class="hero-scroll-hint">Brand Identity System</div>
+  <div class="hero-meta">
+    <div class="hero-meta-line">Brand Identity System</div>
+    <span style="font-family:var(--mono)">v2.0 · April 2026</span>
+  </div>
 </section>
 
 <hr class="div">
@@ -490,20 +548,24 @@ footer{
      PHILOSOPHY
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Brand Philosophy</span>
+  <div class="sec-header">
+    <span class="sec-n">01</span>
+    <span class="sec-title">Brand Philosophy</span>
+    <span class="sec-desc">Three principles that govern every brand decision.</span>
+  </div>
   <div class="pillars">
     <div class="pillar">
-      <span class="pillar-n">01</span>
+      <span class="pillar-n">01 / 03</span>
       <span class="pillar-word">Precise.</span>
       <p class="pillar-p">Every pixel exists for a reason. Every word earns its place. We treat design the way engineers treat tolerances — nothing is approximate, nothing is decorative.</p>
     </div>
     <div class="pillar">
-      <span class="pillar-n">02</span>
-      <span class="pillar-word warm">Warm.</span>
-      <p class="pillar-p">We're the enthusiastic colleague who happens to know everything. Not a cold enterprise tool. Not a corporate voice. We talk like the smartest person on your team — and we actually want you to succeed.</p>
+      <span class="pillar-n">02 / 03</span>
+      <span class="pillar-word warm">Direct.</span>
+      <p class="pillar-p">We're the enthusiastic colleague who happens to know everything. Not a cold enterprise tool. We talk like the smartest person on your team — and we actually want you to succeed.</p>
     </div>
     <div class="pillar">
-      <span class="pillar-n">03</span>
+      <span class="pillar-n">03 / 03</span>
       <span class="pillar-word">Permanent.</span>
       <p class="pillar-p">We make no concessions to current trends. The mark we make today should feel as right in 2036 as it does now. Geometric. Minimal. Without expiry.</p>
     </div>
@@ -516,67 +578,73 @@ footer{
      THE MARK
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">The Mark</span>
+  <div class="sec-header">
+    <span class="sec-n">02</span>
+    <span class="sec-title">The Wordmark</span>
+    <span class="sec-desc">ode followed by a signal-color period. The dot is the outcome.</span>
+  </div>
+
   <p class="mark-insight">
     The wordmark is <strong>ode</strong> followed by a signal-color period —
-    <span class="hi">ode<span style="color:var(--signal)">.</span></span>
+    <strong class="hi">ode<span class="dot">.</span></strong>
     The period is not punctuation. It's the outcome. A delivered result. A precise coordinate in space.
     It is the only element in the entire system that carries the signal color in the mark itself.
     Remove the dot and you lose the brand.
   </p>
 
+  <!-- 4 usage contexts -->
   <div class="mark-grid">
-    <div class="mark-cell mc-ink">
-      <div class="wm wm-xl wm-dark"><span>ode</span><span class="dot">.</span></div>
-      <span class="mark-cap mark-cap-dk">Primary · Dark</span>
+    <div class="mark-cell mc-dark">
+      <div class="wm wm-xl wm-on-dark"><span>ode</span><span class="dot">.</span></div>
+      <span class="mark-cap mark-cap-dk">Primary · Dark Background</span>
     </div>
-    <div class="mark-cell mc-surf">
+    <div class="mark-cell mc-navy">
       <div class="wm-lockup">
-        <div class="wm wm-lg wm-dark"><span>ode</span><span class="dot">.</span></div>
+        <div class="wm wm-lg wm-on-dark"><span>ode</span><span class="dot">.</span></div>
         <span class="wm-by wm-by-dk">by Orthogonal</span>
       </div>
-      <span class="mark-cap mark-cap-dk">Lockup · Dark</span>
+      <span class="mark-cap mark-cap-dk">Lockup · Navy Background</span>
     </div>
-    <div class="mark-cell mc-al">
-      <div class="wm wm-xl wm-light"><span>ode</span><span class="dot">.</span></div>
-      <span class="mark-cap mark-cap-lt">Primary · Light</span>
+    <div class="mark-cell mc-surf">
+      <div class="wm wm-xl wm-on-light"><span>ode</span><span class="dot">.</span></div>
+      <span class="mark-cap mark-cap-lt">Primary · Light Surface</span>
     </div>
     <div class="mark-cell mc-paper">
       <div class="wm-lockup">
-        <div class="wm wm-lg wm-light"><span>ode</span><span class="dot">.</span></div>
-        <span class="wm-by" style="color:var(--al-3)">by Orthogonal</span>
+        <div class="wm wm-lg wm-on-light"><span>ode</span><span class="dot">.</span></div>
+        <span class="wm-by wm-by-lt">by Orthogonal</span>
       </div>
-      <span class="mark-cap" style="color:var(--al-3)">Lockup · Light</span>
+      <span class="mark-cap mark-cap-lt">Lockup · White Background</span>
     </div>
   </div>
 
   <!-- Size scale -->
   <div class="scale-row">
-    <div class="wm wm-dark" style="font-size:3.5rem"><span>ode</span><span class="dot">.</span></div>
-    <div class="wm wm-dark" style="font-size:2.2rem"><span>ode</span><span class="dot">.</span></div>
-    <div class="wm wm-dark" style="font-size:1.5rem"><span>ode</span><span class="dot">.</span></div>
-    <div class="wm wm-dark" style="font-size:1.05rem"><span>ode</span><span class="dot">.</span></div>
-    <div class="wm wm-dark" style="font-size:.75rem"><span>ode</span><span class="dot">.</span></div>
-    <div style="margin-left:auto;font-size:.68rem;color:var(--al-5);letter-spacing:.06em;text-transform:uppercase;font-weight:500;align-self:center">Scales from 64px to 12px</div>
+    <div class="wm wm-on-light" style="font-size:3.5rem"><span>ode</span><span class="dot">.</span></div>
+    <div class="wm wm-on-light" style="font-size:2.2rem"><span>ode</span><span class="dot">.</span></div>
+    <div class="wm wm-on-light" style="font-size:1.5rem"><span>ode</span><span class="dot">.</span></div>
+    <div class="wm wm-on-light" style="font-size:1.05rem"><span>ode</span><span class="dot">.</span></div>
+    <div class="wm wm-on-light" style="font-size:.75rem"><span>ode</span><span class="dot">.</span></div>
+    <span class="scale-note">64px → 12px scale</span>
   </div>
 
   <!-- Don'ts -->
-  <div style="margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem">
-    <div style="padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px">
-      <div class="wm wm-dark" style="font-size:2rem;opacity:.35"><span>ode</span><span class="dot" style="color:var(--paper)">.</span></div>
-      <p style="font-size:.68rem;color:var(--al-4);margin-top:.75rem">✗ Period in white — loses the signal</p>
+  <div class="donts-grid">
+    <div class="dont-card">
+      <div class="wm wm-on-light" style="font-size:2rem;opacity:.3"><span>ode</span><span class="dot" style="color:var(--ink)">.</span></div>
+      <p class="dont-label">✗ Period same as letterform — loses the signal</p>
     </div>
-    <div style="padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px">
-      <div class="wm wm-dark" style="font-size:2rem;opacity:.35"><span style="color:var(--signal)">ode</span><span class="dot">.</span></div>
-      <p style="font-size:.68rem;color:var(--al-4);margin-top:.75rem">✗ Full word in coral — dilutes the mark</p>
+    <div class="dont-card">
+      <div class="wm wm-on-light" style="font-size:2rem;opacity:.3"><span style="color:var(--signal)">ode</span><span class="dot">.</span></div>
+      <p class="dont-label">✗ Full word in signal color — dilutes the mark</p>
     </div>
-    <div style="padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px">
-      <div class="wm wm-dark" style="font-size:2rem;opacity:.35;letter-spacing:.1em"><span>ODE</span><span class="dot">.</span></div>
-      <p style="font-size:.68rem;color:var(--al-4);margin-top:.75rem">✗ All caps — breaks warmth, not our voice</p>
+    <div class="dont-card">
+      <div class="wm wm-on-light" style="font-size:2rem;opacity:.3;letter-spacing:.1em"><span>ODE</span><span class="dot">.</span></div>
+      <p class="dont-label">✗ All caps — breaks warmth, not our voice</p>
     </div>
-    <div style="padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:10px">
-      <div class="wm wm-dark" style="font-size:2rem;opacity:.35"><span>ode</span></div>
-      <p style="font-size:.68rem;color:var(--al-4);margin-top:.75rem">✗ Missing period — incomplete. Never use.</p>
+    <div class="dont-card">
+      <div class="wm wm-on-light" style="font-size:2rem;opacity:.3"><span>ode</span></div>
+      <p class="dont-label">✗ Missing period — incomplete. Never use.</p>
     </div>
   </div>
 </div>
@@ -587,54 +655,59 @@ footer{
      COLOR SYSTEM
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Color System</span>
+  <div class="sec-header">
+    <span class="sec-n">03</span>
+    <span class="sec-title">Color System</span>
+    <span class="sec-desc">One signal color. One palette. Zero ambiguity.</span>
+  </div>
+
   <div class="color-grid">
     <div class="swatch">
-      <div class="swatch-chip" style="background:linear-gradient(135deg,#FF6B50,#FF5C3A,#E84827)"></div>
+      <div class="swatch-chip" style="background:linear-gradient(135deg,#7B74FF,#635BFF,#4F46E5)"></div>
       <div class="swatch-body">
         <span class="sw-name">Signal</span>
-        <span class="sw-hex">#FF5C3A</span>
-        <span class="sw-role">The one color. Every appearance means something. Used with extreme restraint.</span>
+        <span class="sw-hex">#635BFF</span>
+        <span class="sw-role">The one color. Electric indigo — every appearance means something.</span>
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-chip" style="background:#0A0A09"></div>
+      <div class="swatch-chip" style="background:#0C0E1A"></div>
       <div class="swatch-body">
         <span class="sw-name">Ink</span>
-        <span class="sw-hex">#0A0A09</span>
-        <span class="sw-role">Warm black. Primary background. Not pure #000 — the warmth matters.</span>
+        <span class="sw-hex">#0C0E1A</span>
+        <span class="sw-role">Deep navy-black. Primary text. Not pure #000 — the blue depth adds precision.</span>
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-chip" style="background:#F7F5F0;border-bottom:1px solid #E0DDD7"></div>
+      <div class="swatch-chip" style="background:#FFFFFF;border-bottom:1px solid #E0E3EF"></div>
       <div class="swatch-body">
         <span class="sw-name">Paper</span>
-        <span class="sw-hex">#F7F5F0</span>
-        <span class="sw-role">Warm white. Primary text on dark. Light mode background. Matte aluminum.</span>
+        <span class="sw-hex">#FFFFFF</span>
+        <span class="sw-role">Pure white. Light mode canvas. Clinical, precise.</span>
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-chip" style="background:#C8C3BB"></div>
+      <div class="swatch-chip" style="background:#9EA3B8"></div>
       <div class="swatch-body">
-        <span class="sw-name">Aluminum</span>
-        <span class="sw-hex">#C8C3BB</span>
-        <span class="sw-role">Secondary text. Subheadings on dark. Mid aluminum tone.</span>
+        <span class="sw-name">Slate</span>
+        <span class="sw-hex">#9EA3B8</span>
+        <span class="sw-role">Secondary text. Labels. Supporting UI elements.</span>
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-chip" style="background:#8E8980"></div>
+      <div class="swatch-chip" style="background:#6B6F8E"></div>
       <div class="swatch-body">
-        <span class="sw-name">Smoke</span>
-        <span class="sw-hex">#8E8980</span>
-        <span class="sw-role">Body text. Captions. Supporting copy. Tertiary UI elements.</span>
+        <span class="sw-name">Mist</span>
+        <span class="sw-hex">#6B6F8E</span>
+        <span class="sw-role">Body copy. Captions. Tertiary UI elements.</span>
       </div>
     </div>
     <div class="swatch">
-      <div class="swatch-chip" style="background:#111009"></div>
+      <div class="swatch-chip" style="background:#F7F8FC;border-bottom:1px solid #E0E3EF"></div>
       <div class="swatch-body">
         <span class="sw-name">Surface</span>
-        <span class="sw-hex">#111009</span>
-        <span class="sw-role">Card backgrounds. Elevated containers. Panels on dark mode.</span>
+        <span class="sw-hex">#F7F8FC</span>
+        <span class="sw-role">Card backgrounds. Elevated containers. Cool-white tint.</span>
       </div>
     </div>
   </div>
@@ -644,15 +717,15 @@ footer{
     <div class="signal-rules-grid">
       <div>
         <span class="sr-head" style="color:var(--signal)">✓ Use for</span>
-        <p class="sr-text">Period in wordmark · Primary CTA · Active nav state · Key metric callouts · Simulation complete state · Progress indicators</p>
+        <p class="sr-text">Period in wordmark · Primary CTA · Active nav indicator · Key metric callouts · Simulation complete state · Progress bars</p>
       </div>
       <div>
-        <span class="sr-head" style="color:var(--al-4)">✗ Avoid for</span>
-        <p class="sr-text">Large backgrounds · Decorative fills · More than one element per viewport · Body text · Secondary buttons · Icons that aren't interactive</p>
+        <span class="sr-head" style="color:var(--al-3)">✗ Avoid for</span>
+        <p class="sr-text">Large backgrounds · Decorative fills · More than one element per viewport · Body text · Secondary buttons · Non-interactive icons</p>
       </div>
       <div>
-        <span class="sr-head" style="color:var(--al-3)">The principle</span>
-        <p class="sr-text">Coral appears like a warning light on a flight instrument — rarely, precisely, and always for a reason. Its scarcity is what makes it work.</p>
+        <span class="sr-head" style="color:var(--al-2)">The principle</span>
+        <p class="sr-text">Signal appears like a status indicator on a precision instrument — rarely, deliberately, and always for a reason. Its scarcity is what makes it work.</p>
       </div>
     </div>
   </div>
@@ -664,23 +737,27 @@ footer{
      TYPOGRAPHY
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Typography</span>
-  <p style="font-size:.87rem;color:var(--al-3);line-height:1.75;max-width:520px;margin-bottom:2.5rem">
-    <strong style="color:var(--paper);font-weight:600">Plus Jakarta Sans</strong> — one family, five weights.
-    The brand's warmth lives in the weight contrast, not in letterform decoration.
-    <br>
-    <span style="color:var(--al-5);margin-top:.5rem;display:inline-block">
-      Monospace: <strong style="color:var(--al-3)">JetBrains Mono</strong> — for numbers, code, engineering values only.
+  <div class="sec-header">
+    <span class="sec-n">04</span>
+    <span class="sec-title">Typography</span>
+    <span class="sec-desc">Inter — one family. JetBrains Mono for data only.</span>
+  </div>
+
+  <p style="font-size:.87rem;color:var(--al-3);line-height:1.78;max-width:520px;margin-bottom:2.75rem">
+    <strong style="color:var(--ink);font-weight:600">Inter</strong> — one family, variable weight.
+    The brand's clarity lives in optical precision and weight contrast, not in decoration.
+    <span style="display:inline-block;margin-top:.5rem;color:var(--al-2)">
+      Monospace: <strong style="color:var(--al-3);font-family:var(--mono)">JetBrains Mono</strong> — numbers, code, and engineering values only.
     </span>
   </p>
 
-  <div>
+  <div class="type-grid">
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Display</span>
-        <span class="tm-spec">800 weight<br>−0.045em<br>clamp 3–10rem</span>
+        <span class="tm-spec">800 · −0.048em<br>clamp 3–10rem</span>
       </div>
-      <div class="type-sample" style="font-size:clamp(2.2rem,5.5vw,5rem);font-weight:800;letter-spacing:-.045em;color:var(--paper);line-height:.95">
+      <div class="type-sample" style="font-size:clamp(2.2rem,5.5vw,5rem);font-weight:800;letter-spacing:-.048em;color:var(--ink);line-height:.95">
         AI does<br>the hard part.
       </div>
     </div>
@@ -688,9 +765,9 @@ footer{
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Heading 1</span>
-        <span class="tm-spec">700 weight<br>−0.03em<br>1.75–2.5rem</span>
+        <span class="tm-spec">700 · −0.03em<br>1.75–2.5rem</span>
       </div>
-      <div class="type-sample" style="font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;letter-spacing:-.03em;color:var(--paper);line-height:1.1">
+      <div class="type-sample" style="font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:700;letter-spacing:-.03em;color:var(--ink);line-height:1.1">
         Describe the problem.<br>We deliver the result.
       </div>
     </div>
@@ -698,9 +775,9 @@ footer{
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Heading 2</span>
-        <span class="tm-spec">600 weight<br>−0.02em<br>1.2–1.6rem</span>
+        <span class="tm-spec">600 · −0.02em<br>1.2–1.6rem</span>
       </div>
-      <div class="type-sample" style="font-size:1.35rem;font-weight:600;letter-spacing:-.02em;color:var(--paper)">
+      <div class="type-sample" style="font-size:1.35rem;font-weight:600;letter-spacing:-.02em;color:var(--ink)">
         From requirements to simulation in under 60 seconds.
       </div>
     </div>
@@ -708,11 +785,11 @@ footer{
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Body</span>
-        <span class="tm-spec">400 weight<br>0em<br>0.875–1rem</span>
+        <span class="tm-spec">400 · 0em<br>0.875–1rem</span>
       </div>
-      <div class="type-sample" style="font-size:.9rem;font-weight:400;color:var(--al-2);line-height:1.75;max-width:540px">
+      <div class="type-sample" style="font-size:.9rem;font-weight:400;color:var(--al-3);line-height:1.78;max-width:540px">
         Traditional CAE requires two invoices — a $50K–500K software license,
-        and an $80K–350K specialist to operate it. ode replaces both.
+        and an $80K–350K specialist to operate it. ode. replaces both.
         You describe the engineering problem. We deliver the simulation,
         the analysis, and the recommendation.
       </div>
@@ -721,7 +798,7 @@ footer{
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Label</span>
-        <span class="tm-spec">600 weight<br>+0.12em<br>0.58–0.65rem</span>
+        <span class="tm-spec">600 · +0.12em<br>0.58–0.65rem</span>
       </div>
       <div class="type-sample" style="font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--al-3)">
         Product · AI-Native Engineering Platform · by Orthogonal
@@ -731,9 +808,9 @@ footer{
     <div class="type-row">
       <div class="type-meta">
         <span class="tm-name">Mono</span>
-        <span class="tm-spec">JetBrains Mono<br>400–500<br>numbers & code</span>
+        <span class="tm-spec">JetBrains Mono<br>400–500<br>numbers only</span>
       </div>
-      <div class="type-sample" style="font-family:var(--mono);font-size:.88rem;color:var(--al-2);letter-spacing:.02em">
+      <div class="type-sample" style="font-family:var(--mono);font-size:.88rem;color:var(--al-3);letter-spacing:.02em">
         $0 → $1M ARR · 12 disciplines · &lt;60s · $2K–24K/team/yr
       </div>
     </div>
@@ -746,36 +823,42 @@ footer{
      VOICE & TONE
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Voice & Tone</span>
-  <p style="font-size:.87rem;color:var(--al-3);line-height:1.75;max-width:520px;margin-bottom:2.5rem">
-    The enthusiastic colleague. Smart, direct, never condescending.
+  <div class="sec-header">
+    <span class="sec-n">05</span>
+    <span class="sec-title">Voice & Tone</span>
+    <span class="sec-desc">The enthusiastic colleague. Smart, direct, never condescending.</span>
+  </div>
+
+  <p style="font-size:.87rem;color:var(--al-3);line-height:1.78;max-width:520px;margin-bottom:2.5rem">
     We use first person. We use contractions. We say what we mean.
-    We treat the user as an expert, not a beginner — even when they are one.
+    We treat the user as an expert — even when they aren't one.
+    We never say "leverage." We never say "enterprise-grade." We never apologize for being smart.
   </p>
+
   <div class="voice-grid">
     <div class="voice-cell">
-      <span class="v-label v-bad">Don't</span>
-      <p class="v-text v-text-bad">"Users should leverage the platform's advanced AI capabilities to facilitate optimization of their simulation workflows in a manner that reduces time-to-insight."</p>
+      <span class="v-label v-dont">✗ Don't</span>
+      <p class="v-text v-text-dont">"Users should leverage the platform's advanced AI capabilities to facilitate optimization of their simulation workflows in a manner that reduces time-to-insight."</p>
+    </div>
+    <div class="voice-cell vc-do">
+      <span class="v-label v-do">✓ Do</span>
+      <p class="v-text v-text-do">"Describe your engineering problem in plain English. We'll run the simulation and tell you what to change. Usually in under a minute."</p>
     </div>
     <div class="voice-cell">
-      <span class="v-label v-good">Do</span>
-      <p class="v-text v-text-good">"Describe your engineering problem in plain English. We'll run the simulation and tell you what to change. Usually in under a minute."</p>
+      <span class="v-label v-dont">✗ Don't</span>
+      <p class="v-text v-text-dont">"An error has occurred during the simulation process. Please review your input parameters and attempt to resubmit the request."</p>
+    </div>
+    <div class="voice-cell vc-do">
+      <span class="v-label v-do">✓ Do</span>
+      <p class="v-text v-text-do">"Your material density looks off — 8,900 kg/m³ is outside the valid range for aluminum alloys. Try 2,700 and we'll re-run it."</p>
     </div>
     <div class="voice-cell">
-      <span class="v-label v-bad">Don't</span>
-      <p class="v-text v-text-bad">"An error has occurred during the simulation process. Please review your input parameters and attempt to resubmit the request."</p>
+      <span class="v-label v-dont">✗ Don't</span>
+      <p class="v-text v-text-dont">"ode is a comprehensive, enterprise-grade AI-native engineering simulation platform built for the modern workforce."</p>
     </div>
-    <div class="voice-cell">
-      <span class="v-label v-good">Do</span>
-      <p class="v-text v-text-good">"Your material density looks off — 8,900 kg/m³ is outside the valid range for aluminum alloys. Try 2,700 and we'll re-run it."</p>
-    </div>
-    <div class="voice-cell">
-      <span class="v-label v-bad">Don't</span>
-      <p class="v-text v-text-bad">"ode is a comprehensive, enterprise-grade AI-native engineering simulation platform built for the modern workforce."</p>
-    </div>
-    <div class="voice-cell">
-      <span class="v-label v-good">Do</span>
-      <p class="v-text v-text-good">"ode is what happens when you stop selling engineers a tool and start giving them an answer. We do the simulation. You do the engineering."</p>
+    <div class="voice-cell vc-do">
+      <span class="v-label v-do">✓ Do</span>
+      <p class="v-text v-text-do">"ode is what happens when you stop selling engineers a tool and start giving them an answer. We do the simulation. You do the engineering."</p>
     </div>
   </div>
 </div>
@@ -786,7 +869,12 @@ footer{
      APPLICATIONS
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Brand in Use</span>
+  <div class="sec-header">
+    <span class="sec-n">06</span>
+    <span class="sec-title">Brand in Use</span>
+    <span class="sec-desc">The identity applied across product touchpoints.</span>
+  </div>
+
   <div class="app-grid">
 
     <!-- Dark UI: simulation running -->
@@ -849,9 +937,9 @@ footer{
       <div class="app-tag app-tag-dk">Business Card · Dark</div>
     </div>
 
-    <!-- Maker dark card -->
+    <!-- Maker UI -->
     <div class="app-card">
-      <div class="ui-mock" style="background:var(--surface2)">
+      <div class="ui-mock" style="background:#12152B">
         <div class="ui-header">
           <div class="ui-mark">ode<span class="dot">.</span></div>
           <div style="font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#10b981;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);padding:.25rem .65rem;border-radius:5px">Print ready</div>
@@ -859,9 +947,9 @@ footer{
         <div class="ui-title">LEGO gear box — bracket A</div>
         <div class="ui-sub">Modular CAD · 14 parts · Sliced for FDM</div>
         <div style="margin-top:1.25rem;display:flex;gap:.75rem;flex-wrap:wrap">
-          <div style="padding:.5rem .9rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;font-size:.72rem;color:var(--al-3)">12.4 cm × 8.1 cm</div>
-          <div style="padding:.5rem .9rem;background:var(--surface);border:1px solid var(--border);border-radius:7px;font-size:.72rem;color:var(--al-3)">~3h 20min</div>
-          <div style="padding:.5rem .9rem;background:rgba(255,92,58,.08);border:1px solid rgba(255,92,58,.2);border-radius:7px;font-size:.72rem;color:var(--signal);font-weight:600">Send to printer →</div>
+          <div style="padding:.5rem .9rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:7px;font-size:.72rem;color:rgba(255,255,255,.4)">12.4 cm × 8.1 cm</div>
+          <div style="padding:.5rem .9rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:7px;font-size:.72rem;color:rgba(255,255,255,.4)">~3h 20min</div>
+          <div style="padding:.5rem .9rem;background:var(--signal-s);border:1px solid var(--signal-b);border-radius:7px;font-size:.72rem;color:var(--signal);font-weight:600">Send to printer →</div>
         </div>
       </div>
       <div class="app-tag app-tag-dk">Maker UI · Print Queue</div>
@@ -876,19 +964,24 @@ footer{
      BRAND HIERARCHY
 ══════════════════════════════════════════ -->
 <div class="section">
-  <span class="label">Brand Hierarchy</span>
-  <p style="font-size:.87rem;color:var(--al-3);line-height:1.75;max-width:540px;margin-bottom:2.5rem">
-    <strong style="color:var(--paper);font-weight:600">Orthogonal</strong> is the company.
-    <strong style="color:var(--paper);font-weight:600">ode.</strong> is the product.
+  <div class="sec-header">
+    <span class="sec-n">07</span>
+    <span class="sec-title">Brand Hierarchy</span>
+    <span class="sec-desc">Company vs. product — same DNA, different voice.</span>
+  </div>
+
+  <p style="font-size:.87rem;color:var(--al-3);line-height:1.78;max-width:540px;margin-bottom:2.5rem">
+    <strong style="color:var(--ink);font-weight:600">Orthogonal</strong> is the company.
+    <strong style="color:var(--ink);font-weight:600">ode.</strong> is the product.
     They share DNA but speak differently — Orthogonal is architectural and measured;
     ode. is warm, direct, and alive.
   </p>
 
   <!-- Logo comparison -->
-  <div class="brand-compare" style="margin-bottom:2rem">
-    <div class="bc-orth">
-      <span class="bc-label">Company</span>
-      <svg viewBox="0 0 3001 521" width="180" height="31" fill="#C8C3BB" xmlns="http://www.w3.org/2000/svg">
+  <div class="brand-compare">
+    <div>
+      <span class="bc-col-label">Company wordmark</span>
+      <svg viewBox="0 0 3001 521" width="180" height="31" fill="#9EA3B8" xmlns="http://www.w3.org/2000/svg">
         <path d="M2975.58 378.217C2958.08 369.899 2942.34 358.602 2928.87 343.704C2901.43 313.288 2884.56 277.782 2884.44 236.192C2884.19 161.208 2884.44 86.3467 2884.44 11.3618C2884.44 8.38231 2884.44 5.52693 2884.44 2.05081C2884.44 1.18178 2885.07 0.561042 2885.95 0.561042H2937.81C2938.69 0.561042 2939.32 1.18178 2939.32 2.05081V13.4724C2939.32 85.726 2939.45 158.104 2939.32 230.357C2939.2 268.222 2954.68 298.514 2985.14 320.985C2990.05 324.585 2995.21 327.689 3000.5 330.668C2984.39 361.084 2991.44 347.677 2975.58 378.217Z"/>
         <path d="M1056.15 392.742H1005.79C1005.04 392.742 1004.28 392.121 1004.28 391.376C1004.16 387.9 1003.78 384.424 1003.78 380.824C1003.78 330.793 1003.91 280.885 1003.65 230.854C1003.4 176.229 965.386 130.543 911.006 119.122C851.212 106.459 789.027 147.8 778.201 207.639C776.565 216.453 775.935 225.64 775.81 234.703C775.558 286.472 775.684 338.117 775.684 390.88C775.684 391.749 775.054 392.37 774.173 392.37H723.066C722.184 392.37 721.555 391.749 721.555 390.88V2.05081C721.555 1.18178 722.184 0.561042 723.066 0.561042H773.795C774.677 0.561042 775.306 1.18178 775.306 2.05081V105.962C775.306 107.203 776.691 107.824 777.698 107.203C782.481 103.976 786.006 101.617 789.279 99.2581C857.632 50.2199 951.917 57.6688 1010.95 117.135C1041.17 147.551 1057.28 184.547 1057.91 227.254C1058.54 280.637 1058.03 334.02 1058.03 387.404C1058.03 388.645 1057.78 389.762 1057.53 391.501C1057.53 392.121 1056.9 392.742 1056.15 392.742Z"/>
         <path d="M2498.11 393.735H2446.63C2445.74 393.735 2445.11 393.114 2445.11 392.245C2445.11 388.397 2445.11 384.548 2445.11 380.7C2444.99 326.944 2446 273.188 2444.23 219.433C2442.47 164.435 2394.38 119.246 2336.98 115.521C2282.35 111.921 2229.98 152.641 2220.42 206.397C2219.03 214.591 2218.28 222.909 2218.15 231.227C2217.9 284.486 2218.03 337.745 2218.03 391.873C2218.03 392.742 2217.4 393.363 2216.51 393.363H2164.53C2163.65 393.363 2163.02 392.618 2163.02 391.873C2163.02 388.149 2163.02 384.672 2163.02 381.072C2163.02 331.041 2163.02 281.134 2163.02 231.102C2163.02 146.31 2223.56 78.4013 2308.91 67.2281C2397.03 55.6824 2478.85 111.797 2496.98 197.955C2498.99 207.266 2499.75 216.701 2499.87 226.261C2500.38 279.768 2500.12 333.4 2500 386.907C2500 388.521 2499.75 390.135 2499.5 392.494C2499.5 393.239 2498.87 393.735 2498.11 393.735Z"/>
@@ -903,13 +996,13 @@ footer{
     </div>
     <div class="bc-sep"></div>
     <div>
-      <span class="bc-label">Product</span>
+      <span class="bc-col-label">Product wordmark</span>
       <div class="bc-ode-wm">ode<span class="dot">.</span></div>
     </div>
-    <div style="margin-left:auto;padding:1.25rem 1.5rem;background:rgba(239,236,231,.03);border-radius:10px;border:1px solid var(--border);max-width:240px;font-size:.78rem;color:var(--al-4);line-height:1.75">
+    <div class="bc-note">
       Orthogonal provides the credibility floor.<br>
       ode. provides the human touch.<br>
-      Together: trustworthy <em style="font-style:normal;color:var(--al-3)">and</em> approachable.
+      Together: trustworthy <em>and</em> approachable.
     </div>
   </div>
 
@@ -921,18 +1014,18 @@ footer{
         <div class="h-item"><div class="h-bullet hb-al"></div>Legal entity · investor materials · PR · hiring</div>
         <div class="h-item"><div class="h-bullet hb-al"></div>Monochrome only — no signal color in company brand</div>
         <div class="h-item"><div class="h-bullet hb-al"></div>Formal, architectural, measured tone of voice</div>
-        <div class="h-item"><div class="h-bullet hb-al"></div>Color: #404040 (existing mark preserved)</div>
+        <div class="h-item"><div class="h-bullet hb-al"></div>Color: #404040 (existing wordmark preserved)</div>
         <div class="h-item"><div class="h-bullet hb-al"></div>Domain: orthogonal.dev</div>
       </div>
     </div>
-    <div class="h-cell" style="border-left:1px solid var(--border)">
+    <div class="h-cell" style="border-left:1px solid var(--border-s)">
       <span class="h-type">Product — ode.</span>
       <div class="h-ode">ode<span class="dot">.</span></div>
       <div class="h-list">
         <div class="h-item"><div class="h-bullet hb-co"></div>Product UI · marketing · social media · user-facing</div>
-        <div class="h-item"><div class="h-bullet hb-co"></div>Signal coral applied with restraint and purpose</div>
+        <div class="h-item"><div class="h-bullet hb-co"></div>Signal indigo applied with restraint and purpose</div>
         <div class="h-item"><div class="h-bullet hb-co"></div>Warm, direct, enthusiastic colleague voice</div>
-        <div class="h-item"><div class="h-bullet hb-co"></div>Color: #FF5C3A signal + aluminum palette</div>
+        <div class="h-item"><div class="h-bullet hb-co"></div>Color: #635BFF signal + slate palette</div>
         <div class="h-item"><div class="h-bullet hb-co"></div>Domain: ode.orthogonal.dev</div>
       </div>
     </div>

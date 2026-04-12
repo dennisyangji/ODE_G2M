@@ -5,32 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orthogonal — The Dassault of the AI Era</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── ode. Brand System ── */
+/* ── ode. Brand System — Light Mode ── */
 :root{
-  --bg:#0A0A09;
-  --bg-white:#111009;
-  --bg-card:#1A1916;
-  --text:#F7F5F0;
-  --text2:#C8C3BB;
-  --text3:#8E8980;
-  --border:rgba(239,236,231,0.07);
-  --accent:#FF5C3A;
-  --accent-h:#FF7255;
-  --midnight:#1A1916;
-  --success:#10b981;
-  --warning:#fbbf24;
-  --error:#fb7185;
-  --ai:#FF5C3A;
-  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --bg:#FFFFFF;
+  --bg-white:#F7F8FC;
+  --bg-card:#ECEEF6;
+  --text:#0C0E1A;
+  --text2:#2D3055;
+  --text3:#6B6F8E;
+  --border:rgba(12,14,26,0.08);
+  --accent:#635BFF;
+  --accent-h:#7B74FF;
+  --midnight:#ECEEF6;
+  --success:#10B981;
+  --warning:#F59E0B;
+  --error:#EF4444;
+  --ai:#635BFF;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  --shadow-sm:0 0 0 1px rgba(239,236,231,0.05);
-  --shadow-md:0 0 0 1px rgba(239,236,231,0.07),0 4px 16px rgba(0,0,0,0.4);
-  --shadow-lg:0 0 0 1px rgba(239,236,231,0.07),0 8px 32px rgba(0,0,0,0.5);
+  --shadow-sm:0 1px 3px rgba(12,14,26,0.08),0 0 0 1px rgba(12,14,26,0.05);
+  --shadow-md:0 4px 12px rgba(12,14,26,0.10),0 0 0 1px rgba(12,14,26,0.06);
+  --shadow-lg:0 8px 24px rgba(12,14,26,0.12),0 0 0 1px rgba(12,14,26,0.06);
 }
 
 html,body{
@@ -38,7 +38,7 @@ html,body{
   background:var(--bg);color:var(--text);
   font-family:var(--font);
   -webkit-font-smoothing:antialiased;
-  font-feature-settings:"ss01","ss02";
+  font-feature-settings:normal;
 }
 
 /* ── Deck & Slide Engine ── */
@@ -52,6 +52,7 @@ html,body{
   transition:opacity .45s cubic-bezier(0.25,0.1,0.25,1),
               transform .45s cubic-bezier(0.25,0.1,0.25,1);
   pointer-events:none;overflow:hidden;
+  background:var(--bg);
 }
 .slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
 .slide.prev{opacity:0;transform:translateX(-32px)}
@@ -119,7 +120,7 @@ h3{
 
 /* ── Cards ── */
 .card{
-  background:rgba(255,255,255,0.03);
+  background:rgba(12,14,26,0.02);
   border:1px solid var(--border);
   border-radius:16px;
   padding:1.75rem;
@@ -139,7 +140,7 @@ h3{
   gap:1rem;max-width:900px;width:100%;
 }
 .tool{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  background:rgba(12,14,26,0.02);border:1px solid var(--border);
   border-radius:12px;padding:1.1rem 1.2rem;
   transition:box-shadow .2s,border-color .2s;
 }
@@ -150,7 +151,7 @@ h3{
 /* ── Flow steps ── */
 .flow{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;justify-content:center}
 .step{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  background:rgba(12,14,26,0.02);border:1px solid var(--border);
   border-radius:12px;padding:1.1rem 1.4rem;
   text-align:center;min-width:140px;
   box-shadow:var(--shadow-sm);
@@ -183,7 +184,7 @@ h3{
 .bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
 .bar{
   width:100%;border-radius:5px 5px 0 0;min-height:3px;
-  background:linear-gradient(to top,rgba(255,92,58,.35),var(--accent));
+  background:linear-gradient(to top,rgba(99,91,255,.35),var(--accent));
   transition:height .7s cubic-bezier(0.16,1,.3,1);
 }
 .bar-label{font-size:.6rem;color:var(--text3);margin-top:4px;font-family:var(--mono)}
@@ -193,7 +194,7 @@ h3{
 .token-stack{display:flex;flex-direction:column;gap:.5rem;max-width:560px;width:100%}
 .token-row{
   display:flex;align-items:center;gap:1rem;
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  background:rgba(12,14,26,0.02);border:1px solid var(--border);
   border-radius:10px;padding:.8rem 1.1rem;
 }
 .token-bar-bg{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden}
@@ -203,7 +204,7 @@ h3{
 
 /* ── AI ops cards ── */
 .ai-card{
-  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+  background:rgba(12,14,26,0.02);border:1px solid var(--border);
   border-radius:14px;padding:1.25rem 1.4rem;
   flex:1;min-width:160px;max-width:220px;
   box-shadow:var(--shadow-sm);
@@ -231,7 +232,7 @@ h3{
   display:flex;align-items:center;justify-content:center;
   font-size:.68rem;font-weight:600;color:white;
 }
-.f1{background:var(--accent)}.f2{background:rgba(255,92,58,.6)}.f3{background:rgba(239,236,231,.14)}.f4{background:rgba(16,185,129,.6)}
+.f1{background:var(--accent)}.f2{background:rgba(99,91,255,.6)}.f3{background:rgba(12,14,26,.18)}.f4{background:rgba(16,185,129,.6)}
 
 /* ── Cover logo ── */
 .ode-logo{
@@ -252,19 +253,19 @@ h3{
 /* ── Pill badge ── */
 .pill{
   display:inline-flex;align-items:center;
-  background:rgba(255,92,58,.12);color:var(--accent);
-  border:1px solid rgba(255,92,58,.2);
+  background:rgba(99,91,255,.12);color:var(--accent);
+  border:1px solid rgba(99,91,255,.2);
   border-radius:999px;padding:.25rem .8rem;
   font-size:.78rem;font-weight:600;
 }
 
-/* ── Lang button dark theme override ── */
-#lang-btn{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important;}
-#lang-btn:hover{background:rgba(255,255,255,.10)!important;}
+/* ── Lang button light theme override ── */
+#lang-btn{background:rgba(12,14,26,.05)!important;border-color:rgba(12,14,26,.12)!important;}
+#lang-btn:hover{background:rgba(12,14,26,.08)!important;}
 
-/* ── Dark theme: recover --midnight inline references ── */
-/* --midnight is now #191a1b (dark surface), so inline color:var(--midnight)
-   would be invisible. Override with accent for emphasis text. */
+/* ── Light theme: recover --midnight inline references ── */
+/* --midnight is now #E8E4DC (light card surface), so inline color:var(--midnight)
+   would be near-invisible on light bg. Override with accent for emphasis text. */
 .hero-sub strong[style*="color:var(--midnight)"],
 p strong[style*="color:var(--midnight)"],
 strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
@@ -277,11 +278,12 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
   .comp-table{font-size:.75rem}
 }
 </style>
+<link rel="stylesheet" href="deck-theme.css">
 </head>
 <body>
 <div class="progress" id="progress"></div>
-<a href="index.html" id="back-btn" style="position:fixed;top:16px;left:32px;z-index:200;padding:.3rem .85rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.12);border-radius:6px;font-size:.72rem;font-weight:600;text-decoration:none;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s,color .2s" onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.color='white'" onmouseout="this.style.background='rgba(255,255,255,.04)';this.style.color='rgba(255,255,255,.65)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
-<button id="lang-btn" onclick="toggleLang()" style="position:fixed;top:16px;right:80px;z-index:200;padding:.3rem .85rem;background:rgba(10,37,64,.85);color:white;border:1px solid rgba(255,255,255,.2);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s">中文</button>
+<a href="index.html" id="back-btn" style="position:fixed;top:16px;left:32px;z-index:200;padding:.3rem .85rem;background:rgba(12,14,26,.05);color:rgba(12,14,26,.55);border:1px solid rgba(12,14,26,.12);border-radius:6px;font-size:.72rem;font-weight:600;text-decoration:none;font-family:'Inter',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s,color .2s" onmouseover="this.style.background='rgba(12,14,26,.09)';this.style.color='rgba(12,14,26,.85)'" onmouseout="this.style.background='rgba(12,14,26,.05)';this.style.color='rgba(12,14,26,.55)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
+<button id="lang-btn" onclick="toggleLang()" style="position:fixed;top:16px;right:80px;z-index:200;padding:.3rem .85rem;background:rgba(12,14,26,.06);color:rgba(12,14,26,.75);border:1px solid rgba(12,14,26,.12);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:'Inter',-apple-system,sans-serif;letter-spacing:.04em;backdrop-filter:blur(8px);transition:background .2s">中文</button>
 <div class="deck" id="deck">
 
 <!-- ══════════════════════════════════════════
@@ -510,10 +512,10 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
             text-decoration:none;
             letter-spacing:-.01em;
             white-space:nowrap;
-            box-shadow:0 0 0 1px rgba(255,92,58,0.4),0 8px 32px rgba(255,92,58,0.25);
+            box-shadow:0 0 0 1px rgba(99,91,255,0.4),0 8px 32px rgba(99,91,255,0.22);
             transition:background .2s,box-shadow .2s"
-     onmouseover="this.style.background='#FF7255';this.style.boxShadow='0 0 0 1px rgba(255,114,85,0.5),0 12px 40px rgba(255,92,58,0.35)'"
-     onmouseout="this.style.background='#FF5C3A';this.style.boxShadow='0 0 0 1px rgba(255,92,58,0.4),0 8px 32px rgba(255,92,58,0.25)'">
+     onmouseover="this.style.background='#7B74FF';this.style.boxShadow='0 0 0 1px rgba(123,116,255,0.5),0 12px 40px rgba(99,91,255,0.35)'"
+     onmouseout="this.style.background='#635BFF';this.style.boxShadow='0 0 0 1px rgba(99,91,255,0.4),0 8px 32px rgba(99,91,255,0.22)'">
     <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6">
       <circle cx="10" cy="10" r="8"/>
       <polygon points="8,7 14,10 8,13" fill="currentColor" stroke="none"/>
@@ -565,7 +567,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     </div>
 
     <!-- ODE -->
-    <div class="card" style="flex:1;border:1px solid rgba(255,92,58,0.28);background:rgba(255,92,58,0.05)">
+    <div class="card" style="flex:1;border:1px solid rgba(99,91,255,0.22);background:rgba(99,91,255,0.05)">
       <h3 style="color:var(--accent);font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin-bottom:1rem" data-en="ODE — outcome delivered" data-zh="ODE — 直接交付结果">ODE — outcome delivered</h3>
       <div style="display:flex;flex-direction:column;gap:.5rem;font-size:.8rem">
         <div style="display:flex;justify-content:space-between;align-items:baseline">
@@ -588,7 +590,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
           <span style="color:var(--text2)" data-en="Browser · zero IT · instant start" data-zh="浏览器 · 零IT · 即开即用">Browser · zero IT · instant start</span>
           <span style="font-family:var(--mono);color:var(--success);font-weight:600;font-size:.78rem" data-en="0 days" data-zh="0天">0 days</span>
         </div>
-        <div style="border-top:1px solid rgba(255,92,58,0.2);padding-top:.5rem;display:flex;justify-content:space-between;align-items:baseline">
+        <div style="border-top:1px solid rgba(99,91,255,0.2);padding-top:.5rem;display:flex;justify-content:space-between;align-items:baseline">
           <span style="color:var(--text);font-weight:600" data-en="True cost per team / year" data-zh="团队年度真实成本">True cost per team / year</span>
           <span style="font-family:var(--mono);color:var(--success);font-weight:700;font-size:.9rem">$2K–24K</span>
         </div>
@@ -750,7 +752,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
   <div class="row mt-4" style="max-width:880px;align-items:stretch;gap:1.5rem">
 
     <!-- Enterprise -->
-    <div class="card" style="flex:1;border:1px solid rgba(255,92,58,0.25);background:rgba(255,92,58,0.04)">
+    <div class="card" style="flex:1;border:1px solid rgba(99,91,255,0.22);background:rgba(99,91,255,0.04)">
       <div style="font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:.85rem" data-en="Enterprise · Professional" data-zh="企业版 · 专业级">Enterprise · Professional</div>
       <div style="font-size:.85rem;color:var(--text2);line-height:1.8;display:flex;flex-direction:column;gap:.45rem">
         <div>🏭 <span data-en="Aerospace · Automotive · Defense · Medical" data-zh="航空航天 · 汽车 · 国防 · 医疗">Aerospace · Automotive · Defense · Medical</span></div>
@@ -865,16 +867,16 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="20" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".15"/>
-          <line x1="32" y1="10" x2="32" y2="54" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".18"/>
-          <line x1="10" y1="32" x2="54" y2="32" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".18"/>
-          <circle cx="32" cy="14" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="50" cy="32" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="32" cy="50" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="14" cy="32" r="2.2" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="32" cy="32" r="6" fill="#FF5C3A" fill-opacity=".18"/>
-          <circle cx="32" cy="32" r="4" fill="#FF5C3A"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
+          <circle cx="32" cy="32" r="20" stroke="#635BFF" stroke-width=".7" stroke-opacity=".15"/>
+          <line x1="32" y1="10" x2="32" y2="54" stroke="#635BFF" stroke-width=".8" stroke-opacity=".18"/>
+          <line x1="10" y1="32" x2="54" y2="32" stroke="#635BFF" stroke-width=".8" stroke-opacity=".18"/>
+          <circle cx="32" cy="14" r="2.2" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="50" cy="32" r="2.2" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="32" cy="50" r="2.2" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="14" cy="32" r="2.2" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="6" fill="#635BFF" fill-opacity=".18"/>
+          <circle cx="32" cy="32" r="4" fill="#635BFF"/>
           <circle cx="32" cy="32" r="2" fill="#FF9A85"/>
         </svg>
       </div>
@@ -887,7 +889,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
           <line x1="32" y1="18" x2="44" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
           <line x1="32" y1="18" x2="20" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
           <line x1="20" y1="42" x2="44" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
@@ -909,7 +911,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
           <rect x="19" y="19" width="24" height="24" rx="4" stroke="#10b981" stroke-width="1.3" stroke-opacity=".7" transform="rotate(-12 31 31)"/>
           <rect x="21" y="21" width="24" height="24" rx="4" stroke="#10b981" stroke-width="1.1" stroke-opacity=".35" transform="rotate(12 33 33)"/>
           <circle cx="32" cy="32" r="3" fill="#10b981" fill-opacity=".9"/>
@@ -925,7 +927,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
           <rect x="14" y="21" width="36" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".75"/>
           <rect x="14" y="30" width="26" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".5"/>
           <rect x="14" y="39" width="18" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".3"/>
@@ -940,7 +942,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
           <polygon points="32,13 46,21.5 46,38.5 32,47 18,38.5 18,21.5" stroke="#fb7185" stroke-width="1.1" stroke-opacity=".45" fill="rgba(251,113,133,0.04)"/>
           <line x1="32" y1="13" x2="32" y2="30" stroke="#fb7185" stroke-width=".6" stroke-opacity=".2"/>
           <line x1="46" y1="30" x2="32" y2="30" stroke="#fb7185" stroke-width=".6" stroke-opacity=".2"/>
@@ -963,7 +965,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
           <line x1="13" y1="47" x2="51" y2="47" stroke="#22d3ee" stroke-width=".8" stroke-opacity=".25"/>
           <rect x="14" y="39" width="8" height="8" rx="1.5" fill="#22d3ee" fill-opacity=".32"/>
           <rect x="25" y="30" width="8" height="17" rx="1.5" fill="#22d3ee" fill-opacity=".55"/>
@@ -980,18 +982,18 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="29" stroke="#FF5C3A" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
-          <line x1="32" y1="32" x2="32" y2="17" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="32" x2="45" y2="40" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="32" x2="19" y2="40" stroke="#FF5C3A" stroke-width=".7" stroke-opacity=".3"/>
-          <line x1="32" y1="17" x2="45" y2="40" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
-          <line x1="45" y1="40" x2="19" y2="40" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
-          <line x1="19" y1="40" x2="32" y2="17" stroke="#FF5C3A" stroke-width=".5" stroke-opacity=".15"/>
-          <circle cx="32" cy="17" r="3" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="45" cy="40" r="3" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="19" cy="40" r="3" fill="#FF5C3A" fill-opacity=".65"/>
-          <circle cx="32" cy="32" r="3.5" fill="#FF5C3A" fill-opacity=".35"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
+          <circle cx="32" cy="32" r="29" stroke="#635BFF" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <line x1="32" y1="32" x2="32" y2="17" stroke="#635BFF" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="45" y2="40" stroke="#635BFF" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="19" y2="40" stroke="#635BFF" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="17" x2="45" y2="40" stroke="#635BFF" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="45" y1="40" x2="19" y2="40" stroke="#635BFF" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="19" y1="40" x2="32" y2="17" stroke="#635BFF" stroke-width=".5" stroke-opacity=".15"/>
+          <circle cx="32" cy="17" r="3" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="45" cy="40" r="3" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="19" cy="40" r="3" fill="#635BFF" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="3.5" fill="#635BFF" fill-opacity=".35"/>
         </svg>
       </div>
       <div class="m-name">Sales &amp; Channel</div>
@@ -1003,12 +1005,12 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
     <div class="member">
       <div class="avatar">
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
-          <circle cx="32" cy="32" r="29" stroke="#FF5C3A" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
-          <path d="M 26 40 A 6 6 0 0 1 38 40" stroke="#FF5C3A" stroke-width="1.4" stroke-opacity=".85" stroke-linecap="round"/>
-          <path d="M 20 40 A 12 12 0 0 1 44 40" stroke="#FF5C3A" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"/>
-          <path d="M 14 40 A 18 18 0 0 1 50 40" stroke="#FF5C3A" stroke-width=".8" stroke-opacity=".25" stroke-linecap="round"/>
-          <circle cx="32" cy="40" r="3" fill="#FF5C3A" fill-opacity=".75"/>
+          <circle cx="32" cy="32" r="32" fill="#ECEEF6"/>
+          <circle cx="32" cy="32" r="29" stroke="#635BFF" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <path d="M 26 40 A 6 6 0 0 1 38 40" stroke="#635BFF" stroke-width="1.4" stroke-opacity=".85" stroke-linecap="round"/>
+          <path d="M 20 40 A 12 12 0 0 1 44 40" stroke="#635BFF" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"/>
+          <path d="M 14 40 A 18 18 0 0 1 50 40" stroke="#635BFF" stroke-width=".8" stroke-opacity=".25" stroke-linecap="round"/>
+          <circle cx="32" cy="40" r="3" fill="#635BFF" fill-opacity=".75"/>
           <circle cx="32" cy="40" r="1.4" fill="#FF9A85"/>
         </svg>
       </div>

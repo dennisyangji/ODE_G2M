@@ -5,111 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ODE — GTM Strategy Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#08090a;
-  --white:#0f1011;
-  --text:#f7f8f8;
-  --text2:#d0d6e0;
-  --text3:#8a8f98;
-  --text4:#62666d;
-  --border:rgba(255,255,255,0.08);
-  --border-s:rgba(255,255,255,0.05);
-  --accent:#7170ff;
-  --midnight:#191a1b;
-  --success:#10b981;
-  --warning:#fbbf24;
-  --error:#fb7185;
-  --ai:#7170ff;
-  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
-  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
-  --sh:0 0 0 1px rgba(255,255,255,0.06),0 2px 8px rgba(0,0,0,0.3);
-  --shm:0 0 0 1px rgba(255,255,255,0.08),0 4px 16px rgba(0,0,0,0.4);
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-feature-settings:"cv01","ss03"}
-.page-header{background:rgba(8,9,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
-.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,0.35);margin-bottom:.2rem}
-.ph-title{font-size:.95rem;font-weight:600}
-.ph-meta{font-size:.68rem;color:rgba(255,255,255,0.28);text-align:right;line-height:1.6}
-.dash-nav{background:#0f1011;border-bottom:1px solid var(--border-s);box-shadow:none;padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;overflow-x:auto}
-.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text3);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
-.nav-item:hover{color:var(--text);border-bottom-color:var(--accent)}.nav-item.active{color:var(--text);border-bottom-color:var(--accent)}
-.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border-s);border-bottom:1px solid var(--border-s)}
-.stat-cell{background:#08090a;padding:1.1rem 1.75rem}
-.stat-num{font-size:1.8rem;font-weight:700;color:var(--text);font-family:var(--mono);line-height:1}
-.stat-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.09em}
-.dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
-.section{margin-bottom:4.5rem}
-.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border-s);margin-bottom:2rem}
-.sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
-.sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
-.sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
-.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh);transition:background .2s}
-.card:hover{background:rgba(255,255,255,0.04)}
-.card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
-.insight{background:rgba(113,112,255,0.08);border:1px solid rgba(113,112,255,0.18);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
-.ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
-.ins-text{font-size:.92rem;font-weight:600;line-height:1.55}
-.tbl{width:100%;border-collapse:collapse;font-size:.8rem}
-.tbl th{text-align:left;padding:.6rem .9rem;background:#191a1b;color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
-.tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
-.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border-s);color:var(--text3);vertical-align:top;line-height:1.5}
-.tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:rgba(113,112,255,0.04)}
-.tbl .hl td{background:rgba(113,112,255,0.06);color:var(--text2)}
-.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
-.p-blue{background:rgba(113,112,255,0.15);color:var(--accent)}
-.p-green{background:rgba(16,185,129,.15);color:#10b981}
-.p-amber{background:rgba(255,159,10,.12);color:#fbbf24}
-.p-navy{background:rgba(255,255,255,0.07);color:var(--text2)}
-.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.35rem;flex-shrink:0;vertical-align:middle}
-.d-g{background:var(--success)}.d-a{background:var(--warning)}.d-r{background:var(--error)}.d-b{background:var(--accent)}
-/* Bar chart */
-.bc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;margin-bottom:.55rem}
-.bc-label{min-width:110px;color:var(--text2);text-align:right;font-size:.75rem}
-.bc-track{flex:1;background:rgba(255,255,255,0.05);border-radius:3px;height:10px;overflow:hidden}
-.bc-fill{height:100%;border-radius:3px}
-.bc-val{min-width:52px;color:var(--text);font-family:var(--mono);font-size:.72rem;text-align:right}
-/* Funnel */
-.funnel{display:flex;flex-direction:column;gap:2px;align-items:stretch}
-.funnel-row{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;display:flex;justify-content:space-between;align-items:center}
-.fr-stage{font-size:.8rem;font-weight:600;color:var(--text)}
-.fr-metric{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:600}
-.fr-note{font-size:.7rem;color:var(--text3)}
+@import url("gtm-sales-base.css");
 /* MRR chart */
 .mrr-chart{display:flex;align-items:flex-end;gap:4px;height:120px;width:100%;margin-top:.75rem}
 .mrr-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
-.mrr-bar{width:100%;border-radius:4px 4px 0 0;min-height:3px;background:linear-gradient(to top,rgba(113,112,255,0.4),var(--accent))}
+.mrr-bar{width:100%;border-radius:4px 4px 0 0;min-height:3px;background:linear-gradient(to top,rgba(99,91,255,0.35),var(--accent))}
 .mrr-lbl{font-size:.55rem;color:var(--text3);margin-top:3px;font-family:var(--mono)}
 .mrr-val{font-size:.55rem;color:var(--text2);margin-bottom:2px;font-family:var(--mono)}
-/* Tam boxes */
-.tam-box{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;padding:1.1rem;text-align:center}
-.tam-num{font-size:1.5rem;font-weight:700;color:var(--text);font-family:var(--mono);line-height:1}
-.tam-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin:.3rem 0 .2rem}
-.tam-sub{font-size:.7rem;color:var(--text2)}
-/* Phase row */
-.phase-row{display:flex;border-radius:10px;overflow:hidden;margin-bottom:.5rem}
-.ph-num{background:#191a1b;color:white;font-size:.72rem;font-weight:700;padding:.6rem .9rem;display:flex;align-items:center;min-width:80px}
-.ph-title-cell{background:rgba(113,112,255,0.06);border:1px solid rgba(113,112,255,0.15);border-left:none;flex:1;padding:.6rem .9rem;font-size:.78rem;color:var(--text)}
-.ph-target{background:rgba(113,112,255,0.04);border:1px solid rgba(113,112,255,0.15);border-left:none;padding:.6rem .9rem;font-size:.72rem;color:var(--accent);font-family:var(--mono);display:flex;align-items:center;min-width:130px}
-@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr 1fr}.dash-main{padding:1.5rem 1rem}}
 </style>
+<link rel="stylesheet" href="deck-theme.css">
 </head>
 <body>
 <div class="page-header" style="display:flex;align-items:center">
-  <a href="index.html" style="padding:.28rem .8rem;background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.1);border-radius:6px;font-size:.7rem;font-weight:590;text-decoration:none;letter-spacing:.04em;flex-shrink:0;margin-right:1.25rem;white-space:nowrap;transition:background .18s,color .18s" onmouseover="this.style.background='rgba(255,255,255,.09)';this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.background='rgba(255,255,255,.04)';this.style.color='rgba(255,255,255,.6)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
+  <a href="index.html" style="padding:.28rem .8rem;background:rgba(12,14,26,.05);color:rgba(12,14,26,.6);border:1px solid rgba(12,14,26,.12);border-radius:6px;font-size:.7rem;font-weight:590;text-decoration:none;letter-spacing:.04em;flex-shrink:0;margin-right:1.25rem;white-space:nowrap;transition:background .18s,color .18s" onmouseover="this.style.background='rgba(12,14,26,.09)';this.style.color='rgba(12,14,26,.9)'" onmouseout="this.style.background='rgba(12,14,26,.05)';this.style.color='rgba(12,14,26,.6)'" data-en="← Hub" data-zh="← 主页">← Hub</a>
   <div>
     <div class="ph-eyebrow">Orthogonal Design Engineering · ODE</div>
-    <div class="ph-title" data-en="Go-to-Market Strategy — Executive Dashboard" data-zh="市场进入策略 — 管理层仪表板">Go-to-Market Strategy — Executive Dashboard</div>
+    <div class="ph-title" data-en="GTM Strategy" data-zh="市场进入策略">GTM Strategy</div>
   </div>
   <div class="ph-meta" data-en="April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap" data-zh="2026年4月 &nbsp;·&nbsp; 内部保密文件<br>市场 · 客户画像 · 营收 · 渠道 · 路线图">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap</div>
-  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
+  <button id="lang-btn" onclick="toggleLang()" style="padding:.3rem .85rem;background:rgba(12,14,26,.06);color:rgba(12,14,26,.75);border:1px solid rgba(12,14,26,.12);border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.04em;transition:background .2s;flex-shrink:0;align-self:center;margin-left:1.5rem">中文</button>
 </div>
 <nav class="dash-nav" id="nav">
   <a href="#market" class="nav-item active" data-en="01 Market" data-zh="01 市场机会">01 Market</a>
@@ -152,7 +68,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         <div class="tam-label" data-en="SOM Year 1" data-zh="SOM 第一年">SOM Year 1</div>
         <div class="tam-sub" data-en="Realistic capture across all 5 segments" data-zh="5大客户群可实现的合理份额">Realistic capture across all 5 segments</div>
       </div>
-      <div class="tam-box" style="border-color:rgba(113,112,255,.3);background:rgba(113,112,255,.06)">
+      <div class="tam-box" style="border-color:rgba(99,91,255,.16);background:rgba(99,91,255,.06)">
         <div class="tam-num" style="color:var(--accent)">$800M</div>
         <div class="tam-label" data-en="Beachhead" data-zh="滩头阵地">Beachhead</div>
         <div class="tam-sub" data-en="AI-native tools subsegment · 45%+ growth" data-zh="AI原生工具细分市场 · 年增长45%+">AI-native tools subsegment · 45%+ growth</div>
@@ -657,13 +573,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
       <span class="sec-sub" data-en="PLG · Direct SLG · Distribution partners · Budget allocation" data-zh="PLG · 直销SLG · 分销合作 · 预算分配">PLG · Direct SLG · Distribution partners · Budget allocation</span>
     </div>
     <div class="g3" style="margin-bottom:1.5rem">
-      <div class="card" style="border-color:rgba(113,112,255,.25);background:rgba(113,112,255,.05)">
+      <div class="card" style="border-color:rgba(99,91,255,.16);background:rgba(99,91,255,.05)">
         <div class="card-title" data-en="PLG — Product-Led Growth" data-zh="PLG — 产品主导增长">PLG — Product-Led Growth</div>
         <div style="font-size:1.4rem;font-weight:700;color:var(--accent);font-family:var(--mono);margin-bottom:.3rem" data-en="40% of ARR" data-zh="占ARR 40%">40% of ARR</div>
         <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>Funnel: Sign-up → First simulation (60s) → 40% activation (7 days) → 5% free→paid (30 days)" data-zh="免费50K tokens/月。工程师自主激活。触达限额→升级。无需销售通话。CAC目标：&lt;$500。<br><br>漏斗：注册 → 首次仿真（60秒）→ 40%激活率（7天）→ 5%免费转付费（30天）">Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>
         Funnel: Sign-up → First simulation (60s) → 40% activation (7 days) → 5% free→paid (30 days)</div>
       </div>
-      <div class="card" style="border-color:rgba(255,255,255,.1);background:rgba(255,255,255,.025)">
+      <div class="card" style="border-color:rgba(12,14,26,.1);background:rgba(12,14,26,.025)">
         <div class="card-title" data-en="Direct Sales — SLG" data-zh="直销 — 销售主导增长">Direct Sales — SLG</div>
         <div style="font-size:1.4rem;font-weight:700;color:var(--text);font-family:var(--mono);margin-bottom:.3rem">40% of ARR</div>
         <div style="font-size:.8rem;color:var(--text2);line-height:1.6" data-en="AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>ACV: $50K–$500K · Cycle: 3–6 months · Pilot→close: 30%" data-zh="AI辅助ABM：每周在Clay中触达100个ICP账户。个性化触达 → 发现需求 → 30天试用 → 企业服务套餐。<br><br>ACV: $50K–$500K · 周期: 3–6个月 · 试用转签: 30%">AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>

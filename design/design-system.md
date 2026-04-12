@@ -1,19 +1,19 @@
 # ODE Design System Specification
 
-**Version:** 2.0 — Apple-Inspired  
+**Version:** 2.1 — Warm Neutral Marketing System
 **Last Updated:** 2026-04-12  
 **Platform:** Orthogonal ODE — The Dassault of the AI Era  
-**Design Reference:** Apple Design System (SF Pro, premium white space, cinematic)
+**Design Reference:** Warm neutral editorial system (Plus Jakarta Sans, cinematic white space, orange accent)
 
 ---
 
 ## 0. Design Philosophy
 
-ODE's visual identity follows Apple's core principle: **the product is the message**. Every pixel of whitespace communicates confidence. Every typographic choice communicates precision. We do not decorate — we reveal.
+ODE's visual identity follows the same core principle: **the product is the message**. Every pixel of whitespace communicates confidence. Every typographic choice communicates precision. We do not decorate — we reveal.
 
 > "Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs
 
-Applied to ODE: the interface should feel like a precision instrument, not a dashboard. Engineers should feel that using ODE is the same category of experience as using a MacBook Pro — unmistakably high quality, unmistakably purposeful.
+Applied to ODE: the interface should feel like a precision instrument, not a dashboard. Engineers should feel that using ODE is the same category of experience as using a premium editorial product — unmistakably high quality, unmistakably purposeful.
 
 ---
 
@@ -25,7 +25,7 @@ Applied to ODE: the interface should feel like a precision instrument, not a das
 - If an element cannot be justified with a single sentence, it should not exist.
 
 ### 1.2 Typographic Hierarchy as Structure
-- SF Pro does the heavy lifting. Typography IS the layout.
+- Plus Jakarta Sans does the heavy lifting for public and marketing surfaces. Typography IS the layout.
 - Three weights maximum per screen: Light (body), Regular (UI), Semibold (emphasis).
 - Numerical values: always monospaced, always right-aligned, always with units.
 
@@ -74,52 +74,52 @@ The `640px` value is used as a content breakpoint for internal component reflow 
 
 ## 3. Color Modes
 
-### 3.0 Apple-Inspired Colour Philosophy
+### 3.0 Warm Neutral Colour Philosophy
 
-Light is the default marketing mode. Dark is the default product mode. Both must feel equally intentional — not a palette swap.
+Light is the default marketing mode. Dark is the default product mode. Both must feel equally intentional - not a palette swap.
 
 **Brand Palette:**
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `brand-blue` | `#0A2540` | Primary brand, hero text, nav |
-| `brand-accent` | `#0071E3` | CTAs, links, interactive elements |
-| `brand-accent-hover` | `#0077ED` | Hover state on accent |
-| `white` | `#FFFFFF` | Primary background (light) |
-| `off-white` | `#F5F5F7` | Secondary background (light) |
-| `near-black` | `#1D1D1F` | Primary text (light mode) |
-| `mid-grey` | `#6E6E73` | Secondary text, captions |
-| `light-grey` | `#D2D2D7` | Dividers, borders |
+| `brand-ink` | `#0A0A09` | Primary brand, hero text, nav |
+| `brand-accent` | `#FF5C3A` | CTAs, links, interactive elements |
+| `brand-accent-hover` | `#FF7255` | Hover state on accent |
+| `surface-base` | `#F7F5F0` | Primary background (light) |
+| `surface-raised` | `#EFECE7` | Secondary background / cards |
+| `text-primary` | `#0A0A09` | Primary text (light mode) |
+| `text-secondary` | `#3C3A36` | Secondary text, captions |
+| `border-default` | `#D7D2C8` | Dividers, borders |
 
 ### 3.1 Light Mode (Default for Marketing + Public Surfaces)
 
-Apple uses light as the hero mode for product marketing. ODE follows this for all public-facing surfaces (website, landing pages, pitch deck, email).
+Light is the hero mode for product marketing. ODE follows this for all public-facing surfaces (website, landing pages, pitch deck, email).
 
 - **Surface hierarchy (light):**
-  - `surface-base`: `#FFFFFF` — primary background
-  - `surface-raised`: `#F5F5F7` — cards, hero sections
+  - `surface-base`: `#F7F5F0` - primary background
+  - `surface-raised`: `#EFECE7` - cards, hero sections
   - `surface-overlay`: `#FFFFFF` with shadow `0 2px 8px rgba(0,0,0,0.08)`
-  - `surface-subtle`: `#F5F5F7` — hover states, subtle fills
+  - `surface-subtle`: `#E8E4DC` - hover states, subtle fills
 - **Text on light surfaces:**
-  - `text-primary`: `#1D1D1F`
-  - `text-secondary`: `#6E6E73`
-  - `text-tertiary`: `#86868B`
-  - `text-disabled`: `#AEAEB2`
+  - `text-primary`: `#0A0A09`
+  - `text-secondary`: `#3C3A36`
+  - `text-tertiary`: `#8E8980`
+  - `text-disabled`: `#B8B3A8`
 
 ### 3.2 Dark Mode (Default for Product UI)
 
 Engineers spend extended hours in the platform; dark surfaces reduce eye strain and align with the engineering tool aesthetic.
 
 - **Surface hierarchy (dark):**
-  - `surface-base`: `#000000` — pure black (Apple dark style)
-  - `surface-raised`: `#1C1C1E` — cards, panels
-  - `surface-overlay`: `#2C2C2E` — dropdowns, dialogs
-  - `surface-subtle`: `#3A3A3C` — hover states, dividers
+  - `surface-base`: `#0A0A09` - near black
+  - `surface-raised`: `#1A1916` - cards, panels
+  - `surface-overlay`: `#2E2C28` - dropdowns, dialogs
+  - `surface-subtle`: `#3A3733` - hover states, dividers
 - **Text on dark surfaces:**
-  - `text-primary`: `#F5F5F7`
-  - `text-secondary`: `#AEAEB2`
-  - `text-tertiary`: `#6E6E73`
-  - `text-disabled`: `#48484A`
+  - `text-primary`: `#F7F5F0`
+  - `text-secondary`: `#C8C3BB`
+  - `text-tertiary`: `#8E8980`
+  - `text-disabled`: `#585450`
 
 ### 3.3 Mode Switching
 - Respect `prefers-color-scheme` on first visit.

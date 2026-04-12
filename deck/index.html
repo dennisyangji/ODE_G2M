@@ -5,32 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ODE — Go-To-Market Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#08090a;
-  --surface:#0f1011;
-  --surface2:#191a1b;
-  --surface3:#28282c;
-  --text:#f7f8f8;
-  --text2:#d0d6e0;
-  --text3:#8a8f98;
-  --text4:#62666d;
-  --accent:#7170ff;
-  --accent-bg:#5e6ad2;
-  --accent-hover:#828fff;
-  --border:rgba(255,255,255,0.08);
-  --border-s:rgba(255,255,255,0.05);
-  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
-  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --bg:#FFFFFF;
+  --surface:#F7F8FC;
+  --surface2:#ECEEF6;
+  --surface3:#E0E3EF;
+  --text:#0C0E1A;
+  --text2:#2D3055;
+  --text3:#6B6F8E;
+  --text4:#9EA3B8;
+  --accent:#635BFF;
+  --accent-bg:#4F46E5;
+  --accent-hover:#7B74FF;
+  --border:rgba(12,14,26,0.08);
+  --border-s:rgba(12,14,26,0.05);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
 }
 
 html{scroll-behavior:smooth}
 body{
   font-family:var(--font);
-  font-feature-settings:"cv01","ss03";
+  font-feature-settings:normal;
   background:var(--bg);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
@@ -40,10 +40,10 @@ body{
 /* ── NAV ── */
 .nav{
   position:sticky;top:0;z-index:100;
-  background:rgba(8,9,10,0.85);
+  background:rgba(255,255,255,0.92);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border-s);
-  padding:0 2.5rem;
+  padding:0 max(2.5rem, calc((100% - 980px) / 2 + 2.5rem));
   display:flex;align-items:center;justify-content:space-between;
   height:52px;
 }
@@ -72,18 +72,18 @@ body{
 /* ── LANG TOGGLE ── */
 #lang-btn{
   padding:.28rem .8rem;
-  background:rgba(255,255,255,0.04);
+  background:rgba(12,14,26,0.03);
   color:var(--text2);
   border:1px solid var(--border);
   border-radius:6px;
   font-size:.7rem;font-weight:590;
   cursor:pointer;
   font-family:var(--font);
-  font-feature-settings:"cv01","ss03";
+  font-feature-settings:normal;
   letter-spacing:.05em;
   transition:background .18s,color .18s;
 }
-#lang-btn:hover{background:rgba(255,255,255,0.07);color:var(--text)}
+#lang-btn:hover{background:rgba(12,14,26,0.06);color:var(--text)}
 
 /* ── HERO ── */
 .hero{
@@ -98,8 +98,8 @@ body{
   letter-spacing:.1em;text-transform:uppercase;
   margin-bottom:1.6rem;
   padding:.3rem .85rem;
-  background:rgba(113,112,255,0.1);
-  border:1px solid rgba(113,112,255,0.2);
+  background:rgba(99,91,255,0.08);
+  border:1px solid rgba(99,91,255,0.16);
   border-radius:9999px;
 }
 .hero-eyebrow::before{
@@ -156,11 +156,11 @@ body{
 .card-hero{
   display:grid;grid-template-columns:1fr auto;
   align-items:center;gap:2rem;
-  background:rgba(255,255,255,0.02);
+  background:rgba(12,14,26,0.02);
   border:1px solid var(--border);
-  border-radius:12px;
-  padding:2rem 2.25rem;
-  margin-bottom:1px;
+  border-radius:14px;
+  padding:2.25rem 2.5rem;
+  margin-bottom:12px;
   text-decoration:none;
   transition:background .2s,border-color .2s;
   cursor:pointer;
@@ -170,38 +170,36 @@ body{
 .card-hero::before{
   content:'';position:absolute;
   inset:0;opacity:0;
-  background:radial-gradient(ellipse at 20% 50%,rgba(113,112,255,0.07),transparent 60%);
+  background:radial-gradient(ellipse at 20% 50%,rgba(99,91,255,0.06),transparent 60%);
   transition:opacity .4s;
 }
-.card-hero:hover{background:rgba(255,255,255,0.038);border-color:rgba(255,255,255,0.14)}
+.card-hero:hover{background:rgba(12,14,26,0.04);border-color:rgba(12,14,26,0.12)}
 .card-hero:hover::before{opacity:1}
 
 /* 4 secondary cards */
 .docs-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:1px;
-  background:var(--border-s);
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  margin-top:1px;
+  gap:12px;
+  margin-top:0;
 }
 .card{
-  background:rgba(255,255,255,0.015);
-  padding:1.75rem 2rem;
+  background:rgba(12,14,26,0.02);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:2rem 2.25rem;
   text-decoration:none;
-  transition:background .2s;
+  transition:background .2s,border-color .2s;
   cursor:pointer;
-  display:flex;flex-direction:column;gap:1rem;
+  display:flex;flex-direction:column;gap:1.1rem;
   position:relative;overflow:hidden;
 }
 .card::before{
   content:'';position:absolute;inset:0;opacity:0;
-  background:radial-gradient(ellipse at 0% 0%,rgba(113,112,255,0.05),transparent 60%);
+  background:radial-gradient(ellipse at 0% 0%,rgba(99,91,255,0.05),transparent 60%);
   transition:opacity .4s;
 }
-.card:hover{background:rgba(255,255,255,0.03)}
+.card:hover{background:rgba(12,14,26,0.03);border-color:rgba(12,14,26,0.12)}
 .card:hover::before{opacity:1}
 
 /* Card internals */
@@ -213,7 +211,7 @@ body{
   border-radius:9999px;
   width:fit-content;
 }
-.badge-violet{background:rgba(113,112,255,0.12);color:var(--accent)}
+.badge-violet{background:rgba(99,91,255,0.10);color:var(--accent)}
 .badge-blue{background:rgba(85,179,255,0.1);color:#55b3ff}
 .badge-green{background:rgba(16,185,129,0.1);color:#10b981}
 .badge-amber{background:rgba(251,191,36,0.1);color:#fbbf24}
@@ -263,7 +261,7 @@ a:hover .card-arrow{gap:.6rem}
   display:flex;
   border-top:1px solid var(--border-s);
   border-bottom:1px solid var(--border-s);
-  background:rgba(255,255,255,0.01);
+  background:rgba(12,14,26,0.02);
 }
 .stat-item{
   flex:1;
@@ -310,6 +308,7 @@ a:hover .card-arrow{gap:.6rem}
   .nav-sub{display:none}
 }
 </style>
+<link rel="stylesheet" href="deck-theme.css">
 </head>
 <body>
 
@@ -439,22 +438,23 @@ a:hover .card-arrow{gap:.6rem}
       </div>
     </a>
 
-    <!-- Brand Identity -->
-    <a class="card" href="brand-identity.html" style="border-color:rgba(255,92,58,0.25)">
+    <!-- Brand Identity (temporarily hidden)
+    <a class="card" href="brand-identity.html" style="border-color:rgba(99,91,255,0.20)">
       <div>
         <div class="card-num">05 / 06</div>
-        <div class="card-badge" style="background:rgba(255,92,58,0.1);color:#FF5C3A" data-en="Visual Identity" data-zh="视觉识别">Visual Identity</div>
+        <div class="card-badge" style="background:rgba(99,91,255,0.10);color:#635BFF" data-en="Visual Identity" data-zh="视觉识别">Visual Identity</div>
         <div style="height:.85rem"></div>
         <div class="card-title" data-en="ode. Brand System" data-zh="ode. 品牌系统">ode. Brand System</div>
       </div>
       <div class="card-desc" data-en="Dual-brand architecture (Orthogonal company + ode. product), signal color system, wordmark rules, typography, voice & tone, and brand-in-use applications." data-zh="双层品牌架构（Orthogonal 公司品牌 + ode. 产品品牌）、信号色系统、字标规范、字体、语调指南及品牌应用示例。">Dual-brand architecture (Orthogonal company + ode. product), signal color system, wordmark rules, typography, voice & tone, and brand-in-use applications.</div>
-      <div class="card-arrow" style="color:#FF5C3A">
+      <div class="card-arrow" style="color:#635BFF">
         <span data-en="View identity" data-zh="查看品牌">View identity</span>
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
           <path d="M3 8h10M9 4l4 4-4 4"/>
         </svg>
       </div>
     </a>
+    -->
 
     <!-- Sales -->
     <a class="card" href="sales-dashboard.html">
