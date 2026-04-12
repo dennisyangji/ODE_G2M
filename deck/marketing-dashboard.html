@@ -4,58 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ODE — Marketing Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F5F5F7;--white:#FFFFFF;--text:#1D1D1F;--text2:#6E6E73;--text3:#86868B;
-  --border:#D2D2D7;--accent:#0071E3;--midnight:#0A2540;
-  --success:#34C759;--warning:#FF9F0A;--error:#FF3B30;--ai:#5E5CE6;
-  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
-  --mono:"SF Mono","JetBrains Mono",Menlo,monospace;
-  --sh:0 2px 8px rgba(0,0,0,0.06);
+  --bg:#08090a;
+  --white:#0f1011;
+  --text:#f7f8f8;
+  --text2:#d0d6e0;
+  --text3:#8a8f98;
+  --text4:#62666d;
+  --border:rgba(255,255,255,0.08);
+  --border-s:rgba(255,255,255,0.05);
+  --accent:#7170ff;
+  --midnight:#191a1b;
+  --success:#10b981;
+  --warning:#fbbf24;
+  --error:#fb7185;
+  --ai:#7170ff;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
+  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --sh:0 0 0 1px rgba(255,255,255,0.06),0 2px 8px rgba(0,0,0,0.3);
+  --shm:0 0 0 1px rgba(255,255,255,0.08),0 4px 16px rgba(0,0,0,0.4);
 }
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
-.page-header{background:var(--midnight);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
-.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.2rem}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-feature-settings:"cv01","ss03"}
+.page-header{background:rgba(8,9,10,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-s);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
+.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,0.35);margin-bottom:.2rem}
 .ph-title{font-size:.95rem;font-weight:600}
-.ph-meta{font-size:.68rem;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
-.dash-nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;box-shadow:var(--sh);overflow-x:auto}
-.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
-.nav-item:hover{color:var(--accent)}.nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
-.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
-.stat-cell{background:var(--white);padding:1.1rem 1.75rem}
-.stat-num{font-size:1.8rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.ph-meta{font-size:.68rem;color:rgba(255,255,255,0.28);text-align:right;line-height:1.6}
+.dash-nav{background:#0f1011;border-bottom:1px solid var(--border-s);box-shadow:none;padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;overflow-x:auto}
+.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text3);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-item:hover{color:var(--text);border-bottom-color:var(--accent)}.nav-item.active{color:var(--text);border-bottom-color:var(--accent)}
+.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border-s);border-bottom:1px solid var(--border-s)}
+.stat-cell{background:#08090a;padding:1.1rem 1.75rem}
+.stat-num{font-size:1.8rem;font-weight:700;color:var(--text);font-family:var(--mono);line-height:1}
 .stat-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.09em}
 .dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
 .section{margin-bottom:4.5rem}
-.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:2px solid var(--border);margin-bottom:2rem}
+.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border-s);margin-bottom:2rem}
 .sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
 .sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
 .sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh)}
+.card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh);transition:background .2s}
+.card:hover{background:rgba(255,255,255,0.04)}
 .card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
-.insight{background:var(--midnight);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
+.insight{background:rgba(113,112,255,0.08);border:1px solid rgba(113,112,255,0.18);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
 .ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
 .ins-text{font-size:.92rem;font-weight:600;line-height:1.55}
 .tbl{width:100%;border-collapse:collapse;font-size:.8rem}
-.tbl th{text-align:left;padding:.6rem .9rem;background:var(--midnight);color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.tbl th{text-align:left;padding:.6rem .9rem;background:#191a1b;color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
 .tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
-.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border-s);color:var(--text3);vertical-align:top;line-height:1.5}
 .tbl tr:last-child td{border-bottom:none}
-.tbl tr:hover td{background:rgba(0,113,227,.025)}
-.tbl .hl td{color:var(--text);font-weight:600;background:rgba(0,113,227,.04)}
+.tbl tr:hover td{background:rgba(113,112,255,0.04)}
+.tbl .hl td{background:rgba(113,112,255,0.06);color:var(--text2)}
 .pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
-.p-blue{background:rgba(0,113,227,.1);color:var(--accent)}
-.p-green{background:rgba(52,199,89,.12);color:#28a745}
-.p-amber{background:rgba(255,159,10,.12);color:#c97a00}
-.p-navy{background:var(--midnight);color:white}
+.p-blue{background:rgba(113,112,255,0.15);color:var(--accent)}
+.p-green{background:rgba(16,185,129,.15);color:#10b981}
+.p-amber{background:rgba(251,191,36,.12);color:#fbbf24}
+.p-navy{background:rgba(255,255,255,0.07);color:var(--text2)}
 .bc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;margin-bottom:.55rem}
 .bc-label{min-width:130px;color:var(--text2);text-align:right;font-size:.75rem}
-.bc-track{flex:1;background:var(--bg);border-radius:3px;height:10px;overflow:hidden}
+.bc-track{flex:1;background:rgba(255,255,255,0.05);border-radius:3px;height:10px;overflow:hidden}
 .bc-fill{height:100%;border-radius:3px}
 .bc-val{min-width:60px;color:var(--text);font-family:var(--mono);font-size:.72rem;text-align:right}
 /* Funnel */
@@ -63,24 +78,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 .fs-bar{flex:1;position:relative;height:36px;border-radius:6px;display:flex;align-items:center;padding:0 .85rem;color:white;font-size:.78rem;font-weight:600}
 .fs-rate{font-family:var(--mono);font-size:.78rem;color:var(--text2);min-width:80px;text-align:right}
 /* Email sequence */
-.seq-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:.5rem}
+.seq-card{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;padding:1rem 1.25rem;margin-bottom:.5rem}
 .seq-trigger{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:.3rem}
 .seq-title{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.25rem}
 .seq-meta{font-size:.72rem;color:var(--text3)}
 /* Pillar card */
-.pillar{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.1rem;border-top:3px solid}
+.pillar{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:10px;padding:1.1rem;border-top:3px solid}
 .pillar-num{font-family:var(--mono);font-size:1.2rem;font-weight:700;line-height:1;margin-bottom:.3rem}
 .pillar-title{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:.2rem}
 .pillar-sub{font-size:.72rem;color:var(--text2);line-height:1.5}
 /* Cadence row */
-.cad-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border)}
+.cad-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;border-bottom:1px solid var(--border-s)}
 .cad-row:last-child{border-bottom:none}
 .cad-channel{font-size:.82rem;font-weight:600;color:var(--text);min-width:140px}
 .cad-freq{font-family:var(--mono);font-size:.78rem;color:var(--accent);min-width:110px}
 .cad-tool{font-size:.75rem;color:var(--text2);flex:1}
 .cad-human{font-size:.72rem;color:var(--text3);min-width:160px}
 /* Webinar card */
-.wb-row{display:flex;align-items:flex-start;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--border)}
+.wb-row{display:flex;align-items:flex-start;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--border-s)}
 .wb-row:last-child{border-bottom:none}
 .wb-date{font-family:var(--mono);font-size:.72rem;color:var(--text3);min-width:60px;margin-top:.15rem}
 .wb-title{font-size:.8rem;font-weight:500;color:var(--text);flex:1}
@@ -127,8 +142,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
       <div class="ins-text" data-en="No human writes a cold first draft. Claude generates; AI Marketing (0.5 FTE) refines in under 15 minutes. 5 content pieces per week, every week, from Day 1. AI output tracked as a team KPI." data-zh="没有人工撰写初稿。Claude生成；AI营销专员（0.5 FTE）在15分钟内精修。每周至少5篇内容，从第一天起持续执行。AI产出作为团队KPI追踪。">No human writes a cold first draft. Claude generates; AI Marketing (0.5 FTE) refines in under 15 minutes. 5 content pieces per week, every week, from Day 1. AI output tracked as a team KPI.</div>
     </div>
     <div class="g4" style="margin-bottom:1.5rem">
-      <div class="pillar" style="border-top-color:var(--midnight)">
-        <div class="pillar-num" style="color:var(--midnight)">01</div>
+      <div class="pillar" style="border-top-color:var(--text3)">
+        <div class="pillar-num" style="color:var(--text3)">01</div>
         <div class="pillar-title" data-en="AI-Native Engineering" data-zh="AI原生工程">AI-Native Engineering</div>
         <div class="pillar-sub" data-en="Why legacy CAD cannot be retrofitted for AI. Architecture-level analysis. CEO thought leadership." data-zh="传统CAD为何无法为AI改造。架构层分析。CEO思想领导力。">Why legacy CAD cannot be retrofitted for AI. Architecture-level analysis. CEO thought leadership.</div>
       </div>
@@ -223,14 +238,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         <table class="tbl" style="margin-top:.25rem">
           <thead><tr><th data-en="Metric" data-zh="指标">Metric</th><th data-en="Q2" data-zh="第二季度">Q2</th><th data-en="Q4" data-zh="第四季度">Q4</th></tr></thead>
           <tbody>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Monthly organic traffic" data-zh="月自然流量">Monthly organic traffic</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">25,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Email list size" data-zh="邮件列表规模">Email list size</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Blog→signup conversion" data-zh="博客→注册转化率">Blog→signup conversion</td><td style="font-family:var(--mono)">2%</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">4%</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Webinar attendance (avg)" data-zh="网络研讨会平均参与人数">Webinar attendance (avg)</td><td style="font-family:var(--mono)">50</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">150</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="LinkedIn followers" data-zh="LinkedIn粉丝数">LinkedIn followers</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">8,000</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="YouTube subscribers" data-zh="YouTube订阅数">YouTube subscribers</td><td style="font-family:var(--mono)">300</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">1,500</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Content-sourced MQLs/mo" data-zh="内容来源MQL/月">Content-sourced MQLs/mo</td><td style="font-family:var(--mono)">30</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">120</td></tr>
-            <tr><td style="font-weight:600;color:var(--text)" data-en="Content pipeline/mo" data-zh="内容贡献管道/月">Content pipeline/mo</td><td style="font-family:var(--mono)">$50K</td><td style="font-family:var(--mono);color:var(--midnight);font-weight:700">$200K</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Monthly organic traffic" data-zh="月自然流量">Monthly organic traffic</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">25,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Email list size" data-zh="邮件列表规模">Email list size</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">8,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Blog→signup conversion" data-zh="博客→注册转化率">Blog→signup conversion</td><td style="font-family:var(--mono)">2%</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">4%</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Webinar attendance (avg)" data-zh="网络研讨会平均参与人数">Webinar attendance (avg)</td><td style="font-family:var(--mono)">50</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">150</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="LinkedIn followers" data-zh="LinkedIn粉丝数">LinkedIn followers</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">8,000</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="YouTube subscribers" data-zh="YouTube订阅数">YouTube subscribers</td><td style="font-family:var(--mono)">300</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">1,500</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Content-sourced MQLs/mo" data-zh="内容来源MQL/月">Content-sourced MQLs/mo</td><td style="font-family:var(--mono)">30</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">120</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)" data-en="Content pipeline/mo" data-zh="内容贡献管道/月">Content pipeline/mo</td><td style="font-family:var(--mono)">$50K</td><td style="font-family:var(--mono);color:var(--accent);font-weight:700">$200K</td></tr>
           </tbody>
         </table>
       </div>
@@ -269,7 +284,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
             <div class="fs-rate" data-en="15% upgrade (90d)" data-zh="15%升级（90天）">15% upgrade (90d)</div>
           </div>
         </div>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,113,227,.06);border-radius:8px">
+        <div style="margin-top:1rem;padding:.75rem;background:rgba(113,112,255,0.08);border-radius:8px">
           <div style="font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.3rem" data-en="Activation Gate" data-zh="激活门槛">Activation Gate</div>
           <div style="font-size:.78rem;color:var(--text2)" data-en="Build 1+ AI model within 7 days = 40% target activation rate. This is the single most predictive signal for paid conversion." data-zh="7天内生成1个以上AI模型 = 40%激活率目标。这是付费转化的最强预测信号。">Build 1+ AI model within 7 days = 40% target activation rate. This is the single most predictive signal for paid conversion.</div>
         </div>
@@ -415,7 +430,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
             <tr><td style="font-weight:600;color:var(--text)" data-en="Technical whitepapers" data-zh="技术白皮书">Technical whitepapers</td><td>1× / quarter</td><td data-en="Lead magnet + authority" data-zh="获客钩子 + 权威性建立">Lead magnet + authority</td><td>Claude + designer polish</td></tr>
           </tbody>
         </table>
-        <div style="margin-top:1rem;padding:.75rem;background:rgba(0,113,227,.06);border-radius:8px;font-size:.78rem;color:var(--text2)" data-en='<strong style="color:var(--accent)">Phase A Priority:</strong> 8 pillar posts published before paid ads scale — "Dassault vs. ODE" comparisons, FEM/CFD guides, Modelica tutorials. These are the SEO foundation.' data-zh='<strong style="color:var(--accent)">阶段A优先：</strong>付费广告扩大规模前，先发布8篇支柱文章 — "达索 vs. ODE"对比、FEM/CFD指南、Modelica教程。这是SEO的基础。'>
+        <div style="margin-top:1rem;padding:.75rem;background:rgba(113,112,255,0.08);border-radius:8px;font-size:.78rem;color:var(--text2)" data-en='<strong style="color:var(--accent)">Phase A Priority:</strong> 8 pillar posts published before paid ads scale — "Dassault vs. ODE" comparisons, FEM/CFD guides, Modelica tutorials. These are the SEO foundation.' data-zh='<strong style="color:var(--accent)">阶段A优先：</strong>付费广告扩大规模前，先发布8篇支柱文章 — "达索 vs. ODE"对比、FEM/CFD指南、Modelica教程。这是SEO的基础。'>
           <strong style="color:var(--accent)">Phase A Priority:</strong> 8 pillar posts published before paid ads scale — "Dassault vs. ODE" comparisons, FEM/CFD guides, Modelica tutorials. These are the SEO foundation.
         </div>
       </div>

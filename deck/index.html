@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODE — Go-To-Market Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#08090a;
+  --surface:#0f1011;
+  --surface2:#191a1b;
+  --surface3:#28282c;
+  --text:#f7f8f8;
+  --text2:#d0d6e0;
+  --text3:#8a8f98;
+  --text4:#62666d;
+  --accent:#7170ff;
+  --accent-bg:#5e6ad2;
+  --accent-hover:#828fff;
+  --border:rgba(255,255,255,0.08);
+  --border-s:rgba(255,255,255,0.05);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
+  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  font-feature-settings:"cv01","ss03";
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(8,9,10,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border-s);
+  padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:52px;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  text-decoration:none;
+}
+.nav-mark{
+  width:28px;height:28px;
+  background:var(--accent-bg);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:700;color:white;
+  letter-spacing:-.02em;
+  flex-shrink:0;
+}
+.nav-name{font-size:.82rem;font-weight:590;color:var(--text);letter-spacing:-.01em}
+.nav-sub{font-size:.72rem;font-weight:400;color:var(--text4);margin-left:2px}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.nav-tag{
+  font-size:.65rem;font-weight:510;
+  color:var(--text4);
+  letter-spacing:.06em;text-transform:uppercase;
+}
+
+/* ── LANG TOGGLE ── */
+#lang-btn{
+  padding:.28rem .8rem;
+  background:rgba(255,255,255,0.04);
+  color:var(--text2);
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:.7rem;font-weight:590;
+  cursor:pointer;
+  font-family:var(--font);
+  font-feature-settings:"cv01","ss03";
+  letter-spacing:.05em;
+  transition:background .18s,color .18s;
+}
+#lang-btn:hover{background:rgba(255,255,255,0.07);color:var(--text)}
+
+/* ── HERO ── */
+.hero{
+  max-width:980px;
+  margin:0 auto;
+  padding:5.5rem 2.5rem 4.5rem;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.68rem;font-weight:590;
+  color:var(--accent);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:1.6rem;
+  padding:.3rem .85rem;
+  background:rgba(113,112,255,0.1);
+  border:1px solid rgba(113,112,255,0.2);
+  border-radius:9999px;
+}
+.hero-eyebrow::before{
+  content:'';display:block;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+}
+.hero-title{
+  font-size:clamp(2.8rem,5vw,4rem);
+  font-weight:510;
+  line-height:1.06;
+  letter-spacing:-0.88px;
+  color:var(--text);
+  margin-bottom:1.4rem;
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--accent-hover),var(--accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:1rem;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--text3);
+  max-width:520px;
+  letter-spacing:-.01em;
+}
+
+/* ── DIVIDER ── */
+.divider{
+  max-width:980px;margin:0 auto;
+  border:none;border-top:1px solid var(--border-s);
+}
+
+/* ── DOCS GRID ── */
+.docs-section{
+  max-width:980px;margin:0 auto;
+  padding:3rem 2.5rem 6rem;
+}
+.docs-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:2rem;
+}
+.docs-label{
+  font-size:.68rem;font-weight:590;
+  color:var(--text4);
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.docs-count{font-size:.68rem;color:var(--text4)}
+
+/* Pitch Deck — wide hero card */
+.card-hero{
+  display:grid;grid-template-columns:1fr auto;
+  align-items:center;gap:2rem;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:2rem 2.25rem;
+  margin-bottom:1px;
+  text-decoration:none;
+  transition:background .2s,border-color .2s;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+}
+.card-hero::before{
+  content:'';position:absolute;
+  inset:0;opacity:0;
+  background:radial-gradient(ellipse at 20% 50%,rgba(113,112,255,0.07),transparent 60%);
+  transition:opacity .4s;
+}
+.card-hero:hover{background:rgba(255,255,255,0.038);border-color:rgba(255,255,255,0.14)}
+.card-hero:hover::before{opacity:1}
+
+/* 4 secondary cards */
+.docs-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--border-s);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:1px;
+}
+.card{
+  background:rgba(255,255,255,0.015);
+  padding:1.75rem 2rem;
+  text-decoration:none;
+  transition:background .2s;
+  cursor:pointer;
+  display:flex;flex-direction:column;gap:1rem;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;opacity:0;
+  background:radial-gradient(ellipse at 0% 0%,rgba(113,112,255,0.05),transparent 60%);
+  transition:opacity .4s;
+}
+.card:hover{background:rgba(255,255,255,0.03)}
+.card:hover::before{opacity:1}
+
+/* Card internals */
+.card-badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  font-size:.62rem;font-weight:590;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:.25rem .65rem;
+  border-radius:9999px;
+  width:fit-content;
+}
+.badge-violet{background:rgba(113,112,255,0.12);color:var(--accent)}
+.badge-blue{background:rgba(85,179,255,0.1);color:#55b3ff}
+.badge-green{background:rgba(16,185,129,0.1);color:#10b981}
+.badge-amber{background:rgba(251,191,36,0.1);color:#fbbf24}
+.badge-rose{background:rgba(251,113,133,0.1);color:#fb7185}
+
+.card-num{
+  font-family:var(--mono);
+  font-size:.6rem;font-weight:400;
+  color:var(--text4);
+  letter-spacing:.08em;
+  margin-bottom:.3rem;
+}
+.card-title{
+  font-size:1.1rem;font-weight:590;
+  color:var(--text);
+  letter-spacing:-.02em;
+  line-height:1.3;
+}
+.card-title-zh{display:none}
+.card-desc{
+  font-size:.82rem;font-weight:400;
+  color:var(--text3);
+  line-height:1.65;
+  flex:1;
+}
+.card-arrow{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.75rem;font-weight:510;
+  color:var(--accent);
+  letter-spacing:-.01em;
+  margin-top:auto;
+  transition:gap .2s;
+}
+a:hover .card-arrow{gap:.6rem}
+.card-arrow svg{width:14px;height:14px;flex-shrink:0}
+
+/* hero card overrides */
+.card-hero .ch-left{}
+.card-hero .ch-right{
+  display:flex;flex-direction:column;align-items:flex-end;gap:.6rem;
+}
+.card-hero .card-title{font-size:1.35rem;letter-spacing:-.03em}
+.card-hero .card-desc{color:var(--text3);font-size:.85rem;max-width:480px}
+
+/* ── STATS BAR ── */
+.stats{
+  display:flex;
+  border-top:1px solid var(--border-s);
+  border-bottom:1px solid var(--border-s);
+  background:rgba(255,255,255,0.01);
+}
+.stat-item{
+  flex:1;
+  padding:1.25rem 2.5rem;
+  border-right:1px solid var(--border-s);
+}
+.stat-item:last-child{border-right:none}
+.stat-val{
+  font-family:var(--mono);
+  font-size:1.5rem;font-weight:590;
+  color:var(--text);
+  letter-spacing:-.03em;
+  line-height:1;
+}
+.stat-key{
+  font-size:.65rem;font-weight:510;
+  color:var(--text4);
+  letter-spacing:.09em;text-transform:uppercase;
+  margin-top:.4rem;
+}
+
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid var(--border-s);
+  padding:1.5rem 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:100%;
+}
+.footer-txt{
+  font-size:.7rem;color:var(--text4);
+  letter-spacing:.02em;
+}
+
+@media(max-width:680px){
+  .hero{padding:3.5rem 1.25rem 3rem}
+  .hero-title{font-size:2.2rem;letter-spacing:-.6px}
+  .docs-section{padding:2rem 1.25rem 4rem}
+  .card-hero{grid-template-columns:1fr}
+  .card-hero .ch-right{align-items:flex-start}
+  .docs-grid{grid-template-columns:1fr}
+  .stats{flex-wrap:wrap}
+  .stat-item{flex:0 0 50%;border-bottom:1px solid var(--border-s)}
+  .nav{padding:0 1.25rem}
+  .nav-sub{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-brand">
+    <div class="nav-mark">ODE</div>
+    <span class="nav-name" data-en="Orthogonal Design Engine" data-zh="正交设计引擎">Orthogonal Design Engine</span>
+  </a>
+  <div class="nav-right">
+    <span class="nav-tag" data-en="GTM Strategy 2026" data-zh="市场策略 2026">GTM Strategy 2026</span>
+    <button id="lang-btn" onclick="toggleLang()">中文</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow" data-en="Go-To-Market Hub" data-zh="市场进入中心">Go-To-Market Hub</div>
+  <h1 class="hero-title">
+    <span data-en="Engineering Simulation<br>for the <em>AI Era</em>" data-zh="面向 <em>AI 时代</em><br>的工程仿真">Engineering Simulation<br>for the <em>AI Era</em></span>
+  </h1>
+  <p class="hero-sub" data-en="ODE unifies every simulation discipline — FEA, CFD, MBD, controls, systems — into one AI-native platform. This hub collects all strategic documents for investors, partners, and the core team." data-zh="ODE 将所有仿真学科——有限元、流体、多体动力学、控制、系统工程——整合为一个 AI 原生平台。本中心汇聚面向投资人、合作伙伴和核心团队的全部战略文档。">ODE unifies every simulation discipline — FEA, CFD, MBD, controls, systems — into one AI-native platform. This hub collects all strategic documents for investors, partners, and the core team.</p>
+</section>
+
+<hr class="divider">
+
+<!-- STATS -->
+<div class="stats" style="max-width:980px;margin:0 auto">
+  <div class="stat-item">
+    <div class="stat-val">$23B</div>
+    <div class="stat-key" data-en="Total Addressable Market" data-zh="总目标市场">Total Addressable Market</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">12</div>
+    <div class="stat-key" data-en="Simulation Disciplines" data-zh="仿真学科数">Simulation Disciplines</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">5–50×</div>
+    <div class="stat-key" data-en="Cost Advantage vs Legacy" data-zh="相对传统工具成本优势">Cost Advantage vs Legacy</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-val">$83K</div>
+    <div class="stat-key" data-en="Target MRR Month 12" data-zh="第12月目标月收入">Target MRR Month 12</div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- DOCUMENTS -->
+<section class="docs-section">
+  <div class="docs-header">
+    <span class="docs-label" data-en="Strategy Documents" data-zh="战略文档">Strategy Documents</span>
+    <span class="docs-count" data-en="5 documents" data-zh="5 份文档">5 documents</span>
+  </div>
+
+  <!-- Pitch Deck — hero card -->
+  <a class="card-hero" href="pitch-deck.html">
+    <div class="ch-left">
+      <div class="card-num">01 / 05</div>
+      <div class="card-badge badge-violet" data-en="Investor Deck" data-zh="投资人材料">Investor Deck</div>
+      <div style="height:.85rem"></div>
+      <div class="card-title" data-en="Pitch Deck" data-zh="融资演示文稿">Pitch Deck</div>
+      <div style="height:.65rem"></div>
+      <div class="card-desc" data-en="Full narrative for investors and strategic partners — problem, solution, market, business model, team, and ask. 15-slide precision presentation." data-zh="面向投资人和战略合作伙伴的完整叙事——问题、解决方案、市场、商业模式、团队与融资需求。15 张精准演示幻灯片。">Full narrative for investors and strategic partners — problem, solution, market, business model, team, and ask. 15-slide precision presentation.</div>
+    </div>
+    <div class="ch-right">
+      <div class="card-arrow">
+        <span data-en="Open deck" data-zh="打开演示">Open deck</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </div>
+    </div>
+  </a>
+
+  <!-- 4 Dashboard cards -->
+  <div class="docs-grid">
+
+    <!-- Brand -->
+    <a class="card" href="brand-dashboard.html">
+      <div>
+        <div class="card-num">02 / 05</div>
+        <div class="card-badge badge-blue" data-en="Brand Strategy" data-zh="品牌战略">Brand Strategy</div>
+        <div style="height:.85rem"></div>
+        <div class="card-title" data-en="Brand Dashboard" data-zh="品牌战略看板">Brand Dashboard</div>
+      </div>
+      <div class="card-desc" data-en="Positioning, competitive landscape, brand architecture, audience messaging matrix, and visual identity system across 12 simulation disciplines." data-zh="定位策略、竞争格局、品牌架构、受众传播矩阵，以及覆盖 12 个仿真学科的视觉识别系统。">Positioning, competitive landscape, brand architecture, audience messaging matrix, and visual identity system across 12 simulation disciplines.</div>
+      <div class="card-arrow">
+        <span data-en="View dashboard" data-zh="查看看板">View dashboard</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </div>
+    </a>
+
+    <!-- GTM -->
+    <a class="card" href="gtm-dashboard.html">
+      <div>
+        <div class="card-num">03 / 05</div>
+        <div class="card-badge badge-green" data-en="Market Entry" data-zh="市场进入">Market Entry</div>
+        <div style="height:.85rem"></div>
+        <div class="card-title" data-en="GTM Dashboard" data-zh="市场进入看板">GTM Dashboard</div>
+      </div>
+      <div class="card-desc" data-en="TAM/SAM/SOM analysis, ICP matrix, revenue model with MRR projections, 4-phase execution roadmap, channel mix, and quarterly KPIs." data-zh="TAM/SAM/SOM 分析、理想客户画像矩阵、含月收入预测的收入模型、四阶段执行路线图、渠道组合及季度 KPI。">TAM/SAM/SOM analysis, ICP matrix, revenue model with MRR projections, 4-phase execution roadmap, channel mix, and quarterly KPIs.</div>
+      <div class="card-arrow">
+        <span data-en="View dashboard" data-zh="查看看板">View dashboard</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Marketing -->
+    <a class="card" href="marketing-dashboard.html">
+      <div>
+        <div class="card-num">04 / 05</div>
+        <div class="card-badge badge-amber" data-en="Demand Generation" data-zh="需求生成">Demand Generation</div>
+        <div style="height:.85rem"></div>
+        <div class="card-title" data-en="Marketing Dashboard" data-zh="营销战略看板">Marketing Dashboard</div>
+      </div>
+      <div class="card-desc" data-en="Content engine, channel mix & budget, PLG conversion funnel, email sequences, SEO/keyword strategy, and webinar calendar for Q2–Q3 2026." data-zh="内容引擎、渠道组合与预算、产品主导增长转化漏斗、邮件序列、SEO/关键词策略及 2026 年 Q2–Q3 网络研讨会日历。">Content engine, channel mix & budget, PLG conversion funnel, email sequences, SEO/keyword strategy, and webinar calendar for Q2–Q3 2026.</div>
+      <div class="card-arrow">
+        <span data-en="View dashboard" data-zh="查看看板">View dashboard</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Sales -->
+    <a class="card" href="sales-dashboard.html">
+      <div>
+        <div class="card-num">05 / 05</div>
+        <div class="card-badge badge-rose" data-en="Revenue Execution" data-zh="营收执行">Revenue Execution</div>
+        <div style="height:.85rem"></div>
+        <div class="card-title" data-en="Sales Dashboard" data-zh="销售战略看板">Sales Dashboard</div>
+      </div>
+      <div class="card-desc" data-en="Enterprise pipeline, BANT+ qualification, 15-min & 45-min demo playbooks, objection handling, 7-stage customer journey, and ROI calculator (12.8× for 10-engineer teams)." data-zh="企业销售漏斗、BANT+ 客户资质评估、15 分钟与 45 分钟演示剧本、异议处理手册、7 阶段客户旅程及 ROI 计算器（10 人工程团队 12.8 倍回报）。">Enterprise pipeline, BANT+ qualification, 15-min & 45-min demo playbooks, objection handling, 7-stage customer journey, and ROI calculator (12.8× for 10-engineer teams).</div>
+      <div class="card-arrow">
+        <span data-en="View dashboard" data-zh="查看看板">View dashboard</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-txt" data-en="ODE · Orthogonal Design Engine · Confidential — Internal Strategy Use Only" data-zh="ODE · 正交设计引擎 · 保密文件 — 仅供内部战略使用">ODE · Orthogonal Design Engine · Confidential — Internal Strategy Use Only</span>
+  <span class="footer-txt" data-en="April 2026" data-zh="2026年4月">April 2026</span>
+</footer>
+
+<script>
+(function(){
+  let _lang='en';
+  window.toggleLang=function(){
+    _lang=_lang==='en'?'zh':'en';
+    document.querySelectorAll('[data-zh]').forEach(el=>{
+      el.innerHTML=_lang==='zh'?el.getAttribute('data-zh'):el.getAttribute('data-en');
+    });
+    document.getElementById('lang-btn').textContent=_lang==='en'?'中文':'EN';
+    document.documentElement.lang=_lang;
+  };
+})();
+</script>
+</body>
+</html>

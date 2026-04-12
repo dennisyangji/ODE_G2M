@@ -4,36 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Orthogonal — The Dassault of the AI Era</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap" rel="stylesheet">
 <style>
 /* ── Reset ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-/* ── Apple-inspired Design System ── */
+/* ── Linear AI-Era Design System ── */
 :root{
-  /* Light mode (marketing default) */
-  --bg:       #F5F5F7;
-  --bg-white: #FFFFFF;
-  --bg-card:  #FFFFFF;
-  --text:     #1D1D1F;
-  --text2:    #6E6E73;
-  --text3:    #86868B;
-  --border:   #D2D2D7;
-  --accent:   #0071E3;
-  --accent-h: #0077ED;
-  --midnight: #0A2540;
-  --success:  #34C759;
-  --warning:  #FF9F0A;
-  --error:    #FF3B30;
-  --ai:       #5E5CE6;
-
-  /* SF Pro system stack */
-  --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-  --mono: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, monospace;
-
-  /* Shadows — Apple subtle */
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --bg:#08090a;
+  --bg-white:#0f1011;
+  --bg-card:#191a1b;
+  --text:#f7f8f8;
+  --text2:#d0d6e0;
+  --text3:#8a8f98;
+  --border:rgba(255,255,255,0.08);
+  --accent:#7170ff;
+  --accent-h:#828fff;
+  --midnight:#191a1b;
+  --success:#10b981;
+  --warning:#fbbf24;
+  --error:#fb7185;
+  --ai:#7170ff;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
+  --mono:'Berkeley Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --shadow-sm:0 0 0 1px rgba(255,255,255,0.05);
+  --shadow-md:0 0 0 1px rgba(255,255,255,0.08),0 4px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 0 0 1px rgba(255,255,255,0.08),0 8px 32px rgba(0,0,0,0.5);
 }
 
 html,body{
@@ -41,6 +38,7 @@ html,body{
   background:var(--bg);color:var(--text);
   font-family:var(--font);
   -webkit-font-smoothing:antialiased;
+  font-feature-settings:"cv01","ss03";
 }
 
 /* ── Deck & Slide Engine ── */
@@ -108,7 +106,7 @@ h3{
   margin-bottom:.75rem;
 }
 .accent{color:var(--accent)}
-.midnight{color:var(--midnight)}
+.midnight{color:var(--accent)}
 .muted{color:var(--text2)}
 
 /* ── Layout helpers ── */
@@ -119,9 +117,9 @@ h3{
 .mt-2{margin-top:1rem}.mt-3{margin-top:1.5rem}.mt-4{margin-top:2rem}.mt-6{margin-top:3rem}
 .w-full{width:100%}
 
-/* ── Cards — Apple frosted ── */
+/* ── Cards ── */
 .card{
-  background:var(--bg-card);
+  background:rgba(255,255,255,0.03);
   border:1px solid var(--border);
   border-radius:16px;
   padding:1.75rem;
@@ -132,7 +130,7 @@ h3{
 .card p{font-size:.875rem;color:var(--text2);line-height:1.55}
 
 /* ── Big stat ── */
-.big-stat{font-family:var(--mono);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;color:var(--midnight)}
+.big-stat{font-family:var(--mono);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;line-height:1;color:var(--text)}
 .stat-label{font-size:.8rem;color:var(--text3);margin-top:.3rem;text-transform:uppercase;letter-spacing:.1em}
 
 /* ── Tool grid ── */
@@ -141,7 +139,7 @@ h3{
   gap:1rem;max-width:900px;width:100%;
 }
 .tool{
-  background:var(--bg-card);border:1px solid var(--border);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
   border-radius:12px;padding:1.1rem 1.2rem;
   transition:box-shadow .2s,border-color .2s;
 }
@@ -152,14 +150,14 @@ h3{
 /* ── Flow steps ── */
 .flow{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;justify-content:center}
 .step{
-  background:var(--bg-card);border:1px solid var(--border);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
   border-radius:12px;padding:1.1rem 1.4rem;
   text-align:center;min-width:140px;
   box-shadow:var(--shadow-sm);
 }
 .step .num{font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--accent);line-height:1}
 .step .txt{font-size:.8rem;color:var(--text2);margin-top:.3rem;line-height:1.4}
-.arrow{font-size:1.2rem;color:var(--border)}
+.arrow{font-size:1.2rem;color:var(--text3)}
 
 /* ── Comparison table ── */
 .comp-table{width:100%;max-width:800px;border-collapse:collapse;font-size:.85rem}
@@ -185,7 +183,7 @@ h3{
 .bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
 .bar{
   width:100%;border-radius:5px 5px 0 0;min-height:3px;
-  background:linear-gradient(to top,var(--midnight),var(--accent));
+  background:linear-gradient(to top,rgba(113,112,255,.35),var(--accent));
   transition:height .7s cubic-bezier(0.16,1,.3,1);
 }
 .bar-label{font-size:.6rem;color:var(--text3);margin-top:4px;font-family:var(--mono)}
@@ -195,17 +193,17 @@ h3{
 .token-stack{display:flex;flex-direction:column;gap:.5rem;max-width:560px;width:100%}
 .token-row{
   display:flex;align-items:center;gap:1rem;
-  background:var(--bg-card);border:1px solid var(--border);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
   border-radius:10px;padding:.8rem 1.1rem;
 }
 .token-bar-bg{flex:1;height:8px;background:var(--bg);border-radius:4px;overflow:hidden}
 .token-bar-fill{height:100%;border-radius:4px;background:var(--accent)}
-.token-pct{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--midnight);min-width:36px;text-align:right}
+.token-pct{font-family:var(--mono);font-size:.8rem;font-weight:600;color:var(--text);min-width:36px;text-align:right}
 .token-name{font-size:.8rem;color:var(--text2);min-width:100px}
 
 /* ── AI ops cards ── */
 .ai-card{
-  background:var(--bg-card);border:1px solid var(--border);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
   border-radius:14px;padding:1.25rem 1.4rem;
   flex:1;min-width:160px;max-width:220px;
   box-shadow:var(--shadow-sm);
@@ -234,13 +232,13 @@ h3{
   display:flex;align-items:center;justify-content:center;
   font-size:.68rem;font-weight:600;color:white;
 }
-.f1{background:var(--midnight)}.f2{background:var(--accent)}.f3{background:var(--ai)}.f4{background:var(--success)}
+.f1{background:rgba(113,112,255,.25)}.f2{background:var(--accent)}.f3{background:var(--ai)}.f4{background:var(--success)}
 
 /* ── Cover logo ── */
 .ode-logo{
   font-size:clamp(6rem,14vw,11rem);font-weight:700;
   letter-spacing:-.05em;line-height:1;
-  color:var(--midnight);
+  color:var(--text);
   font-family:var(--font);
 }
 .tagline{
@@ -255,10 +253,24 @@ h3{
 /* ── Pill badge ── */
 .pill{
   display:inline-flex;align-items:center;
-  background:rgba(0,113,227,.08);color:var(--accent);
+  background:rgba(113,112,255,.12);color:var(--accent);
+  border:1px solid rgba(113,112,255,.2);
   border-radius:999px;padding:.25rem .8rem;
   font-size:.78rem;font-weight:600;
 }
+
+/* ── Lang button dark theme override ── */
+#lang-btn{background:rgba(255,255,255,.06)!important;border-color:rgba(255,255,255,.12)!important;}
+#lang-btn:hover{background:rgba(255,255,255,.10)!important;}
+
+/* ── Dark theme: recover --midnight inline references ── */
+/* --midnight is now #191a1b (dark surface), so inline color:var(--midnight)
+   would be invisible. Override with accent for emphasis text. */
+.hero-sub strong[style*="color:var(--midnight)"],
+p strong[style*="color:var(--midnight)"],
+strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
+/* Slide with color:var(--midnight) on p.hero-sub */
+.hero-sub[style*="color:var(--midnight)"]{color:var(--text)!important;font-weight:600}
 
 @media(max-width:768px){
   .tool-grid{grid-template-columns:repeat(2,1fr)}
