@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODE — Brand Strategy Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F5F7;--white:#FFFFFF;--text:#1D1D1F;--text2:#6E6E73;--text3:#86868B;
+  --border:#D2D2D7;--accent:#0071E3;--midnight:#0A2540;
+  --success:#34C759;--warning:#FF9F0A;--error:#FF3B30;--ai:#5E5CE6;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",Menlo,monospace;
+  --sh:0 2px 8px rgba(0,0,0,0.06);--shm:0 4px 16px rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+.page-header{background:var(--midnight);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
+.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.2rem}
+.ph-title{font-size:.95rem;font-weight:600;color:white}
+.ph-meta{font-size:.68rem;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+
+.dash-nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;box-shadow:var(--sh);overflow-x:auto}
+.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-item:hover{color:var(--accent)}.nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat-cell{background:var(--white);padding:1.25rem 2.5rem}
+.stat-num{font-size:2rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.stat-lbl{font-size:.68rem;color:var(--text3);margin-top:.3rem;text-transform:uppercase;letter-spacing:.09em}
+
+.dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
+.section{margin-bottom:4.5rem}
+.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:2px solid var(--border);margin-bottom:2rem}
+.sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
+.sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
+.sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.g6{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem}
+
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh)}
+.card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
+
+.insight{background:var(--midnight);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
+.ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
+.ins-text{font-size:.95rem;font-weight:600;line-height:1.55;color:white}
+
+.tbl{width:100%;border-collapse:collapse;font-size:.8rem}
+.tbl th{text-align:left;padding:.6rem .9rem;background:var(--midnight);color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(0,113,227,.025)}
+.tbl .hl td{color:var(--text);font-weight:500;background:rgba(0,113,227,.04)}
+
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
+.p-blue{background:rgba(0,113,227,.1);color:var(--accent)}
+.p-green{background:rgba(52,199,89,.12);color:#28a745}
+.p-amber{background:rgba(255,159,10,.12);color:#c97a00}
+.p-red{background:rgba(255,59,48,.12);color:var(--error)}
+.p-navy{background:var(--midnight);color:white}
+
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.35rem;flex-shrink:0;vertical-align:middle}
+.d-g{background:var(--success)}.d-a{background:var(--warning)}.d-r{background:var(--error)}.d-b{background:var(--accent)}
+
+.swatch{width:36px;height:36px;border-radius:7px;border:1px solid var(--border);flex-shrink:0}
+
+.tool-cell{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:.8rem;text-align:center}
+.tc-name{font-size:.78rem;font-weight:700;margin-bottom:.2rem}
+.tc-sub{font-size:.62rem;color:var(--text3);line-height:1.4}
+
+.pyramid{display:flex;flex-direction:column;gap:2px;max-width:620px;margin:0 auto}
+.pyr-row{display:flex;align-items:center;justify-content:center;padding:.8rem 1.25rem;color:white;font-size:.8rem;font-weight:500;text-align:center;border-radius:5px;line-height:1.4}
+
+.type-row{display:flex;align-items:baseline;gap:1.5rem;padding:.75rem 0;border-bottom:1px solid var(--border)}
+.type-row:last-child{border-bottom:none}
+
+.stat-mini{text-align:center;padding:.75rem}
+.sm-num{font-size:1.6rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.sm-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.07em}
+
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.g6{grid-template-columns:repeat(3,1fr)}.stats-bar{grid-template-columns:1fr 1fr}.dash-main{padding:1.5rem 1rem}}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div>
+    <div class="ph-eyebrow">Orthogonal · ODE</div>
+    <div class="ph-title">Brand Strategy — Executive Dashboard</div>
+  </div>
+  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Positioning · Architecture · Messaging · Identity</div>
+</div>
+
+<nav class="dash-nav" id="nav">
+  <a href="#positioning" class="nav-item active">01 Positioning</a>
+  <a href="#competitive" class="nav-item">02 Competitive</a>
+  <a href="#architecture" class="nav-item">03 Architecture</a>
+  <a href="#messaging" class="nav-item">04 Messaging</a>
+  <a href="#identity" class="nav-item">05 Identity</a>
+</nav>
+
+<div class="stats-bar">
+  <div class="stat-cell"><div class="stat-num">12</div><div class="stat-lbl">Engineering disciplines covered</div></div>
+  <div class="stat-cell"><div class="stat-num">4</div><div class="stat-lbl">Target ICP segments</div></div>
+  <div class="stat-cell"><div class="stat-num">5–50×</div><div class="stat-lbl">Cost advantage vs. legacy tools</div></div>
+  <div class="stat-cell"><div class="stat-num">1</div><div class="stat-lbl">Core brand anchor position</div></div>
+</div>
+
+<main class="dash-main">
+
+  <!-- 01 POSITIONING -->
+  <section class="section" id="positioning">
+    <div class="sec-hd">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Brand Positioning</span>
+      <span class="sec-sub">Core anchor · Taglines · Proof points</span>
+    </div>
+
+    <div class="insight">
+      <div class="ins-label">Core Positioning Statement</div>
+      <div class="ins-text">"Orthogonal is the Dassault of the AI era — the AI-native full-stack engineering platform covering CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, and circuit design, all in the browser with a built-in AI co-pilot, at 5–50× lower cost than Dassault, Siemens, or ANSYS."</div>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Tagline Hierarchy</div>
+        <div style="display:flex;flex-direction:column;gap:1rem">
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 1 — Primary Brand</div>
+            <div style="font-size:1.05rem;font-weight:700;color:var(--midnight)">"The Dassault of the AI era."</div>
+          </div>
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 2 — Descriptive</div>
+            <div style="font-size:.88rem;color:var(--text2)">"AI-native full-stack engineering platform"</div>
+          </div>
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 3 — Value Proposition</div>
+            <div style="font-size:.88rem;color:var(--text2)">"Same breadth as Dassault. AI-native from day one. 5–50× lower cost."</div>
+          </div>
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 4 — Competitive Hook</div>
+            <div style="font-size:.88rem;color:var(--text2)">"Dassault-grade engineering. Not Dassault-grade pricing."</div>
+          </div>
+          <div>
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.3rem">Level 5 — Audience-Specific</div>
+            <div style="font-size:.88rem;color:var(--text2)">"We built the AI-era upgrade Dassault can never ship."</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Top 5 Differentiators — Ranked by Impact</div>
+        <table class="tbl">
+          <tbody>
+            <tr><td style="width:24px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td><td style="font-weight:600;color:var(--text)">AI-Native, Not Retrofitted</td><td style="color:var(--text2)">Architecture designed for AI from day one</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td><td style="font-weight:600;color:var(--text)">Unified Engineering Platform</td><td style="color:var(--text2)">12 disciplines in one environment</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td><td style="font-weight:600;color:var(--text)">Modelica + LLM Synergy</td><td style="color:var(--text2)">Equation-based = natively AI-readable. Structural moat.</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td><td style="font-weight:600;color:var(--text)">Cloud-Native, Zero-Install</td><td style="color:var(--text2)">Browser-based, real-time collaboration</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">05</td><td style="font-weight:600;color:var(--text)">Open Standards First</td><td style="color:var(--text2)">Modelica 4.0, FMI 2.0/3.0, SysML v1.6</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.6rem">Key Proof Points</div>
+          <div class="g4">
+            <div class="stat-mini"><div class="sm-num">60s</div><div class="sm-lbl">Requirements → simulation</div></div>
+            <div class="stat-mini"><div class="sm-num">80%</div><div class="sm-lbl">Faster setup with AI</div></div>
+            <div class="stat-mini"><div class="sm-num">3+</div><div class="sm-lbl">Legacy tools replaced</div></div>
+            <div class="stat-mini"><div class="sm-num">97%</div><div class="sm-lbl">Cycle time reduction</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 COMPETITIVE -->
+  <section class="section" id="competitive">
+    <div class="sec-hd">
+      <span class="sec-num">02</span>
+      <span class="sec-title">Competitive Landscape</span>
+      <span class="sec-sub">Feature matrix · Threat levels · Structural moat</span>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Platform Capability Matrix</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead>
+          <tr><th>Platform</th><th>AI-Native</th><th>CAD</th><th>FEM / CFD</th><th>MBSE / SysML</th><th>Browser</th><th>Modelica</th><th>Annual Cost / Seat</th><th>Threat Level</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hl">
+            <td><strong>Orthogonal ODE</strong></td>
+            <td><span class="pill p-green">Day 1</span></td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>4.0</td>
+            <td style="font-family:var(--mono);color:var(--success);font-weight:600">$948–$1,908</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Dassault Systèmes</td>
+            <td><span class="pill p-amber">Partial</span></td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td style="font-family:var(--mono);color:var(--error)">$50K–500K</td>
+            <td><span class="pill p-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>Neural Concept</td>
+            <td><span class="pill p-blue">Partial</span></td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td style="font-family:var(--mono)">Undisclosed</td>
+            <td><span class="pill p-red">High</span></td>
+          </tr>
+          <tr>
+            <td>Autodesk Fusion</td>
+            <td><span class="pill p-amber">Retrofitted</span></td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-a dot"></span>Partial</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td style="font-family:var(--mono);color:var(--warning)">$5K–30K</td>
+            <td><span class="pill p-amber">Medium</span></td>
+          </tr>
+          <tr>
+            <td>SimScale</td>
+            <td><span class="pill p-amber">Partial</span></td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td style="font-family:var(--mono)">$2.4K–4.8K</td>
+            <td><span class="pill p-blue">Low</span></td>
+          </tr>
+          <tr>
+            <td>Onshape</td>
+            <td><span class="pill p-amber">Partial</span></td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td><span class="d-g dot"></span>Yes</td>
+            <td><span class="d-r dot"></span>No</td>
+            <td style="font-family:var(--mono)">$2.1K–4.8K</td>
+            <td><span class="pill p-amber">Medium</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="g2" style="margin-top:1.5rem">
+      <div class="card">
+        <div class="card-title">Structural Moat — Architecture Gap</div>
+        <div style="font-size:.82rem;color:var(--text2);line-height:1.7">
+          Dassault's CATIA/SIMULIA architecture was built in the 1990s. Binary proprietary formats are opaque to large language models. Rebuilding for AI would destroy backwards compatibility — impossible for a company protecting $5B revenue and multi-year enterprise contracts.
+          <br><br>
+          <strong style="color:var(--midnight)">The moat:</strong> Modelica is equation-based and inherently machine-readable. LLMs can parse, generate, and reason about physics equations natively. This is not a feature gap — it is an <em>architecture gap</em> that cannot be closed by bolt-on AI features.
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Competitive Response Matrix</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Competitor</th><th>When ODE Wins</th><th>When ODE Loses</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--text)">Neural Concept</strong></td><td>Full workflow needed (CAD + MBSE)</td><td>Pure CFD/FEA optimization only</td></tr>
+            <tr><td><strong style="color:var(--text)">Autodesk Fusion</strong></td><td>AI-native + open standards required</td><td>Deep Autodesk lock-in, CAM heavy</td></tr>
+            <tr><td><strong style="color:var(--text)">Onshape</strong></td><td>Need simulation + systems design</td><td>Geometry-only use case</td></tr>
+            <tr><td><strong style="color:var(--text)">SimScale</strong></td><td>Integrated platform value</td><td>Single simulation step only</td></tr>
+            <tr><td><strong style="color:var(--text)">Dassault</strong></td><td>Cost + AI + modern workflow</td><td>Existing 10-year Dassault investment</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 ARCHITECTURE -->
+  <section class="section" id="architecture">
+    <div class="sec-hd">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Brand Architecture</span>
+      <span class="sec-sub">Platform structure · 12 disciplines · Open standards</span>
+    </div>
+
+    <div class="card">
+      <div class="card-title">ODE Tool Matrix — 12 Engineering Disciplines</div>
+      <div class="g6" style="margin-top:.75rem">
+        <div class="tool-cell"><div class="tc-name" style="color:#0071E3">Component</div><div class="tc-sub">Modelica AI physics modelling</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#34C759">Geometry</div><div class="tc-sub">Parametric CAD in browser</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#FF9F0A">System</div><div class="tc-sub">MBSE + SysML architecture</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#5E5CE6">Vision</div><div class="tc-sub">Real-time 3D simulation</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#FF3B30">Paper</div><div class="tc-sub">Collaborative engineering docs</div></div>
+        <div class="tool-cell"><div class="tc-name" style="color:#0A2540">Interaction</div><div class="tc-sub">Live parameter exploration</div></div>
+        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">FEM</div><div class="tc-sub">Finite element analysis</div></div>
+        <div class="tool-cell" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.03)"><div class="tc-name" style="color:#0071E3">CFD</div><div class="tc-sub">Computational fluid dynamics</div></div>
+        <div class="tool-cell" style="border-color:rgba(52,199,89,.3);background:rgba(52,199,89,.03)"><div class="tc-name" style="color:#34C759">Compute</div><div class="tc-sub">Scientific computing</div></div>
+        <div class="tool-cell" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.03)"><div class="tc-name" style="color:#FF9F0A">Optim</div><div class="tc-sub">Multi-objective optimisation</div></div>
+        <div class="tool-cell" style="border-color:rgba(94,92,230,.3);background:rgba(94,92,230,.03)"><div class="tc-name" style="color:#5E5CE6">RL</div><div class="tc-sub">Reinforcement learning</div></div>
+        <div class="tool-cell" style="border-color:rgba(255,59,48,.3);background:rgba(255,59,48,.03)"><div class="tc-name" style="color:#FF3B30">Circuit</div><div class="tc-sub">KiCad PCB + co-simulation</div></div>
+      </div>
+      <div style="display:flex;gap:2rem;margin-top:1rem;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:var(--white);border:1px solid var(--border);border-radius:2px;display:inline-block"></span>Phase 1 — Live (6 tools)</div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(0,113,227,.06);border:1px solid rgba(0,113,227,.3);border-radius:2px;display:inline-block"></span>Phase 2 — FEM + CFD</div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(52,199,89,.04);border:1px solid rgba(52,199,89,.3);border-radius:2px;display:inline-block"></span>Phase 3 — Compute + Optim</div>
+        <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--text3)"><span style="width:10px;height:10px;background:rgba(94,92,230,.04);border:1px solid rgba(94,92,230,.3);border-radius:2px;display:inline-block"></span>Phase 4 — RL + Circuit</div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-top:1.5rem">
+      <div class="card">
+        <div class="card-title">Open Standards Foundation</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Standard</th><th>Application</th><th>Competitive Implication</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:var(--text)">Modelica 4.0</td><td>Physics modelling language</td><td>LLM-native; Dassault cannot match</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">FMI 2.0 / 3.0</td><td>Functional Mock-up Interface</td><td>Interop with legacy tools; no lock-in</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">SysML v1.6</td><td>Systems Modeling Language</td><td>MBSE depth no competitor offers</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">KiCad (Phase 4)</td><td>Open PCB design + co-sim</td><td>Hardware/software co-design — unique</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Brand Values</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Value</th><th>Definition</th><th>Expression</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:var(--text)">Innovation</td><td>AI-native architecture, not retrofitted</td><td>Modelica + LLM from day one</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Openness</td><td>Built on open standards</td><td>Modelica, FMI, SysML — portable</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Excellence</td><td>Production-grade solvers</td><td>Trusted results for safety-critical work</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Accessibility</td><td>Browser-based, affordable</td><td>Free tier; zero install; global access</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 MESSAGING -->
+  <section class="section" id="messaging">
+    <div class="sec-hd">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Audience Messaging</span>
+      <span class="sec-sub">ICP-specific positioning · Hooks · Proof</span>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Messaging Matrix by ICP</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead>
+          <tr><th>Segment</th><th>Primary Persona</th><th>Core Message</th><th>Key Hook</th><th>Proof Point</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
+            <td>VP Engineering · Sr. Simulation Engineer</td>
+            <td>"Replace your Dassault stack at 10% of the cost"</td>
+            <td>$50K–$500K/seat with zero AI-era value; multi-year lock-in</td>
+            <td>AI-native FEM + CFD in token plan; full Dassault suite equivalent</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
+            <td>Managing Director · Lead Engineer</td>
+            <td>"Token-based: pay per simulation run, not per seat-year"</td>
+            <td>License utilization 30–50% idle; tool costs = 15–25% of project budget</td>
+            <td>ODE FEM + CFD replaces ANSYS + SolidWorks in one subscription</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">Research · Teaching · R1 Labs</span></td>
+            <td>Professor · Department Chair</td>
+            <td>"Free for students, affordable for departments"</td>
+            <td>80%+ academic discount; browser-based = zero IT overhead</td>
+            <td>Graduate job-ready engineers; research-grade simulation in browser</td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers · Makers</span></td>
+            <td>Founder · CTO · Solo Engineer</td>
+            <td>"Enterprise-grade simulation for $49/month"</td>
+            <td>ANSYS single seat costs more than a seed-stage monthly cloud budget</td>
+            <td>AI does the meshing; first simulation in 60 seconds; ship hardware faster</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:1.5rem">
+      <div class="card-title">Why ODE Messaging Pyramid</div>
+      <div class="pyramid" style="margin-top:.75rem">
+        <div class="pyr-row" style="background:var(--midnight)">Vision — "Engineer the Future with AI"</div>
+        <div class="pyr-row" style="background:#0d3060">"The only platform where AI understands physics, tools are integrated, and standards are open"</div>
+        <div class="pyr-row" style="background:#0d4090">Strategic Differentiators — AI-Native Architecture &nbsp;·&nbsp; 12 Integrated Tools &nbsp;·&nbsp; Open Standards</div>
+        <div class="pyr-row" style="background:var(--accent)">Functional Benefits — Faster Modeling &nbsp;·&nbsp; Lower Cost &nbsp;·&nbsp; Better Collaboration &nbsp;·&nbsp; No Lock-in</div>
+        <div class="pyr-row" style="background:#4da3ff;color:var(--midnight)">Features — AI Generation &nbsp;·&nbsp; Real-time Collab &nbsp;·&nbsp; Cloud Compute &nbsp;·&nbsp; CAD &nbsp;·&nbsp; MBSE &nbsp;·&nbsp; Version Control</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 IDENTITY -->
+  <section class="section" id="identity">
+    <div class="sec-hd">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Visual Identity System</span>
+      <span class="sec-sub">Color tokens · Typography · Design principles</span>
+    </div>
+
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Color System — Light Mode (Marketing)</div>
+        <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem">
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0A2540"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Brand Midnight</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0A2540 — Primary brand, headers, anchor</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#0071E3"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Brand Accent</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#0071E3 — CTAs, links, interactive elements</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#FFFFFF;"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Background Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#FFFFFF — Cards, modals, content surfaces</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#F5F5F7"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Background Secondary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#F5F5F7 — Page bg (Apple standard)</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#1D1D1F"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Text Primary</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#1D1D1F — Apple near-black body text</div></div></div>
+          <div style="display:flex;align-items:center;gap:1rem"><div class="swatch" style="background:#000000"></div><div><div style="font-size:.8rem;font-weight:600;color:var(--text)">Dark Mode BG</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono)">#000000 — Product UI (app surfaces)</div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Typography System — SF Pro Stack</div>
+        <div style="margin-top:.5rem">
+          <div class="type-row"><div style="font-size:2.2rem;font-weight:700;letter-spacing:-.04em;flex:1">Display</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">96px / -0.06em / Bold</div></div>
+          <div class="type-row"><div style="font-size:1.7rem;font-weight:700;letter-spacing:-.03em;flex:1">Heading H1</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">40px / -0.03em / Bold</div></div>
+          <div class="type-row"><div style="font-size:1.2rem;font-weight:600;letter-spacing:-.02em;flex:1">Heading H2</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">28px / -0.02em / SemiBold</div></div>
+          <div class="type-row"><div style="font-size:1rem;font-weight:600;letter-spacing:-.01em;flex:1">Heading H3</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">21px / -0.01em / SemiBold</div></div>
+          <div class="type-row"><div style="font-size:.88rem;font-weight:400;flex:1">Body Base</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">17px / 0 / Regular (Apple std)</div></div>
+          <div class="type-row"><div style="font-size:.82rem;font-family:var(--mono);font-weight:400;flex:1">Code / Mono</div><div style="font-size:.68rem;color:var(--text3);font-family:var(--mono);min-width:190px">SF Mono 15px / 0 / Regular</div></div>
+        </div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.6rem">Design Principles — Apple Tradition</div>
+          <div style="display:flex;flex-direction:column;gap:.3rem">
+            <div style="font-size:.78rem;color:var(--text2)">Radical whitespace — minimum 60% of hero viewport empty</div>
+            <div style="font-size:.78rem;color:var(--text2)">Negative letter-spacing at large sizes (down to -0.06em at 96px)</div>
+            <div style="font-size:.78rem;color:var(--text2)">No gradients as backgrounds — solid colors only</div>
+            <div style="font-size:.78rem;color:var(--text2)">8pt spacing grid throughout all surfaces</div>
+            <div style="font-size:.78rem;color:var(--text2)">Motion: cubic-bezier(0.16, 1, 0.30, 1) at 300ms — Apple spring</div>
+            <div style="font-size:.78rem;color:var(--text2)">Dark mode for product UI only — marketing surfaces always light</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const sections = document.querySelectorAll('.section');
+const navItems = document.querySelectorAll('.nav-item');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navItems.forEach(n => n.classList.toggle('active', n.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

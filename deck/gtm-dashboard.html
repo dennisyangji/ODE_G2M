@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODE — GTM Strategy Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F5F7;--white:#FFFFFF;--text:#1D1D1F;--text2:#6E6E73;--text3:#86868B;
+  --border:#D2D2D7;--accent:#0071E3;--midnight:#0A2540;
+  --success:#34C759;--warning:#FF9F0A;--error:#FF3B30;--ai:#5E5CE6;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",Menlo,monospace;
+  --sh:0 2px 8px rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.page-header{background:var(--midnight);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
+.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.2rem}
+.ph-title{font-size:.95rem;font-weight:600}
+.ph-meta{font-size:.68rem;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+.dash-nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;box-shadow:var(--sh);overflow-x:auto}
+.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-item:hover{color:var(--accent)}.nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
+.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat-cell{background:var(--white);padding:1.1rem 1.75rem}
+.stat-num{font-size:1.8rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.stat-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.09em}
+.dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
+.section{margin-bottom:4.5rem}
+.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:2px solid var(--border);margin-bottom:2rem}
+.sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
+.sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
+.sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh)}
+.card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
+.insight{background:var(--midnight);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
+.ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
+.ins-text{font-size:.92rem;font-weight:600;line-height:1.55}
+.tbl{width:100%;border-collapse:collapse;font-size:.8rem}
+.tbl th{text-align:left;padding:.6rem .9rem;background:var(--midnight);color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(0,113,227,.025)}
+.tbl .hl td{color:var(--text);font-weight:500;background:rgba(0,113,227,.04)}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
+.p-blue{background:rgba(0,113,227,.1);color:var(--accent)}
+.p-green{background:rgba(52,199,89,.12);color:#28a745}
+.p-amber{background:rgba(255,159,10,.12);color:#c97a00}
+.p-navy{background:var(--midnight);color:white}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.35rem;flex-shrink:0;vertical-align:middle}
+.d-g{background:var(--success)}.d-a{background:var(--warning)}.d-r{background:var(--error)}.d-b{background:var(--accent)}
+/* Bar chart */
+.bc-row{display:flex;align-items:center;gap:.75rem;font-size:.8rem;margin-bottom:.55rem}
+.bc-label{min-width:110px;color:var(--text2);text-align:right;font-size:.75rem}
+.bc-track{flex:1;background:var(--bg);border-radius:3px;height:10px;overflow:hidden}
+.bc-fill{height:100%;border-radius:3px}
+.bc-val{min-width:52px;color:var(--text);font-family:var(--mono);font-size:.72rem;text-align:right}
+/* Funnel */
+.funnel{display:flex;flex-direction:column;gap:2px;align-items:stretch}
+.funnel-row{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;display:flex;justify-content:space-between;align-items:center}
+.fr-stage{font-size:.8rem;font-weight:600;color:var(--text)}
+.fr-metric{font-family:var(--mono);font-size:.8rem;color:var(--accent);font-weight:600}
+.fr-note{font-size:.7rem;color:var(--text3)}
+/* MRR chart */
+.mrr-chart{display:flex;align-items:flex-end;gap:4px;height:120px;width:100%;margin-top:.75rem}
+.mrr-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center}
+.mrr-bar{width:100%;border-radius:4px 4px 0 0;min-height:3px;background:linear-gradient(to top,var(--midnight),var(--accent))}
+.mrr-lbl{font-size:.55rem;color:var(--text3);margin-top:3px;font-family:var(--mono)}
+.mrr-val{font-size:.55rem;color:var(--text2);margin-bottom:2px;font-family:var(--mono)}
+/* Tam boxes */
+.tam-box{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.1rem;text-align:center}
+.tam-num{font-size:1.5rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.tam-label{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--text3);margin:.3rem 0 .2rem}
+.tam-sub{font-size:.7rem;color:var(--text2)}
+/* Phase row */
+.phase-row{display:flex;border-radius:10px;overflow:hidden;margin-bottom:.5rem}
+.ph-num{background:var(--midnight);color:white;font-size:.72rem;font-weight:700;padding:.6rem .9rem;display:flex;align-items:center;min-width:80px}
+.ph-title-cell{background:rgba(0,113,227,.06);border:1px solid rgba(0,113,227,.15);border-left:none;flex:1;padding:.6rem .9rem;font-size:.78rem;color:var(--text)}
+.ph-target{background:rgba(0,113,227,.04);border:1px solid rgba(0,113,227,.15);border-left:none;padding:.6rem .9rem;font-size:.72rem;color:var(--accent);font-family:var(--mono);display:flex;align-items:center;min-width:130px}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr 1fr}.dash-main{padding:1.5rem 1rem}}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div>
+    <div class="ph-eyebrow">Orthogonal · ODE</div>
+    <div class="ph-title">Go-to-Market Strategy — Executive Dashboard</div>
+  </div>
+  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Market · ICP · Revenue · Channels · Roadmap</div>
+</div>
+<nav class="dash-nav" id="nav">
+  <a href="#market" class="nav-item active">01 Market</a>
+  <a href="#icp" class="nav-item">02 ICP Matrix</a>
+  <a href="#revenue" class="nav-item">03 Revenue Model</a>
+  <a href="#roadmap" class="nav-item">04 Roadmap</a>
+  <a href="#channels" class="nav-item">05 Channels</a>
+  <a href="#kpis" class="nav-item">06 KPIs</a>
+</nav>
+<div class="stats-bar">
+  <div class="stat-cell"><div class="stat-num">$1M</div><div class="stat-lbl">Year 1 ARR target</div></div>
+  <div class="stat-cell"><div class="stat-num">$23B</div><div class="stat-lbl">Global TAM (2025)</div></div>
+  <div class="stat-cell"><div class="stat-num">280</div><div class="stat-lbl">Paid users target (M12)</div></div>
+  <div class="stat-cell"><div class="stat-num">40/60</div><div class="stat-lbl">PLG / SLG revenue split</div></div>
+  <div class="stat-cell"><div class="stat-num">$3,500</div><div class="stat-lbl">Blended ARPU / year</div></div>
+</div>
+
+<main class="dash-main">
+
+  <!-- 01 MARKET -->
+  <section class="section" id="market">
+    <div class="sec-hd">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Market Opportunity</span>
+      <span class="sec-sub">TAM · SAM · SOM · Why now</span>
+    </div>
+    <div class="g4" style="margin-bottom:1.5rem">
+      <div class="tam-box">
+        <div class="tam-num">$23B</div>
+        <div class="tam-label">TAM</div>
+        <div class="tam-sub">Global engineering simulation market (2025)</div>
+      </div>
+      <div class="tam-box">
+        <div class="tam-num">$1.3B</div>
+        <div class="tam-label">SAM</div>
+        <div class="tam-sub">AI-addressable engineering tools segment</div>
+      </div>
+      <div class="tam-box">
+        <div class="tam-num">$1.2M</div>
+        <div class="tam-label">SOM Year 1</div>
+        <div class="tam-sub">Realistic capture across all 4 segments</div>
+      </div>
+      <div class="tam-box" style="border-color:rgba(0,113,227,.3);background:rgba(0,113,227,.04)">
+        <div class="tam-num" style="color:var(--accent)">$800M</div>
+        <div class="tam-label">Beachhead</div>
+        <div class="tam-sub">AI-native tools subsegment · 45%+ growth</div>
+      </div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Why Now — Convergence of 4 Forces</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <tbody>
+            <tr><td style="width:20px;font-family:var(--mono);font-weight:700;color:var(--accent)">01</td><td style="font-weight:600;color:var(--text)">LLMs reached engineering competence</td><td style="color:var(--text2)">Can reason about physics equations; Modelica is natively machine-readable</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">02</td><td style="font-weight:600;color:var(--text)">Engineering teams receive AI budgets</td><td style="color:var(--text2)">First time in history; companies mandate AI adoption in 2025–2026</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">03</td><td style="font-weight:600;color:var(--text)">Dassault's 30-year architecture cannot adapt</td><td style="color:var(--text2)">Binary format lock-in prevents AI rebuild; structural opening for new entrant</td></tr>
+            <tr><td style="font-family:var(--mono);font-weight:700;color:var(--accent)">04</td><td style="font-weight:600;color:var(--text)">Cloud + browser expectations normalized</td><td style="color:var(--text2)">Engineers expect Figma/Notion-style tools; desktop installs are a blocker</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">SOM by Segment — Year 1 Target</div>
+        <div style="margin-top:.25rem">
+          <div class="bc-row"><div class="bc-label">Enterprise OEMs</div><div class="bc-track"><div class="bc-fill" style="width:37.5%;background:var(--midnight)"></div></div><div class="bc-val">$450K</div></div>
+          <div class="bc-row"><div class="bc-label">Consultancies</div><div class="bc-track"><div class="bc-fill" style="width:20.8%;background:var(--accent)"></div></div><div class="bc-val">$250K</div></div>
+          <div class="bc-row"><div class="bc-label">Universities</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--ai)"></div></div><div class="bc-val">$150K</div></div>
+          <div class="bc-row"><div class="bc-label">Indie Engineers</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--success)"></div></div><div class="bc-val">$150K</div></div>
+          <div class="bc-row"><div class="bc-label">Channel Partners</div><div class="bc-track"><div class="bc-fill" style="width:16.6%;background:var(--warning)"></div></div><div class="bc-val">$200K</div></div>
+        </div>
+        <div style="margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:.75rem">
+          <span style="color:var(--text3)">Market CAGR</span>
+          <span style="font-weight:600;color:var(--text)">12.1% global · 45%+ AI-native</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ICP MATRIX -->
+  <section class="section" id="icp">
+    <div class="sec-hd">
+      <span class="sec-num">02</span>
+      <span class="sec-title">ICP Matrix</span>
+      <span class="sec-sub">4 segments · ACV · Sales motion · Channel priority</span>
+    </div>
+    <div class="card">
+      <div class="card-title">Ideal Customer Profile Comparison</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead>
+          <tr><th>Segment</th><th>Size</th><th>Target ACV</th><th>Sales Cycle</th><th>Motion</th><th>Primary Channel</th><th>ARR Target</th><th>Priority</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--text)">Enterprise OEMs</strong><br><span style="font-size:.68rem;color:var(--text3)">Automotive · Aerospace · Energy</span></td>
+            <td>500–50,000+</td>
+            <td style="font-family:var(--mono);color:var(--text)">$50K–$150K</td>
+            <td>6–12 months</td>
+            <td><span class="pill p-navy">SLG Direct</span></td>
+            <td>ABM · Events · Referrals</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$450K (45%)</td>
+            <td><span class="pill p-blue">P1</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Engineering Consultancies</strong><br><span style="font-size:.68rem;color:var(--text3)">Services · Testing · Validation</span></td>
+            <td>10–500</td>
+            <td style="font-family:var(--mono);color:var(--text)">$10K–$25K</td>
+            <td>4–8 weeks</td>
+            <td><span class="pill p-blue">SLG Light</span></td>
+            <td>Content · LinkedIn · Webinars</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$250K (25%)</td>
+            <td><span class="pill p-blue">P2</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Universities</strong><br><span style="font-size:.68rem;color:var(--text3)">R1 Research · Teaching · Labs</span></td>
+            <td>1K–50K students</td>
+            <td style="font-family:var(--mono);color:var(--text)">$5K–$15K</td>
+            <td>3–8 months</td>
+            <td><span class="pill p-amber">SLG Academic</span></td>
+            <td>Conferences · Free tier</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150K (15%)</td>
+            <td><span class="pill p-amber">P3</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--text)">Indie Engineers</strong><br><span style="font-size:.68rem;color:var(--text3)">Hardware startups · Freelancers</span></td>
+            <td>1–50</td>
+            <td style="font-family:var(--mono);color:var(--text)">$1.2K–$3K</td>
+            <td>Same-day–2 weeks</td>
+            <td><span class="pill p-green">PLG Self-serve</span></td>
+            <td>SEO · Social · ProductHunt</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150K (15%)</td>
+            <td><span class="pill p-blue">P1</span></td>
+          </tr>
+          <tr style="background:rgba(255,159,10,.04)">
+            <td><strong style="color:var(--text)">Channel Partners</strong><br><span style="font-size:.68rem;color:var(--text3)">EU Resellers · Dassault/ANSYS channel</span></td>
+            <td>5–200 engineers</td>
+            <td style="font-family:var(--mono);color:var(--text)">$200K+ pipeline</td>
+            <td>30–60 days to sign</td>
+            <td><span class="pill p-amber">Partner SLG</span></td>
+            <td>Direct outreach · Clay</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$200K+ (channel)</td>
+            <td><span class="pill p-amber">P0</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="g2" style="margin-top:1.5rem">
+      <div class="card">
+        <div class="card-title">Persona by Segment</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Segment</th><th>Champion</th><th>Decision Maker</th><th>Veto / Influence</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--text)">Enterprise OEM</strong></td><td>Sr. Simulation Engineer</td><td>VP Engineering / CTO</td><td>IT Security Director</td></tr>
+            <tr><td><strong style="color:var(--text)">Consultancy</strong></td><td>Lead Simulation Engineer</td><td>Managing Director</td><td>Business Dev Manager</td></tr>
+            <tr><td><strong style="color:var(--text)">University</strong></td><td>Professor / Lab Director</td><td>Department Chair</td><td>IT Director (college)</td></tr>
+            <tr><td><strong style="color:var(--text)">Indie</strong></td><td colspan="3">Founder / CTO (sole authority)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="card-title">Top Pain Points by Segment</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Segment</th><th>Primary Pain</th><th>Secondary Pain</th></tr></thead>
+          <tbody>
+            <tr><td><strong style="color:var(--text)">Enterprise OEM</strong></td><td>$50K–$500K/seat lock-in</td><td>Toolchain fragmentation (4–7 tools)</td></tr>
+            <tr><td><strong style="color:var(--text)">Consultancy</strong></td><td>30–50% license idle time</td><td>Margin pressure (15–25% of project)</td></tr>
+            <tr><td><strong style="color:var(--text)">University</strong></td><td>Shrinking software budgets</td><td>HPC queue bottlenecks</td></tr>
+            <tr><td><strong style="color:var(--text)">Indie</strong></td><td>Tool cost vs. runway</td><td>Skill gap — need approachable AI</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 REVENUE MODEL -->
+  <section class="section" id="revenue">
+    <div class="sec-hd">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Revenue Model</span>
+      <span class="sec-sub">Token-first · Pricing tiers · Services packages · ARPU breakdown</span>
+    </div>
+    <div class="insight">
+      <div class="ins-label">Business Model Principle</div>
+      <div class="ins-text">Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows.</div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Subscription Pricing Tiers</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Tier</th><th>Price / mo</th><th>Token Bundle</th><th>Target ICP</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:var(--text)">Free</td><td style="font-family:var(--mono)">$0</td><td>500 tokens / day</td><td>Students, explorers</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Starter</td><td style="font-family:var(--mono)">$49</td><td>500K tokens / mo</td><td>Indie engineers</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Pro</td><td style="font-family:var(--mono)">$99</td><td>5M tokens / mo</td><td>Consultancies, professionals</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Team</td><td style="font-family:var(--mono)">$199/seat</td><td>20M tokens / seat</td><td>Engineering teams</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Enterprise</td><td style="font-family:var(--mono)">Custom</td><td>Dedicated pool</td><td>OEMs, large orgs</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.6rem">Token Overage Rates</div>
+          <div style="font-size:.78rem;color:var(--text2)">Starter: $0.03 / 1K &nbsp;·&nbsp; Pro: $0.02 / 1K &nbsp;·&nbsp; Team: $0.015 / 1K &nbsp;·&nbsp; Enterprise: $0.01 / 1K</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Blended ARPU Composition — $3,500/year</div>
+        <div style="margin-top:.75rem">
+          <div class="bc-row"><div class="bc-label">Subscriptions</div><div class="bc-track"><div class="bc-fill" style="width:35%;background:var(--midnight)"></div></div><div class="bc-val">35% · $1,225</div></div>
+          <div class="bc-row"><div class="bc-label">AI Tokens</div><div class="bc-track"><div class="bc-fill" style="width:30%;background:var(--accent)"></div></div><div class="bc-val">30% · $1,050</div></div>
+          <div class="bc-row"><div class="bc-label">Compute</div><div class="bc-track"><div class="bc-fill" style="width:25%;background:var(--ai)"></div></div><div class="bc-val">25% · $875</div></div>
+          <div class="bc-row"><div class="bc-label">Storage</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--success)"></div></div><div class="bc-val">10% · $350</div></div>
+        </div>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.6rem">Professional Services</div>
+          <table class="tbl">
+            <tbody>
+              <tr><td style="font-weight:600;color:var(--text)">Onboarding Sprint</td><td style="font-family:var(--mono)">€5,000</td><td style="color:var(--text2)">2-week guided setup</td></tr>
+              <tr><td style="font-weight:600;color:var(--text)">Integration Pack</td><td style="font-family:var(--mono)">€10K–25K</td><td style="color:var(--text2)">FMI / PLM (Teamcenter, Windchill)</td></tr>
+              <tr><td style="font-weight:600;color:var(--text)">AI Fine-tuning</td><td style="font-family:var(--mono)">€15K–40K</td><td style="color:var(--text2)">Customer engineering data</td></tr>
+              <tr><td style="font-weight:600;color:var(--text)">CSM Retainer</td><td style="font-family:var(--mono)">€3,000/mo</td><td style="color:var(--text2)">AI-assisted customer success</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.5rem">
+      <div class="card-title">ARPU by Segment — Year 1 at $1M ARR</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead><tr><th>Segment</th><th>Paid Users</th><th>% of Users</th><th>ARPU</th><th>Segment ARR</th><th>% of ARR</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--text)">Enterprise OEMs</td><td style="font-family:var(--mono)">42</td><td>15%</td><td style="font-family:var(--mono);color:var(--accent)">$10,714</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$450,000</td><td>45%</td><td>Services + high token consumption</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Consultancies</td><td style="font-family:var(--mono)">56</td><td>20%</td><td style="font-family:var(--mono);color:var(--accent)">$4,464</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$250,000</td><td>25%</td><td>Pro/Team tier, project-based usage</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Universities</td><td style="font-family:var(--mono)">70</td><td>25%</td><td style="font-family:var(--mono);color:var(--accent)">$2,143</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td><td>15%</td><td>80% academic discount applied</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Indie Engineers</td><td style="font-family:var(--mono)">112</td><td>40%</td><td style="font-family:var(--mono);color:var(--accent)">$1,339</td><td style="font-family:var(--mono);font-weight:600;color:var(--midnight)">$150,000</td><td>15%</td><td>PLG-driven, Starter/Pro mix</td></tr>
+          <tr class="hl"><td><strong>Total</strong></td><td style="font-family:var(--mono);font-weight:700">280</td><td>100%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$3,571</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$1,000,000</td><td>100%</td><td>Blended ARPU target</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 04 ROADMAP -->
+  <section class="section" id="roadmap">
+    <div class="sec-hd">
+      <span class="sec-num">04</span>
+      <span class="sec-title">12-Month Execution Roadmap</span>
+      <span class="sec-sub">5 phases · MRR ramp · Key milestones</span>
+    </div>
+    <div class="card" style="margin-bottom:1.5rem">
+      <div class="card-title">MRR Ramp — $0 to $83K (Month 1–12)</div>
+      <div class="mrr-chart" id="mrr-chart"></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Phase Execution Plan — All Phases Run in Parallel</div>
+      <div style="margin-top:.75rem">
+        <div class="phase-row"><div class="ph-num">Phase A<br>M1–M2</div><div class="ph-title-cell"><strong>Foundation + AI-Native Ops</strong> — AI tool stack for all 8 roles, website rebuild ("Dassault of AI era"), token pricing page, design system, 200 free users</div><div class="ph-target">Budget: $60K<br>MRR: $3.3K</div></div>
+        <div class="phase-row"><div class="ph-num">Phase B<br>M2–M4</div><div class="ph-title-cell"><strong>Traction + Channel Launch</strong> — PLG funnel validated (40% activation), first channel partner signed, enterprise ABM 50 accounts, TCO calculator live, 65 paid users</div><div class="ph-target">Budget: $75K<br>MRR: $18K</div></div>
+        <div class="phase-row"><div class="ph-num">Phase C<br>M4–M6</div><div class="ph-title-cell"><strong>Enterprise Pipeline + FEM/CFD Beta</strong> — 3 enterprise contracts closed ($150K+ ACV), FEM/CFD beta 20 users, 3 customer case studies, 5 universities onboarded</div><div class="ph-target">Budget: $80K<br>MRR: $48K</div></div>
+        <div class="phase-row"><div class="ph-num">Phase D<br>M6–M9</div><div class="ph-title-cell"><strong>Channel Growth + Token Scale</strong> — 3 channel partners producing pipeline, FEM/CFD full launch, token revenue 35%+ MRR, NRR >115%, Series A deck v1</div><div class="ph-target">Budget: $80K<br>MRR: $70K</div></div>
+        <div class="phase-row"><div class="ph-num">Phase E<br>M9–M12</div><div class="ph-title-cell"><strong>$1M ARR + Series A Readiness</strong> — $83K+ MRR, 280 paid users, token revenue 40%+ ARR, Series A data room, Year 2 roadmap published</div><div class="ph-target">Budget: $75K<br>MRR: $83K+</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CHANNELS -->
+  <section class="section" id="channels">
+    <div class="sec-hd">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Channel Strategy</span>
+      <span class="sec-sub">PLG · Direct SLG · Distribution partners · Budget allocation</span>
+    </div>
+    <div class="g3" style="margin-bottom:1.5rem">
+      <div class="card" style="border-color:rgba(0,113,227,.25);background:rgba(0,113,227,.03)">
+        <div class="card-title">PLG — Product-Led Growth</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--accent);font-family:var(--mono);margin-bottom:.3rem">40% of ARR</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Free 50K tokens/month. Engineers self-activate. Hit limits → upgrade. No sales call required. CAC target: &lt;$500.<br><br>
+        Funnel: Sign-up → First simulation (60s) → 40% activation (7 days) → 5% free→paid (30 days)</div>
+      </div>
+      <div class="card" style="border-color:rgba(10,37,64,.2);background:rgba(10,37,64,.03)">
+        <div class="card-title">Direct Sales — SLG</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--midnight);font-family:var(--mono);margin-bottom:.3rem">40% of ARR</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">AI-assisted ABM: 100 ICP accounts/week in Clay. Personalised outreach → discovery → 30-day pilot → enterprise service package.<br><br>
+        ACV: $50K–$500K · Cycle: 3–6 months · Pilot→close: 30%</div>
+      </div>
+      <div class="card" style="border-color:rgba(255,159,10,.25);background:rgba(255,159,10,.03)">
+        <div class="card-title">Distribution Channel — Partners</div>
+        <div style="font-size:1.4rem;font-weight:700;color:var(--warning);font-family:var(--mono);margin-bottom:.3rem">20% of ARR</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">3–5 EU engineering consultancies and Dassault/ANSYS resellers. Each brings 10–50 existing clients. Rev share 20–30%.<br><br>
+        Year 1 target: 3 signed partners · $200K+ pipeline contribution</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Monthly Channel Budget Allocation — ~$20K/month</div>
+      <div style="margin-top:.75rem">
+        <div class="bc-row"><div class="bc-label">LinkedIn Ads</div><div class="bc-track"><div class="bc-fill" style="width:20%;background:var(--midnight)"></div></div><div class="bc-val">$4,000</div></div>
+        <div class="bc-row"><div class="bc-label">ABM / Outreach</div><div class="bc-track"><div class="bc-fill" style="width:15%;background:var(--midnight)"></div></div><div class="bc-val">$3,000</div></div>
+        <div class="bc-row"><div class="bc-label">Google Ads</div><div class="bc-track"><div class="bc-fill" style="width:12.5%;background:var(--accent)"></div></div><div class="bc-val">$2,500</div></div>
+        <div class="bc-row"><div class="bc-label">SEO / Website</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--accent)"></div></div><div class="bc-val">$2,000</div></div>
+        <div class="bc-row"><div class="bc-label">Events / Conf.</div><div class="bc-track"><div class="bc-fill" style="width:10%;background:var(--ai)"></div></div><div class="bc-val">$2,000</div></div>
+        <div class="bc-row"><div class="bc-label">Retargeting</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--ai)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label">Community / GitHub</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label">YouTube</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label">Partners</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--warning)"></div></div><div class="bc-val">$1,000</div></div>
+        <div class="bc-row"><div class="bc-label">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:7.5%;background:var(--warning)"></div></div><div class="bc-val">$1,500</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 KPIs -->
+  <section class="section" id="kpis">
+    <div class="sec-hd">
+      <span class="sec-num">06</span>
+      <span class="sec-title">KPI Tracker</span>
+      <span class="sec-sub">Quarterly progression · Q1 through Q4</span>
+    </div>
+    <div class="card">
+      <div class="card-title">Key Performance Indicators — Quarterly Targets</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead><tr><th>KPI</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4 (Year-End)</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--text)">MRR</td><td style="font-family:var(--mono)">$3,300</td><td style="font-family:var(--mono)">$18,000</td><td style="font-family:var(--mono)">$49,000</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">$83,000+</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Paid Users (cumulative)</td><td style="font-family:var(--mono)">15</td><td style="font-family:var(--mono)">65</td><td style="font-family:var(--mono)">150</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">280</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Free Sign-ups (cumulative)</td><td style="font-family:var(--mono)">500</td><td style="font-family:var(--mono)">1,500</td><td style="font-family:var(--mono)">2,800</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">4,500</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Enterprise Accounts</td><td style="font-family:var(--mono)">0</td><td style="font-family:var(--mono)">3</td><td style="font-family:var(--mono)">6</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">12–15</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Token Revenue Share</td><td style="font-family:var(--mono)">—</td><td style="font-family:var(--mono)">20%</td><td style="font-family:var(--mono)">35%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">40%+</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Net Revenue Retention</td><td style="font-family:var(--mono)">—</td><td style="font-family:var(--mono)">105%</td><td style="font-family:var(--mono)">115%</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">120%+</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Channel Partners</td><td style="font-family:var(--mono)">0</td><td style="font-family:var(--mono)">1</td><td style="font-family:var(--mono)">2</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">3–5</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Organic Traffic / month</td><td style="font-family:var(--mono)">2,000</td><td style="font-family:var(--mono)">5,000</td><td style="font-family:var(--mono)">7,500</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">10,000</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Blended CAC</td><td colspan="3" style="color:var(--text2)">Monitor monthly</td><td style="font-family:var(--mono);font-weight:700;color:var(--midnight)">&lt;$800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="g3" style="margin-top:1.5rem">
+      <div class="card">
+        <div class="card-title">Scale Paid Spend (M3)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: CAC &lt;$500, website→signup &gt;2%<br>Action: Scale LinkedIn + Google to $10K/month</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Commit to Direct Enterprise (M4)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: 2+ active pilots, positive feedback<br>Action: Hire Account Executive, expand ABM list</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Begin Series A Prep (M7)</div>
+        <div style="font-size:.8rem;color:var(--text2);line-height:1.6">Criteria: &gt;$50K MRR, token revenue &gt;25%<br>Action: AI-compiled metrics dashboard, deck v1</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+const mrr=[1,3,5,9,13,18,28,38,49,58,70,83];
+const lbl=['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+const chart=document.getElementById('mrr-chart');
+const max=Math.max(...mrr);
+mrr.forEach((v,i)=>{
+  const w=document.createElement('div');w.className='mrr-bar-wrap';
+  w.innerHTML=`<div class="mrr-val">$${v}K</div><div class="mrr-bar" style="height:${Math.max(v/max*100,2)}%"></div><div class="mrr-lbl">${lbl[i]}</div>`;
+  chart.appendChild(w);
+});
+const sections=document.querySelectorAll('.section');
+const navItems=document.querySelectorAll('.nav-item');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navItems.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+id));}});
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

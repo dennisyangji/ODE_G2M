@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODE — Sales Dashboard</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F5F5F7;--white:#FFFFFF;--text:#1D1D1F;--text2:#6E6E73;--text3:#86868B;
+  --border:#D2D2D7;--accent:#0071E3;--midnight:#0A2540;
+  --success:#34C759;--warning:#FF9F0A;--error:#FF3B30;--ai:#5E5CE6;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;
+  --mono:"SF Mono","JetBrains Mono",Menlo,monospace;
+  --sh:0 2px 8px rgba(0,0,0,0.06);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.page-header{background:var(--midnight);color:white;padding:1.1rem 3rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200}
+.ph-eyebrow{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.2rem}
+.ph-title{font-size:.95rem;font-weight:600}
+.ph-meta{font-size:.68rem;color:rgba(255,255,255,.35);text-align:right;line-height:1.6}
+.dash-nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 3rem;display:flex;position:sticky;top:52px;z-index:100;box-shadow:var(--sh);overflow-x:auto}
+.nav-item{padding:.8rem 1.1rem;font-size:.78rem;font-weight:500;color:var(--text2);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.nav-item:hover{color:var(--accent)}.nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
+.stats-bar{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border-bottom:1px solid var(--border)}
+.stat-cell{background:var(--white);padding:1.1rem 1.75rem}
+.stat-num{font-size:1.8rem;font-weight:700;color:var(--midnight);font-family:var(--mono);line-height:1}
+.stat-lbl{font-size:.65rem;color:var(--text3);margin-top:.25rem;text-transform:uppercase;letter-spacing:.09em}
+.dash-main{max-width:1160px;margin:0 auto;padding:3rem 2rem}
+.section{margin-bottom:4.5rem}
+.sec-hd{display:flex;align-items:baseline;gap:1.25rem;padding-bottom:1rem;border-bottom:2px solid var(--border);margin-bottom:2rem}
+.sec-num{font-size:.68rem;font-weight:700;color:var(--accent);font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;min-width:28px}
+.sec-title{font-size:1.2rem;font-weight:600;color:var(--text)}
+.sec-sub{font-size:.78rem;color:var(--text3);margin-left:auto}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;box-shadow:var(--sh)}
+.card-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.85rem}
+.insight{background:var(--midnight);color:white;border-radius:12px;padding:1.5rem 2rem;margin-bottom:1.5rem}
+.ins-label{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.45);margin-bottom:.5rem}
+.ins-text{font-size:.92rem;font-weight:600;line-height:1.55}
+.tbl{width:100%;border-collapse:collapse;font-size:.8rem}
+.tbl th{text-align:left;padding:.6rem .9rem;background:var(--midnight);color:white;font-size:.67rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600}
+.tbl th:first-child{border-radius:8px 0 0 0}.tbl th:last-child{border-radius:0 8px 0 0}
+.tbl td{padding:.6rem .9rem;border-bottom:1px solid var(--border);color:var(--text2);vertical-align:top;line-height:1.5}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tr:hover td{background:rgba(0,113,227,.025)}
+.tbl .hl td{color:var(--text);font-weight:600;background:rgba(0,113,227,.04)}
+.pill{display:inline-flex;align-items:center;border-radius:999px;padding:.18rem .6rem;font-size:.67rem;font-weight:600}
+.p-blue{background:rgba(0,113,227,.1);color:var(--accent)}
+.p-green{background:rgba(52,199,89,.12);color:#28a745}
+.p-amber{background:rgba(255,159,10,.12);color:#c97a00}
+.p-red{background:rgba(255,59,48,.12);color:var(--error)}
+.p-navy{background:var(--midnight);color:white}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.35rem;flex-shrink:0;vertical-align:middle}
+.d-g{background:var(--success)}.d-a{background:var(--warning)}.d-r{background:var(--error)}.d-b{background:var(--accent)}
+/* BANT scoring */
+.bant-row{display:flex;align-items:flex-start;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--border)}
+.bant-row:last-child{border-bottom:none}
+.bant-letter{width:28px;height:28px;border-radius:6px;background:var(--midnight);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;margin-top:.1rem}
+.bant-info{flex:1}
+.bant-criteria{font-size:.82rem;font-weight:600;color:var(--text);margin-bottom:.15rem}
+.bant-strong{font-size:.75rem;color:var(--success)}
+.bant-weak{font-size:.75rem;color:var(--text3)}
+/* Funnel pipeline */
+.pipe-stage{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.ps-label{min-width:160px;font-size:.78rem;font-weight:600;color:var(--text)}
+.ps-bar{flex:1;background:var(--bg);border-radius:3px;height:14px;overflow:hidden;position:relative}
+.ps-fill{height:100%;border-radius:3px}
+.ps-pct{font-family:var(--mono);font-size:.72rem;color:var(--text2);min-width:40px}
+.ps-conv{font-family:var(--mono);font-size:.68rem;color:var(--text3);min-width:40px;text-align:right}
+/* Objection */
+.obj-row{padding:.85rem 0;border-bottom:1px solid var(--border)}
+.obj-row:last-child{border-bottom:none}
+.obj-q{font-size:.82rem;font-weight:600;color:var(--midnight);margin-bottom:.3rem}
+.obj-a{font-size:.78rem;color:var(--text2);line-height:1.55}
+/* Journey stage */
+.journey-row{display:grid;grid-template-columns:80px 1fr 1fr 1fr;gap:.75rem;padding:.7rem 0;border-bottom:1px solid var(--border);align-items:start}
+.journey-row:last-child{border-bottom:none}
+.jr-stage{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--accent);font-family:var(--mono)}
+.jr-label{font-size:.78rem;font-weight:600;color:var(--text)}
+.jr-signal{font-size:.72rem;color:var(--text2)}
+.jr-action{font-size:.72rem;color:var(--text3)}
+/* ROI calculator display */
+.roi-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem .85rem;border-radius:6px;margin-bottom:.3rem;background:var(--bg)}
+.roi-label{font-size:.78rem;color:var(--text2)}
+.roi-val{font-family:var(--mono);font-size:.82rem;font-weight:600;color:var(--text)}
+.roi-total{background:var(--midnight);color:white;border-radius:8px;padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;margin-top:.75rem}
+.roi-t-label{font-size:.78rem;color:rgba(255,255,255,.7)}
+.roi-t-val{font-family:var(--mono);font-size:1.3rem;font-weight:700;color:white}
+/* Demo script steps */
+.demo-step{display:flex;gap:.85rem;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.demo-step:last-child{border-bottom:none}
+.ds-time{font-family:var(--mono);font-size:.72rem;color:var(--accent);min-width:55px;margin-top:.15rem;font-weight:600}
+.ds-action{font-size:.78rem;font-weight:600;color:var(--text);flex:1}
+.ds-goal{font-size:.72rem;color:var(--text2)}
+@media(max-width:900px){.g2,.g3,.g4{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr 1fr}.dash-main{padding:1.5rem 1rem}.journey-row{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <div>
+    <div class="ph-eyebrow">Orthogonal · ODE</div>
+    <div class="ph-title">Sales Playbook — Executive Dashboard</div>
+  </div>
+  <div class="ph-meta">April 2026 &nbsp;·&nbsp; Internal Confidential<br>Pipeline · Qualification · Demo · Objections · Journey</div>
+</div>
+<nav class="dash-nav" id="nav">
+  <a href="#pipeline" class="nav-item active">01 Pipeline</a>
+  <a href="#qualification" class="nav-item">02 Qualification</a>
+  <a href="#demo" class="nav-item">03 Demo Playbook</a>
+  <a href="#objections" class="nav-item">04 Objections</a>
+  <a href="#journey" class="nav-item">05 Customer Journey</a>
+  <a href="#roi" class="nav-item">06 ROI Framework</a>
+</nav>
+<div class="stats-bar">
+  <div class="stat-cell"><div class="stat-num">$2M</div><div class="stat-lbl">Qualified pipeline target (Q3)</div></div>
+  <div class="stat-cell"><div class="stat-num">$50K–$500K</div><div class="stat-lbl">Enterprise ACV range</div></div>
+  <div class="stat-cell"><div class="stat-num">30%</div><div class="stat-lbl">Pilot-to-contract close rate</div></div>
+  <div class="stat-cell"><div class="stat-num">120%+</div><div class="stat-lbl">Target Net Revenue Retention</div></div>
+  <div class="stat-cell"><div class="stat-num">&lt;$800</div><div class="stat-lbl">Blended CAC target</div></div>
+</div>
+
+<main class="dash-main">
+
+  <!-- 01 PIPELINE -->
+  <section class="section" id="pipeline">
+    <div class="sec-hd">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Pipeline Overview</span>
+      <span class="sec-sub">Stage funnel · Conversion rates · Targets by segment</span>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Enterprise Sales Funnel — Stage Conversion</div>
+        <div style="margin-top:.75rem">
+          <div class="pipe-stage"><div class="ps-label">Target Accounts</div><div class="ps-bar"><div class="ps-fill" style="width:100%;background:var(--midnight)"></div></div><div class="ps-pct">100%</div><div class="ps-conv">50 accs</div></div>
+          <div class="pipe-stage"><div class="ps-label">Discovery Call</div><div class="ps-bar"><div class="ps-fill" style="width:60%;background:#1a3a6e"></div></div><div class="ps-pct">60%</div><div class="ps-conv">30 calls</div></div>
+          <div class="pipe-stage"><div class="ps-label">Live Demo</div><div class="ps-bar"><div class="ps-fill" style="width:40%;background:var(--accent)"></div></div><div class="ps-pct">40%</div><div class="ps-conv">20 demos</div></div>
+          <div class="pipe-stage"><div class="ps-label">Pilot Signed</div><div class="ps-bar"><div class="ps-fill" style="width:20%;background:#2ea8ff"></div></div><div class="ps-pct">20%</div><div class="ps-conv">10 pilots</div></div>
+          <div class="pipe-stage"><div class="ps-label">Contract Closed</div><div class="ps-bar"><div class="ps-fill" style="width:6%;background:var(--success)"></div></div><div class="ps-pct">6%</div><div class="ps-conv">3+ deals</div></div>
+        </div>
+        <div style="margin-top:.85rem;padding:.7rem;background:rgba(52,199,89,.08);border-radius:8px;font-size:.75rem;color:var(--text2)">
+          <strong style="color:var(--text)">Discovery → Demo:</strong> 40% conversion &nbsp;·&nbsp; <strong style="color:var(--text)">Demo → Pilot:</strong> 50% &nbsp;·&nbsp; <strong style="color:var(--text)">Pilot → Close:</strong> 30%
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Revenue Targets by Sales Role</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Role</th><th>Revenue Target</th><th>Motion</th><th>M1 Start</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight:600;color:var(--text)">CEO (founder-led)</td><td style="font-family:var(--mono)">$150K</td><td>SLG — top 5 enterprise</td><td>Immediate · 60% GTM time</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Head of Growth</td><td style="font-family:var(--mono)">$400K</td><td>PLG — entire funnel</td><td>Hire M1</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Account Executive</td><td style="font-family:var(--mono)">$300K</td><td>SLG — enterprise pipeline</td><td>Hire M3</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">Customer Success</td><td style="font-family:var(--mono)">$150K expansion</td><td>Both — NRR &gt;120%</td><td>Hire M8</td></tr>
+            <tr><td style="font-weight:600;color:var(--text)">SDR / BDR</td><td>Pipeline only</td><td>SLG — qualified meetings</td><td>Hire M6</td></tr>
+            <tr class="hl"><td><strong>Total ARR</strong></td><td style="font-family:var(--mono);font-weight:700">$1,000,000</td><td colspan="2">Year-end target</td></tr>
+          </tbody>
+        </table>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.5rem">CEO GTM Time Evolution</div>
+          <table class="tbl">
+            <tbody>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M1–M3</td><td style="font-weight:600;color:var(--text)">60%</td><td style="color:var(--text2)">Founder-led sales — all enterprise conversations</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M3–M6</td><td style="font-weight:600;color:var(--text)">40%</td><td style="color:var(--text2)">Support AE, speaking, case studies</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M6–M9</td><td style="font-weight:600;color:var(--text)">30%</td><td style="color:var(--text2)">Strategic deals, thought leadership only</td></tr>
+              <tr><td style="font-family:var(--mono);color:var(--accent)">M9–M12</td><td style="font-weight:600;color:var(--text)">20%</td><td style="color:var(--text2)">Series A fundraising, strategy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 QUALIFICATION -->
+  <section class="section" id="qualification">
+    <div class="sec-hd">
+      <span class="sec-num">02</span>
+      <span class="sec-title">BANT+ Qualification Framework</span>
+      <span class="sec-sub">5-point scoring · Hot / warm / cold segmentation</span>
+    </div>
+    <div class="insight">
+      <div class="ins-label">Scoring Rule</div>
+      <div class="ins-text">Score 5/5 = Hot (fast-track to demo) · Score 4/5 = Warm (qualify further) · Score 3/5 = Lukewarm (nurture 30 days) · Score &lt;3 = Cold (remove from active pipeline)</div>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">BANT+ Criteria</div>
+        <div style="margin-top:.25rem">
+          <div class="bant-row">
+            <div class="bant-letter">B</div>
+            <div class="bant-info">
+              <div class="bant-criteria">Budget — Dedicated simulation / AI budget exists</div>
+              <div class="bant-strong">Strong: "We have a CAD/simulation budget line" · "Our AI tools budget is approved"</div>
+              <div class="bant-weak">Weak: "Need to find budget" · "I'd need to request it"</div>
+            </div>
+          </div>
+          <div class="bant-row">
+            <div class="bant-letter">A</div>
+            <div class="bant-info">
+              <div class="bant-criteria">Authority — Speaking with decision maker or champion with access</div>
+              <div class="bant-strong">Strong: VP Engineering / CTO / Managing Director in meeting</div>
+              <div class="bant-weak">Weak: "I need to run this by my manager" without named access</div>
+            </div>
+          </div>
+          <div class="bant-row">
+            <div class="bant-letter">N</div>
+            <div class="bant-info">
+              <div class="bant-criteria">Need — Active pain around simulation speed, tool fragmentation, or AI adoption</div>
+              <div class="bant-strong">Strong: Mentions tool silos, slow iteration cycles, license cost burden</div>
+              <div class="bant-weak">Weak: "Happy with current tools" · "No active projects requiring this"</div>
+            </div>
+          </div>
+          <div class="bant-row">
+            <div class="bant-letter">T</div>
+            <div class="bant-info">
+              <div class="bant-criteria">Timeline — Decision expected within 2 quarters</div>
+              <div class="bant-strong">Strong: "This quarter" · "Q2/Q3 rollout planned"</div>
+              <div class="bant-weak">Weak: "Maybe next year" · "No immediate urgency"</div>
+            </div>
+          </div>
+          <div class="bant-row">
+            <div class="bant-letter" style="background:var(--accent)">+</div>
+            <div class="bant-info">
+              <div class="bant-criteria">Tech Fit — Active simulation workflow; open to Modelica/FMI</div>
+              <div class="bant-strong">Strong: Active Modelica user · FMI/FMU requirement · 5+ simulation engineers</div>
+              <div class="bant-weak">Weak: No simulation experience · Excel-based analysis only</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Discovery Questions by ICP</div>
+        <table class="tbl" style="margin-top:.25rem">
+          <thead><tr><th>Segment</th><th>Opening Question</th><th>Follow-up</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Enterprise OEM</td>
+              <td>"How long does your current simulation setup take from CAD import to first result?"</td>
+              <td>"How many tools does that workflow touch?"</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Consultancy</td>
+              <td>"What percentage of your tool licenses are actively used vs. idle at any given time?"</td>
+              <td>"How does licensing cost factor into your project bids?"</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">University</td>
+              <td>"What simulation tools are your students using, and how accessible are they from home?"</td>
+              <td>"What's your annual software budget for the engineering department?"</td>
+            </tr>
+            <tr>
+              <td style="font-weight:600;color:var(--text)">Indie / Startup</td>
+              <td>"What simulation tools are you using today, and how are you paying for them?"</td>
+              <td>"How long does it take you to set up and run a basic stress analysis?"</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--border)">
+          <div class="card-title" style="margin-bottom:.5rem">Pilot Agreement — Success Criteria Template</div>
+          <div style="font-size:.78rem;color:var(--text2);line-height:1.6">
+            30-day paid pilot. Week 1: Setup + first project. Weeks 1–2: First client/internal project on ODE. Weeks 2–3: Team adoption (&gt;3 engineers). Weeks 3–4: Results review against defined success criteria with sponsor.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 DEMO PLAYBOOK -->
+  <section class="section" id="demo">
+    <div class="sec-hd">
+      <span class="sec-num">03</span>
+      <span class="sec-title">Demo Playbook</span>
+      <span class="sec-sub">15-min quick demo · 45-min deep dive · Live AI script</span>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Quick Demo — 15 Minutes (Indie / Inbound)</div>
+        <div style="margin-top:.25rem">
+          <div class="demo-step">
+            <div class="ds-time">0–2 min</div>
+            <div>
+              <div class="ds-action">Hook — Time question</div>
+              <div class="ds-goal">"How long does it take you today to set up a simulation after importing CAD?" — anchor the time savings</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">2–8 min</div>
+            <div>
+              <div class="ds-action">Live AI demo — Plain English to simulation</div>
+              <div class="ds-goal">Describe system → AI generates Modelica model → AI sets up solver → Simulation runs → AI interprets results. Do it live in 6 minutes.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">8–12 min</div>
+            <div>
+              <div class="ds-action">Platform tour — 2 tools max</div>
+              <div class="ds-goal">Geometry (parametric CAD) + Component (Modelica editor). Keep it focused on their use case.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">12–14 min</div>
+            <div>
+              <div class="ds-action">Value statement</div>
+              <div class="ds-goal">"You just saw 5 minutes. Your current workflow takes how long?" — quantify the delta with their own number.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">14–15 min</div>
+            <div>
+              <div class="ds-action">CTA — Free account</div>
+              <div class="ds-goal">"Sign up for free — bring your own model. No credit card. First simulation in under 10 minutes."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Deep Dive Demo — 45 Minutes (Enterprise)</div>
+        <div style="margin-top:.25rem">
+          <div class="demo-step">
+            <div class="ds-time">0–5 min</div>
+            <div>
+              <div class="ds-action">Discovery — specific workflow pain</div>
+              <div class="ds-goal">Name their tools. Identify one painful workflow. Use their vocabulary throughout the demo.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">5–10 min</div>
+            <div>
+              <div class="ds-action">Positioning — 3 differentiators</div>
+              <div class="ds-goal">AI-native (not retrofitted). 12 tools, one platform. Open standards (Modelica, FMI). No more than 3 points — keep sharp.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">10–30 min</div>
+            <div>
+              <div class="ds-action">Custom live demo — their industry</div>
+              <div class="ds-goal">Pre-prepare a model relevant to their domain (automotive thermal, aerospace structure, etc.). Run it live. Show AI generation + results interpretation.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">30–35 min</div>
+            <div>
+              <div class="ds-action">Collaboration features</div>
+              <div class="ds-goal">Real-time co-editing, team comment threads, result sharing without static PDFs. Address their collab pain.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">35–40 min</div>
+            <div>
+              <div class="ds-action">ROI discussion</div>
+              <div class="ds-goal">Use ROI calculator live. Input their numbers: team size, hours per cycle, license costs. Show 3-year savings.</div>
+            </div>
+          </div>
+          <div class="demo-step">
+            <div class="ds-time">40–45 min</div>
+            <div>
+              <div class="ds-action">Pilot proposal + next steps</div>
+              <div class="ds-goal">"30-day paid pilot, one real project, defined success criteria. What project would give you the clearest proof?"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 OBJECTIONS -->
+  <section class="section" id="objections">
+    <div class="sec-hd">
+      <span class="sec-num">04</span>
+      <span class="sec-title">Objection Handling Map</span>
+      <span class="sec-sub">8 critical objections · Validated responses</span>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">Objections 01–04</div>
+        <div>
+          <div class="obj-row">
+            <div class="obj-q">01 — "It's too expensive / we don't have budget."</div>
+            <div class="obj-a">ODE replaces 3+ tools (ANSYS + SolidWorks Simulation + CATIA). Show TCO: combined license cost vs. ODE Pro/Team. The ROI on license consolidation alone typically covers 3× the ODE cost. Start with the free tier — zero budget required.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">02 — "We already use Dassault / Autodesk / ANSYS."</div>
+            <div class="obj-a">ODE works alongside existing tools via FMI export — no rip-and-replace required. Most customers run ODE in parallel for 60 days. Results speak. Propose a phase-in approach: use ODE for one specific workflow, measure the time savings, then decide.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">03 — "Can we trust AI-generated simulation results?"</div>
+            <div class="obj-a">ODE AI generates standard, auditable Modelica code — not a black box. The engineer reviews and validates the model before running. Full audit trail. Every simulation output is reproducible and explainable. Your engineers remain in control.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">04 — "We have security concerns about cloud."</div>
+            <div class="obj-a">Enterprise tier: SSO/SAML, role-based access, data residency (EU/US), full audit logs. SOC 2 Type II path in progress. On-premise deployment available for regulated industries. IT security review package provided immediately upon request.</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Objections 05–08</div>
+        <div>
+          <div class="obj-row">
+            <div class="obj-q">05 — "We need to evaluate other alternatives first."</div>
+            <div class="obj-a">Encourage it. "Run the same benchmark in ODE and your current tool. We'll give you a free Pro trial for 30 days to make the comparison fair." Confidence in the product — no need to resist evaluation.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">06 — "Our team isn't ready for AI in engineering workflows."</div>
+            <div class="obj-a">Start with free tier — zero-risk experimentation for one engineer. ODE doesn't replace engineer judgment — it eliminates the tedious setup work. The AI handles meshing and solver configuration; engineers handle the physics insight and decision-making.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">07 — "My team won't adopt a new tool."</div>
+            <div class="obj-a">No installation required — runs in the browser right now. Onboarding is under 10 minutes. Bottom-up adoption: let one engineer try it on one project. When colleagues see simulation setup go from 3 days to 3 hours, adoption follows organically.</div>
+          </div>
+          <div class="obj-row">
+            <div class="obj-q">08 — "What if your company shuts down?"</div>
+            <div class="obj-a">All models are stored in standard Modelica format — fully portable. Export your entire project at any time. FMI/FMU output runs in any compliant solver. Zero vendor lock-in. Your engineering data belongs to you, always.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 CUSTOMER JOURNEY -->
+  <section class="section" id="journey">
+    <div class="sec-hd">
+      <span class="sec-num">05</span>
+      <span class="sec-title">Customer Journey Map</span>
+      <span class="sec-sub">7 stages · Signals · Actions · Churn risk thresholds</span>
+    </div>
+    <div class="card">
+      <div class="card-title">Full Journey — Awareness to Advocacy</div>
+      <div style="margin-top:.5rem">
+        <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;gap:.75rem;padding:.5rem 0;border-bottom:2px solid var(--border);margin-bottom:.3rem">
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Stage</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">PLG Signal</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">SLG Signal</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Success Metric</div>
+          <div style="font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text3)">Owner Action</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Awareness</div>
+          <div class="jr-signal">Google search, LinkedIn, GitHub star, blog read</div>
+          <div class="jr-signal">ABM outreach response, LinkedIn InMail</div>
+          <div class="jr-label">5,000 website visitors/mo (Q4)</div>
+          <div class="jr-action">Marketing: SEO + paid ads + content engine</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Consideration</div>
+          <div class="jr-signal">Demo page view, pricing review, feature exploration</div>
+          <div class="jr-signal">Discovery call booked, custom demo requested</div>
+          <div class="jr-label">40% demo completion rate</div>
+          <div class="jr-action">Marketing: retargeting · Sales: demo prep brief</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Decision</div>
+          <div class="jr-signal">Free sign-up (3% of visitors)</div>
+          <div class="jr-signal">Pilot agreement signed, champion assigned</div>
+          <div class="jr-label">PLG: 3% · SLG: 50% pilot close</div>
+          <div class="jr-action">Product: zero-friction onboarding · Sales: pilot SoW</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Onboarding</div>
+          <div class="jr-signal">Day 0–14: 5-email welcome sequence</div>
+          <div class="jr-signal">Week 1–4: Guided setup, first project, team intro</div>
+          <div class="jr-label">40% activation (first model, 7 days)</div>
+          <div class="jr-action">Product + CSM: check activation day 7</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Activation</div>
+          <div class="jr-signal">First AI model &lt;10 min · First sim run Day 1–3 · 3rd project Week 2–4</div>
+          <div class="jr-signal">First team invite · First token purchase</div>
+          <div class="jr-label">5% free→paid (30-day window)</div>
+          <div class="jr-action">Automated upgrade prompt at 80% token usage</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Expansion</div>
+          <div class="jr-signal">80% token usage, 3+ invites, 5+ projects, advanced feature request</div>
+          <div class="jr-signal">Cross-dept interest, QBR conversation</div>
+          <div class="jr-label">NRR &gt;120% · 15% upgrade rate (90d)</div>
+          <div class="jr-action">CSM: account review · Sales: expansion proposal</div>
+        </div>
+        <div class="journey-row" style="grid-template-columns:80px 1fr 1fr 1fr 1fr">
+          <div class="jr-stage">Advocacy</div>
+          <div class="jr-signal">Referral sent, community model shared, review posted</div>
+          <div class="jr-signal">Co-authored case study, conference speaking</div>
+          <div class="jr-label">1 referral / 10 paid users · 3 case studies Q4</div>
+          <div class="jr-action">Marketing: activate reference program</div>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.5rem">
+      <div class="card-title">Churn Risk Signals and Intervention Triggers</div>
+      <table class="tbl" style="margin-top:.25rem">
+        <thead><tr><th>Risk Signal</th><th>Threshold</th><th>Intervention</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td style="font-weight:600;color:var(--text)">Login drop-off</td><td>7 days no login (paid)</td><td>Automated re-engagement email (Sequence 4)</td><td>Product + Marketing</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Usage decline</td><td>&lt;50% of prior month activity</td><td>Account owner personal check-in call</td><td>CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Support spike</td><td>3+ tickets in one week</td><td>Priority support escalation; root cause review</td><td>CSM + CTO</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Failed simulations</td><td>&gt;50% failure rate</td><td>Proactive technical support outreach</td><td>CTO + CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Champion departure</td><td>Key user account deactivated</td><td>Identify new champion within 5 business days</td><td>AE + CSM</td></tr>
+          <tr><td style="font-weight:600;color:var(--text)">Renewal approaching</td><td>60 days before renewal</td><td>QBR with ROI summary; expansion proposal</td><td>AE + CSM</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-top:1rem;padding:.75rem;background:rgba(255,59,48,.06);border-radius:8px;font-size:.78rem;color:var(--text2)">
+        <strong style="color:var(--error)">Churn Escalation:</strong> Day 7 automated → Day 14 personal email → Day 21 phone call → Day 30 executive involvement. Do not wait until renewal to address churn signals.
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 ROI FRAMEWORK -->
+  <section class="section" id="roi">
+    <div class="sec-hd">
+      <span class="sec-num">06</span>
+      <span class="sec-title">ROI Framework</span>
+      <span class="sec-sub">Calculator inputs · Formula · 10-engineer reference example</span>
+    </div>
+    <div class="g2">
+      <div class="card">
+        <div class="card-title">ROI Calculator — 10-Engineer Team (Reference Example)</div>
+        <div style="margin-top:.75rem">
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem">Inputs</div>
+          <div class="roi-row"><div class="roi-label">Engineers using simulation</div><div class="roi-val">10</div></div>
+          <div class="roi-row"><div class="roi-label">Avg. simulation cycles / project</div><div class="roi-val">10 cycles</div></div>
+          <div class="roi-row"><div class="roi-label">Hours per simulation cycle (before)</div><div class="roi-val">8 hours</div></div>
+          <div class="roi-row"><div class="roi-label">AI setup reduction</div><div class="roi-val">75%</div></div>
+          <div class="roi-row"><div class="roi-label">Hourly rate (blended)</div><div class="roi-val">$100 / hr</div></div>
+          <div class="roi-row"><div class="roi-label">Projects per year</div><div class="roi-val">30</div></div>
+          <div class="roi-row"><div class="roi-label">Current tool licenses (annual)</div><div class="roi-val">$150,000</div></div>
+          <div class="roi-row"><div class="roi-label">ODE Team plan (10 seats × $199/mo)</div><div class="roi-val">$23,880</div></div>
+          <div style="margin-top:1rem">
+            <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem">Savings Calculation</div>
+            <div class="roi-row"><div class="roi-label">Time saved / cycle</div><div class="roi-val">6 hours</div></div>
+            <div class="roi-row"><div class="roi-label">Total hours saved / year</div><div class="roi-val">1,800 hrs</div></div>
+            <div class="roi-row"><div class="roi-label">Time value of savings</div><div class="roi-val">$180,000</div></div>
+            <div class="roi-row"><div class="roi-label">License cost reduction</div><div class="roi-val">$126,120</div></div>
+            <div class="roi-total">
+              <div class="roi-t-label">Total Annual Value from ODE</div>
+              <div class="roi-t-val">$306,120</div>
+            </div>
+            <div style="font-size:.72rem;color:var(--text3);margin-top:.4rem;text-align:right">vs. ODE annual cost of $23,880 — 12.8× ROI</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom:1.5rem">
+          <div class="card-title">ROI Formula</div>
+          <div style="background:var(--bg);border-radius:8px;padding:1rem;font-family:var(--mono);font-size:.75rem;color:var(--midnight);line-height:2">
+            Time Savings = (hours_per_cycle × AI_reduction% × cycles_per_year × engineers × hourly_rate)<br>
+            License Savings = (current_license_cost − ODE_annual_cost)<br>
+            <strong>Total Annual ROI = Time Savings + License Savings</strong>
+          </div>
+          <div style="margin-top:1rem;font-size:.78rem;color:var(--text2);line-height:1.6">
+            Present this calculation live during the demo. Use the prospect's own numbers — ask setup time, cycle count, team size, and current tool spend in discovery. Never use generic estimates when real inputs are available.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Competitive TCO — 3-Year Comparison</div>
+          <table class="tbl" style="margin-top:.25rem">
+            <thead><tr><th>Tool</th><th>Year 1</th><th>3-Year Total</th><th>AI Included</th></tr></thead>
+            <tbody>
+              <tr class="hl"><td><strong>ODE Pro (10 seats)</strong></td><td style="font-family:var(--mono);color:var(--success)">$23,880</td><td style="font-family:var(--mono);color:var(--success)">$71,640</td><td><span class="pill p-green">Yes</span></td></tr>
+              <tr><td>ANSYS Mechanical</td><td style="font-family:var(--mono);color:var(--error)">$300K+</td><td style="font-family:var(--mono);color:var(--error)">$900K+</td><td><span class="pill p-amber">Partial</span></td></tr>
+              <tr><td>Dassault CATIA + SIMULIA</td><td style="font-family:var(--mono);color:var(--error)">$500K+</td><td style="font-family:var(--mono);color:var(--error)">$1.5M+</td><td><span class="pill p-amber">Partial</span></td></tr>
+              <tr><td>SimScale Pro</td><td style="font-family:var(--mono)">$48,000</td><td style="font-family:var(--mono)">$144,000</td><td><span class="pill" style="background:rgba(255,59,48,.1);color:var(--error)">No</span></td></tr>
+              <tr><td>COMSOL Multiphysics</td><td style="font-family:var(--mono);color:var(--error)">$50K–$150K</td><td style="font-family:var(--mono);color:var(--error)">$150K–450K</td><td><span class="pill" style="background:rgba(255,59,48,.1);color:var(--error)">No</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<script>
+const sections=document.querySelectorAll('.section');
+const navItems=document.querySelectorAll('.nav-item');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){const id=e.target.id;navItems.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+id));}});
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>
