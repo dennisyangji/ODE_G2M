@@ -2,17 +2,17 @@
 
 ## Core Positioning
 
-**ODE is the AI-native engineering platform.**
+**Orthogonal is the Dassault of the AI era.**
 
-> For engineers and engineering teams who need to design, simulate, and iterate on complex hardware systems, ODE is the AI-native engineering platform that unifies CAD, CAE, and systems engineering in the browser with built-in AI co-pilot capabilities. Unlike legacy tools retrofitting AI or point solutions that only address one discipline, ODE was built from the ground up for the AI era — combining Modelica-based physics simulation with large language models to let engineers go from requirements to validated designs in a fraction of the time.
+> For engineers and engineering teams who need to design, simulate, and iterate on complex hardware systems across every discipline, Orthogonal — through its flagship platform ODE — is the AI-native full-stack engineering platform that covers CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, circuit design, and multi-objective optimisation, all in the browser with a built-in AI co-pilot. Unlike Dassault, Siemens, and ANSYS, which are retrofitting AI onto decades-old architectures at six-figure licence costs, Orthogonal was built from the ground up for the AI era — delivering the full breadth of a Dassault suite at a fraction of the cost, to every engineer on earth.
 
 ---
 
 ## Positioning Framework
 
-### For Enterprise OEMs (Aerospace/Automotive)
+### For Enterprise OEMs (Aerospace/Automotive/Defence)
 
-> For engineering leaders at aerospace and automotive OEMs who struggle with siloed tool chains and slow simulation cycles, ODE is the unified engineering platform that breaks down barriers between CAD, CAE, and systems engineering while leveraging AI to accelerate design iteration by 10x. Unlike Autodesk, Siemens, or Dassault's legacy suites, ODE is AI-native — meaning AI doesn't just assist, it fundamentally transforms how engineering gets done.
+> For engineering leaders at aerospace, automotive, and defence OEMs who are trapped in fragmented, legacy toolchains costing $50K–$500K per seat per year, Orthogonal ODE is the full-stack AI-native platform that replaces Dassault, ANSYS, and Siemens toolchains with a single, browser-based environment covering every engineering discipline — at 5–50× lower cost, with AI that understands physics natively.
 
 ### For Engineering Consultancies
 
@@ -49,26 +49,33 @@ Built on Modelica 4.0, FMI 2.0/3.0, and SysML v1.6. This means no vendor lock-in
 
 ## Messaging Hierarchy
 
-### Level 1: Brand Promise (5 words)
-**"Engineering reimagined with AI"**
+### Level 1: Brand Promise
+**"The Dassault of the AI era."**
 
 ### Level 2: Value Proposition (1 sentence)
-ODE is the first engineering platform built for the AI era — unifying CAD, simulation, and systems engineering with an AI co-pilot that understands physics.
+Orthogonal ODE is the first full-stack AI-native engineering platform — covering every discipline from CAD to FEM, CFD, MBSE, circuit design, and reinforcement learning — built for the AI era, not retrofitted into it.
 
 ### Level 3: Proof Points (supporting claims)
-- AI generates validated Modelica models from natural language requirements
-- 6 integrated tools replace fragmented toolchains
-- Browser-based with real-time collaboration (zero IT friction)
-- Open standards (Modelica, FMI, SysML) ensure no vendor lock-in
-- From idea to validated design 10x faster
+- 12 integrated engineering disciplines replace fragmented, expensive toolchains
+- AI generates validated physics models from natural language requirements
+- Browser-based with real-time collaboration (zero IT friction, zero installation)
+- Open standards (Modelica, FMI, SysML, KiCad) ensure no vendor lock-in
+- 5–50× lower cost than equivalent Dassault / ANSYS / Siemens licences
+- From idea to validated multi-physics design 10× faster
 
-### Level 4: Features and Capabilities
-- Component: AI-powered Modelica physics modeling
-- Paper: Collaborative engineering documentation
-- System: SysML-based hierarchical system modeling
-- Vision: Real-time 3D simulation and visualization
-- Geometry: Browser-based CAD editing
-- Interaction: Interactive real-time parameter exploration
+### Level 4: Full Tool Suite
+- **Component**: AI-powered Modelica multi-domain physics modelling
+- **Geometry**: Browser-based parametric CAD
+- **System**: SysML-based MBSE + requirements traceability
+- **Vision**: Real-time 3D simulation and visualisation
+- **Paper**: Collaborative engineering documentation
+- **Interaction**: Interactive real-time parameter exploration
+- **FEM**: Finite element analysis with AI-assisted meshing
+- **CFD**: Computational fluid dynamics
+- **Compute**: Scientific computing and numerical analysis
+- **Optim**: Multi-objective optimisation (Pareto front)
+- **RL**: Reinforcement learning for control strategy design
+- **Circuit**: KiCad-based PCB and circuit design with co-simulation
 
 ---
 
@@ -77,7 +84,10 @@ ODE is the first engineering platform built for the AI era — unifying CAD, sim
 ### vs. Neural Concept
 "Neural Concept optimizes designs with AI. ODE creates them. While they focus on AI-assisted analysis, ODE provides the full engineering platform — from CAD to simulation to systems engineering — with AI woven into every step."
 
-### vs. Autodesk / Dassault / Siemens
+### vs. Dassault Systèmes (Primary Competitor)
+"Dassault built the gold standard of engineering software over 30 years — CATIA, SIMULIA, ENOVIA, GENESYS. We have deep respect for that. And we built the same thing for the AI era: every discipline, one platform, AI-native from the ground up, at 5–50× lower cost. That's not incremental improvement. That's a generational shift."
+
+### vs. Autodesk / Siemens
 "Legacy tools are adding AI to decades-old architectures. ODE was built for AI from the start. That's the difference between a smartphone and a flip phone with a touchscreen."
 
 ### vs. Onshape

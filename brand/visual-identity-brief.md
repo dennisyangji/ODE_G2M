@@ -2,47 +2,51 @@
 
 ## Design Philosophy
 
-ODE's visual identity embodies **AI-native engineering**: intelligent, precise, forward-looking, and accessible. Every visual element should communicate that this is a next-generation platform — not a legacy tool with a fresh coat of paint.
+ODE's visual identity follows the **Apple design tradition**: radical simplicity, typographic authority, premium whitespace, and cinematic imagery. We do not decorate — we reveal. We do not fill space — we command it.
+
+The brief: if you showed a sophisticated engineer an ODE marketing page alongside an Apple product page, they should feel the same level of quality, intentionality, and confidence.
 
 ### Core Principles
-1. **Clarity First** — Engineering tools demand zero ambiguity. Every UI element has a clear purpose.
-2. **Dark Mode Default** — Engineers spend hours in front of screens. Dark mode reduces eye strain and looks modern.
-3. **Data-Dense, Not Cluttered** — Engineering dashboards need information density with visual hierarchy.
-4. **AI-Forward Aesthetic** — Subtle visual cues that signal intelligence: smooth gradients, responsive animations, luminous accents.
-5. **Professional Warmth** — Technical but not cold. Approachable but not playful.
+1. **Premium Whitespace** — Space is not emptiness. It is the most powerful design element we have. Every layout should breathe.
+2. **Typography Commands** — SF Pro at large scale says everything. Hero text needs no supporting imagery.
+3. **Cinematic Imagery** — Product renders and engineering visualisations are cinema. Full-bleed, no borders, no drop shadows.
+4. **Light is the Hero** — Light mode for all marketing, public, and pitch surfaces. Dark for the product tool itself.
+5. **Precision without Decoration** — Apple does not add gradients to make things feel premium. The restraint IS the premium.
 
 ---
 
 ## Color Palette
 
-### Primary Colors
+### Primary Palette (Apple-inspired)
 
-| Token | Light Mode | Dark Mode | Usage |
-|-------|-----------|-----------|-------|
-| `primary-600` | `#4F46E5` (Indigo) | `#6366F1` | Primary actions, links, active states |
-| `primary-500` | `#6366F1` | `#818CF8` | Hover states, secondary emphasis |
-| `primary-700` | `#4338CA` | `#4F46E5` | Pressed states, strong emphasis |
-| `primary-50` | `#EEF2FF` | `#1E1B4B` | Subtle backgrounds, badges |
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `brand-midnight` | `#0A2540` | Primary brand colour, hero headlines, nav |
+| `brand-accent` | `#0071E3` | CTAs, links, interactive states (Apple Blue) |
+| `brand-accent-hover` | `#0077ED` | Hover state |
+| `white` | `#FFFFFF` | Primary background (marketing) |
+| `off-white` | `#F5F5F7` | Secondary background, section fills |
+| `near-black` | `#1D1D1F` | Primary text (Apple standard) |
+| `mid-grey` | `#6E6E73` | Secondary text, subheadings, captions |
+| `light-grey` | `#D2D2D7` | Borders, dividers |
+| `product-black` | `#000000` | Product UI base (dark mode) |
+| `product-dark` | `#1C1C1E` | Product cards, panels |
 
-### Secondary / Accent Colors
+### Semantic Colours (Engineering Contexts)
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `accent-cyan` | `#06B6D4` | AI features, intelligence indicators, simulation data |
-| `accent-violet` | `#8B5CF6` | Premium features, AI processing states |
-| `accent-emerald` | `#10B981` | Success states, valid simulations, positive metrics |
+| State | Colour | Usage |
+|-------|--------|-------|
+| Success | `#34C759` (Apple green) | Simulation complete, valid |
+| Warning | `#FF9F0A` (Apple orange) | Near limit, non-critical |
+| Error | `#FF3B30` (Apple red) | Failed, invalid |
+| AI Active | `#5E5CE6` (Apple indigo) | AI processing indicator |
 
-### Neutral Palette (Slate)
-
-| Token | Light Mode | Dark Mode | Usage |
-|-------|-----------|-----------|-------|
-| `surface-primary` | `#FFFFFF` | `#0F172A` (slate-900) | Main background |
-| `surface-secondary` | `#F8FAFC` | `#1E293B` (slate-800) | Cards, panels |
-| `surface-tertiary` | `#F1F5F9` | `#334155` (slate-700) | Elevated surfaces |
-| `border-default` | `#E2E8F0` | `#475569` (slate-600) | Borders, dividers |
-| `text-primary` | `#0F172A` | `#F8FAFC` | Primary text |
-| `text-secondary` | `#475569` | `#94A3B8` | Secondary text |
-| `text-muted` | `#94A3B8` | `#64748B` | Disabled, placeholder text |
+### Data Visualisation Palette
+For FEM stress maps, CFD flow fields, simulation charts:
+```
+Cool → Hot: #5AC8FA → #34C759 → #FFD60A → #FF9F0A → #FF3B30
+Series: #0071E3 / #34C759 / #FF9F0A / #FF3B30 / #5E5CE6 / #5AC8FA
+```
 
 ### Semantic Colors
 
@@ -75,29 +79,33 @@ Cool: #3B82F6 → #06B6D4 → #10B981 → #F59E0B → #EF4444 :Hot
 
 ## Typography
 
-### Font Stack
+### Font Stack (Apple SF Pro System)
 
 | Category | Font | Fallback | Usage |
 |----------|------|----------|-------|
-| **UI / Headings** | Inter | system-ui, -apple-system, sans-serif | All UI text, headings, body |
-| **Code / Engineering** | JetBrains Mono | Fira Code, Consolas, monospace | Modelica code, parameters, console |
-| **Marketing / Display** | Inter (700-800 weight) | system-ui, sans-serif | Hero sections, landing page |
+| **Display / Hero** | SF Pro Display | -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif | Hero headlines ≥ 40px |
+| **UI / Body** | SF Pro Text | -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif | All body, UI, sub-40px |
+| **Code / Engineering** | SF Mono | "JetBrains Mono", "Fira Code", Consolas, monospace | Modelica code, parameters, console |
 
-### Type Scale
+**Web fallback strategy:** Use `-apple-system, BlinkMacSystemFont` as first fallback — native SF Pro on Apple devices, Inter/Helvetica on non-Apple. Do NOT load SF Pro from a CDN; the system font cascade handles it.
 
-| Token | Size | Weight | Line Height | Usage |
-|-------|------|--------|-------------|-------|
-| `text-xs` | 11px | 400 | 1.5 | Labels, captions |
-| `text-sm` | 13px | 400 | 1.5 | Secondary text, table data |
-| `text-base` | 15px | 400 | 1.6 | Body text, form inputs |
-| `text-lg` | 17px | 500 | 1.5 | Subheadings, emphasis |
-| `text-xl` | 20px | 600 | 1.4 | Section headers |
-| `text-2xl` | 24px | 600 | 1.3 | Page titles |
-| `text-3xl` | 30px | 700 | 1.2 | Hero subheadings |
-| `text-4xl` | 36px | 800 | 1.1 | Hero headlines |
-| `text-5xl` | 48px | 800 | 1.1 | Landing page hero |
-| `code-sm` | 12px | 400 | 1.6 | Inline code, small blocks |
-| `code-base` | 14px | 400 | 1.7 | Code editor, Modelica |
+### Type Scale (Apple-aligned)
+
+| Token | Size | Weight | Letter Spacing | Line Height | Usage |
+|-------|------|--------|---------------|-------------|-------|
+| `text-xs` | 11px | 400 | 0 | 1.5 | Labels, captions, legal |
+| `text-sm` | 13px | 400 | 0 | 1.5 | Secondary text, metadata |
+| `text-base` | 17px | 400 | 0 | 1.6 | Body text (Apple uses 17px as default) |
+| `text-lg` | 19px | 400 | 0 | 1.5 | Emphasis body |
+| `text-xl` | 21px | 600 | -0.01em | 1.4 | Sub-section headers |
+| `text-2xl` | 28px | 600 | -0.02em | 1.3 | Section titles |
+| `text-3xl` | 40px | 700 | -0.03em | 1.1 | Page titles, feature headlines |
+| `text-4xl` | 56px | 700 | -0.04em | 1.05 | Hero sub-headlines |
+| `text-5xl` | 80px | 700 | -0.05em | 1.0 | Hero super-headline (Apple scale) |
+| `text-6xl` | 96px | 700 | -0.06em | 0.95 | Full-bleed hero text |
+| `code-base` | 15px | 400 | 0 | 1.7 | SF Mono, code, parameters |
+
+**Key principle:** Apple uses very tight letter-spacing (negative) at large sizes, and generous tracking at small sizes. This creates the distinctive "locked-in authority" of Apple display typography.
 
 ---
 
@@ -268,13 +276,26 @@ z-maximum:   999   — Loading overlays
 
 ---
 
+## Motion (Apple Timing)
+
+| Token | Duration | Easing | Usage |
+|-------|----------|--------|-------|
+| `fast` | 200ms | ease-out | Hover, focus, toggle |
+| `normal` | 300ms | ease-in-out | Panel transitions, tab switch |
+| `slow` | 500ms | cubic-bezier(0.25, 0.1, 0.25, 1) | Modal, page transition |
+| `spring` | 600ms | cubic-bezier(0.16, 1, 0.3, 1) | Sidebar, accordion expand |
+
+Apple Motion Principle: **Purposeful deceleration.** Fast in, slow out. Things arrive with authority.
+
+---
+
 ## Brand Misuse (Don't)
 
-- Don't use light mode as default in product screenshots
-- Don't use gradients as backgrounds (only for data visualization and subtle accents)
-- Don't use rounded/bubble fonts — keep it geometric and precise
-- Don't use clip art or cartoon illustrations
-- Don't add excessive decorative elements — let the engineering data speak
-- Don't use colors outside the defined palette
-- Don't stretch or modify the logo proportions
-- Don't place the logo on busy or low-contrast backgrounds
+- Don't use dark mode on marketing/public surfaces (reserve dark for product UI)
+- Don't use gradients as page backgrounds — whitespace is the premium signal
+- Don't use rounded/bubbly fonts — SF Pro system stack only
+- Don't use clip art, stock photos of engineers, or generic "AI" imagery (brains, circuits)
+- Don't fill space with decorative elements — let engineering data and typography carry the page
+- Don't use colours outside the defined Apple-inspired palette
+- Don't add border-radius > 16px on large containers (too bubbly)
+- Don't centre-align body copy blocks wider than 680px — left-aligned body text at scale reads as more authoritative

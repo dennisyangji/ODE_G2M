@@ -2,9 +2,11 @@
 
 ## Executive Summary
 
-ODE enters the $18B engineering simulation market as the first **AI-native full-stack engineering platform**. Our GTM strategy combines Product-Led Growth (40% of revenue) with Sales-Led Growth (60%) to reach **$1M ARR within 12 months** on a $316K marketing budget.
+Orthogonal enters the $18B engineering simulation market as **the Dassault of the AI era** — the first AI-native full-stack engineering platform covering every engineering discipline: CAD, MBSE, system simulation, FEM, CFD, scientific computing, reinforcement learning, KiCad circuit design, and multi-objective optimisation.
 
-The core insight: engineering tools are splitting into two eras — legacy tools retrofitting AI, and AI-native platforms built for the future. ODE is firmly in the second camp, and we position ourselves as the inevitable choice for engineers who want to work with AI, not against their tools.
+Our GTM strategy combines Product-Led Growth (40% of revenue) with Sales-Led Growth (60%) to reach **$1M ARR within 12 months**. The updated GTM motion adds a dedicated Sales & Channel Manager and a part-time AI Marketing Specialist to the 6-person core team — giving us execution capacity without burning runway.
+
+The core insight: Dassault Systèmes defined the gold standard of engineering software for 30 years. Their weakness is their strength: 30-year-old architecture, six-figure licences, and AI bolted on after the fact. Orthogonal ODE is what Dassault would build today if it started from scratch.
 
 ---
 
@@ -24,16 +26,20 @@ The core insight: engineering tools are splitting into two eras — legacy tools
 
 ---
 
-## Positioning: AI-Native Engineering Platform
+## Positioning: The Dassault of the AI Era
 
 ### Category Creation
-ODE defines a new category: **AI-Native Engineering Platform**. This is not CAD. Not CAE. Not PLM. It's the convergence of all three, powered by AI that understands physics.
+Orthogonal ODE does not create a new category — it **redefines an existing one**. Dassault defined "full-stack engineering platform." We claim the AI-era version of that title: same breadth (12 disciplines), same depth (production-grade solvers), radically different architecture (AI-native, browser-first, open standards), radically different pricing (5–50× cheaper).
+
+### Tool Coverage (Full Stack)
+CAD · MBSE · System Simulation · FEM · CFD · Scientific Computing · Reinforcement Learning · KiCad Circuit Design · Multi-objective Optimisation
 
 ### Positioning vs. Market
-- **vs. Legacy CAD/CAE** (Autodesk, Dassault, Siemens): "They're adding AI to 30-year-old architectures. We built for AI from the start."
-- **vs. AI Point Solutions** (Neural Concept, Emmi): "They optimize one part of the workflow. We transform the entire engineering process."
-- **vs. Cloud CAD** (Onshape): "Cloud-native was step one. AI-native is step two. We're already there."
-- **vs. Modelica Tools** (Modelon, Dymola): "We love Modelica too — that's why we taught AI to speak it fluently."
+- **vs. Dassault Systèmes** (Primary): "Dassault spent 30 years building the standard. We built the AI-era upgrade. Same disciplines, AI-native architecture, fraction of the cost."
+- **vs. ANSYS / Siemens**: "They're adding AI to 30-year-old architectures. We built for AI from the start — every solver, every workflow."
+- **vs. AI Point Solutions** (Neural Concept, Emmi): "They optimise one step. We transform the entire engineering lifecycle."
+- **vs. Cloud CAD** (Onshape): "Cloud-native was step one. AI-native, full-stack is step two. We're already there."
+- **vs. Modelica Tools** (Modelon, Dymola): "We love Modelica — that's why we taught AI to speak it fluently. And then added FEM, CFD, and circuit design around it."
 
 ---
 

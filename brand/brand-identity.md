@@ -20,17 +20,17 @@ The name carries deliberate dual meaning:
 
 ## Mission
 
-**Democratize engineering design through AI-native tools.**
+**Build the Dassault of the AI era — and make it accessible to every engineer on earth.**
 
-Engineering design has been locked behind expensive, siloed, legacy software for decades. ODE exists to change that -- putting physics-aware AI in the hands of every engineer, from aerospace OEMs to independent makers, through a browser-based platform that requires no installation, no six-figure license, and no week-long training course.
+Dassault Systèmes defined what a full-stack engineering platform could be. Orthogonal defines what it should be in the AI era: every discipline, AI-native architecture, open standards, browser-based access, and pricing that does not exclude 99% of the world's engineers.
 
 ---
 
 ## Vision
 
-**Every engineer has an AI co-pilot that understands physics.**
+**Every engineer in the world has access to a full-stack AI engineering platform.**
 
-We envision a future where engineering design is collaborative between human intuition and machine intelligence. Where an engineer can describe a system, and AI helps model it, simulate it, visualize it, and optimize it -- all grounded in real physics, real standards, and real engineering rigor.
+We envision a world where the tools available to a senior engineer at Airbus are equally available to a student in Nairobi, a startup founder in Seoul, and a researcher in São Paulo. Not a watered-down version — the full platform, powered by AI that understands physics, covering every engineering discipline from CAD to FEM to circuit design.
 
 ---
 
@@ -65,12 +65,14 @@ Engineers trust precision. Our brand reflects that -- in our language (no vague 
 
 ## Brand Promise
 
-> **"Engineering reimagined with AI."**
+> **"The Dassault of the AI era."**
 
 This promise encapsulates:
-- **Engineering**: We are rooted in real engineering, not abstract tech.
-- **Reimagined**: We are not incrementally improving legacy workflows. We are rethinking them.
-- **With AI**: AI is not a feature -- it is the foundation. Claude AI integrated with Modelica MCP Server is a new paradigm, not an add-on.
+- **Dassault**: We respect the 30-year legacy. We are building its successor.
+- **of the AI era**: This is a generational claim, not a feature claim. We are not Dassault with AI added. We are what engineering software looks like when built from scratch in 2024.
+- **Orthogonal**: The parent brand that carries this promise. ODE is the product that delivers it.
+
+**Secondary promise (product level):** "Engineering reimagined with AI."
 
 ---
 
@@ -78,20 +80,26 @@ This promise encapsulates:
 
 ### Origin Narrative
 
-ODE was founded by engineers who were frustrated.
+Orthogonal was founded by engineers who were frustrated.
 
-Frustrated with CAD tools that could not talk to simulation tools. With MBSE platforms that required six months of training. With documentation systems disconnected from the models they described. With licensing structures that priced out startups and universities. With "AI features" that amounted to a chatbot bolted onto a 1990s codebase.
+Frustrated that the best engineering tools in the world — Dassault's CATIA, Siemens' NX, ANSYS — cost more than a car per seat per year. Frustrated that "AI" meant a chatbot bolted onto a 1990s codebase. Frustrated that you needed a CAD tool, a different simulation tool, a different MBSE tool, a different documentation tool — none of which talked to each other.
 
-They asked a simple question: **What would engineering design software look like if you built it today, from scratch, with AI at the core?**
+They asked a simple question: **What would Dassault Systèmes build today if it started from scratch?**
 
-The answer is ODE -- Orthogonal Design Engineering. A browser-based platform where six purpose-built tools work together seamlessly:
+The answer is ODE — Orthogonal Design Engineering. A browser-based platform covering every engineering discipline — with AI that understands physics natively:
 
-- **Component** -- Modelica-based modeling for multi-domain physical systems
-- **Paper** -- Living documentation connected to your models
-- **System** -- Model-based systems engineering with SysML
-- **Vision** -- 3D simulation and visualization
-- **Geometry** -- Parametric CAD integrated with simulation
-- **Interaction** -- Real-time collaborative visualization
+- **Component** — Modelica multi-domain physics modelling
+- **Geometry** — Parametric CAD, browser-based
+- **System** — MBSE with SysML
+- **Vision** — 3D simulation and visualisation
+- **Paper** — Living engineering documentation
+- **Interaction** — Real-time collaborative parameter exploration
+- **FEM** — Finite element analysis, AI-assisted
+- **CFD** — Computational fluid dynamics
+- **Compute** — Scientific computing and numerical analysis
+- **Optim** — Multi-objective optimisation (Pareto front)
+- **RL** — Reinforcement learning for control strategy design
+- **Circuit** — KiCad-based PCB and circuit design with co-simulation
 
 Each tool is orthogonal -- independent, focused, composable. Together, they form a complete engineering design environment. And running through all of them is AI that actually understands physics: Claude AI paired with the Modelica MCP Server, capable of generating models, explaining behavior, catching errors, and accelerating every stage of the design process.
 
@@ -110,16 +118,22 @@ ODE is not trying to replace the engineer. It is trying to give every engineer a
 ## Brand Architecture
 
 ```
-Orthogonal (parent company / corporate brand)
+Orthogonal (parent company — "the Dassault of the AI era")
   |
-  +-- ODE (product brand / platform)
+  +-- ODE (flagship engineering platform)
        |
-       +-- ODE Component (Modelica modeling)
-       +-- ODE Paper (documentation)
-       +-- ODE System (MBSE)
-       +-- ODE Vision (3D simulation)
-       +-- ODE Geometry (CAD)
-       +-- ODE Interaction (real-time visualization)
+       +-- ODE Component   (Modelica multi-domain physics)
+       +-- ODE Geometry    (parametric CAD)
+       +-- ODE System      (MBSE + SysML)
+       +-- ODE Vision      (3D simulation)
+       +-- ODE Paper       (documentation)
+       +-- ODE Interaction (real-time exploration)
+       +-- ODE FEM         (finite element analysis)    [Phase 2]
+       +-- ODE CFD         (computational fluid dynamics) [Phase 2]
+       +-- ODE Compute     (scientific computing)       [Phase 3]
+       +-- ODE Optim       (multi-objective optimisation) [Phase 3]
+       +-- ODE RL          (reinforcement learning)     [Phase 4]
+       +-- ODE Circuit     (KiCad circuit design)       [Phase 4]
 ```
 
 **Naming convention**: "ODE [Tool Name]" -- e.g., "ODE Component," "ODE Vision."  
@@ -157,8 +171,9 @@ We do not compete on feature parity with legacy tools. We compete on a fundament
 
 ## Brand Taglines (Approved for Use)
 
-**Primary**: "Engineering reimagined with AI."  
-**Product-focused**: "Six tools. One platform. AI-native."  
-**Audience-specific (engineers)**: "Your AI co-pilot for engineering design."  
-**Audience-specific (enterprise)**: "The modern engineering platform your teams deserve."  
-**Standards-focused**: "Open standards. AI-native intelligence. Real engineering."
+**Strategic (Orthogonal brand)**: "The Dassault of the AI era."  
+**Primary (ODE product)**: "Engineering reimagined with AI."  
+**Full-stack story**: "Every discipline. One platform. AI-native."  
+**Audience-specific (engineers)**: "Your AI co-pilot for every engineering discipline."  
+**Audience-specific (enterprise)**: "Replace your Dassault/ANSYS stack. Keep your standards."  
+**Price disruption**: "Dassault-grade engineering. Not Dassault-grade pricing."

@@ -1,19 +1,117 @@
-# ODE GTM Team & Hiring Plan
+# ODE GTM Team & Hiring Plan (v2)
 
-## Current Team (6 People)
+## Current Core Team (6 People)
 
 | # | Role | Function | GTM Contribution |
 |---|------|----------|-----------------|
-| 1 | CEO / Co-Founder | Leadership, vision, fundraising | Founder-led sales, LinkedIn content, investor relations |
-| 2 | CTO / Co-Founder | Engineering, AI, architecture | Technical demos, conference talks, open-source |
-| 3 | Engineer | Platform development | Product quality, demo infrastructure |
-| 4 | Engineer | Platform development | Feature delivery, API development |
-| 5 | Engineer | Platform development | AI features, Modelica MCP |
-| 6 | Operations / Finance | Admin, finance, HR | CRM admin, vendor management, reporting |
+| 1 | CEO | Leadership, vision, fundraising, strategic sales | Founder-led enterprise sales, LinkedIn thought leadership, investor relations |
+| 2 | CTO | Engineering, AI, architecture | Technical demos, conference talks, open-source, Modelica MCP |
+| 3 | Designer | Product UI + brand visual design | Apple-style design system, marketing materials, pitch deck |
+| 4 | Frontend Engineer | Product development | Feature delivery, demo infrastructure, landing pages |
+| 5 | Backend Engineer | Platform development | API, AI features, solver integration |
+| 6 | Finance | Finance, legal, operations | CRM admin, vendor contracts, financial reporting |
 
-**Gap Analysis**: Zero dedicated marketing or sales capacity. CEO handles sales ad-hoc. No one owns content, paid acquisition, community, or enterprise pipeline. This is the #1 bottleneck to achieving $1M ARR.
+**Gap Analysis v2**: Core team has product-building capacity but zero GTM execution. CEO spending 60%+ on sales is the #1 bottleneck. Two targeted hires (AI Marketing 0.5 FTE + Sales & Channel 1 FTE) unlock $600K+ ARR without burning runway.
 
 ---
+
+## Immediate GTM Hires (1.5 FTE Total)
+
+---
+
+### Hire #7: AI Marketing Specialist (0.5 FTE / Part-time) — P0
+
+**Why first**: Brand声量为零，CEO 内容产出不可持续。AI 工具使 0.5 人力能产出 2-3 全职的内容量。每周延误损失约 $15K 潜在管道。
+
+**Profile:**
+- 2-4 年数字营销经验，深度使用 AI 工具（Claude, Midjourney, Cursor）
+- 理解工程 / 技术受众（不必是工程师，但要能与工程师对话）
+- 擅长 SEO、社交内容、邮件营销
+- 能独立管理多个渠道，习惯 async 工作方式
+
+**核心职责（每周）:**
+- 5+ 件内容产出（LinkedIn 文章、技术博客、短视频脚本）
+- SEO 关键词研究与落地页优化（使用 Perplexity + Semrush）
+- 邮件序列管理（Customer.io，AI 个性化）
+- 竞品内容监控（达索、ANSYS、SimScale 动态）
+- 月度品牌审计（确保 Apple 风格设计规范一致性）
+
+**AI 工具栈:**
+| 任务 | 工具 |
+|------|------|
+| 文案生成 | Claude API |
+| 图片/渲染 | Midjourney / Runway |
+| 视频剪辑 | CapCut / Descript |
+| SEO 研究 | Perplexity + Semrush |
+| 落地页 | Cursor + Framer |
+| 邮件 | Customer.io |
+| 社交调度 | Buffer / Hypefury |
+
+**薪酬:**
+- Part-time（20h/周）：€2,000 - €3,000/月
+- Full-time 转换期权（M6 评估）
+- 远程优先
+
+---
+
+### Hire #8: Sales & Channel Manager (1.0 FTE) — P0
+
+**Why now**: CEO 销售时间必须降至 30% 以下。渠道合作伙伴每月延误损失 1-2 个月的管道生成时间。分销模式能以 1 人力撬动 3-5 倍的覆盖范围。
+
+**Profile:**
+- 3-6 年 B2B 销售经验，有工程软件 / SaaS 背景优先
+- 有渠道销售经验（经销商、系统集成商管理）
+- 熟悉欧洲工程市场（德国、法国、荷兰优先）
+- 技术理解力强（能看懂工程 Demo，能讲 ROI 故事）
+- 有猎手性格：能独立开发新客户，不依赖 inbound
+
+**职责分工（50/50 直销 + 渠道）:**
+
+**直销（50%）:**
+- 接管 CEO 现有销售管道，负责 $50K+ ACV 大客户
+- 运行 ABM 流程：LinkedIn 触达 → 技术 Demo → 30 天 Pilot → 合同
+- 维护 CRM（HubSpot），每周更新管道预测
+- 配合 CEO 参与战略账户最终谈判
+
+**渠道建设（50%）:**
+- 识别并签约 3-5 个渠道合作伙伴（Year 1）
+  - 优先级 1：欧洲工程咨询公司（有 Modelica / ANSYS 客户基础）
+  - 优先级 2：Dassault / ANSYS 经销商（客户有迁移诉求）
+  - 优先级 3：大学技术转化中心 / 孵化器
+- 建立渠道合作协议（Revenue share 20-30%，培训支持，联合营销）
+- 赋能渠道：提供销售培训、技术 Demo 资产、客户案例
+- 季度渠道绩效复盘
+
+**Year 1 目标:**
+
+| 指标 | 目标 |
+|------|------|
+| 直销管道 | $500K+ |
+| 直销成交 | $200K - $300K ARR |
+| 渠道合作伙伴签约 | 3-5 家 |
+| 渠道产生管道 | $150K - $200K |
+| 总贡献 ARR | $350K - $500K |
+
+**薪酬:**
+- Base：€60K - €80K
+- OTE：€110K - €140K（50/50 split）
+- Commission：直销 10-12% ACV；渠道成交 5-6% ACV
+- 股权：0.3% - 0.6%
+
+---
+
+## Updated Team Structure (8 People)
+
+```
+CEO        — 战略、融资、重点大客户（20-30% GTM 时间）
+CTO        — 技术、产品、AI 架构
+Designer   — 产品 UI + Apple 设计系统 + 品牌视觉
+Frontend   — 产品开发
+Backend    — 产品开发、API、AI 功能
+Finance    — 财务、法务、运营
+AI Mkt(×0.5) — 内容、SEO、社交、邮件（AI 工具驱动）
+Sales & Channel — 渠道建设 + 直销
+```
 
 ## Target Team by End of Year 1 (10-11 People)
 

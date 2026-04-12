@@ -1,32 +1,48 @@
 # ODE Design System Specification
 
-**Version:** 1.0
-**Last Updated:** 2026-04-12
-**Platform:** ODE - AI-Native Engineering Platform
+**Version:** 2.0 — Apple-Inspired  
+**Last Updated:** 2026-04-12  
+**Platform:** Orthogonal ODE — The Dassault of the AI Era  
+**Design Reference:** Apple Design System (SF Pro, premium white space, cinematic)
+
+---
+
+## 0. Design Philosophy
+
+ODE's visual identity follows Apple's core principle: **the product is the message**. Every pixel of whitespace communicates confidence. Every typographic choice communicates precision. We do not decorate — we reveal.
+
+> "Design is not just what it looks like and feels like. Design is how it works." — Steve Jobs
+
+Applied to ODE: the interface should feel like a precision instrument, not a dashboard. Engineers should feel that using ODE is the same category of experience as using a MacBook Pro — unmistakably high quality, unmistakably purposeful.
 
 ---
 
 ## 1. Design Principles
 
-### 1.1 Clarity
-- Every element serves a purpose. Remove visual noise so engineers can focus on their work.
-- Information hierarchy is immediately obvious through typography, spacing, and contrast.
-- Labels, units, and statuses are always explicit, never ambiguous.
+### 1.1 Radical Reduction (Apple: "Simplicity is the ultimate sophistication")
+- Remove everything that does not carry meaning. A blank page is not emptiness — it is potential.
+- Maximum content density per screen: 40%. The rest is intentional whitespace.
+- If an element cannot be justified with a single sentence, it should not exist.
 
-### 1.2 Precision
-- Pixel-perfect alignment to the base grid. No "close enough."
-- Numerical values are displayed with appropriate significant figures.
-- Visual feedback is immediate and deterministic -- engineers must trust what the UI reports.
+### 1.2 Typographic Hierarchy as Structure
+- SF Pro does the heavy lifting. Typography IS the layout.
+- Three weights maximum per screen: Light (body), Regular (UI), Semibold (emphasis).
+- Numerical values: always monospaced, always right-aligned, always with units.
 
-### 1.3 Intelligence
-- The interface anticipates user needs through context-aware suggestions and smart defaults.
-- AI-generated content and recommendations are visually distinct from user-authored content.
-- Progressive disclosure: show what matters now, make everything else accessible on demand.
+### 1.3 Cinematic Imagery
+- Engineering renders are photography, not illustrations. Treat them accordingly.
+- Full-bleed images on marketing surfaces. No borders, no drop shadows on imagery.
+- Dark and light modes must both feel intentional, not just inverted.
 
-### 1.4 Accessibility
-- WCAG 2.1 AA compliance is the minimum bar, not the goal.
-- Keyboard-first interaction model -- every action reachable without a mouse.
-- Color is never the sole indicator of meaning; always pair with shape, text, or iconography.
+### 1.4 Precision
+- 8pt base grid. Pixel-perfect. No "close enough."
+- Visual feedback is immediate and deterministic — engineers must trust what the UI reports.
+- AI-generated content is visually distinct from user-authored content (subtle tint, not a banner).
+
+### 1.5 Accessibility
+- WCAG 2.1 AA compliance minimum.
+- Keyboard-first interaction model.
+- Color is never the sole indicator of meaning.
 
 ---
 
@@ -58,33 +74,52 @@ The `640px` value is used as a content breakpoint for internal component reflow 
 
 ## 3. Color Modes
 
-### 3.1 Dark Mode (Default)
-Dark mode is the default for ODE. Engineers spend extended hours in the platform; a dark surface reduces eye strain, improves focus, and is the de facto standard in engineering and development tools.
+### 3.0 Apple-Inspired Colour Philosophy
 
-- **Surface hierarchy (dark):**
-  - `surface-base`: slate-950 (#020617) -- application background
-  - `surface-raised`: slate-900 (#0F172A) -- cards, panels
-  - `surface-overlay`: slate-800 (#1E293B) -- dropdowns, dialogs
-  - `surface-subtle`: slate-700 (#334155) -- hover states, dividers
-- **Text on dark surfaces:**
-  - `text-primary`: slate-50 (#F8FAFC)
-  - `text-secondary`: slate-400 (#94A3B8)
-  - `text-tertiary`: slate-500 (#64748B)
-  - `text-disabled`: slate-600 (#475569)
+Light is the default marketing mode. Dark is the default product mode. Both must feel equally intentional — not a palette swap.
 
-### 3.2 Light Mode (Secondary)
-Provided for user preference and presentation contexts.
+**Brand Palette:**
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `brand-blue` | `#0A2540` | Primary brand, hero text, nav |
+| `brand-accent` | `#0071E3` | CTAs, links, interactive elements |
+| `brand-accent-hover` | `#0077ED` | Hover state on accent |
+| `white` | `#FFFFFF` | Primary background (light) |
+| `off-white` | `#F5F5F7` | Secondary background (light) |
+| `near-black` | `#1D1D1F` | Primary text (light mode) |
+| `mid-grey` | `#6E6E73` | Secondary text, captions |
+| `light-grey` | `#D2D2D7` | Dividers, borders |
+
+### 3.1 Light Mode (Default for Marketing + Public Surfaces)
+
+Apple uses light as the hero mode for product marketing. ODE follows this for all public-facing surfaces (website, landing pages, pitch deck, email).
 
 - **Surface hierarchy (light):**
-  - `surface-base`: white (#FFFFFF)
-  - `surface-raised`: slate-50 (#F8FAFC)
-  - `surface-overlay`: white (#FFFFFF) with shadow
-  - `surface-subtle`: slate-100 (#F1F5F9)
+  - `surface-base`: `#FFFFFF` — primary background
+  - `surface-raised`: `#F5F5F7` — cards, hero sections
+  - `surface-overlay`: `#FFFFFF` with shadow `0 2px 8px rgba(0,0,0,0.08)`
+  - `surface-subtle`: `#F5F5F7` — hover states, subtle fills
 - **Text on light surfaces:**
-  - `text-primary`: slate-900 (#0F172A)
-  - `text-secondary`: slate-600 (#475569)
-  - `text-tertiary`: slate-500 (#64748B)
-  - `text-disabled`: slate-400 (#94A3B8)
+  - `text-primary`: `#1D1D1F`
+  - `text-secondary`: `#6E6E73`
+  - `text-tertiary`: `#86868B`
+  - `text-disabled`: `#AEAEB2`
+
+### 3.2 Dark Mode (Default for Product UI)
+
+Engineers spend extended hours in the platform; dark surfaces reduce eye strain and align with the engineering tool aesthetic.
+
+- **Surface hierarchy (dark):**
+  - `surface-base`: `#000000` — pure black (Apple dark style)
+  - `surface-raised`: `#1C1C1E` — cards, panels
+  - `surface-overlay`: `#2C2C2E` — dropdowns, dialogs
+  - `surface-subtle`: `#3A3A3C` — hover states, dividers
+- **Text on dark surfaces:**
+  - `text-primary`: `#F5F5F7`
+  - `text-secondary`: `#AEAEB2`
+  - `text-tertiary`: `#6E6E73`
+  - `text-disabled`: `#48484A`
 
 ### 3.3 Mode Switching
 - Respect `prefers-color-scheme` on first visit.
