@@ -84,47 +84,56 @@ ODE Design System
 
 Map `design-tokens.json` to Figma variables:
 
-### Color Variables
+### Color Variables (Figma Variables → CSS tokens)
 ```
 Collection: Colors
-├── Mode: Dark (default)
-│   ├── primary/600: #6366F1
-│   ├── surface/primary: #0F172A
-│   ├── surface/secondary: #1E293B
-│   ├── text/primary: #F8FAFC
+├── Mode: Light (Marketing default)
+│   ├── brand/midnight:  #0A2540
+│   ├── brand/accent:    #0071E3
+│   ├── bg/primary:      #FFFFFF
+│   ├── bg/secondary:    #F5F5F7
+│   ├── text/primary:    #1D1D1F
+│   ├── text/secondary:  #6E6E73
+│   ├── border/default:  #D2D2D7
 │   └── ...
-└── Mode: Light
-    ├── primary/600: #4F46E5
-    ├── surface/primary: #FFFFFF
-    ├── surface/secondary: #F8FAFC
-    ├── text/primary: #0F172A
+└── Mode: Dark (Product UI default)
+    ├── bg/primary:      #000000
+    ├── bg/secondary:    #1C1C1E
+    ├── bg/tertiary:     #2C2C2E
+    ├── text/primary:    #F5F5F7
+    ├── text/secondary:  #AEAEB2
+    ├── border/default:  #3A3A3C
     └── ...
 ```
 
-### Spacing Variables
+### Spacing Variables (8pt grid)
 ```
 Collection: Spacing
-├── space/1: 4px
-├── space/2: 8px
-├── space/3: 12px
-├── space/4: 16px
-├── space/6: 24px
-├── space/8: 32px
-└── space/12: 48px
+├── space/1:  4px
+├── space/2:  8px
+├── space/3:  12px
+├── space/4:  16px
+├── space/6:  24px
+├── space/8:  32px
+├── space/12: 48px
+├── space/16: 64px
+└── space/20: 80px
 ```
 
-### Typography Styles
+### Typography Styles (SF Pro System)
 ```
 Text Styles:
-├── heading/h1: Inter 36px/1.1 ExtraBold
-├── heading/h2: Inter 30px/1.2 Bold
-├── heading/h3: Inter 24px/1.3 SemiBold
-├── heading/h4: Inter 20px/1.4 SemiBold
-├── body/base: Inter 15px/1.6 Regular
-├── body/sm: Inter 13px/1.5 Regular
-├── body/xs: Inter 11px/1.5 Regular
-├── code/base: JetBrains Mono 14px/1.7 Regular
-└── code/sm: JetBrains Mono 12px/1.6 Regular
+├── display/hero:    SF Pro Display 96px/-0.06em Bold
+├── display/xl:      SF Pro Display 80px/-0.05em Bold
+├── display/lg:      SF Pro Display 56px/-0.04em Bold
+├── heading/h1:      SF Pro Display 40px/-0.03em Bold
+├── heading/h2:      SF Pro Display 28px/-0.02em SemiBold
+├── heading/h3:      SF Pro Text   21px/-0.01em SemiBold
+├── body/base:       SF Pro Text   17px/0      Regular   (Apple standard)
+├── body/sm:         SF Pro Text   13px/0      Regular
+├── body/xs:         SF Pro Text   11px/+0.01  Regular
+├── code/base:       SF Mono       15px/0      Regular
+└── code/sm:         SF Mono       13px/0      Regular
 ```
 
 ---
@@ -174,25 +183,58 @@ Design each screen at these breakpoints:
 
 ---
 
-## Handoff Guidelines
+## Design Workstation: Figma + Claude Code
 
-### Developer Notes Format
-Each screen should include annotations for:
-1. Component names matching the component library
-2. Spacing values (use token names, not pixel values)
-3. Interaction notes (hover, click, keyboard)
-4. Animation specifications (duration, easing)
-5. Responsive behavior notes
-6. Accessibility requirements (ARIA labels, focus order)
+**No design handoff. Designer IS the code generator.**
 
-### Export Specifications
-- Icons: SVG, 24x24 base, 1.5px stroke
-- Illustrations: SVG (scalable)
-- Screenshots: 2x resolution PNG
-- Animations: Lottie JSON or CSS spec
+```
+Figma (visual truth)
+  → Claude Code reads Figma specs / DESIGN.md
+  → Outputs production-ready code directly
+  → No separate developer translation needed
+```
+
+### Workflow
+
+| Step | Tool | Output |
+|------|------|--------|
+| 1. Visual design | Figma | Screens, components, tokens |
+| 2. Token export | Figma Variables → JSON | `design-tokens.json` |
+| 3. Code generation | Claude Code + DESIGN.md | `design-tokens.css`, `tailwind.config.ts`, `components.tsx` |
+| 4. Review | Designer reviews code output | Confirm visual match |
+| 5. Ship | Frontend integrates files | Production code, no re-work |
+
+### Claude Code Prompt Patterns (Designer uses these)
+
+```
+# Generate component from Figma spec
+"Generate a React button component using our design tokens.
+Variants: primary, secondary, ghost, danger.
+Sizes: sm (28px), md (36px), lg (44px).
+Use Tailwind + cva. Match the Apple design system in DESIGN.md."
+
+# Update tokens after Figma changes
+"Update design-tokens.css: change --color-brand-accent from
+#0071E3 to #0066CC. Propagate to tailwind.config.ts."
+
+# Generate full page from wireframe description
+"Build the pricing page layout using our component library.
+Three tiers: Free, Pro $99, Team $199/seat.
+Apple-style: off-white background, SF Pro, minimal.
+Token consumption chart below each tier."
+```
+
+### File Ownership
+
+| File | Owner | Source of truth |
+|------|-------|----------------|
+| `design/design-tokens.css` | Designer → Claude Code | Figma Variables |
+| `design/tailwind.config.ts` | Designer → Claude Code | design-tokens.css |
+| `design/components.tsx` | Designer → Claude Code | Figma Components |
+| `design/figma-brief.md` | Designer | Figma file structure |
+| Figma file | Designer | Visual reference |
 
 ### Version Control
-- Use Figma branching for feature work
-- Main branch = approved, production-ready designs
-- Feature branches named: `feature/[screen-name]`
-- Review process: designer → design review → merge to main
+- Figma: branch per feature (`feature/pricing-page-v2`)
+- Code: PR per design system update (`design: update token accent colour`)
+- Designer commits design system code directly to `design/` branch
