@@ -105,7 +105,7 @@ Cool: #3B82F6 → #06B6D4 → #10B981 → #F59E0B → #EF4444 :Hot
 
 ### Wordmark: "ODE"
 
-**Direction:** Clean, geometric, minimal. The wordmark should feel mathematical and precise — honoring the acronym's dual meaning (Orthogonal Design Engine + Ordinary Differential Equation).
+**Direction:** Clean, geometric, minimal. The wordmark should feel mathematical and precise — honoring the acronym's dual meaning (Orthogonal Design Engineering + Ordinary Differential Equation).
 
 **Guidelines:**
 - Primary: "ODE" in custom geometric sans-serif (similar to Inter Black or custom)

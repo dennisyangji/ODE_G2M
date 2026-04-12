@@ -2,10 +2,10 @@
 
 ## Overview
 
-This repository contains the complete branding identity and go-to-market (GTM) strategy for **ODE** (Orthogonal Design Engine) - the AI-native hardware design and engineering platform.
+This repository contains the complete branding identity and go-to-market (GTM) strategy for **ODE** (Orthogonal Design Engineering) - the AI-native hardware design and engineering platform.
 
 **Company**: Orthogonal  
-**Product**: ODE - AI-native MBSE platform with integrated CAD, CAE, and scientific computing  
+**Product**: ODE (Orthogonal Design Engineering) - AI-native MBSE platform with integrated CAD, CAE, and scientific computing  
 **Website**: [www.orthogonal.dev](https://www.orthogonal.dev)  
 **AI Demo**: [ODE AI Demo](https://github.com/dennisyangji/ODE_AI_Demo)
 
@@ -27,6 +27,7 @@ gtm/            - Go-to-market strategy, pricing, budget, channels, launch plan
 marketing/      - Landing page copy, product messaging, content strategy, emails
 sales/          - CRM setup, sales playbook, customer journey
 design/         - Design system, tokens, components, Figma brief, accessibility
+deck/           - VC pitch deck (HTML, open in browser)
 assets/         - AI demo integration and supporting materials
 ```
 

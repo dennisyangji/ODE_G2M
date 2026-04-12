@@ -2,18 +2,18 @@
 
 ## Brand Name
 
-**ODE** -- Orthogonal Design Engine
+**ODE** -- Orthogonal Design Engineering
 
 The name carries deliberate dual meaning:
 
-- **Orthogonal Design Engine**: A platform where each tool operates independently yet composes seamlessly -- true orthogonality in system architecture.
+- **Orthogonal Design Engineering**: A platform where each engineering discipline operates independently yet composes seamlessly -- true orthogonality in system architecture.
 - **Ordinary Differential Equation**: A nod to the mathematical foundations of engineering simulation. ODEs are the language of physical systems -- motion, heat, fluid flow, electrical circuits. Every engineer knows them.
 - **Ode (literary)**: A lyric poem of praise. ODE is, in a sense, an ode to engineering itself -- a celebration of what engineers can build when their tools get out of the way.
 
 **Parent company**: Orthogonal (orthogonal.dev)  
 **Legal entity**: Orthogonal GmbH (Germany)  
 **Product name in copy**: ODE (always uppercase, never "Ode" or "ode")  
-**Full form on first reference**: ODE (Orthogonal Design Engine)  
+**Full form on first reference**: ODE (Orthogonal Design Engineering)  
 **Subsequent references**: ODE
 
 ---
@@ -84,7 +84,7 @@ Frustrated with CAD tools that could not talk to simulation tools. With MBSE pla
 
 They asked a simple question: **What would engineering design software look like if you built it today, from scratch, with AI at the core?**
 
-The answer is ODE -- the Orthogonal Design Engine. A browser-based platform where six purpose-built tools work together seamlessly:
+The answer is ODE -- Orthogonal Design Engineering. A browser-based platform where six purpose-built tools work together seamlessly:
 
 - **Component** -- Modelica-based modeling for multi-domain physical systems
 - **Paper** -- Living documentation connected to your models

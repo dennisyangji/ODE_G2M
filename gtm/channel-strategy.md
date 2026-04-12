@@ -82,7 +82,7 @@ ODE's channel strategy serves two growth engines: PLG (developer/engineer-led) a
 **Objective**: Capture high-intent search traffic
 
 **Campaign Structure:**
-- Brand: "ODE engineering", "Orthogonal Design Engine"
+- Brand: "ODE engineering", "Orthogonal Design Engineering"
 - Competitor: "Autodesk alternative", "SimScale alternative"
 - Category: "AI CAD software", "cloud engineering platform"
 - Feature: "Modelica simulation online", "AI-powered design tool"
