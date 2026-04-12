@@ -121,7 +121,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 </nav>
 <div class="stats-bar">
   <div class="stat-cell"><div class="stat-num">$1M</div><div class="stat-lbl" data-en="Year 1 ARR target" data-zh="第一年ARR目标">Year 1 ARR target</div></div>
-  <div class="stat-cell"><div class="stat-num">$23B</div><div class="stat-lbl" data-en="Global TAM (2025)" data-zh="全球TAM（2025年）">Global TAM (2025)</div></div>
+  <div class="stat-cell"><div class="stat-num">$29B</div><div class="stat-lbl" data-en="Global TAM (2025, expanded)" data-zh="全球TAM（2025年，扩展后）">Global TAM (2025, expanded)</div></div>
   <div class="stat-cell"><div class="stat-num">280</div><div class="stat-lbl" data-en="Paid users target (M12)" data-zh="付费用户目标（第12个月）">Paid users target (M12)</div></div>
   <div class="stat-cell"><div class="stat-num">40/60</div><div class="stat-lbl" data-en="PLG / SLG revenue split" data-zh="PLG / SLG营收比例">PLG / SLG revenue split</div></div>
   <div class="stat-cell"><div class="stat-num">$3,500</div><div class="stat-lbl" data-en="Blended ARPU / year" data-zh="综合ARPU / 年">Blended ARPU / year</div></div>
@@ -136,11 +136,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
       <span class="sec-title" data-en="Market Opportunity" data-zh="市场机会">Market Opportunity</span>
       <span class="sec-sub" data-en="TAM · SAM · SOM · Why now" data-zh="TAM · SAM · SOM · 为何是现在">TAM · SAM · SOM · Why now</span>
     </div>
-    <div class="g4" style="margin-bottom:1.5rem">
+    <div class="g4" style="margin-bottom:1rem">
       <div class="tam-box">
-        <div class="tam-num">$23B</div>
-        <div class="tam-label" data-en="TAM" data-zh="TAM 总可寻址市场">TAM</div>
-        <div class="tam-sub" data-en="Global engineering simulation market (2025)" data-zh="全球工程仿真市场（2025年）">Global engineering simulation market (2025)</div>
+        <div class="tam-num">$29B</div>
+        <div class="tam-label" data-en="TAM (expanded)" data-zh="TAM 总可寻址市场（扩展后）">TAM (expanded)</div>
+        <div class="tam-sub" data-en="Engineering simulation $23B + Maker/IoT tools $3.5B + 3D print services $2.8B" data-zh="工程仿真$23B + 创客/IoT工具$3.5B + 3D打印服务$2.8B">Engineering simulation $23B + Maker/IoT tools $3.5B + 3D print services $2.8B</div>
       </div>
       <div class="tam-box">
         <div class="tam-num">$1.3B</div>
@@ -150,12 +150,29 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
       <div class="tam-box">
         <div class="tam-num">$1.2M</div>
         <div class="tam-label" data-en="SOM Year 1" data-zh="SOM 第一年">SOM Year 1</div>
-        <div class="tam-sub" data-en="Realistic capture across all 4 segments" data-zh="4大客户群可实现的合理份额">Realistic capture across all 4 segments</div>
+        <div class="tam-sub" data-en="Realistic capture across all 5 segments" data-zh="5大客户群可实现的合理份额">Realistic capture across all 5 segments</div>
       </div>
       <div class="tam-box" style="border-color:rgba(113,112,255,.3);background:rgba(113,112,255,.06)">
         <div class="tam-num" style="color:var(--accent)">$800M</div>
         <div class="tam-label" data-en="Beachhead" data-zh="滩头阵地">Beachhead</div>
         <div class="tam-sub" data-en="AI-native tools subsegment · 45%+ growth" data-zh="AI原生工具细分市场 · 年增长45%+">AI-native tools subsegment · 45%+ growth</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:1.5rem">
+      <div class="tam-box" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.04)">
+        <div class="tam-num" style="font-size:1.1rem;color:#10b981">$23B</div>
+        <div class="tam-label" data-en="Engineering Simulation" data-zh="工程仿真市场">Engineering Simulation</div>
+        <div class="tam-sub" data-en="Core market — CAD, MBSE, FEM/CFD, system simulation" data-zh="核心市场 — CAD、MBSE、FEM/CFD、系统仿真">Core market — CAD, MBSE, FEM/CFD, system simulation</div>
+      </div>
+      <div class="tam-box" style="border-color:rgba(255,159,10,.3);background:rgba(255,159,10,.04)">
+        <div class="tam-num" style="font-size:1.1rem;color:var(--warning)">$3.5B</div>
+        <div class="tam-label" data-en="Maker / IoT Tools" data-zh="创客 / IoT工具">Maker / IoT Tools</div>
+        <div class="tam-sub" data-en="Arduino/RPi dev tools, LEGO-compatible CAD, modular hardware platforms" data-zh="Arduino/RPi开发工具、兼容LEGO的CAD、模块化硬件平台">Arduino/RPi dev tools, LEGO-compatible CAD, modular hardware platforms</div>
+      </div>
+      <div class="tam-box" style="border-color:rgba(251,113,133,.3);background:rgba(251,113,133,.04)">
+        <div class="tam-num" style="font-size:1.1rem;color:var(--error)">$2.8B</div>
+        <div class="tam-label" data-en="3D Print Services" data-zh="3D打印服务">3D Print Services</div>
+        <div class="tam-sub" data-en="Print-on-demand marketplace, consumer/prosumer 3D printing (Shapeways addressable)" data-zh="按需打印市场、消费者/专业消费者3D打印（Shapeways可寻址市场）">Print-on-demand marketplace, consumer/prosumer 3D printing (Shapeways addressable)</div>
       </div>
     </div>
     <div class="g2">
@@ -208,7 +225,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
     <div class="sec-hd">
       <span class="sec-num">02</span>
       <span class="sec-title" data-en="ICP Matrix" data-zh="客户画像矩阵">ICP Matrix</span>
-      <span class="sec-sub" data-en="4 segments · ACV · Sales motion · Channel priority" data-zh="4大客户群 · 合同价值 · 销售模式 · 渠道优先级">4 segments · ACV · Sales motion · Channel priority</span>
+      <span class="sec-sub" data-en="5 segments · ACV · Sales motion · Channel priority" data-zh="5大客户群 · 合同价值 · 销售模式 · 渠道优先级">5 segments · ACV · Sales motion · Channel priority</span>
     </div>
     <div class="card">
       <div class="card-title" data-en="Ideal Customer Profile Comparison" data-zh="理想客户画像对比">Ideal Customer Profile Comparison</div>
@@ -276,6 +293,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
             <td style="font-family:var(--mono);font-weight:600;color:var(--text)">$200K+ (channel)</td>
             <td><span class="pill p-amber">P0</span></td>
           </tr>
+          <tr style="background:rgba(16,185,129,.04)">
+            <td data-en='<strong style="color:var(--text)">Maker &amp; Enthusiast</strong><br><span style="font-size:.68rem;color:var(--text3)">LEGO builders · Arduino devs · RPi makers · 3D print hobbyists</span>' data-zh='<strong style="color:var(--text)">创客与爱好者</strong><br><span style="font-size:.68rem;color:var(--text3)">LEGO爱好者 · Arduino开发者 · RPi创客 · 3D打印发烧友</span>'><strong style="color:var(--text)">Maker &amp; Enthusiast</strong><br><span style="font-size:.68rem;color:var(--text3)">LEGO builders · Arduino devs · RPi makers · 3D print hobbyists</span></td>
+            <td data-en="1 person (consumer)" data-zh="个人（消费者）">1 person (consumer)</td>
+            <td style="font-family:var(--mono);color:var(--success)">$108–$348/yr</td>
+            <td data-en="Same-day" data-zh="当天">Same-day</td>
+            <td><span class="pill p-green">PLG Self-serve</span></td>
+            <td data-en="Discord · Reddit · YouTube · Instructables" data-zh="Discord · Reddit · YouTube · Instructables">Discord · Reddit · YouTube · Instructables</td>
+            <td style="font-family:var(--mono);font-weight:600;color:var(--success)">New stream</td>
+            <td><span class="pill p-green">P2</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -314,6 +341,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
               <td><strong style="color:var(--text)">Indie</strong></td>
               <td colspan="3" data-en="Founder / CTO (sole authority)" data-zh="创始人 / CTO（唯一决策人）">Founder / CTO (sole authority)</td>
             </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Maker</strong></td>
+              <td data-en="The builder themselves" data-zh="创客本人">The builder themselves</td>
+              <td data-en="Self (consumer decision)" data-zh="本人（消费者决策）">Self (consumer decision)</td>
+              <td data-en="Community peers / Reddit" data-zh="社区同行 / Reddit">Community peers / Reddit</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -348,6 +381,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
               <td data-en="Tool cost vs. runway" data-zh="工具成本 vs. 融资跑道">Tool cost vs. runway</td>
               <td data-en="Skill gap — need approachable AI" data-zh="技能缺口 — 需要易用的AI">Skill gap — need approachable AI</td>
             </tr>
+            <tr>
+              <td><strong style="color:var(--text)">Maker</strong></td>
+              <td data-en="Fragmented tools (Tinkercad + Arduino IDE + Cura + Shapeways)" data-zh="工具碎片化（Tinkercad + Arduino IDE + Cura + Shapeways）">Fragmented tools (Tinkercad + Arduino IDE + Cura + Shapeways)</td>
+              <td data-en="No AI, no CAD+firmware integration, high print cost" data-zh="无AI、无CAD+固件集成、打印成本高">No AI, no CAD+firmware integration, high print cost</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -363,7 +401,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
     </div>
     <div class="insight">
       <div class="ins-label" data-en="Business Model Principle" data-zh="商业模式原则">Business Model Principle</div>
-      <div class="ins-text" data-en="Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows." data-zh="订阅是访问载体，Token是营收引擎。每一个AI操作——模型生成、仿真设置、结果解读、优化运行——都消耗Token。随着使用量增长，ARPU持续提升。">Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows.</div>
+      <div class="ins-text" data-en="Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows. New consumer &amp; maker streams (print-on-demand, module marketplace, hardware bundles) add high-volume, transactional revenue on top of the SaaS base." data-zh="订阅是访问载体，Token是营收引擎。每一个AI操作——模型生成、仿真设置、结果解读、优化运行——都消耗Token。随着使用量增长，ARPU持续提升。新增的消费者与创客收入流（按需打印、模块市场、硬件套件）在SaaS基础上叠加高频交易型收入。">Subscriptions are the access vehicle. Tokens are the revenue engine. Every AI action — model generation, simulation setup, results interpretation, optimisation runs — consumes tokens. ARPU compounds as usage grows. New consumer &amp; maker streams (print-on-demand, module marketplace, hardware bundles) add high-volume, transactional revenue on top of the SaaS base.</div>
     </div>
     <div class="g2">
       <div class="card">
@@ -383,6 +421,12 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
               <td style="font-family:var(--mono)">$0</td>
               <td data-en="500 tokens / day" data-zh="500 tokens / 天">500 tokens / day</td>
               <td data-en="Students, explorers" data-zh="学生、探索用户">Students, explorers</td>
+            </tr>
+            <tr style="background:rgba(16,185,129,.04)">
+              <td style="font-weight:600;color:var(--success)" data-en="Maker" data-zh="创客版">Maker</td>
+              <td style="font-family:var(--mono);color:var(--success)">$9–$29</td>
+              <td data-en="Maker CAD + Firmware IDE access; 100K tokens / mo" data-zh="Maker CAD + 固件IDE访问；100K tokens / 月">Maker CAD + Firmware IDE access; 100K tokens / mo</td>
+              <td data-en="LEGO builders, Arduino devs, RPi makers, 3D print hobbyists" data-zh="LEGO爱好者、Arduino开发者、RPi创客、3D打印发烧友">LEGO builders, Arduino devs, RPi makers, 3D print hobbyists</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--text)">Starter</td>
@@ -452,6 +496,51 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         </div>
       </div>
     </div>
+    <div class="card" style="margin-top:1.5rem">
+      <div class="card-title" data-en="New Consumer &amp; Maker Revenue Streams" data-zh="新增消费者与创客收入流">New Consumer &amp; Maker Revenue Streams</div>
+      <table class="tbl" style="margin-top:.5rem">
+        <thead>
+          <tr>
+            <th data-en="Stream" data-zh="收入流">Stream</th>
+            <th data-en="Model" data-zh="收费模式">Model</th>
+            <th data-en="Price / Terms" data-zh="定价 / 条款">Price / Terms</th>
+            <th data-en="Target Audience" data-zh="目标受众">Target Audience</th>
+            <th data-en="Notes" data-zh="备注">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(16,185,129,.04)">
+            <td style="font-weight:600;color:var(--success)" data-en="Consumer Subscription" data-zh="消费者订阅">Consumer Subscription</td>
+            <td><span class="pill p-green">SaaS</span></td>
+            <td style="font-family:var(--mono);color:var(--success)">$9–$29/mo/user</td>
+            <td data-en="Maker &amp; Enthusiast segment" data-zh="创客与爱好者细分市场">Maker &amp; Enthusiast segment</td>
+            <td data-en="Maker CAD + Firmware IDE; PLG self-serve; low CAC" data-zh="Maker CAD + 固件IDE；PLG自助服务；低获客成本">Maker CAD + Firmware IDE; PLG self-serve; low CAC</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="3D Print-on-Demand" data-zh="3D按需打印服务">3D Print-on-Demand</td>
+            <td><span class="pill p-blue">Marketplace</span></td>
+            <td style="font-family:var(--mono)" data-en="Pay-per-print" data-zh="按打印量计费">Pay-per-print</td>
+            <td data-en="All maker tiers + indie engineers" data-zh="所有创客层级 + 独立工程师">All maker tiers + indie engineers</td>
+            <td data-en="Print directly from Maker CAD browser canvas; ODE takes margin" data-zh="直接从Maker CAD浏览器画布下单打印；ODE赚取差价">Print directly from Maker CAD browser canvas; ODE takes margin</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Module Marketplace" data-zh="模块市场">Module Marketplace</td>
+            <td><span class="pill p-amber">Commission</span></td>
+            <td style="font-family:var(--mono);color:var(--warning)">20–30% commission</td>
+            <td data-en="LEGO-ized hardware module sellers &amp; buyers" data-zh="LEGO化硬件模块卖家与买家">LEGO-ized hardware module sellers &amp; buyers</td>
+            <td data-en="Physical modular component listings; snap-together ecosystem" data-zh="模块化物理组件上架；积木式生态系统">Physical modular component listings; snap-together ecosystem</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;color:var(--text)" data-en="Hardware Bundles" data-zh="硬件套件">Hardware Bundles</td>
+            <td><span class="pill p-navy">Commerce</span></td>
+            <td style="font-family:var(--mono)" data-en="Kit price (varies)" data-zh="套件定价（按产品）">Kit price (varies)</td>
+            <td data-en="Arduino / Raspberry Pi makers" data-zh="Arduino / Raspberry Pi创客">Arduino / Raspberry Pi makers</td>
+            <td data-en="Curated Arduino/RPi starter kits sold through ODE platform" data-zh="精选Arduino/RPi入门套件通过ODE平台销售">Curated Arduino/RPi starter kits sold through ODE platform</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
     <div class="card" style="margin-top:1.5rem">
       <div class="card-title" data-en="ARPU by Segment — Year 1 at $1M ARR" data-zh="各细分市场ARPU — 第一年$1M ARR">ARPU by Segment — Year 1 at $1M ARR</div>
       <table class="tbl" style="margin-top:.5rem">
@@ -600,6 +689,57 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
         <div class="bc-row"><div class="bc-label" data-en="YouTube" data-zh="YouTube">YouTube</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--success)"></div></div><div class="bc-val">$1,000</div></div>
         <div class="bc-row"><div class="bc-label" data-en="Partners" data-zh="合作伙伴">Partners</div><div class="bc-track"><div class="bc-fill" style="width:5%;background:var(--warning)"></div></div><div class="bc-val">$1,000</div></div>
         <div class="bc-row"><div class="bc-label" data-en="Sponsorships" data-zh="赞助">Sponsorships</div><div class="bc-track"><div class="bc-fill" style="width:7.5%;background:var(--warning)"></div></div><div class="bc-val">$1,500</div></div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:1.5rem;border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.03)">
+      <div class="card-title" data-en="Maker &amp; Enthusiast Channels — New PLG Layer" data-zh="创客与爱好者渠道 — 新增PLG层">Maker &amp; Enthusiast Channels — New PLG Layer</div>
+      <div class="g2" style="margin-top:.75rem">
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem" data-en="Community Platforms" data-zh="社区平台">Community Platforms</div>
+          <table class="tbl">
+            <tbody>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Discord</td>
+                <td data-en="Arduino, Raspberry Pi, and 3D printing community servers; ODE official server" data-zh="Arduino、Raspberry Pi和3D打印社区服务器；ODE官方服务器">Arduino, Raspberry Pi, and 3D printing community servers; ODE official server</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Reddit</td>
+                <td data-en="r/arduino · r/raspberry_pi · r/lego · r/3Dprinting · r/PrintedCircuitBoard" data-zh="r/arduino · r/raspberry_pi · r/lego · r/3Dprinting · r/PrintedCircuitBoard">r/arduino · r/raspberry_pi · r/lego · r/3Dprinting · r/PrintedCircuitBoard</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Instructables</td>
+                <td data-en="Project tutorials showcasing Maker CAD + Firmware IDE end-to-end builds" data-zh="展示Maker CAD + 固件IDE端到端构建的项目教程">Project tutorials showcasing Maker CAD + Firmware IDE end-to-end builds</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">Hackaday</td>
+                <td data-en="Featured project write-ups; Hackaday.io project hosting integration" data-zh="精选项目报道；Hackaday.io项目托管集成">Featured project write-ups; Hackaday.io project hosting integration</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:.6rem" data-en="Content &amp; Video" data-zh="内容与视频">Content &amp; Video</div>
+          <table class="tbl">
+            <tbody>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">YouTube</td>
+                <td data-en="Tutorial series: &quot;LEGO-to-3D-Print in 5 minutes&quot;, &quot;AI firmware for Arduino&quot;, RPi IoT builds" data-zh="教程系列："5分钟从LEGO到3D打印"、"AI辅助Arduino固件"、RPi物联网构建">Tutorial series: "LEGO-to-3D-Print in 5 minutes", "AI firmware for Arduino", RPi IoT builds</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)" data-en="ProductHunt" data-zh="ProductHunt">ProductHunt</td>
+                <td data-en="Maker CAD and Firmware IDE separate product launches; target #1 Product of the Day" data-zh="Maker CAD和固件IDE分别上线ProductHunt；目标当日第一名">Maker CAD and Firmware IDE separate product launches; target #1 Product of the Day</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)">SEO</td>
+                <td data-en="Long-tail: &quot;browser-based Arduino IDE&quot;, &quot;LEGO CAD parametric&quot;, &quot;online 3D print from browser&quot;" data-zh="长尾词：&quot;浏览器Arduino IDE&quot;、&quot;LEGO CAD参数化&quot;、&quot;浏览器在线3D打印&quot;">"browser-based Arduino IDE", "LEGO CAD parametric", "online 3D print from browser"</td>
+              </tr>
+              <tr>
+                <td style="font-weight:600;color:var(--text)" data-en="Maker Faires" data-zh="创客嘉年华">Maker Faires</td>
+                <td data-en="Sponsorship &amp; demo booths at Bay Area and European Maker Faire events" data-zh="赞助并在湾区及欧洲Maker Faire活动设置演示展位">Sponsorship &amp; demo booths at Bay Area and European Maker Faire events</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
