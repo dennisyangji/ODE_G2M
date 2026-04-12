@@ -217,10 +217,9 @@ h3{
 .member{text-align:center}
 .avatar{
   width:64px;height:64px;border-radius:50%;
-  background:var(--bg);border:1.5px solid var(--border);
   margin:0 auto .5rem;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;
+  overflow:hidden;
+  flex-shrink:0;
 }
 .member .m-name{font-size:.82rem;font-weight:600;color:var(--text)}
 .member .m-role{font-size:.72rem;color:var(--text3);margin-top:.1rem}
@@ -373,7 +372,7 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="4">
   <p class="label" data-en="Product" data-zh="产品">Product</p>
-  <h2 data-en="One platform. Every discipline.<br><span class='accent'>AI in every tool.</span>" data-zh="一个平台。覆盖全学科。<br><span class='accent'>每个工具内置AI。</span>">One platform. Every discipline.<br><span class="accent">AI in every tool.</span></h2>
+  <h2 data-en="One platform. Every discipline.<br><span class='accent'>AI-Native in every tool.</span>" data-zh="一个平台。覆盖全学科。<br><span class='accent'>每个工具均为AI原生。</span>">One platform. Every discipline.<br><span class="accent">AI-Native in every tool.</span></h2>
   <div class="tool-grid mt-4">
     <div class="tool">
       <div class="t-name" style="color:#0071E3">Component</div>
@@ -790,54 +789,163 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
   <p class="label" data-en="Team" data-zh="团队">Team</p>
   <h2 data-en="8 humans + <span class='accent'>32 AI agents</span>" data-zh="8位员工 + <span class='accent'>32个AI智能体</span>">8 humans + <span class="accent">32 AI agents</span></h2>
   <div class="team-grid mt-4">
+
+    <!-- CEO — violet compass: 4 orbital nodes + central core -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="20" stroke="#7170ff" stroke-width=".7" stroke-opacity=".15"/>
+          <line x1="32" y1="10" x2="32" y2="54" stroke="#7170ff" stroke-width=".8" stroke-opacity=".18"/>
+          <line x1="10" y1="32" x2="54" y2="32" stroke="#7170ff" stroke-width=".8" stroke-opacity=".18"/>
+          <circle cx="32" cy="14" r="2.2" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="50" cy="32" r="2.2" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="32" cy="50" r="2.2" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="14" cy="32" r="2.2" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="6" fill="#7170ff" fill-opacity=".18"/>
+          <circle cx="32" cy="32" r="4" fill="#7170ff"/>
+          <circle cx="32" cy="32" r="2" fill="#828fff"/>
+        </svg>
+      </div>
       <div class="m-name">CEO</div>
       <div class="m-role" data-en="Strategy · Sales · Vision" data-zh="战略 · 销售 · 愿景">Strategy · Sales · Vision</div>
       <div class="m-ai">Claude + Perplexity</div>
     </div>
+
+    <!-- CTO — blue triangle node graph: architecture/network -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <line x1="32" y1="18" x2="44" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
+          <line x1="32" y1="18" x2="20" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
+          <line x1="20" y1="42" x2="44" y2="42" stroke="#55b3ff" stroke-width=".9" stroke-opacity=".32"/>
+          <line x1="32" y1="18" x2="32" y2="33" stroke="#55b3ff" stroke-width=".6" stroke-opacity=".2"/>
+          <line x1="20" y1="42" x2="32" y2="33" stroke="#55b3ff" stroke-width=".6" stroke-opacity=".2"/>
+          <line x1="44" y1="42" x2="32" y2="33" stroke="#55b3ff" stroke-width=".6" stroke-opacity=".2"/>
+          <circle cx="32" cy="18" r="3.5" fill="#55b3ff" fill-opacity=".9"/>
+          <circle cx="20" cy="42" r="3.5" fill="#55b3ff" fill-opacity=".9"/>
+          <circle cx="44" cy="42" r="3.5" fill="#55b3ff" fill-opacity=".9"/>
+          <circle cx="32" cy="33" r="2.5" fill="#55b3ff" fill-opacity=".5"/>
+        </svg>
+      </div>
       <div class="m-name">CTO</div>
       <div class="m-role" data-en="AI Architecture · Product" data-zh="AI架构 · 产品">AI Architecture · Product</div>
       <div class="m-ai">Claude Code + Cursor</div>
     </div>
+
+    <!-- Designer — emerald overlapping rotated frames -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <rect x="19" y="19" width="24" height="24" rx="4" stroke="#10b981" stroke-width="1.3" stroke-opacity=".7" transform="rotate(-12 31 31)"/>
+          <rect x="21" y="21" width="24" height="24" rx="4" stroke="#10b981" stroke-width="1.1" stroke-opacity=".35" transform="rotate(12 33 33)"/>
+          <circle cx="32" cy="32" r="3" fill="#10b981" fill-opacity=".9"/>
+          <circle cx="32" cy="32" r="1.4" fill="#34d399"/>
+        </svg>
+      </div>
       <div class="m-name">Designer</div>
       <div class="m-role" data-en="Figma · Design System" data-zh="Figma · 设计系统">Figma · Design System</div>
       <div class="m-ai">Figma + Claude Code</div>
     </div>
+
+    <!-- Frontend Eng — amber stacked UI layers -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <rect x="14" y="21" width="36" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".75"/>
+          <rect x="14" y="30" width="26" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".5"/>
+          <rect x="14" y="39" width="18" height="5" rx="2.5" fill="#fbbf24" fill-opacity=".3"/>
+        </svg>
+      </div>
       <div class="m-name">Frontend Eng</div>
       <div class="m-role" data-en="Product · UI · Perf" data-zh="产品 · 界面 · 性能">Product · UI · Perf</div>
       <div class="m-ai">Cursor + Claude Code</div>
     </div>
+
+    <!-- Backend Eng — rose hexagon mesh -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <polygon points="32,13 46,21.5 46,38.5 32,47 18,38.5 18,21.5" stroke="#fb7185" stroke-width="1.1" stroke-opacity=".45" fill="rgba(251,113,133,0.04)"/>
+          <line x1="32" y1="13" x2="32" y2="30" stroke="#fb7185" stroke-width=".6" stroke-opacity=".2"/>
+          <line x1="46" y1="30" x2="32" y2="30" stroke="#fb7185" stroke-width=".6" stroke-opacity=".2"/>
+          <line x1="18" y1="30" x2="32" y2="30" stroke="#fb7185" stroke-width=".6" stroke-opacity=".2"/>
+          <circle cx="32" cy="13" r="2.5" fill="#fb7185" fill-opacity=".9"/>
+          <circle cx="46" cy="21.5" r="2.5" fill="#fb7185" fill-opacity=".5"/>
+          <circle cx="46" cy="38.5" r="2.5" fill="#fb7185" fill-opacity=".9"/>
+          <circle cx="32" cy="47" r="2.5" fill="#fb7185" fill-opacity=".5"/>
+          <circle cx="18" cy="38.5" r="2.5" fill="#fb7185" fill-opacity=".9"/>
+          <circle cx="18" cy="21.5" r="2.5" fill="#fb7185" fill-opacity=".5"/>
+          <circle cx="32" cy="30" r="3" fill="#fb7185"/>
+        </svg>
+      </div>
       <div class="m-name">Backend Eng</div>
       <div class="m-role" data-en="API · AI · Solvers" data-zh="API · AI · 求解器">API · AI · Solvers</div>
       <div class="m-ai">Cursor + Claude Code</div>
     </div>
+
+    <!-- Finance — cyan ascending bar chart -->
     <div class="member">
-      <div class="avatar"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <line x1="13" y1="47" x2="51" y2="47" stroke="#22d3ee" stroke-width=".8" stroke-opacity=".25"/>
+          <rect x="14" y="39" width="8" height="8" rx="1.5" fill="#22d3ee" fill-opacity=".32"/>
+          <rect x="25" y="30" width="8" height="17" rx="1.5" fill="#22d3ee" fill-opacity=".55"/>
+          <rect x="36" y="20" width="8" height="27" rx="1.5" fill="#22d3ee" fill-opacity=".82"/>
+          <circle cx="38" cy="18" r="2" fill="#22d3ee"/>
+        </svg>
+      </div>
       <div class="m-name">Finance</div>
       <div class="m-role" data-en="Finance · Legal · Ops" data-zh="财务 · 法务 · 运营">Finance · Legal · Ops</div>
       <div class="m-ai">Claude + n8n</div>
     </div>
+
+    <!-- Sales & Channel (hiring) — violet network nodes, dashed ring -->
     <div class="member">
-      <div class="avatar" style="border-color:var(--accent)"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="29" stroke="#7170ff" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <line x1="32" y1="32" x2="32" y2="17" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="45" y2="40" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="32" x2="19" y2="40" stroke="#7170ff" stroke-width=".7" stroke-opacity=".3"/>
+          <line x1="32" y1="17" x2="45" y2="40" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="45" y1="40" x2="19" y2="40" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
+          <line x1="19" y1="40" x2="32" y2="17" stroke="#7170ff" stroke-width=".5" stroke-opacity=".15"/>
+          <circle cx="32" cy="17" r="3" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="45" cy="40" r="3" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="19" cy="40" r="3" fill="#7170ff" fill-opacity=".65"/>
+          <circle cx="32" cy="32" r="3.5" fill="#7170ff" fill-opacity=".35"/>
+        </svg>
+      </div>
       <div class="m-name">Sales &amp; Channel</div>
       <div class="m-role" data-en="Direct + Distribution" data-zh="直销 + 渠道分销">Direct + Distribution</div>
       <div class="m-ai" style="color:var(--warning)" data-en="Hiring now" data-zh="正在招聘">Hiring now</div>
     </div>
+
+    <!-- AI Marketing (hiring) — violet broadcast arcs, dashed ring -->
     <div class="member">
-      <div class="avatar" style="border-color:var(--accent)"></div>
+      <div class="avatar">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="32" fill="#0d0d14"/>
+          <circle cx="32" cy="32" r="29" stroke="#7170ff" stroke-width="1.2" stroke-dasharray="4 3" stroke-opacity=".35"/>
+          <path d="M 26 40 A 6 6 0 0 1 38 40" stroke="#7170ff" stroke-width="1.4" stroke-opacity=".85" stroke-linecap="round"/>
+          <path d="M 20 40 A 12 12 0 0 1 44 40" stroke="#7170ff" stroke-width="1.1" stroke-opacity=".5" stroke-linecap="round"/>
+          <path d="M 14 40 A 18 18 0 0 1 50 40" stroke="#7170ff" stroke-width=".8" stroke-opacity=".25" stroke-linecap="round"/>
+          <circle cx="32" cy="40" r="3" fill="#7170ff" fill-opacity=".75"/>
+          <circle cx="32" cy="40" r="1.4" fill="#828fff"/>
+        </svg>
+      </div>
       <div class="m-name">AI Marketing</div>
       <div class="m-role" data-en="Content · SEO · 0.5 FTE" data-zh="内容 · SEO · 0.5全职">Content · SEO · 0.5 FTE</div>
       <div class="m-ai" style="color:var(--warning)" data-en="Hiring now" data-zh="正在招聘">Hiring now</div>
     </div>
+
   </div>
 </section>
 
@@ -875,9 +983,9 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
 ══════════════════════════════════════════ -->
 <section class="slide center" data-slide="13">
   <p class="label" data-en="The Ask" data-zh="融资需求">The Ask</p>
-  <h2 data-en="Raising <span class='accent'>€2M</span> Seed" data-zh="寻求 <span class='accent'>€200万</span> 种子轮融资">Raising <span class="accent">€2M</span> Seed</h2>
-  <p class="hero-sub center mt-3" style="max-width:580px" data-en="To reach $1M ARR, validate the token model, and hire the GTM team that takes us to Series A at $5M ARR." data-zh="目标达成$1M ARR，验证Token商业模式，招募GTM团队，推进至$5M ARR的A轮融资。">
-    To reach $1M ARR, validate the token model, and hire the GTM team that takes us to Series A at $5M ARR.
+  <h2 data-en="Raising <span class='accent'>€5M</span> Pre-A" data-zh="寻求 <span class='accent'>€500万</span> Pre-A轮融资">Raising <span class="accent">€5M</span> Pre-A</h2>
+  <p class="hero-sub center mt-3" style="max-width:580px" data-en="To reach $3M ARR, build the GTM team, validate enterprise channel, and position for Series A at $10M ARR." data-zh="目标达成$3M ARR，组建GTM团队，验证企业渠道模式，推进至$10M ARR的A轮融资。">
+    To reach $3M ARR, build the GTM team, validate enterprise channel, and position for Series A at $10M ARR.
   </p>
   <div class="funds mt-4">
     <div class="f1" style="flex:4" data-en="40% Product" data-zh="40% 产品研发">40% Product</div>
@@ -887,19 +995,19 @@ strong[style*="color:var(--midnight)"]{color:var(--accent)!important}
   </div>
   <div class="row mt-4" style="max-width:700px">
     <div style="text-align:center;flex:1">
-      <div class="big-stat" style="font-size:2rem">€800K</div>
+      <div class="big-stat" style="font-size:2rem">€2M</div>
       <div class="stat-label" data-en="Product &amp; Engineering" data-zh="产品与工程">Product &amp; Engineering</div>
     </div>
     <div style="text-align:center;flex:1">
-      <div class="big-stat" style="font-size:2rem">€600K</div>
+      <div class="big-stat" style="font-size:2rem">€1.5M</div>
       <div class="stat-label" data-en="GTM (Team + Marketing)" data-zh="GTM（团队+市场）">GTM (Team + Marketing)</div>
     </div>
     <div style="text-align:center;flex:1">
-      <div class="big-stat" style="font-size:2rem">€400K</div>
+      <div class="big-stat" style="font-size:2rem">€1M</div>
       <div class="stat-label" data-en="AI Infra + Token Costs" data-zh="AI基础设施+Token成本">AI Infra + Token Costs</div>
     </div>
     <div style="text-align:center;flex:1">
-      <div class="big-stat" style="font-size:2rem">€200K</div>
+      <div class="big-stat" style="font-size:2rem">€500K</div>
       <div class="stat-label" data-en="Ops + Legal + Reserve" data-zh="运营+法务+储备">Ops + Legal + Reserve</div>
     </div>
   </div>
